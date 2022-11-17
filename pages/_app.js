@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { store } from '../redux';
 import { Provider } from 'react-redux';
-import { FirstLoad } from '../components';
+import { FirstLoad, AppRibbon } from '../components';
+import { globalStyles } from '../shared/styles';
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -16,8 +17,10 @@ const App = ({ Component, pageProps }) => {
           href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         />
       </Head>
+      {globalStyles}
       <Provider store={store}>
         <FirstLoad />
+        <AppRibbon />
         <Component {...pageProps} />
       </Provider>
     </>
