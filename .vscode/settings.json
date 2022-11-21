@@ -1,0 +1,23 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#af8ee4",
+    "activityBar.background": "#af8ee4",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#f3dbcc",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#af8ee4",
+    "statusBar.background": "#9265da",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#af8ee4",
+    "statusBarItem.remoteBackground": "#9265da",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#9265da",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#9265da99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#9265DA",
+  "cSpell.words": ["Pheno"]
+}

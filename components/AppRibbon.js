@@ -3,10 +3,6 @@ import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Typography, IconButton, Button } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
-import { SortByAlpha as AlphabeticalIcon } from '@styled-icons/material-sharp/SortByAlpha';
-import { User as UserIcon } from '@styled-icons/boxicons-regular/User';
-import { Meter as MeterIcon } from '@styled-icons/octicons/Meter';
-import { UserGroup as GroupIcon } from '@styled-icons/zondicons/UserGroup';
 import PhenoIcon from './PhenoIcon';
 
 const Wrapper = styled.div({
@@ -20,7 +16,9 @@ const Wrapper = styled.div({
   background:
     'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
   boxSizing: 'border-box',
-  gap: 24
+  gap: 24,
+  zIndex: 1,
+  position: 'relative'
 });
 
 const LeftSide = styled.div({
@@ -51,8 +49,20 @@ const buttonStyle = {
   height: '100%',
   paddingInline: 24,
   borderRadius: 0,
-  background: 'rgba(255, 255, 255, 0.1)'
+  background: 'rgba(255, 255, 255, 0.1)',
+  '&:hover': {
+    background: 'rgba(255, 255, 255, 0.1)'
+  }
 };
+
+const selected = {
+  color: '#000',
+  background: 'rgba(255, 255, 255, 1)',
+  '&:hover': {
+    background: 'rgba(255, 255, 255, 1)'
+  }
+};
+
 const counterStyle = {
   transform: 'translateY(0.5px)',
   whiteSpace: 'nowrap'
@@ -72,6 +82,7 @@ function Filter() {
         border: 'none',
         height: 40,
         width: '100%',
+        maxWidth: 543,
         paddingInline: 20,
         fontFamily: 'Roboto',
         fontSize: 18,
@@ -92,6 +103,7 @@ function Filter() {
 function SortDirection() {
   return (
     <IconButton
+      data-tip='Revers order'
       size='large'
       css={{
         color: '#FFF'
@@ -105,7 +117,7 @@ function SortDirection() {
 function SortBy() {
   return (
     <ButtonGroupWrapper>
-      <Button css={buttonStyle}>
+      <Button css={[buttonStyle, selected]} data-tip='Sort alphabetically'>
         <Typography
           css={[
             counterStyle,
@@ -119,16 +131,16 @@ function SortBy() {
         </Typography>
         <Typography css={counterStyle}>36</Typography>
       </Button>
-      <Button css={buttonStyle}>
-        <PhenoIcon name='user' size={1.2} />{' '}
+      <Button css={buttonStyle} data-tip='Sort by participants'>
+        <PhenoIcon name='user' scale={1.2} />{' '}
         <Typography css={counterStyle}>36</Typography>
       </Button>
-      <Button css={buttonStyle}>
-        <PhenoIcon name='meter' size={1.2} />{' '}
+      <Button css={buttonStyle} data-tip='Sort by measurements'>
+        <PhenoIcon name='meter' scale={1.2} />{' '}
         <Typography css={counterStyle}>36</Typography>
       </Button>
-      <Button css={buttonStyle}>
-        <PhenoIcon name='group' size={1.2} />
+      <Button css={buttonStyle} data-tip='Sort by cohorts'>
+        <PhenoIcon name='group' scale={1.2} />
         {/* <GroupIcon size={28} /> */}
         <Typography css={counterStyle}>36</Typography>
       </Button>

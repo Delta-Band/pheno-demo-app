@@ -14,3 +14,10 @@ export const globalStyles = (
     `}
   />
 );
+
+export const tooltip = {
+  fontFamily: 'Roboto',
+  paddingInline: 24,
+  fontSize: '16px !important',
+  paddingBlock: 24
+};
