@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import PhenoIcon from './PhenoIcon';
 import { Text, Button, styled } from '@nextui-org/react';
@@ -64,6 +63,9 @@ const selected = {
   background: 'rgba(255, 255, 255, 1)',
   '&:hover': {
     background: 'rgba(255, 255, 255, 1)'
+  },
+  '& svg': {
+    fill: '#000'
   }
 };
 
@@ -78,18 +80,16 @@ function Logo() {
 }
 
 function Filter() {
-  const debounce = useRef();
   const router = useRouter();
 
   function handleFilterChange(value) {
-    if (debounce.current) {
-      clearTimeout(debounce.current);
-    }
-    debounce.current = setTimeout(() => {
-      router.push(`${router.route}?filter=${value}`, undefined, {
+    router.push(
+      `${router.route}?filter=${encodeURIComponent(value)}`,
+      undefined,
+      {
         shallow: true
-      });
-    }, 250);
+      }
+    );
   }
 
   return (
@@ -97,6 +97,7 @@ function Filter() {
       type='text'
       placeholder='Filter by keywords (comma separated)'
       onChange={e => handleFilterChange(e.target.value)}
+      value={router.query.filter || ''}
       css={{
         borderRadius: 20,
         border: 'none',
@@ -136,13 +137,26 @@ function SortDirection() {
 }
 
 function SortBy() {
+  const router = useRouter();
+
   return (
     <ButtonGroupWrapper>
       <Tooltip content={'Sort alphabetically'} rounded placement='bottom'>
         <Button
+          onClick={() => {
+            router.push(
+              `${router.route}?filter=${
+                router.query.filter || ''
+              }&sorter=alphabetically`,
+              undefined,
+              {
+                shallow: true
+              }
+            );
+          }}
           css={[
             buttonStyle,
-            selected,
+            router.query.sorter === 'alphabetically' ? selected : {},
             {
               borderStartStartRadius: 999,
               borderEndStartRadius: 999
@@ -163,21 +177,65 @@ function SortBy() {
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by participants'} rounded placement='bottom'>
-        <Button css={buttonStyle}>
+        <Button
+          onClick={() => {
+            router.push(
+              `${router.route}?filter=${
+                router.query.filter || ''
+              }&sorter=participants`,
+              undefined,
+              {
+                shallow: true
+              }
+            );
+          }}
+          css={[
+            buttonStyle,
+            router.query.sorter === 'participants' ? selected : {}
+          ]}
+        >
           <PhenoIcon name='user' scale={1.2} />{' '}
           <Text css={counterStyle}>36</Text>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by measurements'} rounded placement='bottom'>
-        <Button css={buttonStyle}>
+        <Button
+          onClick={() => {
+            router.push(
+              `${router.route}?filter=${
+                router.query.filter || ''
+              }&sorter=measurements`,
+              undefined,
+              {
+                shallow: true
+              }
+            );
+          }}
+          css={[
+            buttonStyle,
+            router.query.sorter === 'measurements' ? selected : {}
+          ]}
+        >
           <PhenoIcon name='meter' scale={1.2} />{' '}
           <Text css={counterStyle}>36</Text>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by cohorts'} rounded placement='bottom'>
         <Button
+          onClick={() => {
+            router.push(
+              `${router.route}?filter=${
+                router.query.filter || ''
+              }&sorter=cohorts`,
+              undefined,
+              {
+                shallow: true
+              }
+            );
+          }}
           css={[
             buttonStyle,
+            router.query.sorter === 'cohorts' ? selected : {},
             {
               borderEndEndRadius: 999,
               borderStartEndRadius: 999

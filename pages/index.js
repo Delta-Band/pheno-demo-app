@@ -18,7 +18,12 @@ const FolderListWrapper = styled('div', {
 const LeftSide = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  gap: 16
+  gap: 16,
+  '& .highlighted': {
+    backgroundColor: 'transparent',
+    color: '#A1B5D1',
+    borderBottom: '2px solid #FFC36A'
+  }
 });
 
 const RightSide = styled('div', {
@@ -104,7 +109,7 @@ function ListItem({ item, highlight }) {
           <Text color='#A1B5D1'>
             <Highlighter
               caseSensitive={false}
-              highlightClassName='YourHighlightClass'
+              highlightClassName='highlighted'
               searchWords={[highlight]}
               textToHighlight={item.name}
             />
@@ -133,7 +138,13 @@ export default function Home() {
     <FolderListWrapper>
       <List>
         {folders
-          .filter(folder => folder.name.search(router.query.filter || '') >= 0)
+          .filter(folder => {
+            return (
+              folder.name
+                .toLowerCase()
+                .search((router.query.filter || '').toLowerCase()) >= 0
+            );
+          })
           .map(folder => (
             <ListItem
               key={folder.name}

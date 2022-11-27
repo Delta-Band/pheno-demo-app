@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { FirstLoad, AppRibbon } from '../components';
 // import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
+import { useRouter } from 'next/router';
 import { NextUIProvider, globalCss, styled } from '@nextui-org/react';
 
 const BackgroundImg = styled('div', {
@@ -54,6 +55,22 @@ const noOverlayWorkaroundScript = `
 
 const App = ({ Component, pageProps }) => {
   globalStyles();
+  const router = useRouter();
+
+  useEffect(() => {
+    let sorter = router.query.sorter;
+    if (!sorter) {
+      router.push(
+        `${router.route}?filter=${
+          router.query.filter || ''
+        }&sorter=alphabetically`,
+        undefined,
+        {
+          shallow: true
+        }
+      );
+    }
+  }, []);
 
   return (
     <>
