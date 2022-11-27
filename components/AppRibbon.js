@@ -1,11 +1,11 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react';
-import styled from '@emotion/styled';
-import { Typography, IconButton, Button } from '@mui/material';
+import { useRef } from 'react';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import PhenoIcon from './PhenoIcon';
+import { Text, Button, styled } from '@nextui-org/react';
+import Tooltip from './Tooltip';
+import { useRouter } from 'next/router';
 
-const Wrapper = styled.div({
+const Wrapper = styled('div', {
   background: 'blue',
   width: '100%',
   display: 'flex',
@@ -21,22 +21,20 @@ const Wrapper = styled.div({
   position: 'relative'
 });
 
-const LeftSide = styled.div({
+const LeftSide = styled('div', {
   display: 'flex',
   gap: 16,
   width: '100%'
 });
 
-const RightSide = styled.div({
+const RightSide = styled('div', {
   display: 'flex',
   gap: 16,
   alignItems: 'center'
 });
 
-const ButtonGroupWrapper = styled.div({
+const ButtonGroupWrapper = styled('div', {
   display: 'flex',
-  borderRadius: 20,
-  overflow: 'hidden',
   height: 40,
   gap: 2
 });
@@ -45,13 +43,19 @@ const buttonStyle = {
   color: '#FFF',
   display: 'flex',
   alignItems: 'center',
-  gap: 16,
   height: '100%',
+  width: '9vw',
   paddingInline: 24,
   borderRadius: 0,
+  minWidth: 'min-content',
+  maxWidth: 200,
+  boxSizing: 'border-box',
   background: 'rgba(255, 255, 255, 0.1)',
   '&:hover': {
     background: 'rgba(255, 255, 255, 0.1)'
+  },
+  '& .nextui-button-text': {
+    gap: 16
   }
 };
 
@@ -65,7 +69,8 @@ const selected = {
 
 const counterStyle = {
   transform: 'translateY(0.5px)',
-  whiteSpace: 'nowrap'
+  whiteSpace: 'nowrap',
+  color: 'inherit'
 };
 
 function Logo() {
@@ -73,10 +78,25 @@ function Logo() {
 }
 
 function Filter() {
+  const debounce = useRef();
+  const router = useRouter();
+
+  function handleFilterChange(value) {
+    if (debounce.current) {
+      clearTimeout(debounce.current);
+    }
+    debounce.current = setTimeout(() => {
+      router.push(`${router.route}?filter=${value}`, undefined, {
+        shallow: true
+      });
+    }, 250);
+  }
+
   return (
     <input
       type='text'
       placeholder='Filter by keywords (comma separated)'
+      onChange={e => handleFilterChange(e.target.value)}
       css={{
         borderRadius: 20,
         border: 'none',
@@ -88,6 +108,7 @@ function Filter() {
         fontSize: 18,
         outline: 'none',
         boxSizing: 'border-box',
+        color: '#000',
         '&::placeholder': {
           color: 'rgba(0, 0, 0, 0.2)',
           fontStyle: 'italic'
@@ -102,48 +123,72 @@ function Filter() {
 
 function SortDirection() {
   return (
-    <IconButton
-      data-tip='Revers order'
-      size='large'
-      css={{
-        color: '#FFF'
-      }}
-    >
-      <SortDescIcon size={24} />
-    </IconButton>
+    <Tooltip content={'Reverse Order'} rounded placement='bottom'>
+      <Button
+        auto
+        css={{
+          background: 'transparent'
+        }}
+        icon={<SortDescIcon size={24} />}
+      />
+    </Tooltip>
   );
 }
 
 function SortBy() {
   return (
     <ButtonGroupWrapper>
-      <Button css={[buttonStyle, selected]} data-tip='Sort alphabetically'>
-        <Typography
+      <Tooltip content={'Sort alphabetically'} rounded placement='bottom'>
+        <Button
           css={[
-            counterStyle,
+            buttonStyle,
+            selected,
             {
-              fontSize: 18,
-              fontWeight: 100
+              borderStartStartRadius: 999,
+              borderEndStartRadius: 999
             }
           ]}
         >
-          A-Z
-        </Typography>
-        <Typography css={counterStyle}>36</Typography>
-      </Button>
-      <Button css={buttonStyle} data-tip='Sort by participants'>
-        <PhenoIcon name='user' scale={1.2} />{' '}
-        <Typography css={counterStyle}>36</Typography>
-      </Button>
-      <Button css={buttonStyle} data-tip='Sort by measurements'>
-        <PhenoIcon name='meter' scale={1.2} />{' '}
-        <Typography css={counterStyle}>36</Typography>
-      </Button>
-      <Button css={buttonStyle} data-tip='Sort by cohorts'>
-        <PhenoIcon name='group' scale={1.2} />
-        {/* <GroupIcon size={28} /> */}
-        <Typography css={counterStyle}>36</Typography>
-      </Button>
+          <Text
+            css={[
+              counterStyle,
+              {
+                fontSize: 18
+              }
+            ]}
+          >
+            A-Z
+          </Text>
+          <Text css={counterStyle}>36</Text>
+        </Button>
+      </Tooltip>
+      <Tooltip content={'Sort by participants'} rounded placement='bottom'>
+        <Button css={buttonStyle}>
+          <PhenoIcon name='user' scale={1.2} />{' '}
+          <Text css={counterStyle}>36</Text>
+        </Button>
+      </Tooltip>
+      <Tooltip content={'Sort by measurements'} rounded placement='bottom'>
+        <Button css={buttonStyle}>
+          <PhenoIcon name='meter' scale={1.2} />{' '}
+          <Text css={counterStyle}>36</Text>
+        </Button>
+      </Tooltip>
+      <Tooltip content={'Sort by cohorts'} rounded placement='bottom'>
+        <Button
+          css={[
+            buttonStyle,
+            {
+              borderEndEndRadius: 999,
+              borderStartEndRadius: 999
+            }
+          ]}
+        >
+          <PhenoIcon name='group' scale={1.2} />
+          {/* <GroupIcon size={28} /> */}
+          <Text css={counterStyle}>36</Text>
+        </Button>
+      </Tooltip>
     </ButtonGroupWrapper>
   );
 }

@@ -1,10 +1,12 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, NextUIProvider, Text } from '@nextui-org/react';
 
 const theme = createTheme({
-  typography: {
-    // In Chinese and Japanese the characters are usually larger,
-    // so a smaller fontsize may be appropriate.
-    fontSize: 16
+  type: 'dark',
+  theme: {
+    fontSizes: {
+      base: '18px',
+      md: '18px'
+    }
   }
 });
 

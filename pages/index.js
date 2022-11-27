@@ -1,17 +1,30 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react';
-import styled from '@emotion/styled';
-import { Typography, Button } from '@mui/material';
 import { PhenoIcon } from '../components';
 import { motion } from 'framer-motion';
+import { fieldsSlice } from '../redux';
+import { useSelector } from 'react-redux';
+import { Text, Button, styled } from '@nextui-org/react';
+import { useRouter } from 'next/router';
+import Highlighter from 'react-highlight-words';
 
-const FolderListWrapper = styled.div({
+const FolderListWrapper = styled('div', {
   width: '100%',
   height: '100%',
   overflowX: 'hidden',
   overflowY: 'auto',
   zIndex: 1,
   position: 'relative'
+});
+
+const LeftSide = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 16
+});
+
+const RightSide = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 16
 });
 
 function List({ children }) {
@@ -42,7 +55,7 @@ function List({ children }) {
   );
 }
 
-function ListItem({ children }) {
+function ListItem({ item, highlight }) {
   const variants = {
     visible: {
       opacity: 1,
@@ -65,36 +78,47 @@ function ListItem({ children }) {
       }}
     >
       <Button
-        fullWidth
+        auto
+        size='xl'
         css={{
           color: '#A1B5D1',
           paddingInline: 24,
           paddingBlock: 16,
-          justifyContent: 'space-between',
-          alignItems: 'center',
           borderRadius: 0,
+          textTransform: 'capitalize',
+          background: 'transparent',
+          width: '100%',
           '&:hover': {
             background: '#ffffff1a'
+          },
+          '& .nextui-button-text': {
+            width: '100%',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            display: 'flex'
           }
         }}
       >
-        {children}
+        <LeftSide>
+          <PhenoIcon name='folder' color='#A1B5D1' />
+          <Text color='#A1B5D1'>
+            <Highlighter
+              caseSensitive={false}
+              highlightClassName='YourHighlightClass'
+              searchWords={[highlight]}
+              textToHighlight={item.name}
+            />
+          </Text>
+        </LeftSide>
+        <RightSide>
+          <Text css={yellowGlow}>{item.participants}</Text>
+          <PhenoIcon name='user' color='#FFC36A' glow />
+          <PhenoIcon name='chevron-right' color='#A1B5D1' />
+        </RightSide>
       </Button>
     </motion.li>
   );
 }
-
-const LeftSide = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  gap: 16
-});
-
-const RightSide = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  gap: 16
-});
 
 const yellowGlow = {
   color: '#FFC36A',
@@ -102,20 +126,21 @@ const yellowGlow = {
 };
 
 export default function Home() {
+  const folders = useSelector(fieldsSlice.selectors.folders);
+  const router = useRouter();
+
   return (
     <FolderListWrapper>
       <List>
-        <ListItem>
-          <LeftSide>
-            <PhenoIcon name='folder' color='#A1B5D1' />
-            <Typography>ABI</Typography>
-          </LeftSide>
-          <RightSide>
-            <Typography css={yellowGlow}>12.6k</Typography>
-            <PhenoIcon name='user' color='#FFC36A' glow />
-            <PhenoIcon name='chevron-right' color='#A1B5D1' />
-          </RightSide>
-        </ListItem>
+        {folders
+          .filter(folder => folder.name.search(router.query.filter || '') >= 0)
+          .map(folder => (
+            <ListItem
+              key={folder.name}
+              item={folder}
+              highlight={router.query.filter || ''}
+            />
+          ))}
       </List>
     </FolderListWrapper>
   );

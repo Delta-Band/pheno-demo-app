@@ -5,6 +5,14 @@
     "participants": 512,
     "measurements": 1100,
     "cohorts": 2,
+    "location": ["ABI", "Sleep Lab"]
+  },
+  {
+    "name": "Field Name",
+    "type": "Time Series",
+    "participants": 412,
+    "measurements": 412,
+    "cohorts": 1,
     "location": ["ABI"]
   }
 ]

@@ -1,16 +1,13 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { store } from '../redux';
-import styled from '@emotion/styled';
 import { Provider } from 'react-redux';
 import { FirstLoad, AppRibbon } from '../components';
-import { globalStyles } from '../shared/styles';
-import { ThemeProvider } from '@mui/material/styles';
+// import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
-import ReactTooltip from 'react-tooltip';
-import { tooltip } from '../shared/styles';
+import { NextUIProvider, globalCss, styled } from '@nextui-org/react';
 
-const BackgroundImg = styled.div({
+const BackgroundImg = styled('div', {
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -20,7 +17,7 @@ const BackgroundImg = styled.div({
   top: 0
 });
 
-const BackgroundGradientMask = styled.div({
+const BackgroundGradientMask = styled('div', {
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -30,7 +27,34 @@ const BackgroundGradientMask = styled.div({
   backdropFilter: 'blur(1px)'
 });
 
+const globalStyles = globalCss({
+  body: {
+    padding: 0,
+    margin: 0,
+    height: '100%',
+    width: '100vw'
+  },
+  html: {
+    padding: 0,
+    margin: 0,
+    height: '100%',
+    width: '100vw'
+  }
+});
+
+const noOverlayWorkaroundScript = `
+  window.addEventListener('error', event => {
+    event.stopImmediatePropagation()
+  })
+
+  window.addEventListener('unhandledrejection', event => {
+    event.stopImmediatePropagation()
+  })
+`;
+
 const App = ({ Component, pageProps }) => {
+  globalStyles();
+
   return (
     <>
       <Head>
@@ -41,25 +65,23 @@ const App = ({ Component, pageProps }) => {
           rel='stylesheet'
           href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         />
+        {process.env.NODE_ENV !== 'production' && (
+          <script
+            dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }}
+          />
+        )}
       </Head>
-      {globalStyles}
-      <ReactTooltip
-        css={tooltip}
-        effect='solid'
-        delayShow={500}
-        place='bottom'
-        border
-        borderColor='#5c5c5c'
-      />
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
+        {/* <ThemeProvider theme={theme}> */}
+        <NextUIProvider theme={theme}>
           <BackgroundImg>
             <BackgroundGradientMask />
             <FirstLoad />
             <AppRibbon />
             <Component {...pageProps} />
           </BackgroundImg>
-        </ThemeProvider>
+        </NextUIProvider>
+        {/* </ThemeProvider> */}
       </Provider>
     </>
   );

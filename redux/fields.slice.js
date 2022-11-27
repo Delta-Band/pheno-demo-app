@@ -1,4 +1,9 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSlice,
+  createSelector
+} from '@reduxjs/toolkit';
+
 const initialState = { working: true, fields: [] };
 
 const setData = createAsyncThunk('fields/fetch', async () => {
@@ -27,6 +32,34 @@ const fieldsSlice = createSlice({
       });
   }
 });
+
+const folders = createSelector(
+  state => state.fields.fields,
+  fields => {
+    const foldersObject = fields.reduce((folders, field) => {
+      field.location.forEach(location => {
+        folders[location] = {
+          participants: folders[location]?.participants
+            ? folders[location].participants + field.participants
+            : field.participants
+        };
+      });
+      return folders;
+    }, []);
+    const foldersArray = [];
+    Object.keys(foldersObject).forEach(key => {
+      foldersArray.push({
+        name: key,
+        participants: foldersObject[key].participants
+      });
+    });
+    return foldersArray;
+  }
+);
+
+fieldsSlice.selectors = {
+  folders
+};
 
 Object.assign(fieldsSlice.actions, {
   setData
