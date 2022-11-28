@@ -12,7 +12,7 @@ const BackgroundImg = styled('div', {
   position: 'fixed',
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(ppl2.jpg)',
+  // backgroundImage: 'url(ppl2.jpg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
   top: 0
@@ -24,8 +24,8 @@ const BackgroundGradientMask = styled('div', {
   height: '100%',
   top: 0,
   background:
-    'linear-gradient(142.62deg, rgba(24, 24, 24, 0.56) 38.07%, rgba(48, 48, 48, 0.46) 80%)',
-  backdropFilter: 'blur(1px)'
+    'linear-gradient(142.62deg, rgb(243 243 243 / 56%) 38.07%, rgb(100 100 100 / 46%) 80%)'
+  // backdropFilter: 'blur(1px)'
 });
 
 const globalStyles = globalCss({
@@ -33,7 +33,8 @@ const globalStyles = globalCss({
     padding: 0,
     margin: 0,
     height: '100%',
-    width: '100vw'
+    width: '100vw',
+    background: '#fffdf7'
   },
   html: {
     padding: 0,
@@ -58,19 +59,17 @@ const App = ({ Component, pageProps }) => {
   const router = useRouter();
 
   useEffect(() => {
-    let sorter = router.query.sorter;
-    if (!sorter) {
-      router.push(
-        `${router.route}?filter=${
-          router.query.filter || ''
-        }&sorter=alphabetically`,
-        undefined,
-        {
-          shallow: true
-        }
-      );
-    }
-  }, []);
+    if (!router.isReady) return;
+    router.push(
+      `${router.route}?filter=${router.query.filter || ''}&sorter=${
+        router.query.sorter || 'participants'
+      }&direction=${router.query.direction || 'desc'}`,
+      undefined,
+      {
+        shallow: true
+      }
+    );
+  }, [router.isReady]);
 
   return (
     <>

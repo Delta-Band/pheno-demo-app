@@ -60,7 +60,7 @@ function List({ children }) {
   );
 }
 
-function ListItem({ item, highlight }) {
+function ListItem({ item, sortIcon, sorter }) {
   const variants = {
     visible: {
       opacity: 1,
@@ -86,15 +86,14 @@ function ListItem({ item, highlight }) {
         auto
         size='xl'
         css={{
-          color: '#A1B5D1',
           paddingInline: 24,
           paddingBlock: 16,
           borderRadius: 0,
           textTransform: 'capitalize',
-          background: 'transparent',
+          background: 'rgba(0, 0, 0, 0)',
           width: '100%',
           '&:hover': {
-            background: '#ffffff1a'
+            background: 'rgba(0, 0, 0, 0.1)'
           },
           '& .nextui-button-text': {
             width: '100%',
@@ -105,53 +104,66 @@ function ListItem({ item, highlight }) {
         }}
       >
         <LeftSide>
-          <PhenoIcon name='folder' color='#A1B5D1' />
-          <Text color='#A1B5D1'>
-            <Highlighter
+          <PhenoIcon name='folder' />
+          <Text>
+            {/* <Highlighter
               caseSensitive={false}
               highlightClassName='highlighted'
               searchWords={[highlight]}
               textToHighlight={item.name}
-            />
+            /> */}
+            {item.name}
           </Text>
         </LeftSide>
         <RightSide>
-          <Text css={yellowGlow}>{item.participants}</Text>
-          <PhenoIcon name='user' color='#FFC36A' glow />
-          <PhenoIcon name='chevron-right' color='#A1B5D1' />
+          <Text css={glow}>{item[sorter]}</Text>
+          <PhenoIcon name={sortIcon} color='#ab73d8' />
+          <PhenoIcon name='chevron-right' />
         </RightSide>
       </Button>
     </motion.li>
   );
 }
 
-const yellowGlow = {
-  color: '#FFC36A',
-  textShadow: '0px 0px 7px #FFC36A'
+const glow = {
+  color: '#ab73d8'
+  // textShadow: '0px 0px 3px #ab73d8'
 };
 
 export default function Home() {
-  const folders = useSelector(fieldsSlice.selectors.folders);
   const router = useRouter();
+  const folders = useSelector(state =>
+    fieldsSlice.selectors.folders(state, {
+      filter: router.query.filter,
+      sorter: router.query.sorter,
+      direction: router.query.direction
+    })
+  );
+
+  let sortIcon;
+  switch (router.query.sorter) {
+    case 'measurements':
+      sortIcon = 'meter';
+      break;
+    case 'cohorts':
+      sortIcon = 'group';
+      break;
+    default:
+      sortIcon = 'user';
+      break;
+  }
 
   return (
     <FolderListWrapper>
       <List>
-        {folders
-          .filter(folder => {
-            return (
-              folder.name
-                .toLowerCase()
-                .search((router.query.filter || '').toLowerCase()) >= 0
-            );
-          })
-          .map(folder => (
-            <ListItem
-              key={folder.name}
-              item={folder}
-              highlight={router.query.filter || ''}
-            />
-          ))}
+        {folders.map(folder => (
+          <ListItem
+            key={folder.name}
+            item={folder}
+            sortIcon={sortIcon}
+            sorter={router.query.sorter}
+          />
+        ))}
       </List>
     </FolderListWrapper>
   );

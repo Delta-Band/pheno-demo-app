@@ -1,7 +1,7 @@
 import { createTheme, NextUIProvider, Text } from '@nextui-org/react';
 
 const theme = createTheme({
-  type: 'dark',
+  type: 'light',
   theme: {
     fontSizes: {
       base: '18px',

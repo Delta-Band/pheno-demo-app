@@ -1,11 +1,19 @@
 [
   {
-    "name": "Date F51 first reported (nonorganic sleep disorders) ",
+    "name": "Date F51 first reported (nonorganic sleep disorders)",
     "type": "Time Series",
     "participants": 512,
     "measurements": 1100,
     "cohorts": 2,
-    "location": ["ABI", "Sleep Lab"]
+    "originCategory": "ABI"
+  },
+  {
+    "name": "Date F52 first reported (nonorganic sleep disorders)",
+    "type": "Time Series",
+    "participants": 312,
+    "measurements": 500,
+    "cohorts": 1,
+    "originCategory": "ABI"
   },
   {
     "name": "Field Name",
@@ -13,6 +21,6 @@
     "participants": 412,
     "measurements": 412,
     "cohorts": 1,
-    "location": ["ABI"]
+    "originCategory": "Sleep Lab"
   }
 ]

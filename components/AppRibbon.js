@@ -1,8 +1,10 @@
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
+import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';
 import { Text, Button, styled } from '@nextui-org/react';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled('div', {
   background: 'blue',
@@ -12,8 +14,10 @@ const Wrapper = styled('div', {
   justifyContent: 'space-between',
   height: 60,
   paddingInline: 24,
+  // background:
+  //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
   background:
-    'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
+    'radial-gradient(87.96% 244.49% at 0 2.68%, rgb(164 182 192) 35%, rgb(115 131 141) 100%)',
   boxSizing: 'border-box',
   gap: 24,
   zIndex: 1,
@@ -84,7 +88,9 @@ function Filter() {
 
   function handleFilterChange(value) {
     router.push(
-      `${router.route}?filter=${encodeURIComponent(value)}`,
+      `${router.route}?filter=${encodeURIComponent(value)}&sorter=${
+        router.query.sorter
+      }&direction=${router.query.direction}`,
       undefined,
       {
         shallow: true
@@ -123,15 +129,42 @@ function Filter() {
 }
 
 function SortDirection() {
+  const router = useRouter();
+
   return (
     <Tooltip content={'Reverse Order'} rounded placement='bottom'>
-      <Button
-        auto
-        css={{
-          background: 'transparent'
+      <motion.div
+        animate={{
+          rotateY: router.query.direction === 'asc' ? 180 : 0
         }}
-        icon={<SortDescIcon size={24} />}
-      />
+      >
+        <Button
+          auto
+          css={{
+            background: 'transparent'
+          }}
+          icon={
+            router.query.direction === 'desc' ? (
+              <SortDescIcon size={24} />
+            ) : (
+              <SortAscIcon size={24} />
+            )
+          }
+          onClick={() => {
+            router.push(
+              `${router.route}?filter=${router.query.filter || ''}&sorter=${
+                router.query.sorter
+              }&direction=${
+                router.query.direction === 'desc' ? 'asc' : 'desc'
+              }`,
+              undefined,
+              {
+                shallow: true
+              }
+            );
+          }}
+        />
+      </motion.div>
     </Tooltip>
   );
 }
@@ -139,99 +172,64 @@ function SortDirection() {
 function SortBy() {
   const router = useRouter();
 
+  function updateURL(sorter) {
+    router.push(
+      `${router.route}?filter=${
+        router.query.filter || ''
+      }&sorter=${sorter}&direction=${router.query.direction}`,
+      undefined,
+      {
+        shallow: true
+      }
+    );
+  }
+
   return (
     <ButtonGroupWrapper>
-      <Tooltip content={'Sort alphabetically'} rounded placement='bottom'>
+      <Tooltip content={'Sort by participants'} rounded placement='bottom'>
         <Button
           onClick={() => {
-            router.push(
-              `${router.route}?filter=${
-                router.query.filter || ''
-              }&sorter=alphabetically`,
-              undefined,
-              {
-                shallow: true
-              }
-            );
+            updateURL('participants');
           }}
           css={[
             buttonStyle,
-            router.query.sorter === 'alphabetically' ? selected : {},
+            router.query.sorter === 'participants' ? selected : {},
             {
               borderStartStartRadius: 999,
               borderEndStartRadius: 999
             }
           ]}
         >
-          <Text
-            css={[
-              counterStyle,
-              {
-                fontSize: 18
-              }
-            ]}
-          >
-            A-Z
-          </Text>
-          <Text css={counterStyle}>36</Text>
-        </Button>
-      </Tooltip>
-      <Tooltip content={'Sort by participants'} rounded placement='bottom'>
-        <Button
-          onClick={() => {
-            router.push(
-              `${router.route}?filter=${
-                router.query.filter || ''
-              }&sorter=participants`,
-              undefined,
-              {
-                shallow: true
-              }
-            );
-          }}
-          css={[
-            buttonStyle,
-            router.query.sorter === 'participants' ? selected : {}
-          ]}
-        >
-          <PhenoIcon name='user' scale={1.2} />{' '}
+          <PhenoIcon
+            name='user'
+            scale={1.2}
+            color={router.query.sorter === 'participants' ? undefined : '#FFF'}
+          />{' '}
           <Text css={counterStyle}>36</Text>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by measurements'} rounded placement='bottom'>
         <Button
           onClick={() => {
-            router.push(
-              `${router.route}?filter=${
-                router.query.filter || ''
-              }&sorter=measurements`,
-              undefined,
-              {
-                shallow: true
-              }
-            );
+            updateURL('measurements');
           }}
           css={[
             buttonStyle,
             router.query.sorter === 'measurements' ? selected : {}
           ]}
         >
-          <PhenoIcon name='meter' scale={1.2} />{' '}
+          <PhenoIcon
+            name='meter'
+            scale={1.2}
+            color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
+          />{' '}
           <Text css={counterStyle}>36</Text>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by cohorts'} rounded placement='bottom'>
         <Button
           onClick={() => {
-            router.push(
-              `${router.route}?filter=${
-                router.query.filter || ''
-              }&sorter=cohorts`,
-              undefined,
-              {
-                shallow: true
-              }
-            );
+            updateURL('cohorts');
           }}
           css={[
             buttonStyle,
@@ -242,7 +240,11 @@ function SortBy() {
             }
           ]}
         >
-          <PhenoIcon name='group' scale={1.2} />
+          <PhenoIcon
+            name='group'
+            scale={1.2}
+            color={router.query.sorter === 'cohorts' ? undefined : '#FFF'}
+          />
           {/* <GroupIcon size={28} /> */}
           <Text css={counterStyle}>36</Text>
         </Button>

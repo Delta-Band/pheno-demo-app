@@ -26,7 +26,7 @@ function getIcon(name) {
 export default function PhenoIcon({
   name,
   scale = 1.2,
-  color = '#FFF',
+  color = '#11181c',
   glow = false
 }) {
   return (
@@ -38,7 +38,7 @@ export default function PhenoIcon({
         justifyContent: 'center',
         '& svg': {
           fill: color,
-          filter: glow ? `drop-shadow(0px 0px 7px ${color})` : undefined
+          filter: glow ? `drop-shadow(0px 0px 2px ${color})` : undefined
         }
       }}
     >
