@@ -1,12 +1,16 @@
+/** @jsxImportSource @emotion/react */
+import { jsx } from '@emotion/react';
+import styled from '@emotion/styled';
+import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';
-import { Text, Button, styled } from '@nextui-org/react';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
-const Wrapper = styled('div', {
+const Wrapper = styled.div({
   background: 'blue',
   width: '100%',
   display: 'flex',
@@ -24,19 +28,19 @@ const Wrapper = styled('div', {
   position: 'relative'
 });
 
-const LeftSide = styled('div', {
+const LeftSide = styled.div({
   display: 'flex',
   gap: 16,
   width: '100%'
 });
 
-const RightSide = styled('div', {
+const RightSide = styled.div({
   display: 'flex',
   gap: 16,
   alignItems: 'center'
 });
 
-const ButtonGroupWrapper = styled('div', {
+const ButtonGroupWrapper = styled.div({
   display: 'flex',
   height: 40,
   gap: 2
@@ -57,7 +61,7 @@ const buttonStyle = {
   '&:hover': {
     background: 'rgba(255, 255, 255, 0.1)'
   },
-  '& .nextui-button-text': {
+  '& .nextui-button-Typography': {
     gap: 16
   }
 };
@@ -87,20 +91,20 @@ function Filter() {
   const router = useRouter();
 
   function handleFilterChange(value) {
-    router.push(
-      `${router.route}?filter=${encodeURIComponent(value)}&sorter=${
-        router.query.sorter
-      }&direction=${router.query.direction}`,
-      undefined,
-      {
-        shallow: true
+    router.push({
+      pathname: router.route,
+      query: {
+        folder: router.query.folder || '',
+        filter: encodeURIComponent(value),
+        sorter: router.query.sorter || 'participants',
+        direction: router.query.direction || 'desc'
       }
-    );
+    });
   }
 
   return (
     <input
-      type='text'
+      type='Typography'
       placeholder='Filter by keywords (comma separated)'
       onChange={e => handleFilterChange(e.target.value)}
       value={router.query.filter || ''}
@@ -138,12 +142,12 @@ function SortDirection() {
           rotateY: router.query.direction === 'asc' ? 180 : 0
         }}
       >
-        <Button
-          auto
-          css={{
-            background: 'transparent'
-          }}
-          icon={
+        <Button variant='text'>Text</Button>
+        {/* <Button
+          // css={{
+          //   background: 'transparent'
+          // }}
+          startIcon={
             router.query.direction === 'desc' ? (
               <SortDescIcon size={24} />
             ) : (
@@ -151,19 +155,17 @@ function SortDirection() {
             )
           }
           onClick={() => {
-            router.push(
-              `${router.route}?filter=${router.query.filter || ''}&sorter=${
-                router.query.sorter
-              }&direction=${
-                router.query.direction === 'desc' ? 'asc' : 'desc'
-              }`,
-              undefined,
-              {
-                shallow: true
+            router.push({
+              pathname: router.route,
+              query: {
+                folder: router.query.folder || '',
+                filter: router.query.filter || '',
+                sorter: router.query.sorter || 'participants',
+                direction: router.query.direction === 'desc' ? 'asc' : 'desc'
               }
-            );
+            });
           }}
-        />
+        /> */}
       </motion.div>
     </Tooltip>
   );
@@ -173,15 +175,15 @@ function SortBy() {
   const router = useRouter();
 
   function updateURL(sorter) {
-    router.push(
-      `${router.route}?filter=${
-        router.query.filter || ''
-      }&sorter=${sorter}&direction=${router.query.direction}`,
-      undefined,
-      {
-        shallow: true
+    router.push({
+      pathname: router.route,
+      query: {
+        folder: router.query.folder || '',
+        filter: router.query.filter || '',
+        sorter,
+        direction: router.query.direction || 'desc'
       }
-    );
+    });
   }
 
   return (
@@ -205,7 +207,7 @@ function SortBy() {
             scale={1.2}
             color={router.query.sorter === 'participants' ? undefined : '#FFF'}
           />{' '}
-          <Text css={counterStyle}>36</Text>
+          <Typography css={counterStyle}>36</Typography>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by measurements'} rounded placement='bottom'>
@@ -223,7 +225,7 @@ function SortBy() {
             scale={1.2}
             color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
           />{' '}
-          <Text css={counterStyle}>36</Text>
+          <Typography css={counterStyle}>36</Typography>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by cohorts'} rounded placement='bottom'>
@@ -246,7 +248,7 @@ function SortBy() {
             color={router.query.sorter === 'cohorts' ? undefined : '#FFF'}
           />
           {/* <GroupIcon size={28} /> */}
-          <Text css={counterStyle}>36</Text>
+          <Typography css={counterStyle}>36</Typography>
         </Button>
       </Tooltip>
     </ButtonGroupWrapper>
@@ -261,7 +263,7 @@ export default function AppRibbon() {
         <Filter />
       </LeftSide>
       <RightSide>
-        <SortBy />
+        {/* <SortBy /> */}
         <SortDirection />
       </RightSide>
     </Wrapper>

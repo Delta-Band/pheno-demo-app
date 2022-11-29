@@ -3,12 +3,13 @@ import Head from 'next/head';
 import { store } from '../redux';
 import { Provider } from 'react-redux';
 import { FirstLoad, AppRibbon } from '../components';
-// import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
+import styled from '@emotion/styled';
+import { globalStyles } from '../shared/styles';
 import { useRouter } from 'next/router';
-import { NextUIProvider, globalCss, styled } from '@nextui-org/react';
 
-const BackgroundImg = styled('div', {
+const BackgroundImg = styled.div({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -18,7 +19,7 @@ const BackgroundImg = styled('div', {
   top: 0
 });
 
-const BackgroundGradientMask = styled('div', {
+const BackgroundGradientMask = styled.div({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -28,21 +29,21 @@ const BackgroundGradientMask = styled('div', {
   // backdropFilter: 'blur(1px)'
 });
 
-const globalStyles = globalCss({
-  body: {
-    padding: 0,
-    margin: 0,
-    height: '100%',
-    width: '100vw',
-    background: '#fffdf7'
-  },
-  html: {
-    padding: 0,
-    margin: 0,
-    height: '100%',
-    width: '100vw'
-  }
-});
+// const globalStyles = globalCss({
+//   body: {
+//     padding: 0,
+//     margin: 0,
+//     height: '100%',
+//     width: '100vw',
+//     background: '#fffdf7'
+//   },
+//   html: {
+//     padding: 0,
+//     margin: 0,
+//     height: '100%',
+//     width: '100vw'
+//   }
+// });
 
 const noOverlayWorkaroundScript = `
   window.addEventListener('error', event => {
@@ -55,20 +56,19 @@ const noOverlayWorkaroundScript = `
 `;
 
 const App = ({ Component, pageProps }) => {
-  globalStyles();
   const router = useRouter();
 
   useEffect(() => {
     if (!router.isReady) return;
-    router.push(
-      `${router.route}?filter=${router.query.filter || ''}&sorter=${
-        router.query.sorter || 'participants'
-      }&direction=${router.query.direction || 'desc'}`,
-      undefined,
-      {
-        shallow: true
+    router.push({
+      pathname: router.route,
+      query: {
+        folder: router.query.folder || '',
+        filter: router.query.filter || '',
+        sorter: router.query.sorter || 'participants',
+        direction: router.query.direction || 'desc'
       }
-    );
+    });
   }, [router.isReady]);
 
   return (
@@ -87,17 +87,16 @@ const App = ({ Component, pageProps }) => {
           />
         )}
       </Head>
+      {globalStyles}
       <Provider store={store}>
-        {/* <ThemeProvider theme={theme}> */}
-        <NextUIProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <BackgroundImg>
             <BackgroundGradientMask />
             <FirstLoad />
             <AppRibbon />
-            <Component {...pageProps} />
+            {/* <Component {...pageProps} /> */}
           </BackgroundImg>
-        </NextUIProvider>
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </Provider>
     </>
   );

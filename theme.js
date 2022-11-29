@@ -1,12 +1,12 @@
-import { createTheme, NextUIProvider, Text } from '@nextui-org/react';
+import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-  type: 'light',
-  theme: {
-    fontSizes: {
-      base: '18px',
-      md: '18px'
-    }
+  palette: {
+    accentColor: 'red',
+    text: '#000'
+  },
+  typography: {
+    fontSize: 16
   }
 });
 

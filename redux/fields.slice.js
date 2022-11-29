@@ -33,11 +33,9 @@ const fieldsSlice = createSlice({
   }
 });
 
-const folders = createSelector(
-  [state => state.fields.fields, (state, args) => args],
-  (fields, args) => {
-    const filters =
-      args.filter ||
+function filterToRegEx(filter) {
+  return new RegExp(
+    filter ||
       ''
         .split(',')
         .reduce((acc, fltr) => {
@@ -47,8 +45,36 @@ const folders = createSelector(
           }
           return acc;
         }, [])
-        .join('|');
-    const filtersRegEx = new RegExp(filters, 'i');
+        .join('|'),
+    'i'
+  );
+}
+
+function sortEm(items, sorter, direction) {
+  return items.sort((a, b) => {
+    switch (true) {
+      case sorter === 'participants' && direction === 'asc':
+        return a.participants - b.participants;
+      case sorter === 'participants' && direction === 'desc':
+        return b.participants - a.participants;
+      case sorter === 'measurements' && direction === 'asc':
+        return a.measurements - b.measurements;
+      case sorter === 'measurements' && direction === 'desc':
+        return b.measurements - a.measurements;
+      case sorter === 'cohorts' && direction === 'asc':
+        return a.cohorts - b.cohorts;
+      case sorter === 'cohorts' && direction === 'desc':
+        return b.cohorts - a.cohorts;
+      default:
+        return b.participants - a.participants;
+    }
+  });
+}
+
+const folders = createSelector(
+  [state => state.fields.fields, (state, args) => args],
+  (fields, args) => {
+    const filtersRegEx = filterToRegEx(args.filter);
     const foldersObject = fields.reduce((folders, field) => {
       if (field.name.toLowerCase().search(filtersRegEx) >= 0) {
         folders[field.originCategory] = {
@@ -64,7 +90,7 @@ const folders = createSelector(
         };
       }
       return folders;
-    }, []);
+    }, {});
     const foldersArray = [];
     Object.keys(foldersObject).forEach(key => {
       foldersArray.push({
@@ -74,32 +100,35 @@ const folders = createSelector(
         cohorts: foldersObject[key].cohorts
       });
     });
-    const sorted = foldersArray.sort((a, b) => {
-      switch (true) {
-        case args.sorter === 'participants' && args.direction === 'asc':
-          return a.participants - b.participants;
-        case args.sorter === 'participants' && args.direction === 'desc':
-          return b.participants - a.participants;
-        case args.sorter === 'measurements' && args.direction === 'asc':
-          return a.measurements - b.measurements;
-        case args.sorter === 'measurements' && args.direction === 'desc':
-          return b.measurements - a.measurements;
-        case args.sorter === 'cohorts' && args.direction === 'asc':
-          return a.cohorts - b.cohorts;
-        case args.sorter === 'cohorts' && args.direction === 'desc':
-          return b.cohorts - a.cohorts;
-        default:
-          return b.participants - a.participants;
-      }
-    });
+    const sorted = sortEm(foldersArray, args.sorter, args.direction);
+    return sorted;
+  }
+);
 
-    console.log('sorted', sorted);
+const fields = createSelector(
+  [state => state.fields.fields, (state, args) => args],
+  (fields, args) => {
+    const filtersRegEx = filterToRegEx(args.filter);
+
+    const filtered = fields.reduce((acc, field) => {
+      if (
+        field.name.search(filtersRegEx) >= 0 &&
+        field.originCategory.toLowerCase().replace(' ', '-') === args.folder
+      ) {
+        acc.push(field);
+      }
+      return acc;
+    }, []);
+
+    const sorted = sortEm(filtered, args.sorter, args.direction);
+
     return sorted;
   }
 );
 
 fieldsSlice.selectors = {
-  folders
+  folders,
+  fields
 };
 
 Object.assign(fieldsSlice.actions, {
