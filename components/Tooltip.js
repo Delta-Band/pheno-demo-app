@@ -1,6 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react';
+import Tooltip from '@mui/material/Tooltip';
 
-export default function Tooltip() {
-  return <div>ToolTip</div>;
+export default function PhenoTooltip({ children, content }) {
+  return (
+    <Tooltip title={content} placement='bottom' enterDelay={500}>
+      {children}
+    </Tooltip>
+  );
 }

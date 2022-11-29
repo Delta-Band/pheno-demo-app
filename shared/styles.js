@@ -10,14 +10,8 @@ export const globalStyles = (
         margin: 0;
         height: 100%;
         width: 100vw;
+        background: #fffdf7;
       }
     `}
   />
 );
-
-export const tooltip = {
-  fontFamily: 'Roboto',
-  paddingInline: 24,
-  fontSize: '16px !important',
-  paddingBlock: 24
-};

@@ -26,7 +26,7 @@ function getIcon(name) {
 export default function PhenoIcon({
   name,
   scale = 1.2,
-  color = '#FFF',
+  color = 'inherit',
   glow = false
 }) {
   return (
