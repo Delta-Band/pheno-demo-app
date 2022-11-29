@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { jsx } from '@emotion/react';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { store } from '../redux';
@@ -8,6 +10,7 @@ import theme from '../theme';
 import styled from '@emotion/styled';
 import { globalStyles } from '../shared/styles';
 import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 
 const BackgroundImg = styled.div({
   position: 'fixed',
@@ -76,7 +79,11 @@ const App = ({ Component, pageProps }) => {
             <BackgroundGradientMask />
             <FirstLoad />
             <AppRibbon />
-            <Component {...pageProps} />
+            <div css={{ position: 'relative', width: '100vw', height: '100%' }}>
+              <AnimatePresence initial={false}>
+                <Component {...pageProps} key={router.route} />
+              </AnimatePresence>
+            </div>
           </BackgroundImg>
         </ThemeProvider>
       </Provider>

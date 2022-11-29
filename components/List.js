@@ -34,6 +34,12 @@ const RightSide = styled.div({
   gap: 16
 });
 
+const IconFixedWidth = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  width: 21
+});
+
 export function ListItem({
   item,
   sorter,
@@ -65,7 +71,7 @@ export function ListItem({
   }
 
   return (
-    <motion.li
+    <li
       variants={variants}
       css={{
         margin: 0,
@@ -96,8 +102,10 @@ export function ListItem({
         }}
       >
         <LeftSide>
-          <PhenoIcon name={prefixIcon} />
-          <Typography>
+          <IconFixedWidth>
+            <PhenoIcon name={prefixIcon} />
+          </IconFixedWidth>
+          <Typography lineHeight={1} css={{ transform: 'translateY(1px)' }}>
             <Highlighter
               caseSensitive={false}
               highlightClassName='highlighted'
@@ -107,14 +115,21 @@ export function ListItem({
           </Typography>
         </LeftSide>
         <RightSide>
-          <Typography css={{ color: theme.palette.accentColor }}>
+          <Typography
+            variant='subtitle1'
+            lineHeight={1}
+            css={{
+              transform: 'translateY(1px)',
+              color: theme.palette.accentColor
+            }}
+          >
             {item[sorter]}
           </Typography>
           <PhenoIcon name={sortIcon} color={theme.palette.accentColor} />
           <PhenoIcon name='chevron-right' />
         </RightSide>
       </Button>
-    </motion.li>
+    </li>
   );
 }
 
@@ -132,7 +147,7 @@ export function List({ children }) {
 
   return (
     <ListWrapper>
-      <motion.ul
+      <ul
         css={{
           margin: 0,
           padding: 0
@@ -142,7 +157,7 @@ export function List({ children }) {
         variants={variants}
       >
         {children}
-      </motion.ul>
+      </ul>
     </ListWrapper>
   );
 }

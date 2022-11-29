@@ -14,17 +14,11 @@ import { motion } from 'framer-motion';
 const Wrapper = styled.div({
   background: 'blue',
   width: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  height: 60,
-  paddingInline: 24,
   // background:
   //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
   background:
     'radial-gradient(87.96% 244.49% at 0 2.68%, rgb(164 182 192) 35%, rgb(115 131 141) 100%)',
   boxSizing: 'border-box',
-  gap: 24,
   zIndex: 1,
   position: 'relative'
 });
@@ -45,6 +39,23 @@ const ButtonGroupWrapper = styled.div({
   display: 'flex',
   height: 40,
   gap: 2
+});
+
+const Breadcrumbs = styled.div({
+  height: 60,
+  width: '100%'
+  // background: 'red'
+});
+
+const TopRow = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: 60,
+  paddingInline: 24,
+  paddingInlineEnd: 16,
+  gap: 24,
+  boxSizing: 'border-box'
 });
 
 const buttonStyle = {
@@ -83,7 +94,27 @@ const counterStyle = {
 };
 
 function Logo() {
-  return <img alt='logo' src='logo.svg' />;
+  const router = useRouter();
+  return (
+    <img
+      alt='logo'
+      src='logo.svg'
+      css={{
+        cursor: 'pointer'
+      }}
+      onClick={() => {
+        router.push({
+          pathname: '/',
+          query: {
+            folder: router.query.folder || '',
+            filter: router.query.filter || '',
+            sorter: router.query.sorter || 'participants',
+            direction: router.query.direction || 'desc'
+          }
+        });
+      }}
+    />
+  );
 }
 
 function Filter() {
@@ -249,17 +280,47 @@ function SortBy() {
   );
 }
 
+function AnimatedContainer({ children }) {
+  const router = useRouter();
+  return (
+    <motion.div
+      initial={{
+        height: 60
+      }}
+      animate={{
+        height: router.route === '/' ? 60 : 120
+      }}
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 30
+      }}
+      css={{
+        width: '100%',
+        overflow: 'hidden'
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function AppRibbon() {
   return (
     <Wrapper>
-      <LeftSide>
-        <Logo />
-        <Filter />
-      </LeftSide>
-      <RightSide>
-        <SortBy />
-        <SortDirection />
-      </RightSide>
+      <AnimatedContainer>
+        <TopRow>
+          <LeftSide>
+            <Logo />
+            <Filter />
+          </LeftSide>
+          <RightSide>
+            <SortBy />
+            <SortDirection />
+          </RightSide>
+        </TopRow>
+        <Breadcrumbs />
+      </AnimatedContainer>
     </Wrapper>
   );
 }
