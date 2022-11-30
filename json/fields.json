@@ -4,7 +4,7 @@
     "type": "time series",
     "participants": 512,
     "measurements": 1100,
-    "cohorts": 2,
+    "cohorts": ["cohort a", "cohort b"],
     "originCategory": "ABI"
   },
   {
@@ -12,7 +12,7 @@
     "type": "tabular",
     "participants": 312,
     "measurements": 500,
-    "cohorts": 1,
+    "cohorts": ["cohort c"],
     "originCategory": "ABI"
   },
   {
@@ -20,7 +20,7 @@
     "type": "image",
     "participants": 312,
     "measurements": 500,
-    "cohorts": 1,
+    "cohorts": ["cohort a", "cohort c"],
     "originCategory": "ABI"
   },
   {
@@ -28,7 +28,7 @@
     "type": "molecular",
     "participants": 312,
     "measurements": 500,
-    "cohorts": 1,
+    "cohorts": ["cohort c"],
     "originCategory": "ABI"
   },
   {
@@ -36,7 +36,7 @@
     "type": "health records",
     "participants": 312,
     "measurements": 500,
-    "cohorts": 1,
+    "cohorts": ["cohort a", "cohort b", "cohort c"],
     "originCategory": "ABI"
   },
   {
@@ -44,7 +44,7 @@
     "type": "health records",
     "participants": 412,
     "measurements": 412,
-    "cohorts": 1,
+    "cohorts": ["cohort a", "cohort d"],
     "originCategory": "Sleep Lab"
   }
 ]

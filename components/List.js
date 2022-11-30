@@ -8,6 +8,8 @@ import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Highlighter from 'react-highlight-words';
+import { ChevronRight as CaretRight } from '@styled-icons/boxicons-solid/ChevronRight';
+import Tooltip from './Tooltip';
 
 const ListWrapper = styled.div({
   width: '100%',
@@ -57,13 +59,17 @@ export function ListItem({
     hidden: { opacity: 0 }
   };
 
+  console.log('highlights', highlights);
+
   let sortIcon;
+  let sortIconTip;
   switch (router.query.sorter) {
     case 'measurements':
       sortIcon = 'meter';
       break;
     case 'cohorts':
       sortIcon = 'group';
+      sortIconTip = item.cohorts.join('\n');
       break;
     default:
       sortIcon = 'user';
@@ -105,28 +111,37 @@ export function ListItem({
           <IconFixedWidth>
             <PhenoIcon name={prefixIcon} />
           </IconFixedWidth>
-          <Typography lineHeight={1} css={{ transform: 'translateY(1px)' }}>
+          <Typography
+            lineHeight={1}
+            css={{ transform: 'translateY(1px)', userSelect: 'all' }}
+          >
             <Highlighter
               caseSensitive={false}
               highlightClassName='highlighted'
-              searchWords={highlights}
+              autoEscape
+              searchWords={highlights.map(h => h.trim())}
               textToHighlight={item.name}
             />
           </Typography>
         </LeftSide>
         <RightSide>
-          <Typography
-            variant='subtitle1'
-            lineHeight={1}
-            css={{
-              transform: 'translateY(1px)',
-              color: theme.palette.accentColor
-            }}
-          >
-            {item[sorter]}
-          </Typography>
-          <PhenoIcon name={sortIcon} color={theme.palette.accentColor} />
-          <PhenoIcon name='chevron-right' />
+          <Tooltip content={sortIconTip} placement='left'>
+            <RightSide>
+              <Typography
+                variant='subtitle1'
+                lineHeight={1}
+                css={{
+                  transform: 'translateY(1px)',
+                  color: theme.palette.accentColor
+                }}
+              >
+                {sorter === 'cohorts' ? item[sorter].length : item[sorter]}
+              </Typography>
+              <PhenoIcon name={sortIcon} color={theme.palette.accentColor} />
+            </RightSide>
+          </Tooltip>
+          <CaretRight size={28} />
+          {/* <PhenoIcon name='chevron-right' /> */}
         </RightSide>
       </Button>
     </li>

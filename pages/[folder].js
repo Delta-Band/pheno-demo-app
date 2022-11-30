@@ -6,7 +6,6 @@ import { fieldsSlice } from '../redux';
 const Folder = () => {
   const router = useRouter();
   const { folder } = router.query;
-
   const fields = useSelector(state =>
     fieldsSlice.selectors.fields(state, {
       folder,
@@ -33,7 +32,7 @@ const Folder = () => {
     }
   }
 
-  return (
+  return folder ? (
     <Layout page='folder'>
       <List>
         {fields.map(field => (
@@ -42,7 +41,9 @@ const Folder = () => {
             prefixIcon={getIconByDatType(field.type)}
             item={field}
             sorter={router.query.sorter}
-            highlight
+            highlights={decodeURIComponent(router.query.filter || '').split(
+              ','
+            )}
             onClick={() => {
               // router.push(
               //   `${field.name.toLowerCase().replace(' ', '-')}?filter=${
@@ -60,7 +61,7 @@ const Folder = () => {
         ))}
       </List>
     </Layout>
-  );
+  ) : null;
 };
 
 export default Folder;

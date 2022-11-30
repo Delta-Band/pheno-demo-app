@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
   const folders = useSelector(state =>
     fieldsSlice.selectors.folders(state, {
-      filter: router.query.filter,
+      filter: router.query.filter || '',
       sorter: router.query.sorter,
       direction: router.query.direction
     })

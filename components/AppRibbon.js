@@ -10,6 +10,8 @@ import PhenoIcon from './PhenoIcon';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { fieldsSlice } from '../redux';
+import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div({
   background: 'blue',
@@ -62,7 +64,8 @@ const buttonStyle = {
   color: '#FFF',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
+  gap: 18,
   height: '100%',
   width: '9vw',
   paddingInline: 24,
@@ -106,7 +109,6 @@ function Logo() {
         router.push({
           pathname: '/',
           query: {
-            folder: router.query.folder || '',
             filter: router.query.filter || '',
             sorter: router.query.sorter || 'participants',
             direction: router.query.direction || 'desc'
@@ -137,7 +139,7 @@ function Filter() {
       type='Typography'
       placeholder='Filter by keywords (comma separated)'
       onChange={e => handleFilterChange(e.target.value)}
-      value={router.query.filter || ''}
+      value={decodeURIComponent(router.query.filter || '')}
       css={{
         borderRadius: 20,
         border: 'none',
@@ -166,7 +168,7 @@ function SortDirection() {
   const router = useRouter();
 
   return (
-    <Tooltip content={'Reverse Order'} rounded placement='bottom'>
+    <Tooltip content={'Reverse Order'}>
       <motion.div
         animate={{
           rotateY: router.query.direction === 'asc' ? 180 : 0
@@ -196,8 +198,16 @@ function SortDirection() {
   );
 }
 
-function SortBy() {
+function Sorter() {
   const router = useRouter();
+  const totals = useSelector(state =>
+    fieldsSlice.selectors.totals(state, {
+      folder: router.query.folder,
+      filter: router.query.filter,
+      sorter: router.query.sorter,
+      direction: router.query.direction
+    })
+  );
 
   function updateURL(sorter) {
     router.push({
@@ -213,7 +223,7 @@ function SortBy() {
 
   return (
     <ButtonGroupWrapper>
-      <Tooltip content={'Sort by participants'} rounded placement='bottom'>
+      <Tooltip content={'Sort by participants'}>
         <Button
           onClick={() => {
             updateURL('participants');
@@ -232,10 +242,10 @@ function SortBy() {
             scale={1.2}
             color={router.query.sorter === 'participants' ? undefined : '#FFF'}
           />{' '}
-          <Typography css={counterStyle}>36</Typography>
+          <Typography css={counterStyle}>{totals.participants}</Typography>
         </Button>
       </Tooltip>
-      <Tooltip content={'Sort by measurements'} rounded placement='bottom'>
+      <Tooltip content={'Sort by measurements'}>
         <Button
           onClick={() => {
             updateURL('measurements');
@@ -250,10 +260,10 @@ function SortBy() {
             scale={1.2}
             color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
           />{' '}
-          <Typography css={counterStyle}>36</Typography>
+          <Typography css={counterStyle}>{totals.measurements}</Typography>
         </Button>
       </Tooltip>
-      <Tooltip content={'Sort by cohorts'} rounded placement='bottom'>
+      <Tooltip content={'Sort by cohorts'}>
         <Button
           onClick={() => {
             updateURL('cohorts');
@@ -273,7 +283,7 @@ function SortBy() {
             color={router.query.sorter === 'cohorts' ? undefined : '#FFF'}
           />
           {/* <GroupIcon size={28} /> */}
-          <Typography css={counterStyle}>36</Typography>
+          <Typography css={counterStyle}>{totals.cohorts.length}</Typography>
         </Button>
       </Tooltip>
     </ButtonGroupWrapper>
@@ -315,7 +325,7 @@ export default function AppRibbon() {
             <Filter />
           </LeftSide>
           <RightSide>
-            <SortBy />
+            <Sorter />
             <SortDirection />
           </RightSide>
         </TopRow>

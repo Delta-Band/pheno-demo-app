@@ -46,9 +46,8 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     if (!router.isReady) return;
     router.push({
-      pathname: router.route,
+      pathname: router.asPath.split('?')[0],
       query: {
-        folder: router.query.folder || '',
         filter: router.query.filter || '',
         sorter: router.query.sorter || 'participants',
         direction: router.query.direction || 'desc'
