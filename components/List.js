@@ -149,17 +149,6 @@ export function ListItem({
 }
 
 export function List({ children }) {
-  const variants = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.1
-      }
-    },
-    hidden: { opacity: 0 }
-  };
-
   return (
     <ListWrapper>
       <ul
@@ -167,9 +156,6 @@ export function List({ children }) {
           margin: 0,
           padding: 0
         }}
-        initial='hidden'
-        animate='visible'
-        variants={variants}
       >
         {children}
       </ul>

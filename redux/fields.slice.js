@@ -89,7 +89,6 @@ const fields = createSelector(
     if (args.filter) {
       const filtersRegEx = filterToRegEx(decodeURIComponent(args.filter));
       filteredFields = filteredFields.reduce((acc, field) => {
-        debugger;
         if (field.name.search(filtersRegEx) >= 0) {
           acc.push(field);
         }

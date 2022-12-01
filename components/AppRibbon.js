@@ -12,6 +12,9 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { fieldsSlice } from '../redux';
 import { useSelector } from 'react-redux';
+import { Home as HomeIcon } from '@styled-icons/boxicons-regular/Home';
+import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/RightArrowAlt';
+import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
 
 const Wrapper = styled.div({
   background: 'blue',
@@ -43,19 +46,13 @@ const ButtonGroupWrapper = styled.div({
   gap: 2
 });
 
-const Breadcrumbs = styled.div({
-  height: 60,
-  width: '100%'
-  // background: 'red'
-});
-
 const TopRow = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   height: 60,
   paddingInline: 24,
-  paddingInlineEnd: 16,
+  paddingInlineEnd: 18,
   gap: 24,
   boxSizing: 'border-box'
 });
@@ -174,7 +171,11 @@ function SortDirection() {
           rotateY: router.query.direction === 'asc' ? 180 : 0
         }}
       >
-        <IconButton
+        <Button
+          css={{
+            color: '#FFF',
+            minWidth: 'unset'
+          }}
           onClick={() => {
             router.push({
               pathname: router.route,
@@ -192,7 +193,7 @@ function SortDirection() {
           ) : (
             <SortAscIcon size={24} color='#FFFFFF' />
           )}
-        </IconButton>
+        </Button>
       </motion.div>
     </Tooltip>
   );
@@ -298,7 +299,7 @@ function AnimatedContainer({ children }) {
         height: 60
       }}
       animate={{
-        height: router.route === '/' ? 60 : 120
+        height: router.route === '/' ? 60 : 110
       }}
       transition={{
         type: 'spring',
@@ -312,6 +313,69 @@ function AnimatedContainer({ children }) {
     >
       {children}
     </motion.div>
+  );
+}
+
+function Breadcrumbs({}) {
+  const router = useRouter();
+
+  const liVariants = {
+    visible: {
+      opacity: 1
+    },
+    hidden: { opacity: 0 }
+  };
+
+  const buttonStyle = {
+    gap: 8,
+    color: '#FFF',
+    minWidth: 'unset',
+    textTransform: 'capitalize',
+    '&.Mui-disabled': {
+      color: '#FFF'
+    }
+  };
+
+  return (
+    <motion.ul
+      initial='hidden'
+      animate={router.route === '/' ? 'hidden' : 'visible'}
+      variants={{
+        visible: {
+          opacity: 1,
+          transition: {
+            when: 'beforeChildren',
+            staggerChildren: 0.1
+          }
+        },
+        hidden: { opacity: 0 }
+      }}
+      css={{
+        width: '100%',
+        color: '#FFF',
+        margin: 0,
+        paddingInline: 20,
+        listStyle: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 8
+      }}
+    >
+      <motion.li variants={liVariants}>
+        <Button css={[buttonStyle, { paddingInline: 4 }]}>
+          <HomeIcon size={28} color='#FFF' />
+        </Button>
+      </motion.li>
+      <motion.li variants={liVariants}>
+        <RightArrowIcon size={28} color='#FFF' />
+      </motion.li>
+      <motion.li variants={liVariants}>
+        <Button css={buttonStyle} disabled>
+          <FolderIcon size={26} color='#FFF' />
+          <Typography>{router.query.folder.replace('-', ' ')}</Typography>
+        </Button>
+      </motion.li>
+    </motion.ul>
   );
 }
 
