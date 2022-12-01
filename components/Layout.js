@@ -29,9 +29,9 @@ function Layout({ children, page }) {
       exit={{ x: `${direction * 100}%`, opacity: 0 }}
       css={{
         width: '100%',
-        position: 'absolute',
-        top: 0,
-        left: 0
+        height: '100%',
+        overflow: 'auto',
+        position: 'relative'
       }}
       transition={{
         type: 'spring',

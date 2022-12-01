@@ -1,6 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#21336c'
+    }
+  },
   typography: {
     // In Chinese and Japanese the characters are usually larger,
     // so a smaller fontsize may be appropriate.

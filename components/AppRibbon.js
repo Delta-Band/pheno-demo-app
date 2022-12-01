@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';

@@ -77,8 +77,16 @@ const App = ({ Component, pageProps }) => {
           <BackgroundImg>
             <BackgroundGradientMask />
             <FirstLoad />
-            <AppRibbon />
-            <div css={{ position: 'relative', width: '100vw', height: '100%' }}>
+            <div
+              css={{
+                position: 'relative',
+                width: '100vw',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <AppRibbon />
               <AnimatePresence initial={false}>
                 <Component {...pageProps} key={router.route} />
               </AnimatePresence>
