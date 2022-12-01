@@ -59,8 +59,6 @@ export function ListItem({
     hidden: { opacity: 0 }
   };
 
-  console.log('highlights', highlights);
-
   let sortIcon;
   let sortIconTip;
   switch (router.query.sorter) {

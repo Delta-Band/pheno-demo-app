@@ -8,6 +8,9 @@ const theme = createTheme({
     subtitle1: {
       fontSize: 14.5
     }
+  },
+  shadows: {
+    input: '-2px -2px 6px rgb(0 0 0 / 20%), -2px -2px 18px rgb(0 0 0 / 20%)'
   }
 });
 

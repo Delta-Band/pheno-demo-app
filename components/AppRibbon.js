@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
@@ -17,12 +17,11 @@ import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/
 import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
 
 const Wrapper = styled.div({
-  background: 'blue',
   width: '100%',
   // background:
   //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
   background:
-    'radial-gradient(87.96% 244.49% at 0 2.68%, rgb(164 182 192) 35%, rgb(115 131 141) 100%)',
+    '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
   boxSizing: 'border-box',
   zIndex: 1,
   position: 'relative'
@@ -38,12 +37,6 @@ const RightSide = styled.div({
   display: 'flex',
   gap: 16,
   alignItems: 'center'
-});
-
-const ButtonGroupWrapper = styled.div({
-  display: 'flex',
-  height: 40,
-  gap: 2
 });
 
 const TopRow = styled.div({
@@ -118,6 +111,7 @@ function Logo() {
 
 function Filter() {
   const router = useRouter();
+  const theme = useTheme();
 
   function handleFilterChange(value) {
     router.push({
@@ -149,6 +143,7 @@ function Filter() {
         outline: 'none',
         boxSizing: 'border-box',
         color: '#000',
+        boxShadow: theme.shadows.input,
         '&::placeholder': {
           color: 'rgba(0, 0, 0, 0.2)',
           fontStyle: 'italic'
@@ -189,9 +184,9 @@ function SortDirection() {
           }}
         >
           {router.query.direction === 'desc' ? (
-            <SortDescIcon size={24} color='#FFFFFF' />
+            <SortDescIcon size={28} color='#FFFFFF' />
           ) : (
-            <SortAscIcon size={24} color='#FFFFFF' />
+            <SortAscIcon size={28} color='#FFFFFF' />
           )}
         </Button>
       </motion.div>
@@ -201,6 +196,7 @@ function SortDirection() {
 
 function Sorter() {
   const router = useRouter();
+  const theme = useTheme();
   const totals = useSelector(state =>
     fieldsSlice.selectors.totals(state, {
       folder: router.query.folder,
@@ -222,6 +218,15 @@ function Sorter() {
     });
   }
 
+  const ButtonGroupWrapper = styled.div({
+    display: 'flex',
+    height: 40,
+    gap: 2,
+    borderRadius: 999,
+    overflow: 'hidden',
+    boxShadow: theme.shadows.input
+  });
+
   return (
     <ButtonGroupWrapper>
       <Tooltip content={'Sort by participants'}>
@@ -231,11 +236,7 @@ function Sorter() {
           }}
           css={[
             buttonStyle,
-            router.query.sorter === 'participants' ? selected : {},
-            {
-              borderStartStartRadius: 999,
-              borderEndStartRadius: 999
-            }
+            router.query.sorter === 'participants' ? selected : {}
           ]}
         >
           <PhenoIcon
@@ -269,14 +270,7 @@ function Sorter() {
           onClick={() => {
             updateURL('cohorts');
           }}
-          css={[
-            buttonStyle,
-            router.query.sorter === 'cohorts' ? selected : {},
-            {
-              borderEndEndRadius: 999,
-              borderStartEndRadius: 999
-            }
-          ]}
+          css={[buttonStyle, router.query.sorter === 'cohorts' ? selected : {}]}
         >
           <PhenoIcon
             name='group'
@@ -370,9 +364,9 @@ function Breadcrumbs({}) {
         <RightArrowIcon size={28} color='#FFF' />
       </motion.li>
       <motion.li variants={liVariants}>
-        <Button css={buttonStyle} disabled>
+        <Button css={buttonStyle} disabled={router.route === '/[folder]'}>
           <FolderIcon size={26} color='#FFF' />
-          <Typography>{router.query.folder.replace('-', ' ')}</Typography>
+          <Typography>{router.query.folder?.replace('-', ' ')}</Typography>
         </Button>
       </motion.li>
     </motion.ul>
