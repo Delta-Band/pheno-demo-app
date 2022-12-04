@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { fieldsSlice, routerSlice } from '../redux';
+import { fieldsSlice, routerSlice, foldersSlice } from '../redux';
 
 export default function FirstLoad() {
   const dispatch = useDispatch();
@@ -10,6 +10,7 @@ export default function FirstLoad() {
 
   useEffect(() => {
     dispatch(fieldsSlice.actions.setData());
+    dispatch(foldersSlice.actions.setData());
     router.events.on('routeChangeStart', url => {
       dispatch(routerSlice.actions.setPrevRoute(prevRoute.current));
     });

@@ -8,7 +8,7 @@ import uniq from 'lodash/uniq';
 const initialState = { working: true, fields: [] };
 
 const setData = createAsyncThunk('fields/fetch', async () => {
-  const resp = await fetch('/api');
+  const resp = await fetch('/api/fields');
   const data = resp.json();
   return data;
 });
@@ -72,15 +72,20 @@ function sortEm(items, sorter, direction) {
   });
 }
 
+const field = createSelector(
+  [state => state.fields.fields, (state, id) => id],
+  (fields, id) => {
+    return fields.find(fld => fld.id === id);
+  }
+);
+
 const fields = createSelector(
   [state => state.fields.fields, (state, args) => args],
   (fields, args) => {
     let filteredFields = fields;
-    if (args.folder) {
+    if (args.folderID) {
       filteredFields = filteredFields.reduce((acc, field) => {
-        if (
-          field.originCategory.toLowerCase().replace(' ', '-') === args.folder
-        ) {
+        if (field.folderId === args.folderID) {
           acc.push(field);
         }
         return acc;
@@ -103,31 +108,40 @@ const fields = createSelector(
 );
 
 const folders = createSelector(
-  [(state, args) => fields(state, args), (state, args) => args],
-  (fields, args) => {
+  [
+    (state, args) => state.folders.folders,
+    (state, args) => fields(state, args),
+    (state, args) => args
+  ],
+  (folders, fields, args) => {
     const foldersObject = fields.reduce((folders, field) => {
-      folders[field.originCategory] = {
-        participants: folders[field.originCategory]?.participants
-          ? folders[field.originCategory].participants + field.participants
+      folders[field.folderId] = {
+        participants: folders[field.folderId]?.participants
+          ? folders[field.folderId].participants + field.participants
           : field.participants,
-        measurements: folders[field.originCategory]?.measurements
-          ? folders[field.originCategory].measurements + field.measurements
+        measurements: folders[field.folderId]?.measurements
+          ? folders[field.folderId].measurements + field.measurements
           : field.measurements,
-        cohorts: folders[field.originCategory]?.cohorts
-          ? uniq(folders[field.originCategory].cohorts.concat(field.cohorts))
+        cohorts: folders[field.folderId]?.cohorts
+          ? uniq(folders[field.folderId].cohorts.concat(field.cohorts))
           : field.cohorts
       };
       return folders;
     }, {});
     const foldersArray = [];
-    Object.keys(foldersObject).forEach(key => {
-      foldersArray.push({
-        name: key,
-        participants: foldersObject[key].participants,
-        measurements: foldersObject[key].measurements,
-        cohorts: foldersObject[key].cohorts
-      });
-    });
+    Object.keys(foldersObject).reduce((acc, key) => {
+      const folder = folders.find(fldr => fldr.id === key);
+      if (folder) {
+        foldersArray.push({
+          id: key,
+          name: folder.name,
+          participants: foldersObject[key].participants,
+          measurements: foldersObject[key].measurements,
+          cohorts: foldersObject[key].cohorts
+        });
+      }
+      return acc;
+    }, []);
     const sorted = sortEm(foldersArray, args.sorter, args.direction);
     return sorted;
   }
@@ -155,7 +169,8 @@ const totals = createSelector(
 fieldsSlice.selectors = {
   folders,
   fields,
-  totals
+  totals,
+  field
 };
 
 Object.assign(fieldsSlice.actions, {

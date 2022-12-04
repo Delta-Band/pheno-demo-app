@@ -4,12 +4,11 @@ import styled from '@emotion/styled';
 import { Typography, Button } from '@mui/material';
 import { PhenoIcon } from '../components';
 import { useTheme } from '@mui/material/styles';
-
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Highlighter from 'react-highlight-words';
 import { ChevronRight as CaretRight } from '@styled-icons/boxicons-solid/ChevronRight';
 import Tooltip from './Tooltip';
+import FormattedNumber from './FormattedNumber';
 
 const ListWrapper = styled.div({
   width: '100%',
@@ -133,7 +132,11 @@ export function ListItem({
                   color: theme.palette.accentColor
                 }}
               >
-                {sorter === 'cohorts' ? item[sorter].length : item[sorter]}
+                <FormattedNumber
+                  value={
+                    sorter === 'cohorts' ? item[sorter].length : item[sorter]
+                  }
+                />
               </Typography>
               <PhenoIcon name={sortIcon} color={theme.palette.accentColor} />
             </RightSide>

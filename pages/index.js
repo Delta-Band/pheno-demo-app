@@ -1,4 +1,5 @@
 import { fieldsSlice } from '../redux';
+import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { List, ListItem, Layout } from '../components';
@@ -14,27 +15,34 @@ export default function Home() {
   );
 
   return (
-    <Layout page='root'>
-      <List>
-        {folders.map(folder => (
-          <ListItem
-            key={folder.name}
-            prefixIcon='folder'
-            item={folder}
-            sorter={router.query.sorter}
-            onClick={() => {
-              router.push({
-                pathname: folder.name.toLowerCase().replace(' ', '-'),
-                query: {
-                  filter: router.query.filter,
-                  sorter: router.query.sorter,
-                  direction: router.query.direction
-                }
-              });
-            }}
-          />
-        ))}
-      </List>
-    </Layout>
+    <>
+      <Head>
+        <title>Pheno Demo App</title>
+      </Head>
+      <Layout page='root' paddingTop={60}>
+        <List>
+          {folders.map(folder => (
+            <ListItem
+              key={folder.name}
+              prefixIcon='folder'
+              item={folder}
+              sorter={router.query.sorter}
+              onClick={() => {
+                router.push({
+                  pathname: `/folder/[folderID]`,
+                  query: {
+                    folderID: folder.id,
+                    filter: router.query.filter,
+                    sorter: router.query.sorter,
+                    direction: router.query.direction
+                  },
+                  shallow: true
+                });
+              }}
+            />
+          ))}
+        </List>
+      </Layout>
+    </>
   );
 }

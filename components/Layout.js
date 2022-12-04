@@ -2,20 +2,27 @@
 import { jsx } from '@emotion/react';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-function Layout({ children, page }) {
+function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
+  const router = useRouter();
 
   let direction;
 
   switch (true) {
-    case page === 'root' && prevRoute === '/[folder]':
-    case page === 'root' && prevRoute === '/':
-      direction = -1;
-      break;
     case page === 'folder' && prevRoute === '/':
-    case page === 'folder' && prevRoute === '/[folder]':
+    case page === 'field' && prevRoute === '/folder/[folderID]':
+    case page === 'field' && prevRoute === '/folder/[folderID]/field/[fieldID]':
       direction = 1;
+      break;
+    case page === 'folder' &&
+      prevRoute === '/folder/[folderID]/field/[fieldID]':
+    case page === 'folder' && prevRoute === '/folder/[folderID]':
+    case page === 'root':
+    case page === 'folder' &&
+      router.route === '/folder/[folderID]/field/[fieldID]':
+      direction = -1;
       break;
     default:
       direction = 0;
@@ -31,7 +38,11 @@ function Layout({ children, page }) {
         width: '100%',
         height: '100%',
         overflow: 'auto',
-        position: 'relative'
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        paddingTop,
+        boxSizing: 'border-box'
       }}
       transition={{
         type: 'spring',

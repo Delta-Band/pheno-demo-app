@@ -1,13 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
+import Head from 'next/head';
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import { List, ListItem, Layout } from '../components';
+import { List, ListItem, Layout } from '../../../components';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { fieldsSlice } from '../redux';
+import { fieldsSlice, foldersSlice } from '../../../redux';
 import { Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { getIconByDatType } from '../../../shared/utils';
 
 function DataInfoToggle({ showInfo, setShowInfo }) {
   const theme = useTheme();
@@ -56,63 +58,54 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
 const FolderPage = () => {
   const router = useRouter();
   const [showInfo, setShowInfo] = useState(false);
-  const { folder } = router.query;
+  const { folderID } = router.query;
   const fields = useSelector(state =>
     fieldsSlice.selectors.fields(state, {
-      folder,
+      folderID,
       filter: router.query.filter,
       sorter: router.query.sorter,
       direction: router.query.direction
     })
   );
-
-  function getIconByDatType(type) {
-    switch (type) {
-      case 'time series':
-        return 'timer';
-      case 'tabular':
-        return 'table';
-      case 'image':
-        return 'image';
-      case 'molecular':
-        return 'molecule';
-      case 'health records':
-        return 'health-book';
-      default:
-        return null;
-    }
-  }
+  console.log('fields', fields);
+  const folder = useSelector(state =>
+    foldersSlice.selectors.folderById(state, folderID)
+  );
 
   return folder ? (
-    <Layout page='folder'>
-      <List>
-        {fields.map(field => (
-          <ListItem
-            key={field.name}
-            prefixIcon={getIconByDatType(field.type)}
-            item={field}
-            sorter={router.query.sorter}
-            highlights={decodeURIComponent(router.query.filter || '').split(
-              ','
-            )}
-            onClick={() => {
-              // router.push(
-              //   `${field.name.toLowerCase().replace(' ', '-')}?filter=${
-              //     router.query.filter
-              //   }&sorter=${router.query.sorter}&direction=${
-              //     router.query.direction
-              //   }`,
-              //   undefined,
-              //   {
-              //     shallow: true
-              //   }
-              // );
-            }}
-          />
-        ))}
-      </List>
-      <DataInfoToggle showInfo={showInfo} setShowInfo={setShowInfo} />
-    </Layout>
+    <>
+      <Head>
+        <title>Pheno Demo App</title>
+      </Head>
+      <Layout page='folder' paddingTop={110}>
+        <List>
+          {fields.map(field => (
+            <ListItem
+              key={field.name}
+              prefixIcon={getIconByDatType(field.type)}
+              item={field}
+              sorter={router.query.sorter}
+              highlights={decodeURIComponent(router.query.filter || '').split(
+                ','
+              )}
+              onClick={() => {
+                router.push({
+                  pathname: `/folder/[folderID]/field/[fieldID]`,
+                  query: {
+                    folderID: folderID,
+                    fieldID: field.id,
+                    filter: router.query.filter,
+                    sorter: router.query.sorter,
+                    direction: router.query.direction
+                  }
+                });
+              }}
+            />
+          ))}
+        </List>
+        <DataInfoToggle showInfo={showInfo} setShowInfo={setShowInfo} />
+      </Layout>
+    </>
   ) : null;
 };
 

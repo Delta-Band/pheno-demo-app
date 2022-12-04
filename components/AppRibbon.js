@@ -8,12 +8,14 @@ import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
-import { fieldsSlice } from '../redux';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fieldsSlice, foldersSlice } from '../redux';
 import { useSelector } from 'react-redux';
 import { Home as HomeIcon } from '@styled-icons/boxicons-regular/Home';
 import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/RightArrowAlt';
 import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
+import FormattedNumber from './FormattedNumber';
+import { getIconByDatType } from '../shared/utils';
 
 const Wrapper = styled.div({
   width: '100%',
@@ -90,7 +92,7 @@ function Logo() {
   return (
     <img
       alt='logo'
-      src='logo.svg'
+      src='/logo.svg'
       css={{
         cursor: 'pointer'
       }}
@@ -243,7 +245,9 @@ function Sorter() {
             scale={1.2}
             color={router.query.sorter === 'participants' ? undefined : '#FFF'}
           />{' '}
-          <Typography css={counterStyle}>{totals.participants}</Typography>
+          <Typography css={counterStyle}>
+            <FormattedNumber value={totals.participants} />
+          </Typography>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by measurements'}>
@@ -261,7 +265,9 @@ function Sorter() {
             scale={1.2}
             color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
           />{' '}
-          <Typography css={counterStyle}>{totals.measurements}</Typography>
+          <Typography css={counterStyle}>
+            <FormattedNumber value={totals.measurements} />
+          </Typography>
         </Button>
       </Tooltip>
       <Tooltip content={'Sort by cohorts'}>
@@ -277,7 +283,9 @@ function Sorter() {
             color={router.query.sorter === 'cohorts' ? undefined : '#FFF'}
           />
           {/* <GroupIcon size={28} /> */}
-          <Typography css={counterStyle}>{totals.cohorts.length}</Typography>
+          <Typography css={counterStyle}>
+            <FormattedNumber value={totals.cohorts.length} />
+          </Typography>
         </Button>
       </Tooltip>
     </ButtonGroupWrapper>
@@ -311,6 +319,12 @@ function AnimatedContainer({ children }) {
 
 function Breadcrumbs({}) {
   const router = useRouter();
+  const field = useSelector(state =>
+    fieldsSlice.selectors.field(state, router.query.fieldID)
+  );
+  const folder = useSelector(state =>
+    foldersSlice.selectors.folderById(state, router.query.folderID)
+  );
 
   const liVariants = {
     visible: {
@@ -323,26 +337,14 @@ function Breadcrumbs({}) {
     gap: 8,
     color: '#FFF',
     minWidth: 'unset',
-    textTransform: 'capitalize',
+    textTransform: 'none',
     '&.Mui-disabled': {
       color: '#FFF'
     }
   };
 
   return (
-    <motion.ul
-      initial='hidden'
-      animate={router.route === '/' ? 'hidden' : 'visible'}
-      variants={{
-        visible: {
-          opacity: 1,
-          transition: {
-            when: 'beforeChildren',
-            staggerChildren: 0.1
-          }
-        },
-        hidden: { opacity: 0 }
-      }}
+    <ul
       css={{
         width: '100%',
         color: '#FFF',
@@ -354,21 +356,76 @@ function Breadcrumbs({}) {
         gap: 8
       }}
     >
-      <motion.li variants={liVariants}>
-        <Button css={[buttonStyle, { paddingInline: 4 }]}>
+      <li>
+        <Button
+          css={[buttonStyle, { paddingInline: 4 }]}
+          onClick={() => {
+            router.push({
+              pathname: '/',
+              query: {
+                filter: router.query.filter || '',
+                sorter: router.query.sorter || 'participants',
+                direction: router.query.direction || 'desc'
+              }
+            });
+          }}
+        >
           <HomeIcon size={28} color='#FFF' />
         </Button>
-      </motion.li>
-      <motion.li variants={liVariants}>
+      </li>
+      <li>
         <RightArrowIcon size={28} color='#FFF' />
-      </motion.li>
-      <motion.li variants={liVariants}>
-        <Button css={buttonStyle} disabled={router.route === '/[folder]'}>
+      </li>
+      <li>
+        <Button
+          css={buttonStyle}
+          disabled={router.route === '/[folder]'}
+          onClick={() => {
+            router.push({
+              pathname: '/folder/[folderID]',
+              query: {
+                folderID: router.query.folderID,
+                filter: router.query.filter || '',
+                sorter: router.query.sorter || 'participants',
+                direction: router.query.direction || 'desc'
+              }
+            });
+          }}
+        >
           <FolderIcon size={26} color='#FFF' />
-          <Typography>{router.query.folder?.replace('-', ' ')}</Typography>
+          <Typography>{folder?.name}</Typography>
         </Button>
-      </motion.li>
-    </motion.ul>
+      </li>
+      <AnimatePresence>
+        {field ? (
+          <motion.li
+            key='arrow'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <RightArrowIcon size={28} color='#FFF' />
+          </motion.li>
+        ) : null}
+        {field ? (
+          <motion.li
+            key='name'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
+              <PhenoIcon
+                name={getIconByDatType(field.type)}
+                color='#FFF'
+                scale={1.15}
+              />
+              <Typography>{field.name}</Typography>
+            </Button>
+          </motion.li>
+        ) : null}
+      </AnimatePresence>
+    </ul>
   );
 }
 

@@ -1,50 +1,37 @@
 [
   {
-    "name": "Date F1 first reported (nonorganic sleep disorders)",
-    "type": "time series",
-    "participants": 512,
-    "measurements": 1100,
-    "cohorts": ["cohort a", "cohort b"],
-    "originCategory": "ABI"
-  },
-  {
-    "name": "Date F2 first reported (nonorganic sleep disorders)",
-    "type": "tabular",
-    "participants": 312,
-    "measurements": 500,
-    "cohorts": ["cohort c"],
-    "originCategory": "ABI"
-  },
-  {
-    "name": "Date F3 first reported (nonorganic sleep disorders)",
-    "type": "image",
-    "participants": 312,
-    "measurements": 500,
-    "cohorts": ["cohort a", "cohort c"],
-    "originCategory": "ABI"
-  },
-  {
-    "name": "Date F4 first reported (nonorganic sleep disorders)",
-    "type": "molecular",
-    "participants": 312,
-    "measurements": 500,
-    "cohorts": ["cohort c"],
-    "originCategory": "ABI"
-  },
-  {
-    "name": "Date F5 first reported (nonorganic sleep disorders)",
-    "type": "health records",
-    "participants": 312,
-    "measurements": 500,
-    "cohorts": ["cohort a", "cohort b", "cohort c"],
-    "originCategory": "ABI"
-  },
-  {
-    "name": "Field Name",
-    "type": "health records",
-    "participants": 412,
-    "measurements": 412,
-    "cohorts": ["cohort a", "cohort d"],
-    "originCategory": "Sleep Lab"
+    "id": "120-001",
+    "type": "Time Series",
+    "name": "ConnectionID",
+    "description": "CGM device connection id",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": {
+        "type": "image / histogram",
+        "histoData": [
+          {
+            "title": "histo 1",
+            "x-label": "string",
+            "values": [
+              ["x", "y"],
+              ["x", "y"]
+            ]
+          },
+          {
+            "title": "histo 2",
+            "x-label": "string",
+            "values": [
+              ["x", "y"],
+              ["x", "y"]
+            ]
+          }
+        ],
+        "imageUrl": "string",
+        "imageTitle": "string"
+      }
+    }
   }
 ]
