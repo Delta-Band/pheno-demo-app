@@ -67,7 +67,6 @@ const FolderPage = () => {
       direction: router.query.direction
     })
   );
-  console.log('fields', fields);
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, folderID)
   );

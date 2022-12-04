@@ -118,7 +118,7 @@ function Filter() {
     router.push({
       pathname: router.route,
       query: {
-        folder: router.query.folder || '',
+        folderID: router.query.folderID || '',
         filter: encodeURIComponent(value),
         sorter: router.query.sorter || 'participants',
         direction: router.query.direction || 'desc'
@@ -128,6 +128,7 @@ function Filter() {
 
   return (
     <input
+      disabled={router.query.fieldID}
       type='Typography'
       placeholder='Filter by keywords (comma separated)'
       onChange={e => handleFilterChange(e.target.value)}
