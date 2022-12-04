@@ -6,11 +6,11 @@ const nextConfig = {
   reactStrictMode: false,
   async redirects() {
     return [
-      {
-        source: '/',
-        destination: '/?filter=&sorter=participants&direction=desc',
-        permanent: true
-      }
+      // {
+      //   source: '/',
+      //   destination: '/?filter=&sorter=participants&direction=desc',
+      //   permanent: true
+      // }
     ];
   }
 };

@@ -45,6 +45,18 @@ const App = ({ Component, pageProps }) => {
   //   });
   // }, []);
 
+  useEffect(() => {
+    if (!router.isReady) return;
+    router.push({
+      pathname: router.asPath.split('?')[0],
+      query: {
+        filter: router.query.filter || '',
+        sorter: router.query.sorter || 'participants',
+        direction: router.query.direction || 'desc'
+      }
+    });
+  }, [router.isReady]);
+
   return (
     <>
       <Head>
