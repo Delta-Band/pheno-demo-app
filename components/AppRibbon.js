@@ -125,14 +125,21 @@ function Filter() {
       }
     });
   }
-
+  const disabled = !['/', '/folder/[folderID]'].includes(router.route);
   return (
-    <input
-      disabled={router.query.fieldID}
+    <motion.input
       type='Typography'
       placeholder='Filter by keywords (comma separated)'
       onChange={e => handleFilterChange(e.target.value)}
       value={decodeURIComponent(router.query.filter || '')}
+      animate={{
+        opacity: disabled ? 0.3 : 1
+      }}
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 30
+      }}
       css={{
         borderRadius: 20,
         border: 'none',
@@ -146,6 +153,7 @@ function Filter() {
         boxSizing: 'border-box',
         color: '#000',
         boxShadow: theme.shadows.input,
+        pointerEvents: disabled ? 'none' : 'all',
         '&::placeholder': {
           color: 'rgba(0, 0, 0, 0.2)',
           fontStyle: 'italic'

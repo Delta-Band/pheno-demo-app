@@ -45,20 +45,6 @@ const App = ({ Component, pageProps }) => {
   //   });
   // }, []);
 
-  useEffect(() => {
-    if (!router.isReady) return;
-    // debugger;
-    // router.push({
-    //   pathname: router.route,
-    //   query: {
-    //     folder: router.query.folder || '',
-    //     filter: router.query.filter || '',
-    //     sorter: router.query.sorter || 'participants',
-    //     direction: router.query.direction || 'desc'
-    //   }
-    // });
-  }, [router.isReady]);
-
   return (
     <>
       <Head>
