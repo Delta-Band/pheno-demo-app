@@ -46,6 +46,7 @@ export default function PhenoIcon({
 }) {
   return name ? (
     <div
+      className='pheno-icon'
       css={{
         transform: `scale(${scale})`,
         display: 'flex',
