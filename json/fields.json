@@ -9,29 +9,789 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
-      "infoGraphics": {
-        "type": "image / histogram",
-        "histoData": [
-          {
-            "title": "histo 1",
-            "x-label": "string",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
             "values": [
-              ["x", "y"],
-              ["x", "y"]
-            ]
-          },
-          {
-            "title": "histo 2",
-            "x-label": "string",
-            "values": [
-              ["x", "y"],
-              ["x", "y"]
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
             ]
           }
-        ],
-        "imageUrl": "string",
-        "imageTitle": "string"
-      }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-002",
+    "type": "Time Series",
+    "name": "Date",
+    "description": "cgm device datetime column for temporal values",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://www.researchgate.net/publication/265473770/figure/fig12/AS:669688497446938@1536677588992/The-darker-vessel-is-a-vein-the-brighter-an-artery-doi101371-journalpone0102034g003.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-003",
+    "type": "Time Series",
+    "name": "Glucose",
+    "description": "cgm temporal glucose values",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-004",
+    "type": "Tabular",
+    "name": "1st quantile",
+    "description": "First quantile of all glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-005",
+    "type": "Tabular",
+    "name": "3rd quantile",
+    "description": "Third quantile of all glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-006",
+    "type": "Tabular",
+    "name": "% above value",
+    "description": "Percent of glucose measures that were larger than a specified value.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-007",
+    "type": "Tabular",
+    "name": "% below value",
+    "description": "Percent of glucose measures that were lower than a specified value.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-008",
+    "type": "Tabular",
+    "name": "% in range",
+    "description": "Percent of glucose measures that were in a specified range of glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-009",
+    "type": "Tabular",
+    "name": "ADRR",
+    "description": "Average daily risk range (ADRR) is a variability measure that was designed to be sensitive to both hyperglycemia and hypoglycemia. The ADRR is composed of the HBGI and LGBI.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-010",
+    "type": "Tabular",
+    "name": "AUC",
+    "description": "Hourly average AUC. This measure integrates, to some extent, the severity of a high or low glucose along with the duration of the abnormality. It\u2019s calculated for each hour in the CGM, then averaged for each day over a 24-hour period, then once again averaged between all days to receive a single AUC measure.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-011",
+    "type": "Tabular",
+    "name": "COGI",
+    "description": "Continuous Glucose Monitoring Index (COGI). COGI uses three measures of the CGM - time in range, time below range and glucose variability (GV) and averages them using a weighted mean, usually with weights of 50%, 35% and 15% accordingly.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-012",
+    "type": "Tabular",
+    "name": "Conga",
+    "description": "Continuous Overall Net Glycemic Action (CONGA). This measure assesses intra-day glycemic variability, by calculating the standard deviation of differences in glucose measures taken n hours apart.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-013",
+    "type": "Tabular",
+    "name": "CV",
+    "description": "Coefficient of variation of all glucose values.\n",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-014",
+    "type": "Tabular",
+    "name": "eA1C",
+    "description": "A linear transformation of the mean glucose value, meant to estimate the HbA1C blood test. Calculated by the following formula: (46.7 + mean(Glucose))/28.7.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-015",
+    "type": "Tabular",
+    "name": "IQR",
+    "description": "nterquartile range (IQR), calculated as the distance between the 25th percentile and the 75th percentile of the glucose values.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": ["10k", "Cardio"],
+    "folderId": "1",
+    "meta": {
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data accumulation",
+            "xLabel": "Date",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "histogram",
+          "histoData": {
+            "title": "Data distribution",
+            "xLabel": "Values [units]",
+            "values": [
+              [0, 3],
+              [1, 2],
+              [2, 5],
+              [3, 4],
+              [4, 4],
+              [5, 3],
+              [6, 1],
+              [7, 0]
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "imageUrl": "../field_images/123.jpg",
+          "imageTitle": "Example data plot"
+        }
+      ]
     }
   }
 ]

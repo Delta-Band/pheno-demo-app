@@ -1,6 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+const themeWithCustomBreakpoints = createTheme({
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 940
+    }
+  }
+});
+
+const theme = createTheme(themeWithCustomBreakpoints, {
   palette: {
     primary: {
       main: '#21336c'
@@ -9,7 +18,12 @@ const theme = createTheme({
   typography: {
     // In Chinese and Japanese the characters are usually larger,
     // so a smaller fontsize may be appropriate.
-    fontSize: 14,
+    body1: {
+      fontSize: 14,
+      [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
+        fontSize: 16
+      }
+    },
     subtitle1: {
       fontSize: 14.5
     }

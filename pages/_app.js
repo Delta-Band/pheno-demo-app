@@ -11,7 +11,29 @@ import styled from '@emotion/styled';
 import { globalStyles } from '../shared/styles';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
-import { IntlProvider } from 'react-intl'; // locale-data for en
+import { IntlProvider } from 'react-intl';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+); // locale-data for en
 
 const BackgroundImg = styled.div({
   position: 'fixed',

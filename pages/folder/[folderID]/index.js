@@ -7,7 +7,7 @@ import { List, ListItem, Layout } from '../../../components';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { fieldsSlice, foldersSlice } from '../../../redux';
-import { Button } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
 
@@ -37,7 +37,12 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
     <Wrapper>
       <Button
         onClick={() => setShowInfo(false)}
-        css={buttonStyle}
+        css={[
+          buttonStyle,
+          {
+            background: showInfo ? '#FFF' : undefined
+          }
+        ]}
         variant={showInfo ? 'text' : 'contained'}
         size='large'
       >
@@ -45,7 +50,12 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
       </Button>
       <Button
         onClick={() => setShowInfo(true)}
-        css={buttonStyle}
+        css={[
+          buttonStyle,
+          {
+            background: showInfo ? undefined : '#FFF'
+          }
+        ]}
         variant={showInfo ? 'contained' : 'text'}
         size='large'
       >
@@ -57,6 +67,8 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
 
 const FolderPage = () => {
   const router = useRouter();
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
   const fields = useSelector(state =>
@@ -76,7 +88,7 @@ const FolderPage = () => {
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='folder' paddingTop={110}>
+      <Layout page='folder' paddingTop={upTablet ? 110 : 224}>
         <List>
           {fields.map(field => (
             <ListItem

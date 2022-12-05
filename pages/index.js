@@ -3,8 +3,12 @@ import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { List, ListItem, Layout } from '../components';
+import { useTheme } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 
 export default function Home() {
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const router = useRouter();
   const folders = useSelector(state =>
     fieldsSlice.selectors.folders(state, {
@@ -19,7 +23,7 @@ export default function Home() {
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='root' paddingTop={60}>
+      <Layout page='root' paddingTop={upTablet ? 60 : 170}>
         <List>
           {folders.map(folder => (
             <ListItem

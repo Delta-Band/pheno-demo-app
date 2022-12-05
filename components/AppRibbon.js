@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useTheme } from '@mui/material/styles';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, useMediaQuery } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';
@@ -40,17 +40,6 @@ const RightSide = styled.div({
   alignItems: 'center'
 });
 
-const TopRow = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  height: 60,
-  paddingInline: 24,
-  paddingInlineEnd: 18,
-  gap: 24,
-  boxSizing: 'border-box'
-});
-
 const buttonStyle = {
   color: '#FFF',
   display: 'flex',
@@ -58,11 +47,10 @@ const buttonStyle = {
   justifyContent: 'center',
   gap: 18,
   height: '100%',
-  width: '9vw',
+  width: '100vw',
   paddingInline: 24,
   borderRadius: 0,
-  minWidth: 'min-content',
-  maxWidth: 200,
+  // minWidth: 'min-content',
   boxSizing: 'border-box',
   background: 'rgba(255, 255, 255, 0.1)',
   '&:hover': {
@@ -140,18 +128,18 @@ function Filter() {
         stiffness: 260,
         damping: 30
       }}
-      css={{
+      css={theme => ({
         borderRadius: 20,
         border: 'none',
         height: 40,
         width: '100%',
-        maxWidth: 543,
         paddingInline: 20,
         fontFamily: 'Roboto',
         fontSize: 18,
         outline: 'none',
         boxSizing: 'border-box',
         color: '#000',
+        background: '#FFF',
         boxShadow: theme.shadows.input,
         pointerEvents: disabled ? 'none' : 'all',
         '&::placeholder': {
@@ -160,8 +148,11 @@ function Filter() {
         },
         '&::focus': {
           border: 'none'
+        },
+        [theme.breakpoints.up('tablet')]: {
+          maxWidth: 543
         }
-      }}
+      })}
     />
   );
 }
@@ -179,13 +170,18 @@ function SortDirection() {
         <Button
           css={{
             color: '#FFF',
-            minWidth: 'unset'
+            minWidth: 'unset',
+            opacity:
+              router.route === '/folder/[folderID]/field/[fieldID]' ? 0.3 : 1,
+            pointerEvents:
+              router.route === '/folder/[folderID]/field/[fieldID]'
+                ? 'none'
+                : 'all'
           }}
           onClick={() => {
             router.push({
-              pathname: router.route,
+              pathname: router.asPath.split('?')[0],
               query: {
-                folder: router.query.folder || '',
                 filter: router.query.filter || '',
                 sorter: router.query.sorter || 'participants',
                 direction: router.query.direction === 'desc' ? 'asc' : 'desc'
@@ -218,9 +214,8 @@ function Sorter() {
 
   function updateURL(sorter) {
     router.push({
-      pathname: router.route,
+      pathname: router.asPath.split('?')[0],
       query: {
-        folder: router.query.folder || '',
         filter: router.query.filter || '',
         sorter,
         direction: router.query.direction || 'desc'
@@ -234,7 +229,15 @@ function Sorter() {
     gap: 2,
     borderRadius: 999,
     overflow: 'hidden',
-    boxShadow: theme.shadows.input
+    boxShadow: theme.shadows.input,
+    width: '100%',
+    opacity: router.route === '/folder/[folderID]/field/[fieldID]' ? 0.3 : 1,
+    pointerEvents:
+      router.route === '/folder/[folderID]/field/[fieldID]' ? 'none' : 'all',
+    [theme.breakpoints.up('tablet')]: {
+      width: '36vw',
+      maxWidth: 495
+    }
   });
 
   return (
@@ -301,15 +304,21 @@ function Sorter() {
   );
 }
 
-function AnimatedContainer({ children }) {
+function AnimatedContainer({ children, upTablet }) {
   const router = useRouter();
   return (
     <motion.div
       initial={{
-        height: 60
+        height: upTablet ? 60 : 170
       }}
       animate={{
-        height: router.route === '/' ? 60 : 110
+        height: upTablet
+          ? router.route === '/'
+            ? 60
+            : 110
+          : router.route === '/'
+          ? 170
+          : 224
       }}
       transition={{
         type: 'spring',
@@ -326,7 +335,7 @@ function AnimatedContainer({ children }) {
   );
 }
 
-function Breadcrumbs({}) {
+function Breadcrumbs({ upTablet }) {
   const router = useRouter();
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
@@ -352,19 +361,19 @@ function Breadcrumbs({}) {
     }
   };
 
+  const BreadCrumbsWrapper = styled.ul({
+    width: '100%',
+    color: '#FFF',
+    margin: 0,
+    paddingInline: 20,
+    listStyle: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8
+  });
+
   return (
-    <ul
-      css={{
-        width: '100%',
-        color: '#FFF',
-        margin: 0,
-        paddingInline: 20,
-        listStyle: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        gap: 8
-      }}
-    >
+    <BreadCrumbsWrapper>
       <li>
         <Button
           css={[buttonStyle, { paddingInline: 4 }]}
@@ -434,25 +443,65 @@ function Breadcrumbs({}) {
           </motion.li>
         ) : null}
       </AnimatePresence>
-    </ul>
+    </BreadCrumbsWrapper>
   );
 }
 
 export default function AppRibbon() {
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+
+  const FirstRow = styled.div({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 60,
+    paddingInline: 24,
+    gap: 24,
+    boxSizing: 'border-box',
+    [theme.breakpoints.up('tablet')]: {
+      paddingInlineEnd: 18
+    }
+  });
+
+  const SecondRow = styled.div({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingInlineStart: 24,
+    paddingInlineEnd: 24,
+    gap: 24,
+    boxSizing: 'border-box',
+    marginBottom: 16
+  });
+
   return (
     <Wrapper>
-      <AnimatedContainer>
-        <TopRow>
+      <AnimatedContainer upTablet={upTablet}>
+        <FirstRow>
           <LeftSide>
             <Logo />
-            <Filter />
+            {upTablet ? <Filter /> : null}
           </LeftSide>
-          <RightSide>
-            <Sorter />
-            <SortDirection />
-          </RightSide>
-        </TopRow>
-        <Breadcrumbs />
+          {upTablet ? (
+            <RightSide>
+              <Sorter />
+              <SortDirection />
+            </RightSide>
+          ) : null}
+        </FirstRow>
+        {!upTablet ? (
+          <>
+            <SecondRow>
+              <Filter />
+            </SecondRow>
+            <SecondRow>
+              <Sorter />
+              {/* <SortDirection /> */}
+            </SecondRow>
+          </>
+        ) : null}
+        <Breadcrumbs upTablet={upTablet} />
       </AnimatedContainer>
     </Wrapper>
   );
