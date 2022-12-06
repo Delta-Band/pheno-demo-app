@@ -11,7 +11,7 @@ import { Button, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
 
-function DataInfoToggle({ showInfo, setShowInfo }) {
+function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   const theme = useTheme();
 
   const Wrapper = styled.div({
@@ -22,7 +22,7 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
     position: 'fixed',
     bottom: 0,
     left: '50%',
-    transform: 'translate(-50%, -100%)',
+    transform: `translate(-50%, -${upTablet ? 100 : 50}%)`,
     zIndex: 1,
     width: 220
   });
@@ -68,7 +68,6 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
 const FolderPage = () => {
   const router = useRouter();
   const theme = useTheme();
-  const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
@@ -86,8 +85,6 @@ const FolderPage = () => {
 
   function getPaddingTop() {
     switch (true) {
-      case minimizeRibbon:
-        return 60;
       case upTablet:
         return 110;
       case !upTablet:
@@ -127,7 +124,11 @@ const FolderPage = () => {
           ))}
         </List>
       </Layout>
-      <DataInfoToggle showInfo={showInfo} setShowInfo={setShowInfo} />
+      <DataInfoToggle
+        showInfo={showInfo}
+        setShowInfo={setShowInfo}
+        upTablet={upTablet}
+      />
     </>
   ) : null;
 };

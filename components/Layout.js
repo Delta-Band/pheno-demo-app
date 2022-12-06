@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-import { useScrollDirection } from 'use-scroll-direction';
+// import { useScrollDirection } from 'use-scroll-direction';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
@@ -9,9 +9,11 @@ import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
+  const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
+  const minRibbonRef = useRef(minimizeRibbon);
   const router = useRouter();
   const layoutRef = useRef(null);
-  const { scrollDirection } = useScrollDirection({ ref: layoutRef });
+  // const { scrollDirection } = useScrollDirection({ ref: layoutRef });
   const dispatch = useDispatch();
 
   let direction;
@@ -35,13 +37,28 @@ function Layout({ children, page, paddingTop = 0 }) {
       break;
   }
 
+  // useEffect(() => {
+  //   if (scrollDirection === 'DOWN') {
+  //     dispatch(layoutSlice.actions.setMinimizeRibbon(true));
+  //   } else if (scrollDirection === 'UP') {
+  //     dispatch(layoutSlice.actions.setMinimizeRibbon(false));
+  //   }
+  // }, [scrollDirection]);
+
   useEffect(() => {
-    if (scrollDirection === 'DOWN') {
-      dispatch(layoutSlice.actions.setMinimizeRibbon(true));
-    } else if (scrollDirection === 'UP') {
-      dispatch(layoutSlice.actions.setMinimizeRibbon(false));
+    minRibbonRef.current = minimizeRibbon;
+  }, [minimizeRibbon]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (minRibbonRef.current && layoutRef.current.scrollTop === 0) {
+        dispatch(layoutSlice.actions.setMinimizeRibbon(false));
+      } else if (!minRibbonRef.current && layoutRef.current.scrollTop > 0) {
+        dispatch(layoutSlice.actions.setMinimizeRibbon(true));
+      }
     }
-  }, [scrollDirection]);
+    layoutRef.current.addEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.div
@@ -56,7 +73,17 @@ function Layout({ children, page, paddingTop = 0 }) {
         position: 'absolute',
         top: 0,
         left: 0,
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        '&::-webkit-scrollbar ': {
+          width: 8
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'transparent'
+        },
+        '&::-webkit-scrollbar-thumb': {
+          // background: 'rgb(60 60 60 / 80%)'
+          borderInlineStart: '6px solid #21336c'
+        }
       }}
       transition={{
         type: 'spring',

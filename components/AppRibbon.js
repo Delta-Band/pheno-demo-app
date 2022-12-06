@@ -314,6 +314,7 @@ function AnimatedContainer({ children, upTablet }) {
 
   function getInitialHeight() {
     switch (true) {
+      case minimizeRibbon:
       case upTablet && prevRoute === '/':
         return 60;
       case upTablet && prevRoute !== '/':

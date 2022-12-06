@@ -48,11 +48,6 @@ const MetaInfo = styled.div({
   }
 });
 
-const GraphicsContainer = styled.div({
-  width: `calc(50% - ${gap / 2}px)`,
-  flexShrink: 0
-});
-
 export default function FieldPage() {
   const router = useRouter();
   const theme = useTheme();
@@ -60,6 +55,12 @@ export default function FieldPage() {
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
+  // const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
+
+  const GraphicsContainer = styled.div({
+    width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%',
+    flexShrink: 0
+  });
 
   function renderInfoGraphics(item) {
     switch (item.type) {
@@ -89,7 +90,7 @@ export default function FieldPage() {
                 borderRadius: 4
               }}
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: '30vw', opacity: 1 }}
+              animate={{ height: upTablet ? '30vw' : '50vw', opacity: 1 }}
               transition={{
                 delay: 1,
                 type: 'spring',
@@ -115,12 +116,23 @@ export default function FieldPage() {
     }
   }
 
+  function getPaddingTop() {
+    switch (true) {
+      // case minimizeRibbon:
+      //   return 60;
+      case upTablet:
+        return 110;
+      case !upTablet:
+        return 224;
+    }
+  }
+
   return field ? (
     <>
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='field' paddingTop={upTablet ? 110 : 224}>
+      <Layout page='field' paddingTop={getPaddingTop()}>
         <Wrapper>
           <Typography
             variant='h6'

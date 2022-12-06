@@ -18,12 +18,21 @@ export default function Home() {
     })
   );
 
+  function getPaddingTop() {
+    switch (true) {
+      case upTablet:
+        return 60;
+      case !upTablet:
+        return 170;
+    }
+  }
+
   return (
     <>
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='root' paddingTop={upTablet ? 60 : 170}>
+      <Layout page='root' paddingTop={getPaddingTop()}>
         <List>
           {folders.map(folder => (
             <ListItem
