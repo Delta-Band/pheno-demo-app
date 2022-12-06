@@ -1,12 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-import { useSelector } from 'react-redux';
+import { useScrollDirection } from 'use-scroll-direction';
+import { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
   const router = useRouter();
+  const layoutRef = useRef(null);
+  const { scrollDirection } = useScrollDirection({ ref: layoutRef });
+  const dispatch = useDispatch();
 
   let direction;
 
@@ -29,10 +35,19 @@ function Layout({ children, page, paddingTop = 0 }) {
       break;
   }
 
+  useEffect(() => {
+    if (scrollDirection === 'DOWN') {
+      dispatch(layoutSlice.actions.setMinimizeRibbon(true));
+    } else if (scrollDirection === 'UP') {
+      dispatch(layoutSlice.actions.setMinimizeRibbon(false));
+    }
+  }, [scrollDirection]);
+
   return (
     <motion.div
-      initial={{ x: `${direction * 100}%`, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
+      ref={layoutRef}
+      initial={{ x: `${direction * 100}%`, opacity: 0, paddingTop }}
+      animate={{ x: 0, opacity: 1, paddingTop }}
       exit={{ x: `${direction * 100}%`, opacity: 0 }}
       css={{
         width: '100%',
@@ -41,7 +56,6 @@ function Layout({ children, page, paddingTop = 0 }) {
         position: 'absolute',
         top: 0,
         left: 0,
-        paddingTop,
         boxSizing: 'border-box'
       }}
       transition={{

@@ -12,9 +12,6 @@ import FormattedNumber from './FormattedNumber';
 
 const ListWrapper = styled.div({
   width: '100%',
-  height: '100%',
-  overflowX: 'hidden',
-  overflowY: 'auto',
   zIndex: 1,
   position: 'relative'
 });

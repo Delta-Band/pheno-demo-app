@@ -68,6 +68,7 @@ function DataInfoToggle({ showInfo, setShowInfo }) {
 const FolderPage = () => {
   const router = useRouter();
   const theme = useTheme();
+  const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
@@ -83,12 +84,23 @@ const FolderPage = () => {
     foldersSlice.selectors.folderById(state, folderID)
   );
 
+  function getPaddingTop() {
+    switch (true) {
+      case minimizeRibbon:
+        return 60;
+      case upTablet:
+        return 110;
+      case !upTablet:
+        return 224;
+    }
+  }
+
   return folder ? (
     <>
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='folder' paddingTop={upTablet ? 110 : 224}>
+      <Layout page='folder' paddingTop={getPaddingTop()}>
         <List>
           {fields.map(field => (
             <ListItem
@@ -114,8 +126,8 @@ const FolderPage = () => {
             />
           ))}
         </List>
-        <DataInfoToggle showInfo={showInfo} setShowInfo={setShowInfo} />
       </Layout>
+      <DataInfoToggle showInfo={showInfo} setShowInfo={setShowInfo} />
     </>
   ) : null;
 };

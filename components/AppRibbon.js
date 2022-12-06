@@ -9,24 +9,13 @@ import PhenoIcon from './PhenoIcon';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fieldsSlice, foldersSlice } from '../redux';
+import { fieldsSlice, foldersSlice, layoutSlice } from '../redux';
 import { useSelector } from 'react-redux';
 import { Home as HomeIcon } from '@styled-icons/boxicons-regular/Home';
 import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/RightArrowAlt';
 import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
 import FormattedNumber from './FormattedNumber';
 import { getIconByDatType } from '../shared/utils';
-
-const Wrapper = styled.div({
-  width: '100%',
-  // background:
-  //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
-  background:
-    '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
-  boxSizing: 'border-box',
-  zIndex: 1,
-  position: 'relative'
-});
 
 const LeftSide = styled.div({
   display: 'flex',
@@ -306,20 +295,42 @@ function Sorter() {
 
 function AnimatedContainer({ children, upTablet }) {
   const router = useRouter();
+  const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
+  const prevRoute = useSelector(state => state.router.prevRoute);
+
+  function getHeight() {
+    switch (true) {
+      case minimizeRibbon:
+      case upTablet && router.route === '/':
+        return 60;
+      case upTablet && router.route !== '/':
+        return 110;
+      case !upTablet && router.route === '/':
+        return 170;
+      case !upTablet && router.route !== '/':
+        return 224;
+    }
+  }
+
+  function getInitialHeight() {
+    switch (true) {
+      case upTablet && prevRoute === '/':
+        return 60;
+      case upTablet && prevRoute !== '/':
+        return 110;
+      case !upTablet && prevRoute === '/':
+        return 170;
+      case !upTablet && prevRoute !== '/':
+        return 224;
+    }
+  }
+
   return (
     <motion.div
       initial={{
-        height: upTablet ? 60 : 170
+        height: getInitialHeight()
       }}
-      animate={{
-        height: upTablet
-          ? router.route === '/'
-            ? 60
-            : 110
-          : router.route === '/'
-          ? 170
-          : 224
-      }}
+      animate={{ height: getHeight() }}
       transition={{
         type: 'spring',
         stiffness: 260,
@@ -335,7 +346,7 @@ function AnimatedContainer({ children, upTablet }) {
   );
 }
 
-function Breadcrumbs({ upTablet }) {
+function Breadcrumbs() {
   const router = useRouter();
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
@@ -343,13 +354,6 @@ function Breadcrumbs({ upTablet }) {
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, router.query.folderID)
   );
-
-  const liVariants = {
-    visible: {
-      opacity: 1
-    },
-    hidden: { opacity: 0 }
-  };
 
   const buttonStyle = {
     gap: 8,
@@ -397,7 +401,7 @@ function Breadcrumbs({ upTablet }) {
       <li>
         <Button
           css={buttonStyle}
-          disabled={router.route === '/[folder]'}
+          disabled={router.route === '/folder/[folderID]'}
           onClick={() => {
             router.push({
               pathname: '/folder/[folderID]',
@@ -450,6 +454,17 @@ function Breadcrumbs({ upTablet }) {
 export default function AppRibbon() {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+
+  const Wrapper = styled.div({
+    width: '100%',
+    // background:
+    //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
+    background:
+      '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
+    boxSizing: 'border-box',
+    zIndex: 1,
+    position: 'relative'
+  });
 
   const FirstRow = styled.div({
     display: 'flex',
