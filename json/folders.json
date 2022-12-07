@@ -1,6 +1,12 @@
 [
   {
     "id": "1",
-    "name": "CGM"
+    "name": "CGM",
+    "description": "Lorem Ipsum",
+    "introduction": "Lorem Ipsum",
+    "introGraph": {
+      "label": "Lorem Ipsum",
+      "description": "Lorem Ipsum"
+    }
   }
 ]

@@ -21,7 +21,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  BarElement
+  BarElement,
+  TimeScale
 } from 'chart.js';
 
 ChartJS.register(
@@ -32,7 +33,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeScale
 ); // locale-data for en
 
 const BackgroundImg = styled.div({

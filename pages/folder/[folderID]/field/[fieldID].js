@@ -24,10 +24,22 @@ const Wrapper = styled.div({
   boxSizing: 'border-box'
 });
 
+const Header = ({ children }) => {
+  return (
+    <Typography
+      variant='h6'
+      css={{
+        marginBottom: 24
+      }}
+    >
+      {children}
+    </Typography>
+  );
+};
+
 const Section = styled.div({
   width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
   gap,
   marginBottom: gap,
   flexWrap: 'wrap'
@@ -39,14 +51,25 @@ const Column = styled.div({
   gap: 18
 });
 
-const MetaInfo = styled.div({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 18,
-  '& .pheno-icon': {
-    width: 24
-  }
-});
+const MetaInfo = ({ iconName, prefixText, value }) => {
+  return (
+    <div
+      css={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 18,
+        '& .pheno-icon': {
+          width: 24
+        }
+      }}
+    >
+      {iconName && <PhenoIcon name={iconName} />}
+      <Typography>
+        {prefixText}: <b>{value}</b>
+      </Typography>
+    </div>
+  );
+};
 
 export default function FieldPage() {
   const router = useRouter();
@@ -134,44 +157,30 @@ export default function FieldPage() {
       </Head>
       <Layout page='field' paddingTop={getPaddingTop()}>
         <Wrapper>
-          <Typography
-            variant='h6'
-            css={{
-              marginBottom: 24
-            }}
-          >
-            {field?.name}
-          </Typography>
+          <Header>{field?.name}</Header>
           <Section>
             <Column>
-              <MetaInfo>
-                <PhenoIcon name={getIconByDatType(field.type)} />
-                <Typography>
-                  Data Type: <b>{field.type}</b>
-                </Typography>
-              </MetaInfo>
-              <MetaInfo>
-                <PhenoIcon name='user' />
-                <Typography>
-                  Participants:&nbsp;
-                  <b>
-                    <IntlNumber value={field.participants} />
-                  </b>
-                </Typography>
-              </MetaInfo>
-              <MetaInfo>
-                <PhenoIcon name='meter' />
-                <Typography>
-                  Measurements:&nbsp;
-                  <b>
-                    <IntlNumber value={field.measurements} />
-                  </b>
-                </Typography>
-              </MetaInfo>
+              <MetaInfo
+                iconName={getIconByDatType(field.type)}
+                prefixText='Data Type'
+                value={field.type}
+              />
+              <MetaInfo
+                iconName='user'
+                prefixText='Participants'
+                value={field.participants}
+              />
+              <MetaInfo
+                iconName='meter'
+                prefixText='Measurements'
+                value={field.measurements}
+              />
             </Column>
-            {/* <Column>
-              <InfoGraphics collection={field.meta.infoGraphics} />
-            </Column> */}
+            <Column>
+              <MetaInfo prefixText='Stability' value={field.meta.stability} />
+              <MetaInfo prefixText='Strata' value={field.meta.strata} />
+              <MetaInfo prefixText='Sexed' value={field.meta.sexed} />
+            </Column>
           </Section>
           <Section>{field.meta.infoGraphics.map(renderInfoGraphics)}</Section>
         </Wrapper>

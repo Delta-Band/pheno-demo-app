@@ -9,6 +9,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -62,6 +74,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -115,6 +139,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -168,6 +204,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -221,6 +269,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -274,6 +334,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -327,6 +399,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -380,6 +464,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -433,6 +529,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -486,6 +594,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -539,6 +659,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -592,6 +724,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -645,6 +789,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -698,6 +854,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",
@@ -751,6 +919,18 @@
     "cohorts": ["10k", "Cardio"],
     "folderId": "1",
     "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
       "infoGraphics": [
         {
           "type": "histogram",

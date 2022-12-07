@@ -1,0 +1,962 @@
+[
+  {
+    "id": "120-001",
+    "type": "Time Series",
+    "name": "ConnectionID",
+    "description": "CGM device connection id",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Text",
+      "units": "Text",
+      "itemType": "Data",
+      "strata": "Auxiliary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/01/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-002",
+    "type": "Time Series",
+    "name": "Date",
+    "description": "cgm device datetime column for temporal values",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, Time",
+      "units": "Time",
+      "itemType": "Data",
+      "strata": "Primary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/02/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-003",
+    "type": "Time Series",
+    "name": "Glucose",
+    "description": "cgm temporal glucose values",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Series data, continous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Primary ",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/03/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-004",
+    "type": "Tabular",
+    "name": "1st quantile",
+    "description": "First quantile of all glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/04/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-005",
+    "type": "Tabular",
+    "name": "3rd quantile",
+    "description": "Third quantile of all glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/05/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-006",
+    "type": "Tabular",
+    "name": "% above value",
+    "description": "Percent of glucose measures that were larger than a specified value.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "% of measures",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/06/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-007",
+    "type": "Tabular",
+    "name": "% below value",
+    "description": "Percent of glucose measures that were lower than a specified value.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "% of measures",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/07/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-008",
+    "type": "Tabular",
+    "name": "% in range",
+    "description": "Percent of glucose measures that were in a specified range of glucose values.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "% of measures",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/08/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-009",
+    "type": "Tabular",
+    "name": "ADRR",
+    "description": "Average daily risk range (ADRR) is a variability measure that was designed to be sensitive to both hyperglycemia and hypoglycemia. The ADRR is composed of the HBGI and LGBI.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/09/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-010",
+    "type": "Tabular",
+    "name": "AUC",
+    "description": "Hourly average AUC. This measure integrates, to some extent, the severity of a high or low glucose along with the duration of the abnormality. It\u2019s calculated for each hour in the CGM, then averaged for each day over a 24-hour period, then once again averaged between all days to receive a single AUC measure.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/10/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-011",
+    "type": "Tabular",
+    "name": "COGI",
+    "description": "Continuous Glucose Monitoring Index (COGI). COGI uses three measures of the CGM - time in range, time below range and glucose variability (GV) and averages them using a weighted mean, usually with weights of 50%, 35% and 15% accordingly.",
+    "participants": 10001,
+    "measurements": 20002,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/11/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-012",
+    "type": "Tabular",
+    "name": "Conga",
+    "description": "Continuous Overall Net Glycemic Action (CONGA). This measure assesses intra-day glycemic variability, by calculating the standard deviation of differences in glucose measures taken n hours apart.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/12/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-013",
+    "type": "Tabular",
+    "name": "CV",
+    "description": "Coefficient of variation of all glucose values.\n",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/13/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-014",
+    "type": "Tabular",
+    "name": "eA1C",
+    "description": "A linear transformation of the mean glucose value, meant to estimate the HbA1C blood test. Calculated by the following formula: (46.7 + mean(Glucose))/28.7.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/14/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  },
+  {
+    "id": "120-015",
+    "type": "Tabular",
+    "name": "IQR",
+    "description": "nterquartile range (IQR), calculated as the distance between the 25th percentile and the 75th percentile of the glucose values.",
+    "participants": 12345,
+    "measurements": 24690,
+    "cohorts": "[10K, Cardio]",
+    "folderID": "1",
+    "meta": {
+      "stability": "Accruing",
+      "valueType": "Continuous",
+      "units": "mg/dl",
+      "itemType": "Data",
+      "strata": "Derived",
+      "sexed": "Both sexes",
+      "instances": "Defined",
+      "array": "No",
+      "debut": "01/15/2019",
+      "version": 0.1,
+      "tags": "CGM",
+      "dataCoding": "None",
+      "infoGraphics": [
+        {
+          "type": "histogram",
+          "histoData": [
+            {
+              "title": "Data accumulation",
+              "x-label": "Date",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            },
+            {
+              "title": "Data distribution",
+              "x-label": "Values [units]",
+              "values": [
+                [0, 3],
+                [1, 2],
+                [2, 5],
+                [3, 4],
+                [4, 4],
+                [5, 3],
+                [6, 1],
+                [7, 0]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+          "imageTitle": "Example data plot"
+        }
+      ]
+    }
+  }
+]
