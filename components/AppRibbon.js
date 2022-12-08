@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-import styled from '@emotion/styled';
 import { useTheme } from '@mui/material/styles';
-import { Typography, Button, useMediaQuery } from '@mui/material';
+import { Typography, Button, useMediaQuery, styled } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import PhenoIcon from './PhenoIcon';
@@ -17,13 +16,13 @@ import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
 import FormattedNumber from './FormattedNumber';
 import { getIconByDatType } from '../shared/utils';
 
-const LeftSide = styled.div({
+const LeftSide = styled('div')({
   display: 'flex',
   gap: 16,
   width: '100%'
 });
 
-const RightSide = styled.div({
+const RightSide = styled('div')({
   display: 'flex',
   gap: 16,
   alignItems: 'center'
@@ -212,7 +211,7 @@ function Sorter() {
     });
   }
 
-  const ButtonGroupWrapper = styled.div({
+  const ButtonGroupWrapper = styled('div')({
     display: 'flex',
     height: 40,
     gap: 2,
@@ -366,7 +365,7 @@ function Breadcrumbs() {
     }
   };
 
-  const BreadCrumbsWrapper = styled.ul({
+  const BreadCrumbsWrapper = styled('ul')({
     width: '100%',
     color: '#FFF',
     margin: 0,
@@ -452,44 +451,44 @@ function Breadcrumbs() {
   );
 }
 
+const Wrapper = styled('div')({
+  width: '100%',
+  // background:
+  //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
+  background:
+    '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
+  boxSizing: 'border-box',
+  zIndex: 1,
+  position: 'relative'
+});
+
+const FirstRow = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: 60,
+  paddingInline: 24,
+  gap: 24,
+  boxSizing: 'border-box',
+  [theme.breakpoints.up('tablet')]: {
+    paddingInlineEnd: 18
+  }
+}));
+
+const SecondRow = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingInlineStart: 24,
+  paddingInlineEnd: 24,
+  gap: 24,
+  boxSizing: 'border-box',
+  marginBottom: 16
+});
+
 export default function AppRibbon() {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-
-  const Wrapper = styled.div({
-    width: '100%',
-    // background:
-    //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
-    background:
-      '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
-    boxSizing: 'border-box',
-    zIndex: 1,
-    position: 'relative'
-  });
-
-  const FirstRow = styled.div({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 60,
-    paddingInline: 24,
-    gap: 24,
-    boxSizing: 'border-box',
-    [theme.breakpoints.up('tablet')]: {
-      paddingInlineEnd: 18
-    }
-  });
-
-  const SecondRow = styled.div({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingInlineStart: 24,
-    paddingInlineEnd: 24,
-    gap: 24,
-    boxSizing: 'border-box',
-    marginBottom: 16
-  });
 
   return (
     <Wrapper>

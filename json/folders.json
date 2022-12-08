@@ -2,11 +2,30 @@
   {
     "id": "1",
     "name": "CGM",
-    "description": "Lorem Ipsum",
-    "introduction": "Lorem Ipsum",
-    "introGraph": {
-      "label": "Lorem Ipsum",
-      "description": "Lorem Ipsum"
-    }
+    "description": {
+      "intro": "Lorem Ipsum",
+      "mainTxt": "Lorem Ipsum",
+      "introGraph": [
+        {
+          "type": "timeSeries",
+          "label": "Lorem Ipsum",
+          "description": "Lorem Ipsum"
+        }
+      ]
+    },
+    "protocol": {
+      "txt": "Lorem ipsum",
+      "images": [
+        {
+          "src": "urlstring",
+          "title": "Lorem ipsum",
+          "description": "Lorem ipsum"
+        }
+      ]
+    },
+    "dataProcess": {
+      "flowChart": {}
+    },
+    "publications": [{}]
   }
 ]
