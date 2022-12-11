@@ -22,14 +22,15 @@ function Layout({ children, page, paddingTop = 0 }) {
     case page === 'folder' && prevRoute === '/':
     case page === 'field' && prevRoute === '/folder/[folderID]':
     case page === 'field' && prevRoute === '/folder/[folderID]/field/[fieldID]':
+    case page === 'folder-info' && prevRoute === '/folder/[folderID]':
       direction = 1;
       break;
+    case page === 'root':
     case page === 'folder' &&
       prevRoute === '/folder/[folderID]/field/[fieldID]':
     case page === 'folder' && prevRoute === '/folder/[folderID]':
-    case page === 'root':
-    case page === 'folder' &&
-      router.route === '/folder/[folderID]/field/[fieldID]':
+      // case page === 'folder' &&
+      //   router.route === '/folder/[folderID]/field/[fieldID]':
       direction = -1;
       break;
     default:

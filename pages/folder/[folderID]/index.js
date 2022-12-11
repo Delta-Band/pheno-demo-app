@@ -5,14 +5,16 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { List, ListItem, Layout } from '../../../components';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import { fieldsSlice, foldersSlice } from '../../../redux';
-import { Button, useMediaQuery } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { fieldsSlice, foldersSlice, routerSlice } from '../../../redux';
+import { Button, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   const theme = useTheme();
+  const dispatch = useDispatch();
 
   const Wrapper = styled.div({
     overflow: 'hidden',
@@ -36,7 +38,9 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   return (
     <Wrapper>
       <Button
-        onClick={() => setShowInfo(false)}
+        onClick={() => {
+          setShowInfo(false);
+        }}
         css={[
           buttonStyle,
           {
@@ -49,7 +53,10 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
         DATA
       </Button>
       <Button
-        onClick={() => setShowInfo(true)}
+        onClick={() => {
+          setShowInfo(true);
+          dispatch(routerSlice.actions.setPrevRoute('/folder/[folderID]'));
+        }}
         css={[
           buttonStyle,
           {
@@ -97,33 +104,41 @@ const FolderPage = () => {
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='folder' paddingTop={getPaddingTop()}>
-        <List>
-          {fields.map(field => (
-            <ListItem
-              key={field.name}
-              prefixIcon={getIconByDatType(field.type)}
-              item={field}
-              sorter={router.query.sorter}
-              highlights={decodeURIComponent(router.query.filter || '').split(
-                ','
-              )}
-              onClick={() => {
-                router.push({
-                  pathname: `/folder/[folderID]/field/[fieldID]`,
-                  query: {
-                    folderID: folderID,
-                    fieldID: field.id,
-                    filter: router.query.filter,
-                    sorter: router.query.sorter,
-                    direction: router.query.direction
-                  }
-                });
-              }}
-            />
-          ))}
-        </List>
-      </Layout>
+      <AnimatePresence>
+        {showInfo ? (
+          <Layout page='folder-info' paddingTop={getPaddingTop()} key='info'>
+            <Typography>Hello Info</Typography>
+          </Layout>
+        ) : (
+          <Layout page='folder' paddingTop={getPaddingTop()} key='data'>
+            <List>
+              {fields.map(field => (
+                <ListItem
+                  key={field.name}
+                  prefixIcon={getIconByDatType(field.type)}
+                  item={field}
+                  sorter={router.query.sorter}
+                  highlights={decodeURIComponent(
+                    router.query.filter || ''
+                  ).split(',')}
+                  onClick={() => {
+                    router.push({
+                      pathname: `/folder/[folderID]/field/[fieldID]`,
+                      query: {
+                        folderID: folderID,
+                        fieldID: field.id,
+                        filter: router.query.filter,
+                        sorter: router.query.sorter,
+                        direction: router.query.direction
+                      }
+                    });
+                  }}
+                />
+              ))}
+            </List>
+          </Layout>
+        )}
+      </AnimatePresence>
       <DataInfoToggle
         showInfo={showInfo}
         setShowInfo={setShowInfo}
