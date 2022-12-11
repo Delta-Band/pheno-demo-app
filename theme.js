@@ -30,6 +30,39 @@ const theme = createTheme(themeWithCustomBreakpoints, {
   },
   shadows: {
     input: '-2px -2px 6px rgb(0 0 0 / 20%), -2px -2px 18px rgb(0 0 0 / 20%)'
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          paddingBlock: 11.5
+        }
+      }
+    },
+    MuiMenu: {
+      styleOverrides: {
+        list: {
+          paddingBlock: 0
+        },
+        paper: {
+          marginTop: 4
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          paddingInline: 0
+        }
+      }
+    },
+    MuiPopover: {
+      styleOverrides: {
+        paper: {
+          border: '2px solid #21336c'
+        }
+      }
+    }
   }
 });
 

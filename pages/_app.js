@@ -12,6 +12,8 @@ import { globalStyles } from '../shared/styles';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { IntlProvider } from 'react-intl';
+import 'chartjs-adapter-date-fns';
+// import 'chartjs-adapter-moment';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -35,7 +37,7 @@ ChartJS.register(
   Tooltip,
   Legend,
   TimeScale
-); // locale-data for en
+);
 
 const BackgroundImg = styled.div({
   position: 'fixed',

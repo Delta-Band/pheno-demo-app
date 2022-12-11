@@ -1,16 +1,27 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
+import { useState } from 'react';
 import Head from 'next/head';
 import { Layout, PhenoIcon } from '../../../../components';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
-import { Typography, useMediaQuery } from '@mui/material';
+import {
+  Typography,
+  useMediaQuery,
+  OutlinedInput,
+  InputLabel,
+  MenuItem,
+  ListItemText,
+  Select,
+  Checkbox,
+  FormControl
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../../shared/utils';
 import { FormattedNumber as IntlNumber } from 'react-intl';
-import { BarChart } from '../../../../components';
+import { DataAccumulation } from '../../../../components';
 import { motion } from 'framer-motion';
 
 const gap = 36;
@@ -27,7 +38,7 @@ const Wrapper = styled.div({
 const Header = ({ children }) => {
   return (
     <Typography
-      variant='h6'
+      variant='h5'
       css={{
         marginBottom: 24
       }}
@@ -64,12 +75,84 @@ const MetaInfo = ({ iconName, prefixText, value }) => {
       }}
     >
       {iconName && <PhenoIcon name={iconName} />}
-      <Typography>
-        {prefixText}: <b>{value}</b>
-      </Typography>
+      <Typography>{prefixText}:</Typography>
+      {typeof value === 'string' ? (
+        <Typography>
+          <b>{value}</b>
+        </Typography>
+      ) : (
+        value
+      )}
     </div>
   );
 };
+
+function Tags({ tags }) {
+  return (
+    <div css={{ display: 'flex' }}>
+      {tags.map((tag, i) => (
+        <div key={tag} css={{ display: 'flex' }}>
+          <Typography>
+            <b>{tag}</b>
+          </Typography>
+          {i < tags.length - 1 ? (
+            <Typography css={{ marginInline: 8 }}>/</Typography>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function GraphTitle({ children, filters = [] }) {
+  const [filtered, setFiltered] = useState(
+    filters.map(filter => {
+      return filter.options;
+    })
+  );
+
+  return (
+    <div
+      css={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: 24,
+        height: 46,
+        gap: 16
+      }}
+    >
+      <Typography variant='h6'>{children}</Typography>
+      {filters.map((filter, i) => (
+        <FormControl key={filter.name}>
+          <InputLabel id='demo-multiple-checkbox-label'>
+            {filter.name}
+          </InputLabel>
+          <Select
+            labelId='demo-multiple-checkbox-label'
+            id='demo-multiple-checkbox'
+            multiple
+            value={filtered[i]}
+            onChange={e => {
+              setFiltered(filtered => {
+                filtered[i] = e.target.value;
+                return filtered;
+              });
+            }}
+            input={<OutlinedInput label={filter.name} />}
+            renderValue={selected => selected.join(', ')}
+          >
+            {filter.options.map(opt => (
+              <MenuItem key={opt} value={opt}>
+                <Checkbox checked={filtered[i].includes(opt)} />
+                <ListItemText primary={opt} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      ))}
+    </div>
+  );
+}
 
 export default function FieldPage() {
   const router = useRouter();
@@ -78,7 +161,6 @@ export default function FieldPage() {
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
-  // const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
 
   const GraphicsContainer = styled.div({
     width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%',
@@ -87,26 +169,26 @@ export default function FieldPage() {
 
   function renderInfoGraphics(item) {
     switch (item.type) {
-      case 'histogram':
+      case 'data-accumulation':
         return (
-          <GraphicsContainer key={item.histoData.title}>
-            <BarChart
-              title={item.histoData.title}
-              data={{
-                datasets: [
-                  {
-                    label: item.histoData.xLabel,
-                    data: item.histoData.values.map(dataPoint => dataPoint[1])
-                  }
-                ],
-                labels: item.histoData.values.map(dataPoint => dataPoint[0])
-              }}
-            />
+          <GraphicsContainer key={item.type}>
+            <GraphTitle
+              filters={[
+                {
+                  name: 'Cohorts',
+                  options: item.dataSets.map(set => set.cohort)
+                }
+              ]}
+            >
+              Data Accumulation
+            </GraphTitle>
+            <DataAccumulation data={item.dataSets} />
           </GraphicsContainer>
         );
       case 'image':
         return (
-          <GraphicsContainer key={item.imageTitle}>
+          <GraphicsContainer key={item.type}>
+            <GraphTitle>{item.imageTitle}</GraphTitle>
             <motion.div
               css={{
                 overflow: 'hidden',
@@ -177,9 +259,20 @@ export default function FieldPage() {
               />
             </Column>
             <Column>
+              <MetaInfo
+                iconName='group'
+                prefixText='Cohorts'
+                value={field.cohorts}
+              />
               <MetaInfo prefixText='Stability' value={field.meta.stability} />
               <MetaInfo prefixText='Strata' value={field.meta.strata} />
+            </Column>
+            <Column>
               <MetaInfo prefixText='Sexed' value={field.meta.sexed} />
+              <MetaInfo
+                prefixText='Tags'
+                value={<Tags tags={field.meta.tags} />}
+              />
             </Column>
           </Section>
           <Section>{field.meta.infoGraphics.map(renderInfoGraphics)}</Section>

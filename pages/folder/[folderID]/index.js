@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import Head from 'next/head';
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import { List, ListItem, Layout } from '../../../components';
+import { List, ListItem, Layout, FolderInfo } from '../../../components';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { fieldsSlice, foldersSlice, routerSlice } from '../../../redux';
@@ -107,7 +107,7 @@ const FolderPage = () => {
       <AnimatePresence>
         {showInfo ? (
           <Layout page='folder-info' paddingTop={getPaddingTop()} key='info'>
-            <Typography>Hello Info</Typography>
+            <FolderInfo />
           </Layout>
         ) : (
           <Layout page='folder' paddingTop={getPaddingTop()} key='data'>

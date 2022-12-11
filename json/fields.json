@@ -19,28 +19,61 @@
       "array": "No",
       "debut": "01/01/2019",
       "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
+      "tags": ["Obesity", "Glucose"],
       "infoGraphics": [
         {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
+          "type": "data-accumulation",
+          "dataSets": [
+            {
+              "cohort": "10k",
+              "instances": [
+                {
+                  "name": "base-line",
+                  "data": [
+                    ["2020-01-01", 300],
+                    ["2020-02-01", 500],
+                    ["2020-03-01", 500],
+                    ["2020-08-01", 800]
+                  ]
+                },
+                {
+                  "name": "visit-2",
+                  "data": [
+                    ["2020-02-01", 300],
+                    ["2020-03-01", 500],
+                    ["2020-04-01", 500],
+                    ["2020-05-01", 800]
+                  ]
+                }
+              ]
+            },
+            {
+              "cohort": "Cardio",
+              "instances": [
+                {
+                  "name": "base-line",
+                  "data": [
+                    ["2020-01-01", 300],
+                    ["2020-02-01", 500],
+                    ["2020-03-01", 500],
+                    ["2020-08-01", 800]
+                  ]
+                },
+                {
+                  "name": "visit-2",
+                  "data": [
+                    ["2020-02-01", 300],
+                    ["2020-03-01", 500],
+                    ["2020-04-01", 500],
+                    ["2020-05-01", 800]
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
-          "type": "histogram",
+          "type": "categorical",
           "histoData": {
             "title": "Data distribution",
             "xLabel": "Values [units]",
@@ -54,6 +87,14 @@
               [6, 1],
               [7, 0]
             ]
+          },
+          "dataCoding": {
+            "name": "10023",
+            "translation": {
+              "0": "Lorem Ipsum 0",
+              "1": "Lorem Ipsum 1",
+              "-1": "Lorem Ipsum -1"
+            }
           }
         },
         {
