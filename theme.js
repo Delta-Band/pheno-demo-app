@@ -29,13 +29,25 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     }
   },
   shadows: {
-    input: '-2px -2px 6px rgb(0 0 0 / 20%), -2px -2px 18px rgb(0 0 0 / 20%)'
+    input: '-2px -2px 6px rgb(0 0 0 / 20%), -2px -2px 18px rgb(0 0 0 / 20%)',
+    1: '0 2px 8px 1px rgb(0 0 0 / 49%)',
+    8: '0 2px 8px 1px rgb(0 0 0 / 49%)'
   },
   components: {
     MuiOutlinedInput: {
       styleOverrides: {
         input: {
           paddingBlock: 11.5
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          transform: 'translate(14px, 12px) scale(1)'
+        },
+        shrink: {
+          transform: 'translate(14px, -9px) scale(0.75)'
         }
       }
     },
@@ -52,7 +64,8 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          paddingInline: 0
+          paddingInline: 8,
+          gap: 8
         }
       }
     },
@@ -60,6 +73,13 @@ const theme = createTheme(themeWithCustomBreakpoints, {
       styleOverrides: {
         paper: {
           border: '2px solid #21336c'
+        }
+      }
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          padding: 0
         }
       }
     }

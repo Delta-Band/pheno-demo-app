@@ -23,6 +23,7 @@ import { getIconByDatType } from '../../../../shared/utils';
 import { FormattedNumber as IntlNumber } from 'react-intl';
 import { DataAccumulation } from '../../../../components';
 import { motion } from 'framer-motion';
+import uniq from 'lodash/uniq';
 
 const gap = 36;
 
@@ -121,9 +122,11 @@ function GraphTitle({ children, filters = [] }) {
         gap: 16
       }}
     >
-      <Typography variant='h6'>{children}</Typography>
+      <Typography variant='h6' css={{ whiteSpace: 'nowrap' }}>
+        {children}
+      </Typography>
       {filters.map((filter, i) => (
-        <FormControl key={filter.name}>
+        <FormControl key={filter.name} css={{ width: '100%' }}>
           <InputLabel id='demo-multiple-checkbox-label'>
             {filter.name}
           </InputLabel>
@@ -135,11 +138,12 @@ function GraphTitle({ children, filters = [] }) {
             onChange={e => {
               setFiltered(filtered => {
                 filtered[i] = e.target.value;
-                return filtered;
+                return Object.assign([], filtered);
               });
             }}
             input={<OutlinedInput label={filter.name} />}
             renderValue={selected => selected.join(', ')}
+            placeholder='None Selected'
           >
             {filter.options.map(opt => (
               <MenuItem key={opt} value={opt}>
@@ -177,6 +181,15 @@ export default function FieldPage() {
                 {
                   name: 'Cohorts',
                   options: item.dataSets.map(set => set.cohort)
+                },
+                {
+                  name: 'Instances',
+                  options: item.dataSets.reduce((acc, set) => {
+                    acc = uniq(
+                      acc.concat(set.instances.map(instance => instance.name))
+                    );
+                    return acc;
+                  }, [])
                 }
               ]}
             >
@@ -262,7 +275,7 @@ export default function FieldPage() {
               <MetaInfo
                 iconName='group'
                 prefixText='Cohorts'
-                value={field.cohorts}
+                value={field.cohorts.join(', ')}
               />
               <MetaInfo prefixText='Stability' value={field.meta.stability} />
               <MetaInfo prefixText='Strata' value={field.meta.strata} />
