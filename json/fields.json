@@ -285,6 +285,122 @@
       { "x": "2022-08", "y": 300, "cohort": "10K", "instance": "visit-2" },
       { "x": "2022-09", "y": 400, "cohort": "10K", "instance": "visit-2" }
     ],
+    "dataDistribution": [
+      {
+        "x": 3.63503761867408,
+        "y": 3,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 3.9473610254750175,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 4.259684432275955,
+        "y": 1,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 4.572007839076893,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 4.88433124587783,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 5.196654652678767,
+        "y": 1,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 5.508978059479704,
+        "y": 4,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 5.821301466280641,
+        "y": 1,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 6.133624873081579,
+        "y": 4,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 6.445948279882517,
+        "y": 8,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 6.758271686683454,
+        "y": 8,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 7.070595093484391,
+        "y": 6,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 7.382918500285328,
+        "y": 4,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 7.695241907086265,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 8.007565313887202,
+        "y": 4,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 8.319888720688141,
+        "y": 1,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 8.632212127489078,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 8.944535534290015,
+        "y": 0,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": 9.256858941090952,
+        "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      }
+    ],
     "infoGraphics": [
       {
         "type": "data-accumulation",

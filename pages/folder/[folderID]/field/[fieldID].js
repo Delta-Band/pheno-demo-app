@@ -29,6 +29,7 @@ import { motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
 import uniq from 'lodash/uniq';
 import moment from 'moment';
+import { useWindowSize } from '../../../../hooks';
 
 const gap = 36;
 
@@ -199,83 +200,92 @@ function Meta({ field }) {
   );
 }
 
-function Chart({ data, upTablet }) {
-  const minMax = data.reduce(
-    (acc, point) => {
-      if (acc.max < point.x) {
-        acc.max = point.x;
-      }
-      if (acc.min > point.x) {
-        acc.min = point.x;
-      }
-      return acc;
-    },
-    {
-      min: '5000',
-      max: ''
-    }
-  );
+function Chart({ data, upTablet, title, type }) {
+  // const minMax = data.reduce(
+  //   (acc, point) => {
+  //     if (acc.max < point.x) {
+  //       acc.max = point.x;
+  //     }
+  //     if (acc.min > point.x) {
+  //       acc.min = point.x;
+  //     }
+  //     return acc;
+  //   },
+  //   {
+  //     min: '5000',
+  //     max: ''
+  //   }
+  // );
   return (
-    <BarChart
-      css={{
-        height: upTablet ? '30vw' : '50vw'
-      }}
-      data={{
-        datasets: [
-          {
-            data
-          }
-        ]
-      }}
-      options={{
-        maintainAspectRatio: false,
-        layout: {
-          padding: 0
-        },
-        plugins: {
-          title: {
-            display: false
-          },
-          legend: {
-            display: false
-          },
-          tooltip: {
-            callbacks: {
-              label: context => context.dataset.label,
-              title: context => moment(context[0].raw.x).format('MMM yyyy')
+    <>
+      <Typography variant='h6'>{title}</Typography>
+      <BarChart
+        // css={{
+        //   height: upTablet ? windowSize.height / 4 : windowSize.height / 2
+        // }}
+        data={{
+          labels: data.map(point => point.x),
+          datasets: [
+            {
+              data
             }
-          }
-        },
-        scales: {
-          y: {},
-          x: {
-            type: 'time',
-            time: {
-              unit: 'month',
-              displayFormats: {
-                month: 'MMM yyyy'
-              }
-            },
-            grid: {
+          ]
+        }}
+        options={{
+          maintainAspectRatio: true,
+          layout: {
+            padding: 0
+          },
+          plugins: {
+            title: {
               display: false
-              // drawTicks: false
             },
-            // bounds: 'data',
-            ticks: {
-              minRotation: 0,
-              maxRotation: 0,
-              autoSkip: true,
-              maxTicksLimit: 5
-              // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-              // callback: function (val, index) {
-              //   const mod = Math.max(data.length / 10, )
-              //   return index % 10 === 0 ? moment(val).format('MMM yyyy') : '';
-              // }
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: context => context.dataset.label,
+                title: context => moment(context[0].raw.x).format('MMM yyyy')
+              }
             }
+          },
+          scales: {
+            y: {},
+            x: Object.assign(
+              {
+                grid: {
+                  display: false
+                  // drawTicks: false
+                },
+                // bounds: 'data',
+                ticks: {
+                  minRotation: 0,
+                  maxRotation: 0,
+                  autoSkip: true,
+                  maxTicksLimit: 5
+                  // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+                  // callback: function (val, index) {
+                  //   return moment(val).format('MMM yyyy');
+                  // }
+                }
+              },
+              type === 'time'
+                ? {
+                    type: type,
+                    time: {
+                      unit: 'month',
+                      displayFormats: {
+                        month: 'MMM yyyy'
+                      }
+                    }
+                  }
+                : {}
+            )
           }
-        }
-      }}
-    />
+        }}
+      />
+    </>
   );
 }
 
@@ -290,6 +300,7 @@ export default function FieldPage() {
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''
   );
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (field) {
@@ -385,8 +396,21 @@ export default function FieldPage() {
             />
             <Section>
               <Chart
+                title='Data Accumulation'
                 upTablet={upTablet}
+                type='time'
                 data={field.dataAccumulation.filter(
+                  point =>
+                    point.cohort === selectedCohort &&
+                    point.instance === selectedInstance
+                )}
+              />
+            </Section>
+            <Section>
+              <Chart
+                title='Data Distribution'
+                upTablet={upTablet}
+                data={field.dataDistribution.filter(
                   point =>
                     point.cohort === selectedCohort &&
                     point.instance === selectedInstance
