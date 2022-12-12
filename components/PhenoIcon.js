@@ -10,6 +10,8 @@ import HealthBookIcon from '../public/icons/health-book.svg';
 import ImageIcon from '../public/icons/image.svg';
 import MoleculeIcon from '../public/icons/molecule.svg';
 import TableIcon from '../public/icons/table.svg';
+import SexedIcon from '../public/icons/sexed.svg';
+import TagIcon from '../public/icons/tag.svg';
 
 function getIcon(name) {
   switch (name) {
@@ -33,6 +35,10 @@ function getIcon(name) {
       return <MoleculeIcon />;
     case 'table':
       return <TableIcon />;
+    case 'sexed':
+      return <SexedIcon />;
+    case 'tag':
+      return <TagIcon />;
     default:
       return null;
   }

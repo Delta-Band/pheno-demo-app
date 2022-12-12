@@ -6,1013 +6,416 @@
     "description": "CGM device connection id",
     "participants": 12345,
     "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": ["Obesity", "Glucose"],
-      "infoGraphics": [
-        {
-          "type": "data-accumulation",
-          "dataSets": [
-            {
-              "cohort": "10k",
-              "instances": [
-                {
-                  "name": "base-line",
-                  "data": [
-                    ["2020-01-01", 300],
-                    ["2020-02-01", 500],
-                    ["2020-03-01", 500],
-                    ["2020-08-01", 800]
-                  ]
-                },
-                {
-                  "name": "visit-2",
-                  "data": [
-                    ["2020-02-01", 300],
-                    ["2020-03-01", 500],
-                    ["2020-04-01", 500],
-                    ["2020-05-01", 800]
-                  ]
-                }
-              ]
-            },
-            {
-              "cohort": "Cardio",
-              "instances": [
-                {
-                  "name": "base-line",
-                  "data": [
-                    ["2020-01-01", 300],
-                    ["2020-02-01", 500],
-                    ["2020-03-01", 500],
-                    ["2020-08-01", 800]
-                  ]
-                },
-                {
-                  "name": "visit-3",
-                  "data": [
-                    ["2020-02-01", 300],
-                    ["2020-03-01", 500],
-                    ["2020-04-01", 500],
-                    ["2020-05-01", 800]
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "categorical",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          },
-          "dataCoding": {
-            "name": "10023",
-            "translation": {
-              "0": "Lorem Ipsum 0",
-              "1": "Lorem Ipsum 1",
-              "-1": "Lorem Ipsum -1"
-            }
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-002",
-    "type": "Time Series",
-    "name": "Date",
-    "description": "cgm device datetime column for temporal values",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "https://www.researchgate.net/publication/265473770/figure/fig12/AS:669688497446938@1536677588992/The-darker-vessel-is-a-vein-the-brighter-an-artery-doi101371-journalpone0102034g003.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-003",
-    "type": "Time Series",
-    "name": "Glucose",
-    "description": "cgm temporal glucose values",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-004",
-    "type": "Tabular",
-    "name": "1st quantile",
-    "description": "First quantile of all glucose values.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-005",
-    "type": "Tabular",
-    "name": "3rd quantile",
-    "description": "Third quantile of all glucose values.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
+    "cohorts": ["10K", "Cardio"],
+    "folderID": "1",
+    "stability": "Accruing",
+    "valueType": "Series data, Text",
+    "units": "Text",
+    "itemType": "Data",
+    "strata": "Auxiliary ",
+    "sexed": "Both sexes",
+    "instances-old": "Defined",
+    "array": "No",
+    "debut": "01/01/2019",
+    "version": 0.1,
+    "tags": ["Obesity", "Diabetes", "Glucose"],
+    "dataCoding": "None",
+    "instances": ["baseline visit", "visit-2"],
+    "dataAccumulation": [
+      {
+        "x": "2019-01",
+        "y": 11,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-02",
+        "y": 33,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-03",
+        "y": 75,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-04",
+        "y": 146,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-05",
+        "y": 310,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-06",
+        "y": 518,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-07",
+        "y": 730,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-08",
+        "y": 864,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-09",
+        "y": 1079,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-10",
+        "y": 1230,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-11",
+        "y": 1525,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2019-12",
+        "y": 1892,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-01",
+        "y": 2349,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-02",
+        "y": 2761,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-03",
+        "y": 2924,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-05",
+        "y": 2957,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-06",
+        "y": 3255,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-07",
+        "y": 3601,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-08",
+        "y": 3923,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-09",
+        "y": 4124,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-11",
+        "y": 4464,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2020-12",
+        "y": 4823,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-01",
+        "y": 4824,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-02",
+        "y": 5024,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-03",
+        "y": 5328,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-04",
+        "y": 5553,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-05",
+        "y": 5756,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-06",
+        "y": 6084,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-07",
+        "y": 6491,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-08",
+        "y": 6843,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-09",
+        "y": 7004,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-10",
+        "y": 7401,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-11",
+        "y": 7810,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-12",
+        "y": 8198,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-01",
+        "y": 8505,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-02",
+        "y": 8835,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-03",
+        "y": 9213,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-04",
+        "y": 9504,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-05",
+        "y": 9876,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-06",
+        "y": 10318,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-07",
+        "y": 10744,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-08",
+        "y": 11199,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2022-09",
+        "y": 11413,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      { "x": "2022-06", "y": 100, "cohort": "10K", "instance": "visit-2" },
+      { "x": "2022-07", "y": 200, "cohort": "10K", "instance": "visit-2" },
+      { "x": "2022-08", "y": 300, "cohort": "10K", "instance": "visit-2" },
+      { "x": "2022-09", "y": 400, "cohort": "10K", "instance": "visit-2" }
+    ],
+    "infoGraphics": [
+      {
+        "type": "data-accumulation",
+        "dataSets": [
+          {
+            "cohort": "10K",
+            "instances": [
+              {
+                "name": "baseline visit",
+                "data": [
+                  ["2019-01", 11],
+                  ["2019-02", 33],
+                  ["2019-03", 75],
+                  ["2019-04", 146],
+                  ["2019-05", 310],
+                  ["2019-06", 518],
+                  ["2019-07", 730],
+                  ["2019-08", 864],
+                  ["2019-09", 1079],
+                  ["2019-10", 1230],
+                  ["2019-11", 1525],
+                  ["2019-12", 1892],
+                  ["2020-01", 2349],
+                  ["2020-02", 2761],
+                  ["2020-03", 2924],
+                  ["2020-05", 2957],
+                  ["2020-06", 3255],
+                  ["2020-07", 3601],
+                  ["2020-08", 3923],
+                  ["2020-09", 4124],
+                  ["2020-11", 4464],
+                  ["2020-12", 4823],
+                  ["2021-01", 4824],
+                  ["2021-02", 5024],
+                  ["2021-03", 5328],
+                  ["2021-04", 5553],
+                  ["2021-05", 5756],
+                  ["2021-06", 6084],
+                  ["2021-07", 6491],
+                  ["2021-08", 6843],
+                  ["2021-09", 7004],
+                  ["2021-10", 7401],
+                  ["2021-11", 7810],
+                  ["2021-12", 8198],
+                  ["2022-01", 8505],
+                  ["2022-02", 8835],
+                  ["2022-03", 9213],
+                  ["2022-04", 9504],
+                  ["2022-05", 9876],
+                  ["2022-06", 10318],
+                  ["2022-07", 10744],
+                  ["2022-08", 11199],
+                  ["2022-09", 11413]
+                ]
+              },
+              {
+                "name": "visit-2",
+                "data": [
+                  ["2022-06", 100],
+                  ["2022-07", 200],
+                  ["2022-08", 300],
+                  ["2022-09", 400]
+                ]
+              }
             ]
           }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-006",
-    "type": "Tabular",
-    "name": "% above value",
-    "description": "Percent of glucose measures that were larger than a specified value.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
+        ]
+      },
+      {
+        "type": "data-distribution",
+        "dataSets": [
+          {
+            "cohort": "10K",
+            "instances": [
+              {
+                "name": "baseline visit",
+                "data": [
+                  [3.63503761867408, 33],
+                  [3.9473610254750175, 242],
+                  [4.259684432275955, 1354],
+                  [4.572007839076893, 2663],
+                  [4.88433124587783, 2148],
+                  [5.196654652678767, 1032],
+                  [5.508978059479704, 442],
+                  [5.821301466280641, 113],
+                  [6.133624873081579, 42],
+                  [6.445948279882517, 8],
+                  [6.758271686683454, 8],
+                  [7.070595093484391, 6],
+                  [7.382918500285328, 4],
+                  [7.695241907086265, 2],
+                  [8.007565313887202, 4],
+                  [8.319888720688141, 1],
+                  [8.632212127489078, 2],
+                  [8.944535534290015, 0],
+                  [9.256858941090952, 2]
+                ]
+              },
+              {
+                "name": "visit-2",
+                "data": [
+                  [3.6718614402727, 1],
+                  [3.8135411055794295, 3],
+                  [3.9552207708861586, 5],
+                  [4.096900436192888, 9],
+                  [4.238580101499617, 12],
+                  [4.380259766806347, 37],
+                  [4.521939432113077, 59],
+                  [4.663619097419806, 63],
+                  [4.805298762726536, 50],
+                  [4.946978428033265, 54],
+                  [5.088658093339994, 31],
+                  [5.230337758646724, 27],
+                  [5.372017423953453, 20],
+                  [5.513697089260183, 10],
+                  [5.6553767545669125, 9],
+                  [5.797056419873641, 3],
+                  [5.938736085180372, 3],
+                  [6.0804157504871, 2],
+                  [6.22209541579383, 2]
+                ]
+              }
             ]
           }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-007",
-    "type": "Tabular",
-    "name": "% below value",
-    "description": "Percent of glucose measures that were lower than a specified value.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-008",
-    "type": "Tabular",
-    "name": "% in range",
-    "description": "Percent of glucose measures that were in a specified range of glucose values.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-009",
-    "type": "Tabular",
-    "name": "ADRR",
-    "description": "Average daily risk range (ADRR) is a variability measure that was designed to be sensitive to both hyperglycemia and hypoglycemia. The ADRR is composed of the HBGI and LGBI.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-010",
-    "type": "Tabular",
-    "name": "AUC",
-    "description": "Hourly average AUC. This measure integrates, to some extent, the severity of a high or low glucose along with the duration of the abnormality. It\u2019s calculated for each hour in the CGM, then averaged for each day over a 24-hour period, then once again averaged between all days to receive a single AUC measure.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-011",
-    "type": "Tabular",
-    "name": "COGI",
-    "description": "Continuous Glucose Monitoring Index (COGI). COGI uses three measures of the CGM - time in range, time below range and glucose variability (GV) and averages them using a weighted mean, usually with weights of 50%, 35% and 15% accordingly.",
-    "participants": 10001,
-    "measurements": 20002,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-012",
-    "type": "Tabular",
-    "name": "Conga",
-    "description": "Continuous Overall Net Glycemic Action (CONGA). This measure assesses intra-day glycemic variability, by calculating the standard deviation of differences in glucose measures taken n hours apart.",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-013",
-    "type": "Tabular",
-    "name": "CV",
-    "description": "Coefficient of variation of all glucose values.\n",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-014",
-    "type": "Tabular",
-    "name": "eA1C",
-    "description": "A linear transformation of the mean glucose value, meant to estimate the HbA1C blood test. Calculated by the following formula: (46.7 + mean(Glucose))/28.7.",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
-  },
-  {
-    "id": "120-015",
-    "type": "Tabular",
-    "name": "IQR",
-    "description": "nterquartile range (IQR), calculated as the distance between the 25th percentile and the 75th percentile of the glucose values.",
-    "participants": 12345,
-    "measurements": 24690,
-    "cohorts": ["10k", "Cardio"],
-    "folderId": "1",
-    "meta": {
-      "stability": "Accruing",
-      "valueType": "Series data, Text",
-      "units": "Text",
-      "itemType": "Data",
-      "strata": "Auxiliary ",
-      "sexed": "Both sexes",
-      "instances": "Defined",
-      "array": "No",
-      "debut": "01/01/2019",
-      "version": 0.1,
-      "tags": "CGM",
-      "dataCoding": "None",
-      "infoGraphics": [
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data accumulation",
-            "xLabel": "Date",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "histogram",
-          "histoData": {
-            "title": "Data distribution",
-            "xLabel": "Values [units]",
-            "values": [
-              [0, 3],
-              [1, 2],
-              [2, 5],
-              [3, 4],
-              [4, 4],
-              [5, 3],
-              [6, 1],
-              [7, 0]
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "imageUrl": "../field_images/123.jpg",
-          "imageTitle": "Example data plot"
-        }
-      ]
-    }
+        ]
+      },
+      {
+        "type": "image",
+        "imageUrl": "https://opg.optica.org/getImage.cfm?img=OG0kcC5sYXJnZSxib2UtMTAtMi04OTItZzAwMg",
+        "imageTitle": "Example data plot"
+      }
+    ]
   }
 ]

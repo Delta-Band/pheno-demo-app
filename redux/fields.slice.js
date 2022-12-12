@@ -85,7 +85,7 @@ const fields = createSelector(
     let filteredFields = fields;
     if (args.folderID) {
       filteredFields = filteredFields.reduce((acc, field) => {
-        if (field.folderId === args.folderID) {
+        if (field.folderID === args.folderID) {
           acc.push(field);
         }
         return acc;
@@ -115,15 +115,15 @@ const folders = createSelector(
   ],
   (folders, fields, args) => {
     const foldersObject = fields.reduce((folders, field) => {
-      folders[field.folderId] = {
-        participants: folders[field.folderId]?.participants
-          ? folders[field.folderId].participants + field.participants
+      folders[field.folderID] = {
+        participants: folders[field.folderID]?.participants
+          ? folders[field.folderID].participants + field.participants
           : field.participants,
-        measurements: folders[field.folderId]?.measurements
-          ? folders[field.folderId].measurements + field.measurements
+        measurements: folders[field.folderID]?.measurements
+          ? folders[field.folderID].measurements + field.measurements
           : field.measurements,
-        cohorts: folders[field.folderId]?.cohorts
-          ? uniq(folders[field.folderId].cohorts.concat(field.cohorts))
+        cohorts: folders[field.folderID]?.cohorts
+          ? uniq(folders[field.folderID].cohorts.concat(field.cohorts))
           : field.cohorts
       };
       return folders;

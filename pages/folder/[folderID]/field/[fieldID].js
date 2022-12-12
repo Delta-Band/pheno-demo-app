@@ -1,8 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Layout, PhenoIcon } from '../../../../components';
+import {
+  Layout,
+  PhenoIcon,
+  DataAccumulation,
+  DataDistribution
+} from '../../../../components';
+import { GraphTitle } from '../../../../components/GraphUtils';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
@@ -15,15 +21,14 @@ import {
   MenuItem,
   ListItemText,
   Select,
-  Checkbox,
   FormControl
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../../shared/utils';
-import { FormattedNumber as IntlNumber } from 'react-intl';
-import { DataAccumulation } from '../../../../components';
 import { motion } from 'framer-motion';
+import { Bar as BarChart } from 'react-chartjs-2';
 import uniq from 'lodash/uniq';
+import moment from 'moment';
 
 const gap = 36;
 
@@ -105,56 +110,172 @@ function Tags({ tags }) {
   );
 }
 
-function GraphTitle({ children, filters = [] }) {
-  const [filtered, setFiltered] = useState(
-    filters.map(filter => {
-      return filter.options;
-    })
-  );
-
+function Filters({
+  upTablet,
+  field,
+  selectedCohort,
+  setSelectedCohort,
+  selectedInstance,
+  setSelectedInstance
+}) {
   return (
-    <div
+    <Section>
+      <FormControl
+        css={{ width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%' }}
+      >
+        <InputLabel id='cohorts'> Select Cohort</InputLabel>
+        <Select
+          labelId='cohorts'
+          value={selectedCohort}
+          onChange={e => setSelectedCohort(e.target.value)}
+          input={<OutlinedInput label='Select Cohort' />}
+        >
+          {field.cohorts.map(opt => (
+            <MenuItem key={opt} value={opt}>
+              <ListItemText primary={opt} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <FormControl
+        css={{ width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%' }}
+      >
+        <InputLabel id='instances'>Select Instance</InputLabel>
+        <Select
+          labelId='instances'
+          value={selectedInstance}
+          onChange={e => setSelectedInstance(e.target.value)}
+          input={<OutlinedInput label='Select Instances' />}
+        >
+          {field.instances.map(opt => (
+            <MenuItem key={opt} value={opt}>
+              <ListItemText primary={opt} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Section>
+  );
+}
+
+function Meta({ field }) {
+  return (
+    <Section>
+      <Column>
+        <MetaInfo
+          iconName={getIconByDatType(field.type)}
+          prefixText='Data Type'
+          value={field.type}
+        />
+        <MetaInfo
+          iconName='user'
+          prefixText='Participants'
+          value={field.participants}
+        />
+        <MetaInfo
+          iconName='meter'
+          prefixText='Measurements'
+          value={field.measurements}
+        />
+      </Column>
+      <Column>
+        <MetaInfo
+          iconName='group'
+          prefixText='Cohorts'
+          value={field.cohorts.join(', ')}
+        />
+        <MetaInfo prefixText='Stability' value={field.stability} />
+        <MetaInfo prefixText='Strata' value={field.strata} />
+      </Column>
+      <Column>
+        <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
+        <MetaInfo
+          iconName='tag'
+          prefixText='Tags'
+          value={<Tags tags={field.tags} />}
+        />
+      </Column>
+    </Section>
+  );
+}
+
+function Chart({ data, upTablet }) {
+  const minMax = data.reduce(
+    (acc, point) => {
+      if (acc.max < point.x) {
+        acc.max = point.x;
+      }
+      if (acc.min > point.x) {
+        acc.min = point.x;
+      }
+      return acc;
+    },
+    {
+      min: '5000',
+      max: ''
+    }
+  );
+  return (
+    <BarChart
       css={{
-        display: 'flex',
-        alignItems: 'center',
-        marginBottom: 24,
-        height: 46,
-        gap: 16
+        height: upTablet ? '30vw' : '50vw'
       }}
-    >
-      <Typography variant='h6' css={{ whiteSpace: 'nowrap' }}>
-        {children}
-      </Typography>
-      {filters.map((filter, i) => (
-        <FormControl key={filter.name} css={{ width: '100%' }}>
-          <InputLabel id='demo-multiple-checkbox-label'>
-            {filter.name}
-          </InputLabel>
-          <Select
-            labelId='demo-multiple-checkbox-label'
-            id='demo-multiple-checkbox'
-            multiple
-            value={filtered[i]}
-            onChange={e => {
-              setFiltered(filtered => {
-                filtered[i] = e.target.value;
-                return Object.assign([], filtered);
-              });
-            }}
-            input={<OutlinedInput label={filter.name} />}
-            renderValue={selected => selected.join(', ')}
-            placeholder='None Selected'
-          >
-            {filter.options.map(opt => (
-              <MenuItem key={opt} value={opt}>
-                <Checkbox checked={filtered[i].includes(opt)} />
-                <ListItemText primary={opt} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      ))}
-    </div>
+      data={{
+        datasets: [
+          {
+            data
+          }
+        ]
+      }}
+      options={{
+        maintainAspectRatio: false,
+        layout: {
+          padding: 0
+        },
+        plugins: {
+          title: {
+            display: false
+          },
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: context => context.dataset.label,
+              title: context => moment(context[0].raw.x).format('MMM yyyy')
+            }
+          }
+        },
+        scales: {
+          y: {},
+          x: {
+            type: 'time',
+            time: {
+              unit: 'month',
+              displayFormats: {
+                month: 'MMM yyyy'
+              }
+            },
+            grid: {
+              display: false
+              // drawTicks: false
+            },
+            // bounds: 'data',
+            ticks: {
+              minRotation: 0,
+              maxRotation: 0,
+              autoSkip: true,
+              maxTicksLimit: 5
+              // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+              // callback: function (val, index) {
+              //   const mod = Math.max(data.length / 10, )
+              //   return index % 10 === 0 ? moment(val).format('MMM yyyy') : '';
+              // }
+            }
+          }
+        }
+      }}
+    />
   );
 }
 
@@ -165,9 +286,21 @@ export default function FieldPage() {
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
+  const [selectedCohort, setSelectedCohort] = useState(field?.cohorts[0] || '');
+  const [selectedInstance, setSelectedInstance] = useState(
+    field?.instances[0] || ''
+  );
+
+  useEffect(() => {
+    if (field) {
+      setSelectedCohort(field.cohorts[0]);
+      setSelectedInstance(field.instances[0]);
+    }
+  }, [field]);
 
   const GraphicsContainer = styled.div({
-    width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%',
+    // width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%',
+    width: '100%',
     flexShrink: 0
   });
 
@@ -176,26 +309,13 @@ export default function FieldPage() {
       case 'data-accumulation':
         return (
           <GraphicsContainer key={item.type}>
-            <GraphTitle
-              filters={[
-                {
-                  name: 'Cohorts',
-                  options: item.dataSets.map(set => set.cohort)
-                },
-                {
-                  name: 'Instances',
-                  options: item.dataSets.reduce((acc, set) => {
-                    acc = uniq(
-                      acc.concat(set.instances.map(instance => instance.name))
-                    );
-                    return acc;
-                  }, [])
-                }
-              ]}
-            >
-              Data Accumulation
-            </GraphTitle>
             <DataAccumulation data={item.dataSets} />
+          </GraphicsContainer>
+        );
+      case 'data-distribution':
+        return (
+          <GraphicsContainer key={item.type}>
+            <DataDistribution data={item.dataSets} />
           </GraphicsContainer>
         );
       case 'image':
@@ -250,47 +370,32 @@ export default function FieldPage() {
       <Head>
         <title>Pheno Demo App</title>
       </Head>
-      <Layout page='field' paddingTop={getPaddingTop()}>
-        <Wrapper>
-          <Header>{field?.name}</Header>
-          <Section>
-            <Column>
-              <MetaInfo
-                iconName={getIconByDatType(field.type)}
-                prefixText='Data Type'
-                value={field.type}
+      {field ? (
+        <Layout page='field' paddingTop={getPaddingTop()}>
+          <Wrapper>
+            <Header>{field?.name}</Header>
+            <Meta field={field} />
+            <Filters
+              upTablet={upTablet}
+              field={field}
+              selectedCohort={selectedCohort}
+              setSelectedCohort={setSelectedCohort}
+              selectedInstance={selectedInstance}
+              setSelectedInstance={setSelectedInstance}
+            />
+            <Section>
+              <Chart
+                upTablet={upTablet}
+                data={field.dataAccumulation.filter(
+                  point =>
+                    point.cohort === selectedCohort &&
+                    point.instance === selectedInstance
+                )}
               />
-              <MetaInfo
-                iconName='user'
-                prefixText='Participants'
-                value={field.participants}
-              />
-              <MetaInfo
-                iconName='meter'
-                prefixText='Measurements'
-                value={field.measurements}
-              />
-            </Column>
-            <Column>
-              <MetaInfo
-                iconName='group'
-                prefixText='Cohorts'
-                value={field.cohorts.join(', ')}
-              />
-              <MetaInfo prefixText='Stability' value={field.meta.stability} />
-              <MetaInfo prefixText='Strata' value={field.meta.strata} />
-            </Column>
-            <Column>
-              <MetaInfo prefixText='Sexed' value={field.meta.sexed} />
-              <MetaInfo
-                prefixText='Tags'
-                value={<Tags tags={field.meta.tags} />}
-              />
-            </Column>
-          </Section>
-          <Section>{field.meta.infoGraphics.map(renderInfoGraphics)}</Section>
-        </Wrapper>
-      </Layout>
+            </Section>
+          </Wrapper>
+        </Layout>
+      ) : null}
     </>
   ) : null;
 }

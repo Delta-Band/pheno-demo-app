@@ -8,3 +8,4 @@ export { default as FormattedNumber } from './FormattedNumber';
 export { default as BarChart } from './BarChart';
 export { default as FolderInfo } from './FolderInfo';
 export { default as DataAccumulation } from './DataAccumulation';
+export { default as DataDistribution } from './DataDistribution';
