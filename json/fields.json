@@ -6,7 +6,6 @@
     "description": "CGM device connection id",
     "participants": 12345,
     "measurements": 24690,
-    "cohorts": ["10K", "Cardio"],
     "folderID": "1",
     "stability": "Accruing",
     "valueType": "Series data, Text",
@@ -20,6 +19,7 @@
     "version": 0.1,
     "tags": ["Obesity", "Diabetes", "Glucose"],
     "dataCoding": "None",
+    "cohorts": ["10K", "Cardio"],
     "instances": ["baseline visit", "visit-2"],
     "dataAccumulation": [
       {
@@ -397,6 +397,26 @@
       {
         "x": 9.256858941090952,
         "y": 2,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      }
+    ],
+    "categorical": [
+      {
+        "title": "Orange",
+        "value": 3,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "title": "Banana",
+        "value": 10,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "title": "Mango",
+        "value": 25,
         "cohort": "10K",
         "instance": "baseline visit"
       }

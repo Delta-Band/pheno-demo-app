@@ -12,7 +12,7 @@ const themeWithCustomBreakpoints = createTheme({
 const theme = createTheme(themeWithCustomBreakpoints, {
   palette: {
     primary: {
-      main: '#21336c'
+      main: '#495da7'
     }
   },
   typography: {

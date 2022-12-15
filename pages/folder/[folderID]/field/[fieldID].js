@@ -21,11 +21,14 @@ import {
   MenuItem,
   ListItemText,
   Select,
-  FormControl
+  FormControl,
+  Button,
+  Tabs as MuiTabs,
+  Tab as MuiTab
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../../shared/utils';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
 import uniq from 'lodash/uniq';
 import moment from 'moment';
@@ -55,13 +58,32 @@ const Header = ({ children }) => {
   );
 };
 
-const Section = styled.div({
-  width: '100%',
-  display: 'flex',
-  gap,
-  marginBottom: gap,
-  flexWrap: 'wrap'
-});
+function Section({
+  gap: _gap = 36,
+  children,
+  justifyCenter = false,
+  style = {}
+}) {
+  return (
+    <div
+      css={[
+        {
+          // width: '100%',
+          display: 'flex',
+          justifyContent: justifyCenter ? 'center' : 'flex-start',
+          gap: _gap,
+          marginBottom: _gap,
+          flexWrap: 'wrap',
+          flexShrink: 0,
+          position: 'relative'
+        },
+        style
+      ]}
+    >
+      {children}
+    </div>
+  );
+}
 
 const Column = styled.div({
   display: 'inline-flex',
@@ -83,7 +105,7 @@ const MetaInfo = ({ iconName, prefixText, value }) => {
     >
       {iconName && <PhenoIcon name={iconName} />}
       <Typography>{prefixText}:</Typography>
-      {typeof value === 'string' ? (
+      {typeof value !== 'object' ? (
         <Typography>
           <b>{value}</b>
         </Typography>
@@ -161,7 +183,7 @@ function Filters({
 
 function Meta({ field }) {
   return (
-    <Section>
+    <Section gap={88}>
       <Column>
         <MetaInfo
           iconName={getIconByDatType(field.type)}
@@ -200,7 +222,7 @@ function Meta({ field }) {
   );
 }
 
-function Chart({ data, upTablet, title, type }) {
+function Chart({ data, type }) {
   // const minMax = data.reduce(
   //   (acc, point) => {
   //     if (acc.max < point.x) {
@@ -217,75 +239,154 @@ function Chart({ data, upTablet, title, type }) {
   //   }
   // );
   return (
-    <>
-      <Typography variant='h6'>{title}</Typography>
-      <BarChart
-        // css={{
-        //   height: upTablet ? windowSize.height / 4 : windowSize.height / 2
-        // }}
-        data={{
-          labels: data.map(point => point.x),
-          datasets: [
+    <BarChart
+      // css={{
+      //   height: upTablet ? windowSize.height / 4 : windowSize.height / 2
+      // }}
+      data={{
+        labels: data.map(point => point.x),
+        datasets: [
+          {
+            data
+          }
+        ]
+      }}
+      options={{
+        maintainAspectRatio: true,
+        layout: {
+          padding: 0
+        },
+        plugins: {
+          title: {
+            display: false
+          },
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: context => context.dataset.label,
+              title: context => moment(context[0].raw.x).format('MMM yyyy')
+            }
+          }
+        },
+        scales: {
+          y: {},
+          x: Object.assign(
             {
-              data
-            }
-          ]
-        }}
-        options={{
-          maintainAspectRatio: true,
-          layout: {
-            padding: 0
-          },
-          plugins: {
-            title: {
-              display: false
-            },
-            legend: {
-              display: false
-            },
-            tooltip: {
-              callbacks: {
-                label: context => context.dataset.label,
-                title: context => moment(context[0].raw.x).format('MMM yyyy')
-              }
-            }
-          },
-          scales: {
-            y: {},
-            x: Object.assign(
-              {
-                grid: {
-                  display: false
-                  // drawTicks: false
-                },
-                // bounds: 'data',
-                ticks: {
-                  minRotation: 0,
-                  maxRotation: 0,
-                  autoSkip: true,
-                  maxTicksLimit: 5
-                  // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-                  // callback: function (val, index) {
-                  //   return moment(val).format('MMM yyyy');
-                  // }
-                }
+              grid: {
+                display: false
+                // drawTicks: false
               },
-              type === 'time'
-                ? {
-                    type: type,
-                    time: {
-                      unit: 'month',
-                      displayFormats: {
-                        month: 'MMM yyyy'
-                      }
+              // bounds: 'data',
+              ticks: {
+                minRotation: 0,
+                maxRotation: 0,
+                autoSkip: true,
+                maxTicksLimit: 5
+                // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+                // callback: function (val, index) {
+                //   return moment(val).format('MMM yyyy');
+                // }
+              }
+            },
+            type === 'time'
+              ? {
+                  type: type,
+                  time: {
+                    unit: 'month',
+                    displayFormats: {
+                      month: 'MMM yyyy'
                     }
                   }
-                : {}
-            )
-          }
+                }
+              : {}
+          )
+        }
+      }}
+    />
+  );
+}
+
+function Tabs({ selectedTabIndex, setSelectedTabIndex, field }) {
+  const tabs = [];
+  if (field.dataDistribution) {
+    tabs.push('Data Distribution');
+  }
+  // if (field.categorical) {
+  //   tabs.push('Categorical');
+  // }
+  if (field.dataAccumulation) {
+    tabs.push('Data Accumulation');
+  }
+
+  // if (field.images) {
+  //   tabs.push('Images');
+  // }
+
+  return (
+    <MuiTabs
+      value={selectedTabIndex}
+      onChange={(e, v) => setSelectedTabIndex(v)}
+      variant='scrollable'
+      allowScrollButtonsMobile
+    >
+      {tabs.map((label, i) => (
+        <MuiTab label={label} key={label} />
+      ))}
+    </MuiTabs>
+  );
+}
+
+function TabsContent({
+  selectedTabIndex,
+  field,
+  selectedCohort,
+  selectedInstance
+}) {
+  const windowSize = useWindowSize();
+  return (
+    <div css={{ width: '100%', height: '50vh', overflow: 'hidden' }}>
+      <motion.div
+        css={{
+          display: 'inline-flex',
+          height: '100%'
         }}
-      />
-    </>
+        animate={{
+          x: (windowSize.width - 64) * -1 * selectedTabIndex
+        }}
+        transition={{
+          type: 'spring',
+          damping: 20
+        }}
+      >
+        {field.dataDistribution && (
+          <div key='Distribution' css={{ width: 'calc(100vw - 64px)' }}>
+            <Chart
+              title='Data Distribution'
+              data={field.dataDistribution.filter(
+                point =>
+                  point.cohort === selectedCohort &&
+                  point.instance === selectedInstance
+              )}
+            />
+          </div>
+        )}
+        {field.dataAccumulation && (
+          <div key='Accumulation' css={{ width: 'calc(100vw - 64px)' }}>
+            <Chart
+              title='Data Accumulation'
+              type='time'
+              data={field.dataAccumulation.filter(
+                point =>
+                  point.cohort === selectedCohort &&
+                  point.instance === selectedInstance
+              )}
+            />
+          </div>
+        )}
+      </motion.div>
+    </div>
   );
 }
 
@@ -300,7 +401,7 @@ export default function FieldPage() {
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''
   );
-  const windowSize = useWindowSize();
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   useEffect(() => {
     if (field) {
@@ -394,29 +495,33 @@ export default function FieldPage() {
               selectedInstance={selectedInstance}
               setSelectedInstance={setSelectedInstance}
             />
-            <Section>
-              <Chart
-                title='Data Accumulation'
-                upTablet={upTablet}
-                type='time'
-                data={field.dataAccumulation.filter(
-                  point =>
-                    point.cohort === selectedCohort &&
-                    point.instance === selectedInstance
-                )}
+            <Section
+              style={{
+                background: 'rgb(168 183 238 / 18%)',
+                borderRadius: 5
+              }}
+            >
+              <Tabs
+                selectedTabIndex={selectedTabIndex}
+                setSelectedTabIndex={setSelectedTabIndex}
+                field={field}
               />
+              {/* <div
+                css={{
+                  background: 'rgba(0, 0, 0, 0.1)',
+                  height: 2,
+                  width: '100%',
+                  position: 'absolute',
+                  bottom: 0
+                }}
+              /> */}
             </Section>
-            <Section>
-              <Chart
-                title='Data Distribution'
-                upTablet={upTablet}
-                data={field.dataDistribution.filter(
-                  point =>
-                    point.cohort === selectedCohort &&
-                    point.instance === selectedInstance
-                )}
-              />
-            </Section>
+            <TabsContent
+              field={field}
+              selectedTabIndex={selectedTabIndex}
+              selectedCohort={selectedCohort}
+              selectedInstance={selectedInstance}
+            />
           </Wrapper>
         </Layout>
       ) : null}
