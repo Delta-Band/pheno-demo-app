@@ -459,7 +459,8 @@ const Wrapper = styled('div')({
     '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
   boxSizing: 'border-box',
   zIndex: 1,
-  position: 'relative'
+  position: 'relative',
+  zIndex: 2
 });
 
 const FirstRow = styled('div')(({ theme }) => ({

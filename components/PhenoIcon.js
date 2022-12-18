@@ -5,7 +5,7 @@ import MeterIcon from '../public/icons/meter.svg';
 import UserIcon from '../public/icons/user.svg';
 import FolderIcon from '../public/icons/folder.svg';
 import ChevronRightIcon from '../public/icons/chevron-right.svg';
-import TimerIcon from '../public/icons/timer.svg';
+import TimeSeriesIcon from '../public/icons/time-series.svg';
 import HealthBookIcon from '../public/icons/health-book.svg';
 import ImageIcon from '../public/icons/image.svg';
 import MoleculeIcon from '../public/icons/molecule.svg';
@@ -26,7 +26,7 @@ function getIcon(name) {
     case 'chevron-right':
       return <ChevronRightIcon />;
     case 'timer':
-      return <TimerIcon />;
+      return <TimeSeriesIcon />;
     case 'health-book':
       return <HealthBookIcon />;
     case 'image':

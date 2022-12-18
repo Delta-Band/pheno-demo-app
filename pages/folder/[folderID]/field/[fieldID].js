@@ -128,12 +128,12 @@ function Filters({
       </FormControl>
       {selectedGraph ? (
         <FormControl css={{ width }}>
-          <InputLabel id='graphType'>Select Graph</InputLabel>
+          <InputLabel id='graphType'>Select View</InputLabel>
           <Select
             labelId='graphType'
             value={selectedGraph}
             onChange={e => setSelectedGraph(e.target.value)}
-            input={<OutlinedInput label='Select Graph' />}
+            input={<OutlinedInput label='Select View' />}
           >
             {graphs.map(graph => (
               <MenuItem key={graph} value={graph}>
@@ -248,7 +248,13 @@ function GraphContent({
   const width = 'calc(100vw - 64px)';
 
   return (
-    <div css={{ width: '100%', height: '50vh', overflow: 'hidden' }}>
+    <div
+      css={{
+        width: '100%',
+        // height: '50vh',
+        overflow: 'hidden'
+      }}
+    >
       <motion.div
         css={{
           display: 'inline-flex',
@@ -292,7 +298,6 @@ function GraphContent({
         {field.dataAccumulation && (
           <div css={{ width }}>
             <Chart
-              type='accumulation'
               type='time'
               data={field.dataAccumulation.filter(
                 point =>
@@ -373,6 +378,7 @@ export default function FieldPage() {
               graphs={graphs}
             />
             <GraphContent
+              upTablet={upTablet}
               field={field}
               graphs={graphs}
               selectedGraph={selectedGraph}
