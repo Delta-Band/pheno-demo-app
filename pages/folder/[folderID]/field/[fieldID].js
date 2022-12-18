@@ -8,6 +8,7 @@ import {
   DataAccumulation,
   DataDistribution
 } from '../../../../components';
+import { Meta } from '../../../../components/filedPageComponets';
 import { GraphTitle } from '../../../../components/GraphUtils';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
@@ -58,12 +59,7 @@ const Header = ({ children }) => {
   );
 };
 
-function Section({
-  gap: _gap = 36,
-  children,
-  justifyCenter = false,
-  style = {}
-}) {
+function Section({ children, justifyCenter = false, style = {} }) {
   return (
     <div
       css={[
@@ -71,8 +67,8 @@ function Section({
           // width: '100%',
           display: 'flex',
           justifyContent: justifyCenter ? 'center' : 'flex-start',
-          gap: _gap,
-          marginBottom: _gap,
+          gap,
+          marginBottom: gap,
           flexWrap: 'wrap',
           flexShrink: 0,
           position: 'relative'
@@ -85,67 +81,22 @@ function Section({
   );
 }
 
-const Column = styled.div({
-  display: 'inline-flex',
-  flexDirection: 'column',
-  gap: 18
-});
-
-const MetaInfo = ({ iconName, prefixText, value }) => {
-  return (
-    <div
-      css={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 18,
-        '& .pheno-icon': {
-          width: 24
-        }
-      }}
-    >
-      {iconName && <PhenoIcon name={iconName} />}
-      <Typography>{prefixText}:</Typography>
-      {typeof value !== 'object' ? (
-        <Typography>
-          <b>{value}</b>
-        </Typography>
-      ) : (
-        value
-      )}
-    </div>
-  );
-};
-
-function Tags({ tags }) {
-  return (
-    <div css={{ display: 'flex' }}>
-      {tags.map((tag, i) => (
-        <div key={tag} css={{ display: 'flex' }}>
-          <Typography>
-            <b>{tag}</b>
-          </Typography>
-          {i < tags.length - 1 ? (
-            <Typography css={{ marginInline: 8 }}>/</Typography>
-          ) : null}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function Filters({
   upTablet,
   field,
   selectedCohort,
   setSelectedCohort,
   selectedInstance,
-  setSelectedInstance
+  setSelectedInstance,
+  selectedGraph,
+  setSelectedGraph,
+  graphs
 }) {
+  const windowSize = useWindowSize();
+  const width = upTablet ? windowSize.width / 3 - gap * 2 : '100%';
   return (
     <Section>
-      <FormControl
-        css={{ width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%' }}
-      >
+      <FormControl css={{ width }}>
         <InputLabel id='cohorts'> Select Cohort</InputLabel>
         <Select
           labelId='cohorts'
@@ -160,9 +111,7 @@ function Filters({
           ))}
         </Select>
       </FormControl>
-      <FormControl
-        css={{ width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%' }}
-      >
+      <FormControl css={{ width }}>
         <InputLabel id='instances'>Select Instance</InputLabel>
         <Select
           labelId='instances'
@@ -177,47 +126,23 @@ function Filters({
           ))}
         </Select>
       </FormControl>
-    </Section>
-  );
-}
-
-function Meta({ field }) {
-  return (
-    <Section gap={88}>
-      <Column>
-        <MetaInfo
-          iconName={getIconByDatType(field.type)}
-          prefixText='Data Type'
-          value={field.type}
-        />
-        <MetaInfo
-          iconName='user'
-          prefixText='Participants'
-          value={field.participants}
-        />
-        <MetaInfo
-          iconName='meter'
-          prefixText='Measurements'
-          value={field.measurements}
-        />
-      </Column>
-      <Column>
-        <MetaInfo
-          iconName='group'
-          prefixText='Cohorts'
-          value={field.cohorts.join(', ')}
-        />
-        <MetaInfo prefixText='Stability' value={field.stability} />
-        <MetaInfo prefixText='Strata' value={field.strata} />
-      </Column>
-      <Column>
-        <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
-        <MetaInfo
-          iconName='tag'
-          prefixText='Tags'
-          value={<Tags tags={field.tags} />}
-        />
-      </Column>
+      {selectedGraph ? (
+        <FormControl css={{ width }}>
+          <InputLabel id='graphType'>Select Graph</InputLabel>
+          <Select
+            labelId='graphType'
+            value={selectedGraph}
+            onChange={e => setSelectedGraph(e.target.value)}
+            input={<OutlinedInput label='Select Graph' />}
+          >
+            {graphs.map(graph => (
+              <MenuItem key={graph} value={graph}>
+                <ListItemText primary={graph} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      ) : null}
     </Section>
   );
 }
@@ -247,12 +172,13 @@ function Chart({ data, type }) {
         labels: data.map(point => point.x),
         datasets: [
           {
-            data
+            data: data.map(point => point.y)
           }
         ]
       }}
       options={{
         maintainAspectRatio: true,
+        indexAxis: type === 'categorical' ? 'y' : 'x',
         layout: {
           padding: 0
         },
@@ -266,7 +192,10 @@ function Chart({ data, type }) {
           tooltip: {
             callbacks: {
               label: context => context.dataset.label,
-              title: context => moment(context[0].raw.x).format('MMM yyyy')
+              title: context =>
+                type === 'accumulation'
+                  ? moment(context[0].raw.x).format('MMM yyyy')
+                  : context[0].raw.x
             }
           }
         },
@@ -290,7 +219,7 @@ function Chart({ data, type }) {
                 // }
               }
             },
-            type === 'time'
+            type === 'accumulation'
               ? {
                   type: type,
                   time: {
@@ -308,43 +237,16 @@ function Chart({ data, type }) {
   );
 }
 
-function Tabs({ selectedTabIndex, setSelectedTabIndex, field }) {
-  const tabs = [];
-  if (field.dataDistribution) {
-    tabs.push('Data Distribution');
-  }
-  // if (field.categorical) {
-  //   tabs.push('Categorical');
-  // }
-  if (field.dataAccumulation) {
-    tabs.push('Data Accumulation');
-  }
-
-  // if (field.images) {
-  //   tabs.push('Images');
-  // }
-
-  return (
-    <MuiTabs
-      value={selectedTabIndex}
-      onChange={(e, v) => setSelectedTabIndex(v)}
-      variant='scrollable'
-      allowScrollButtonsMobile
-    >
-      {tabs.map((label, i) => (
-        <MuiTab label={label} key={label} />
-      ))}
-    </MuiTabs>
-  );
-}
-
-function TabsContent({
-  selectedTabIndex,
+function GraphContent({
   field,
+  selectedGraph,
   selectedCohort,
-  selectedInstance
+  selectedInstance,
+  graphs
 }) {
   const windowSize = useWindowSize();
+  const width = 'calc(100vw - 64px)';
+
   return (
     <div css={{ width: '100%', height: '50vh', overflow: 'hidden' }}>
       <motion.div
@@ -353,7 +255,10 @@ function TabsContent({
           height: '100%'
         }}
         animate={{
-          x: (windowSize.width - 64) * -1 * selectedTabIndex
+          x:
+            (windowSize.width - 64) *
+            -1 *
+            graphs.findIndex(g => g === selectedGraph)
         }}
         transition={{
           type: 'spring',
@@ -361,9 +266,9 @@ function TabsContent({
         }}
       >
         {field.dataDistribution && (
-          <div key='Distribution' css={{ width: 'calc(100vw - 64px)' }}>
+          <div css={{ width }}>
             <Chart
-              title='Data Distribution'
+              type='distribution'
               data={field.dataDistribution.filter(
                 point =>
                   point.cohort === selectedCohort &&
@@ -372,10 +277,22 @@ function TabsContent({
             />
           </div>
         )}
-        {field.dataAccumulation && (
-          <div key='Accumulation' css={{ width: 'calc(100vw - 64px)' }}>
+        {field.categorical && (
+          <div css={{ width }}>
             <Chart
-              title='Data Accumulation'
+              type='categorical'
+              data={field.categorical.filter(
+                point =>
+                  point.cohort === selectedCohort &&
+                  point.instance === selectedInstance
+              )}
+            />
+          </div>
+        )}
+        {field.dataAccumulation && (
+          <div css={{ width }}>
+            <Chart
+              type='accumulation'
               type='time'
               data={field.dataAccumulation.filter(
                 point =>
@@ -398,73 +315,30 @@ export default function FieldPage() {
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
   const [selectedCohort, setSelectedCohort] = useState(field?.cohorts[0] || '');
+  const graphs = [];
+  if (field?.dataDistribution) {
+    graphs.push('Data Distribution');
+  }
+  if (field?.categorical) {
+    graphs.push('Categorical');
+  }
+  if (field?.dataAccumulation) {
+    graphs.push('Data Accumulation');
+  }
+  const [selectedGraph, setSelectedGraph] = useState(graphs ? graphs[0] : null);
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''
   );
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   useEffect(() => {
     if (field) {
       setSelectedCohort(field.cohorts[0]);
       setSelectedInstance(field.instances[0]);
+      if (!selectedGraph) {
+        setSelectedGraph(graphs[0]);
+      }
     }
   }, [field]);
-
-  const GraphicsContainer = styled.div({
-    // width: upTablet ? `calc(50% - ${gap / 2}px)` : '100%',
-    width: '100%',
-    flexShrink: 0
-  });
-
-  function renderInfoGraphics(item) {
-    switch (item.type) {
-      case 'data-accumulation':
-        return (
-          <GraphicsContainer key={item.type}>
-            <DataAccumulation data={item.dataSets} />
-          </GraphicsContainer>
-        );
-      case 'data-distribution':
-        return (
-          <GraphicsContainer key={item.type}>
-            <DataDistribution data={item.dataSets} />
-          </GraphicsContainer>
-        );
-      case 'image':
-        return (
-          <GraphicsContainer key={item.type}>
-            <GraphTitle>{item.imageTitle}</GraphTitle>
-            <motion.div
-              css={{
-                overflow: 'hidden',
-                borderRadius: 4
-              }}
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: upTablet ? '30vw' : '50vw', opacity: 1 }}
-              transition={{
-                delay: 1,
-                type: 'spring',
-                // stiffness: 50,
-                damping: 30
-              }}
-            >
-              <img
-                alt={item.imageTitle}
-                src={item.imageUrl}
-                css={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center center'
-                }}
-              />
-            </motion.div>
-          </GraphicsContainer>
-        );
-      default:
-        return null;
-    }
-  }
 
   function getPaddingTop() {
     switch (true) {
@@ -477,7 +351,7 @@ export default function FieldPage() {
     }
   }
 
-  return field ? (
+  return (
     <>
       <Head>
         <title>Pheno Demo App</title>
@@ -486,7 +360,7 @@ export default function FieldPage() {
         <Layout page='field' paddingTop={getPaddingTop()}>
           <Wrapper>
             <Header>{field?.name}</Header>
-            <Meta field={field} />
+            <Meta />
             <Filters
               upTablet={upTablet}
               field={field}
@@ -494,31 +368,14 @@ export default function FieldPage() {
               setSelectedCohort={setSelectedCohort}
               selectedInstance={selectedInstance}
               setSelectedInstance={setSelectedInstance}
+              selectedGraph={selectedGraph}
+              setSelectedGraph={setSelectedGraph}
+              graphs={graphs}
             />
-            <Section
-              style={{
-                background: 'rgb(168 183 238 / 18%)',
-                borderRadius: 5
-              }}
-            >
-              <Tabs
-                selectedTabIndex={selectedTabIndex}
-                setSelectedTabIndex={setSelectedTabIndex}
-                field={field}
-              />
-              {/* <div
-                css={{
-                  background: 'rgba(0, 0, 0, 0.1)',
-                  height: 2,
-                  width: '100%',
-                  position: 'absolute',
-                  bottom: 0
-                }}
-              /> */}
-            </Section>
-            <TabsContent
+            <GraphContent
               field={field}
-              selectedTabIndex={selectedTabIndex}
+              graphs={graphs}
+              selectedGraph={selectedGraph}
               selectedCohort={selectedCohort}
               selectedInstance={selectedInstance}
             />
@@ -526,5 +383,5 @@ export default function FieldPage() {
         </Layout>
       ) : null}
     </>
-  ) : null;
+  );
 }

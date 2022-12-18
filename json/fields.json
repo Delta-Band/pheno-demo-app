@@ -403,20 +403,20 @@
     ],
     "categorical": [
       {
-        "title": "Orange",
-        "value": 3,
+        "x": "Orange",
+        "y": 3,
         "cohort": "10K",
         "instance": "baseline visit"
       },
       {
-        "title": "Banana",
-        "value": 10,
+        "x": "Banana",
+        "y": 10,
         "cohort": "10K",
         "instance": "baseline visit"
       },
       {
-        "title": "Mango",
-        "value": 25,
+        "x": "Mango",
+        "y": 25,
         "cohort": "10K",
         "instance": "baseline visit"
       }
