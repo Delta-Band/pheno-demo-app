@@ -3,7 +3,10 @@ import { jsx } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Layout } from '../../../../components';
-import { Meta } from '../../../../components/fieldPageComponents';
+import {
+  Meta,
+  DistributionStats
+} from '../../../../components/fieldPageComponents';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
@@ -82,9 +85,11 @@ function Filters({
   views
 }) {
   const windowSize = useWindowSize();
-  const width = upTablet ? (windowSize.width - gap * 2 - 64) / 3 : '100%';
+  const width = upTablet
+    ? Math.floor((windowSize.width - gap * 2 - 72) / 3)
+    : '100%';
   return (
-    <Section>
+    <>
       <FormControl css={{ width }}>
         <InputLabel id='cohorts'> Select Cohort</InputLabel>
         <Select
@@ -132,31 +137,17 @@ function Filters({
           </Select>
         </FormControl>
       ) : null}
-    </Section>
+    </>
   );
 }
 
 function Chart({ data, type }) {
-  // const minMax = data.reduce(
-  //   (acc, point) => {
-  //     if (acc.max < point.x) {
-  //       acc.max = point.x;
-  //     }
-  //     if (acc.min > point.x) {
-  //       acc.min = point.x;
-  //     }
-  //     return acc;
-  //   },
-  //   {
-  //     min: '5000',
-  //     max: ''
-  //   }
-  // );
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+
   return (
     <BarChart
-      // css={{
-      //   height: upTablet ? windowSize.height / 4 : windowSize.height / 2
-      // }}
+      css={{ height: upTablet ? 380 : '30vh' }}
       data={{
         labels: data.map(point => point.x),
         datasets: [
@@ -166,7 +157,7 @@ function Chart({ data, type }) {
         ]
       }}
       options={{
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         indexAxis: type === 'categorical' ? 'y' : 'x',
         layout: {
           padding: 0
@@ -234,7 +225,9 @@ function GraphContent({
   views
 }) {
   const windowSize = useWindowSize();
-  const width = 'calc(100vw - 64px)';
+  const width = 'calc(100vw - 72px)';
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
 
   return (
     <div
@@ -251,7 +244,7 @@ function GraphContent({
         }}
         animate={{
           x:
-            (windowSize.width - 64) *
+            (windowSize.width - 72) *
             -1 *
             views.findIndex(g => g === selectedView)
         }}
@@ -261,23 +254,37 @@ function GraphContent({
         }}
       >
         {field.dataDistribution && (
-          <div css={{ width }}>
-            <Chart
-              type={
-                typeof field.dataDistribution[0].x === 'string'
-                  ? 'categorical'
-                  : 'distribution'
-              }
-              data={field.dataDistribution.filter(
-                point =>
-                  point.cohort === selectedCohort &&
-                  point.instance === selectedInstance
-              )}
-            />
-          </div>
+          <motion.div
+            animate={{ opacity: selectedView === 'Data Distribution' ? 1 : 0 }}
+            css={{
+              width,
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: upTablet ? 'row' : 'column'
+            }}
+          >
+            <div css={{ width: '100%' }}>
+              <Chart
+                type={
+                  typeof field.dataDistribution[0].x === 'string'
+                    ? 'categorical'
+                    : 'distribution'
+                }
+                data={field.dataDistribution.filter(
+                  point =>
+                    point.cohort === selectedCohort &&
+                    point.instance === selectedInstance
+                )}
+              />
+            </div>
+            <DistributionStats />
+          </motion.div>
         )}
         {field.dataAccumulation && (
-          <div css={{ width }}>
+          <motion.div
+            css={{ width, height: upTablet ? undefined : '30vh' }}
+            animate={{ opacity: selectedView === 'Data Accumulation' ? 1 : 0 }}
+          >
             <Chart
               type='time'
               data={field.dataAccumulation.filter(
@@ -286,7 +293,7 @@ function GraphContent({
                   point.instance === selectedInstance
               )}
             />
-          </div>
+          </motion.div>
         )}
       </motion.div>
     </div>
@@ -353,25 +360,27 @@ export default function FieldPage() {
             <Header>{field?.name}</Header>
             <Description text={field.description} />
             <Meta />
-            <Filters
-              upTablet={upTablet}
-              field={field}
-              selectedCohort={selectedCohort}
-              setSelectedCohort={setSelectedCohort}
-              selectedInstance={selectedInstance}
-              setSelectedInstance={setSelectedInstance}
-              selectedView={selectedView}
-              setSelectedView={setSelectedView}
-              views={views}
-            />
-            <GraphContent
-              upTablet={upTablet}
-              field={field}
-              views={views}
-              selectedView={selectedView}
-              selectedCohort={selectedCohort}
-              selectedInstance={selectedInstance}
-            />
+            <Section>
+              <Filters
+                upTablet={upTablet}
+                field={field}
+                selectedCohort={selectedCohort}
+                setSelectedCohort={setSelectedCohort}
+                selectedInstance={selectedInstance}
+                setSelectedInstance={setSelectedInstance}
+                selectedView={selectedView}
+                setSelectedView={setSelectedView}
+                views={views}
+              />
+              <GraphContent
+                upTablet={upTablet}
+                field={field}
+                views={views}
+                selectedView={selectedView}
+                selectedCohort={selectedCohort}
+                selectedInstance={selectedInstance}
+              />
+            </Section>
           </Wrapper>
         </Layout>
       ) : null}

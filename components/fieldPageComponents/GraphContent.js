@@ -107,7 +107,7 @@ function GraphContent({
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
   const windowSize = useWindowSize();
-  const width = 'calc(100vw - 64px)';
+  const width = 'calc(100vw - 72px)';
 
   return (
     <div
