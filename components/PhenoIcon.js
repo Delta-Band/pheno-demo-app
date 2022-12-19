@@ -12,6 +12,7 @@ import MoleculeIcon from '../public/icons/molecule.svg';
 import TableIcon from '../public/icons/table.svg';
 import SexedIcon from '../public/icons/sexed.svg';
 import TagIcon from '../public/icons/tag.svg';
+import A2ZIcon from '../public/icons/a-z.svg';
 
 function getIcon(name) {
   switch (name) {
@@ -39,6 +40,8 @@ function getIcon(name) {
       return <SexedIcon />;
     case 'tag':
       return <TagIcon />;
+    case 'a-z':
+      return <A2ZIcon />;
     default:
       return null;
   }

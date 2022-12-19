@@ -66,8 +66,12 @@ function sortEm(items, sorter, direction) {
         return a.cohorts.length - b.cohorts.length;
       case sorter === 'cohorts' && direction === 'desc':
         return b.cohorts.length - a.cohorts.length;
+      case sorter === 'a-z' && direction === 'asc':
+        return b.name < a.name ? 1 : -1;
+      case sorter === 'a-z' && direction === 'desc':
+        return b.name > a.name ? 1 : -1;
       default:
-        return b.participants - a.participants;
+        return b.name - a.name;
     }
   });
 }

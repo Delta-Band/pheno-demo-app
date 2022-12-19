@@ -83,65 +83,68 @@ export function ListItem({
         transition: '0.25s ease-out'
       }}
     >
-      <Button
-        fullWidth
-        onClick={onClick}
-        variant='text'
-        color='inherit'
-        css={{
-          paddingInline: 24,
-          paddingBlock: 16,
-          borderRadius: 0,
-          textTransform: 'capitalize',
-          background: 'rgba(0, 0, 0, 0)',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-          justifyContent: 'space-between',
-          '&:hover': {
-            background: 'rgba(0, 0, 0, 0.05)'
-          }
-        }}
-      >
-        <LeftSide>
-          <IconFixedWidth>
-            <PhenoIcon name={prefixIcon} />
-          </IconFixedWidth>
-          <Typography
-            lineHeight={1}
-            css={{ transform: 'translateY(1px)', userSelect: 'all' }}
-          >
-            <Highlighter
-              caseSensitive={false}
-              highlightClassName='highlighted'
-              autoEscape
-              searchWords={highlights.map(h => h.trim())}
-              textToHighlight={item.name}
-            />
-          </Typography>
-        </LeftSide>
-        <RightSide>
-          <Tooltip content={sortIconTip} placement='left'>
-            <RightSide>
-              <Typography
-                variant='subtitle1'
-                lineHeight={1}
-                css={{
-                  transform: 'translateY(1px)',
-                  color: theme.palette.accentColor
-                }}
-              >
-                <FormattedNumber
-                  value={
-                    sorter === 'cohorts' ? item[sorter].length : item[sorter]
-                  }
-                />
-              </Typography>
-              <PhenoIcon name={sortIcon} color={theme.palette.accentColor} />
-            </RightSide>
-          </Tooltip>
-          <CaretRight size={28} />
-          {/* <PhenoIcon name='chevron-right' /> */}
-        </RightSide>
-      </Button>
+      <Tooltip content={item.description}>
+        <Button
+          fullWidth
+          onClick={onClick}
+          variant='text'
+          color='inherit'
+          css={{
+            paddingInline: 24,
+            paddingBlock: 16,
+            borderRadius: 0,
+            textTransform: 'capitalize',
+            background: 'rgba(0, 0, 0, 0)',
+            borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+            justifyContent: 'space-between',
+            '&:hover': {
+              background: 'rgba(0, 0, 0, 0.05)'
+            }
+          }}
+        >
+          <LeftSide>
+            <IconFixedWidth>
+              <PhenoIcon name={prefixIcon} />
+            </IconFixedWidth>
+            <Typography
+              lineHeight={1}
+              css={{ transform: 'translateY(1px)', userSelect: 'all' }}
+            >
+              <Highlighter
+                caseSensitive={false}
+                highlightClassName='highlighted'
+                autoEscape
+                searchWords={highlights.map(h => h.trim())}
+                textToHighlight={item.name}
+              />
+            </Typography>
+          </LeftSide>
+          <RightSide>
+            <Tooltip content={sortIconTip} placement='left'>
+              {sorter !== 'a-z' ? (
+                <RightSide>
+                  <Typography
+                    variant='subtitle1'
+                    lineHeight={1}
+                    css={{
+                      transform: 'translateY(1px)',
+                      color: theme.palette.accentColor
+                    }}
+                  >
+                    <FormattedNumber value={item[sorter]} />
+                  </Typography>
+                  <PhenoIcon
+                    name={sortIcon}
+                    color={theme.palette.accentColor}
+                  />
+                </RightSide>
+              ) : null}
+            </Tooltip>
+            <CaretRight size={28} />
+            {/* <PhenoIcon name='chevron-right' /> */}
+          </RightSide>
+        </Button>
+      </Tooltip>
     </li>
   );
 }

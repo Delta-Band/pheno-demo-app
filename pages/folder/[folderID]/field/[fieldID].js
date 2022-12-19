@@ -2,14 +2,8 @@
 import { jsx } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import {
-  Layout,
-  PhenoIcon,
-  DataAccumulation,
-  DataDistribution
-} from '../../../../components';
+import { Layout } from '../../../../components';
 import { Meta } from '../../../../components/filedPageComponets';
-import { GraphTitle } from '../../../../components/GraphUtils';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
@@ -22,16 +16,11 @@ import {
   MenuItem,
   ListItemText,
   Select,
-  FormControl,
-  Button,
-  Tabs as MuiTabs,
-  Tab as MuiTab
+  FormControl
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { getIconByDatType } from '../../../../shared/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
-import uniq from 'lodash/uniq';
 import moment from 'moment';
 import { useWindowSize } from '../../../../hooks';
 
@@ -88,12 +77,12 @@ function Filters({
   setSelectedCohort,
   selectedInstance,
   setSelectedInstance,
-  selectedGraph,
-  setSelectedGraph,
-  graphs
+  selectedView,
+  setSelectedView,
+  views
 }) {
   const windowSize = useWindowSize();
-  const width = upTablet ? windowSize.width / 3 - gap * 2 : '100%';
+  const width = upTablet ? (windowSize.width - gap * 2 - 64) / 3 : '100%';
   return (
     <Section>
       <FormControl css={{ width }}>
@@ -126,16 +115,16 @@ function Filters({
           ))}
         </Select>
       </FormControl>
-      {selectedGraph ? (
+      {selectedView ? (
         <FormControl css={{ width }}>
           <InputLabel id='graphType'>Select View</InputLabel>
           <Select
             labelId='graphType'
-            value={selectedGraph}
-            onChange={e => setSelectedGraph(e.target.value)}
+            value={selectedView}
+            onChange={e => setSelectedView(e.target.value)}
             input={<OutlinedInput label='Select View' />}
           >
-            {graphs.map(graph => (
+            {views.map(graph => (
               <MenuItem key={graph} value={graph}>
                 <ListItemText primary={graph} />
               </MenuItem>
@@ -239,10 +228,10 @@ function Chart({ data, type }) {
 
 function GraphContent({
   field,
-  selectedGraph,
+  selectedView,
   selectedCohort,
   selectedInstance,
-  graphs
+  views
 }) {
   const windowSize = useWindowSize();
   const width = 'calc(100vw - 64px)';
@@ -264,7 +253,7 @@ function GraphContent({
           x:
             (windowSize.width - 64) *
             -1 *
-            graphs.findIndex(g => g === selectedGraph)
+            views.findIndex(g => g === selectedView)
         }}
         transition={{
           type: 'spring',
@@ -274,20 +263,12 @@ function GraphContent({
         {field.dataDistribution && (
           <div css={{ width }}>
             <Chart
-              type='distribution'
+              type={
+                typeof field.dataDistribution[0].x === 'string'
+                  ? 'categorical'
+                  : 'distribution'
+              }
               data={field.dataDistribution.filter(
-                point =>
-                  point.cohort === selectedCohort &&
-                  point.instance === selectedInstance
-              )}
-            />
-          </div>
-        )}
-        {field.categorical && (
-          <div css={{ width }}>
-            <Chart
-              type='categorical'
-              data={field.categorical.filter(
                 point =>
                   point.cohort === selectedCohort &&
                   point.instance === selectedInstance
@@ -320,17 +301,14 @@ export default function FieldPage() {
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
   const [selectedCohort, setSelectedCohort] = useState(field?.cohorts[0] || '');
-  const graphs = [];
+  const views = [];
   if (field?.dataDistribution) {
-    graphs.push('Data Distribution');
-  }
-  if (field?.categorical) {
-    graphs.push('Categorical');
+    views.push('Data Distribution');
   }
   if (field?.dataAccumulation) {
-    graphs.push('Data Accumulation');
+    views.push('Data Accumulation');
   }
-  const [selectedGraph, setSelectedGraph] = useState(graphs ? graphs[0] : null);
+  const [selectedView, setSelectedView] = useState(views ? views[0] : null);
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''
   );
@@ -339,8 +317,8 @@ export default function FieldPage() {
     if (field) {
       setSelectedCohort(field.cohorts[0]);
       setSelectedInstance(field.instances[0]);
-      if (!selectedGraph) {
-        setSelectedGraph(graphs[0]);
+      if (!selectedView) {
+        setSelectedView(views[0]);
       }
     }
   }, [field]);
@@ -356,6 +334,14 @@ export default function FieldPage() {
     }
   }
 
+  function Description({ text }) {
+    return (
+      <Section>
+        <Typography>{text}</Typography>
+      </Section>
+    );
+  }
+
   return (
     <>
       <Head>
@@ -365,6 +351,7 @@ export default function FieldPage() {
         <Layout page='field' paddingTop={getPaddingTop()}>
           <Wrapper>
             <Header>{field?.name}</Header>
+            <Description text={field.description} />
             <Meta />
             <Filters
               upTablet={upTablet}
@@ -373,15 +360,15 @@ export default function FieldPage() {
               setSelectedCohort={setSelectedCohort}
               selectedInstance={selectedInstance}
               setSelectedInstance={setSelectedInstance}
-              selectedGraph={selectedGraph}
-              setSelectedGraph={setSelectedGraph}
-              graphs={graphs}
+              selectedView={selectedView}
+              setSelectedView={setSelectedView}
+              views={views}
             />
             <GraphContent
               upTablet={upTablet}
               field={field}
-              graphs={graphs}
-              selectedGraph={selectedGraph}
+              views={views}
+              selectedView={selectedView}
               selectedCohort={selectedCohort}
               selectedInstance={selectedInstance}
             />

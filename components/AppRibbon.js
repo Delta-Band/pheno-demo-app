@@ -273,19 +273,18 @@ function Sorter() {
       <Tooltip content={'Sort by cohorts'}>
         <Button
           onClick={() => {
-            updateURL('cohorts');
+            updateURL('a-z');
           }}
-          css={[buttonStyle, router.query.sorter === 'cohorts' ? selected : {}]}
+          css={[buttonStyle, router.query.sorter === 'a-z' ? selected : {}]}
         >
           <PhenoIcon
-            name='group'
-            scale={1.2}
-            color={router.query.sorter === 'cohorts' ? undefined : '#FFF'}
+            name='a-z'
+            scale={1.4}
+            color={router.query.sorter === 'a-z' ? undefined : '#FFF'}
           />
-          {/* <GroupIcon size={28} /> */}
-          <Typography css={counterStyle}>
+          {/* <Typography css={counterStyle}>
             <FormattedNumber value={totals.cohorts.length} />
-          </Typography>
+          </Typography> */}
         </Button>
       </Tooltip>
     </ButtonGroupWrapper>

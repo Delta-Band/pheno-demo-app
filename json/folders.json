@@ -4,27 +4,32 @@
     "name": "CGM",
     "description": {
       "intro": "Lorem Ipsum",
-      "mainTxt": "Lorem Ipsum",
-      "introGraph": [
+      "md": "Lorem Ipsum",
+      "images": [
         {
-          "type": "timeSeries",
           "label": "Lorem Ipsum",
-          "description": "Lorem Ipsum"
+          "src": "Lorem Ipsum",
+          "caption": "Lorem ipsum"
         }
       ]
     },
     "protocol": {
-      "txt": "Lorem ipsum",
+      "md": "Lorem ipsum",
       "images": [
         {
-          "src": "urlstring",
-          "title": "Lorem ipsum",
-          "description": "Lorem ipsum"
+          "label": "Lorem ipsum",
+          "caption": "Lorem ipsum",
+          "src": "urlstring"
         }
       ]
     },
     "dataProcess": {
-      "flowChart": {}
+      "md": "Lorem Ipsum",
+      "image": {
+        "label": "Lorem ipsum",
+        "caption": "Lorem ipsum",
+        "src": "urlstring"
+      }
     },
     "publications": [{}]
   }
