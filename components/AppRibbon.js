@@ -1,20 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { useTheme } from '@mui/material/styles';
-import { Typography, Button, useMediaQuery, styled } from '@mui/material';
+import { Button, useMediaQuery, styled } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
-import PhenoIcon from './PhenoIcon';
 import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
-import { fieldsSlice, foldersSlice, layoutSlice } from '../redux';
+import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { Home as HomeIcon } from '@styled-icons/boxicons-regular/Home';
-import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/RightArrowAlt';
-import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
-import FormattedNumber from './FormattedNumber';
-import { getIconByDatType } from '../shared/utils';
+import { Breadcrumbs, Sorter } from './pages/app-ribbon';
 
 const LeftSide = styled('div')({
   display: 'flex',
@@ -27,41 +21,6 @@ const RightSide = styled('div')({
   gap: 16,
   alignItems: 'center'
 });
-
-const buttonStyle = {
-  color: '#FFF',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: 18,
-  height: '100%',
-  width: '100vw',
-  paddingInline: 24,
-  borderRadius: 0,
-  // minWidth: 'min-content',
-  boxSizing: 'border-box',
-  background: 'rgba(255, 255, 255, 0.1)',
-  '&:hover': {
-    background: 'rgba(255, 255, 255, 0.2)'
-  }
-};
-
-const selected = {
-  color: '#000',
-  background: 'rgba(255, 255, 255, 1)',
-  '&:hover': {
-    background: 'rgba(255, 255, 255, 1)'
-  },
-  '& svg': {
-    fill: '#000'
-  }
-};
-
-const counterStyle = {
-  transform: 'translateY(0.5px)',
-  whiteSpace: 'nowrap',
-  color: 'inherit'
-};
 
 function Logo() {
   const router = useRouter();
@@ -188,109 +147,6 @@ function SortDirection() {
   );
 }
 
-function Sorter() {
-  const router = useRouter();
-  const theme = useTheme();
-  const totals = useSelector(state =>
-    fieldsSlice.selectors.totals(state, {
-      folder: router.query.folder,
-      filter: router.query.filter,
-      sorter: router.query.sorter,
-      direction: router.query.direction
-    })
-  );
-
-  function updateURL(sorter) {
-    router.push({
-      pathname: router.asPath.split('?')[0],
-      query: {
-        filter: router.query.filter || '',
-        sorter,
-        direction: router.query.direction || 'desc'
-      }
-    });
-  }
-
-  const ButtonGroupWrapper = styled('div')({
-    display: 'flex',
-    height: 40,
-    gap: 2,
-    borderRadius: 999,
-    overflow: 'hidden',
-    boxShadow: theme.shadows.input,
-    width: '100%',
-    opacity: router.route === '/folder/[folderID]/field/[fieldID]' ? 0.3 : 1,
-    pointerEvents:
-      router.route === '/folder/[folderID]/field/[fieldID]' ? 'none' : 'all',
-    [theme.breakpoints.up('tablet')]: {
-      width: '36vw',
-      maxWidth: 495
-    }
-  });
-
-  return (
-    <ButtonGroupWrapper>
-      <Tooltip content={'Sort by participants'}>
-        <Button
-          onClick={() => {
-            updateURL('participants');
-          }}
-          css={[
-            buttonStyle,
-            router.query.sorter === 'participants' ? selected : {}
-          ]}
-        >
-          <PhenoIcon
-            name='user'
-            scale={1.2}
-            color={router.query.sorter === 'participants' ? undefined : '#FFF'}
-          />{' '}
-          <Typography css={counterStyle}>
-            <FormattedNumber value={totals.participants} />
-          </Typography>
-        </Button>
-      </Tooltip>
-      <Tooltip content={'Sort by measurements'}>
-        <Button
-          onClick={() => {
-            updateURL('measurements');
-          }}
-          css={[
-            buttonStyle,
-            router.query.sorter === 'measurements' ? selected : {}
-          ]}
-        >
-          <PhenoIcon
-            name='meter'
-            scale={1.2}
-            color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
-          />{' '}
-          <Typography css={counterStyle}>
-            <FormattedNumber value={totals.measurements} />
-          </Typography>
-        </Button>
-      </Tooltip>
-      <Tooltip content={'Sort by cohorts'}>
-        <Button
-          onClick={() => {
-            updateURL('a-z');
-          }}
-          css={[buttonStyle, router.query.sorter === 'a-z' ? selected : {}]}
-        >
-          <PhenoIcon
-            name='a-z'
-            scale={1.4}
-            color={router.query.sorter === 'a-z' ? undefined : '#FFF'}
-          />
-          {/* <Typography css={counterStyle}>
-            <FormattedNumber value={totals.cohorts.length} />
-          </Typography> */}
-        </Button>
-      </Tooltip>
-    </ButtonGroupWrapper>
-  );
-}
-
 function AnimatedContainer({ children, upTablet }) {
   const router = useRouter();
   const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
@@ -298,15 +154,17 @@ function AnimatedContainer({ children, upTablet }) {
 
   function getHeight() {
     switch (true) {
-      case minimizeRibbon:
+      case minimizeRibbon && upTablet:
       case upTablet && router.route === '/':
         return 70;
+      case minimizeRibbon && !upTablet:
+        return 58;
       case upTablet && router.route !== '/':
         return 122;
       case !upTablet && router.route === '/':
         return 170;
       case !upTablet && router.route !== '/':
-        return 228;
+        return 222;
     }
   }
 
@@ -320,7 +178,7 @@ function AnimatedContainer({ children, upTablet }) {
       case !upTablet && prevRoute === '/':
         return 170;
       case !upTablet && prevRoute !== '/':
-        return 228;
+        return 222;
     }
   }
 
@@ -346,111 +204,6 @@ function AnimatedContainer({ children, upTablet }) {
   );
 }
 
-function Breadcrumbs() {
-  const router = useRouter();
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
-  const folder = useSelector(state =>
-    foldersSlice.selectors.folderById(state, router.query.folderID)
-  );
-
-  const buttonStyle = {
-    gap: 8,
-    color: '#FFF',
-    minWidth: 'unset',
-    textTransform: 'none',
-    '&.Mui-disabled': {
-      color: '#FFF'
-    }
-  };
-
-  const BreadCrumbsWrapper = styled('ul')({
-    width: '100%',
-    color: '#FFF',
-    margin: 0,
-    paddingInline: 20,
-    listStyle: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8
-  });
-
-  return (
-    <BreadCrumbsWrapper>
-      <li>
-        <Button
-          css={[buttonStyle, { paddingInline: 4 }]}
-          onClick={() => {
-            router.push({
-              pathname: '/',
-              query: {
-                filter: router.query.filter || '',
-                sorter: router.query.sorter || 'participants',
-                direction: router.query.direction || 'desc'
-              }
-            });
-          }}
-        >
-          <HomeIcon size={28} color='#FFF' />
-        </Button>
-      </li>
-      <li>
-        <RightArrowIcon size={28} color='#FFF' />
-      </li>
-      <li>
-        <Button
-          css={buttonStyle}
-          disabled={router.route === '/folder/[folderID]'}
-          onClick={() => {
-            router.push({
-              pathname: '/folder/[folderID]',
-              query: {
-                folderID: router.query.folderID,
-                filter: router.query.filter || '',
-                sorter: router.query.sorter || 'participants',
-                direction: router.query.direction || 'desc'
-              }
-            });
-          }}
-        >
-          <FolderIcon size={26} color='#FFF' />
-          <Typography>{folder?.name}</Typography>
-        </Button>
-      </li>
-      <AnimatePresence>
-        {field ? (
-          <motion.li
-            key='arrow'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <RightArrowIcon size={28} color='#FFF' />
-          </motion.li>
-        ) : null}
-        {field ? (
-          <motion.li
-            key='name'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
-              <PhenoIcon
-                name={getIconByDatType(field.type)}
-                color='#FFF'
-                scale={1.15}
-              />
-              <Typography>{field.name}</Typography>
-            </Button>
-          </motion.li>
-        ) : null}
-      </AnimatePresence>
-    </BreadCrumbsWrapper>
-  );
-}
-
 const Wrapper = styled('div')({
   width: '100%',
   // background:
@@ -467,12 +220,13 @@ const FirstRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 70,
+  height: 58,
   paddingInline: 24,
   gap: 24,
   boxSizing: 'border-box',
   [theme.breakpoints.up('tablet')]: {
-    paddingInlineEnd: 18
+    paddingInlineEnd: 18,
+    height: 70
   }
 }));
 

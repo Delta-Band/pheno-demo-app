@@ -95,7 +95,7 @@ const FolderPage = () => {
       case upTablet:
         return 122;
       case !upTablet:
-        return 228;
+        return 222;
     }
   }
 

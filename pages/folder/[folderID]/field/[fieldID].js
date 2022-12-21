@@ -178,7 +178,7 @@ export default function FieldPage() {
       case upTablet:
         return 122;
       case !upTablet:
-        return 228;
+        return 222;
     }
   }
 
