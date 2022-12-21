@@ -45,36 +45,37 @@ function Chart({ data, type }) {
           },
           tooltip: {
             callbacks: {
-              label: context => context.dataset.label,
+              label: context => context.formattedValue,
               title: context => {
                 return type === 'time'
-                  ? moment(context[0].label).format('MMM yyyy')
+                  ? moment(context[0].parsed.x).format('MMM yyyy')
                   : context[0].label;
               }
             }
+          },
+          dataLabels: {
+            anchor: 'end',
+            align: 'end'
           }
         },
         scales: {
           y: {},
           x: Object.assign(
             {
+              // min: 3.63503761867407,
+              // max: data.length ? data[data.length - 1].x : undefined,
               grid: {
                 display: false
                 // drawTicks: false
               },
+              includeBounds: true,
               // bounds: 'data',
               ticks: {
                 minRotation: 0,
-                maxRotation: 0,
-                autoSkip: true,
-                maxTicksLimit: 5
-                // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-                // callback: function (val, index) {
-                //   if (type === 'time') {
-                //     return moment(val).format('MMM yyyy');
-                //   }
-                //   return val;
-                // }
+                maxRotation: 0
+                // autoSkip: true,
+                // autoSkipPadding: 3
+                // maxTicksLimit: 3
               }
             },
             type === 'time'
