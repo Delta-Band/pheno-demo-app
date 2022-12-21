@@ -1,32 +1,24 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
+import DistributionStats from './DistributionStats';
+import { useRouter } from 'next/router';
+import { fieldsSlice } from '../../redux';
+import { useSelector } from 'react-redux';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
 import moment from 'moment';
 import { useWindowSize } from '../../hooks';
-import { useRouter } from 'next/router';
+import Magnifier from 'react-magnifier';
 
 function Chart({ data, type }) {
-  // const minMax = data.reduce(
-  //   (acc, point) => {
-  //     if (acc.max < point.x) {
-  //       acc.max = point.x;
-  //     }
-  //     if (acc.min > point.x) {
-  //       acc.min = point.x;
-  //     }
-  //     return acc;
-  //   },
-  //   {
-  //     min: '5000',
-  //     max: ''
-  //   }
-  // );
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+
   return (
     <BarChart
-      // css={{
-      //   height: upTablet ? windowSize.height / 4 : windowSize.height / 2
-      // }}
+      css={{ height: upTablet ? 380 : '30vh' }}
       data={{
         labels: data.map(point => point.x),
         datasets: [
@@ -36,7 +28,8 @@ function Chart({ data, type }) {
         ]
       }}
       options={{
-        maintainAspectRatio: true,
+        backgroundColor: ['rgba(63,78,162,0.7)'],
+        maintainAspectRatio: false,
         indexAxis: type === 'categorical' ? 'y' : 'x',
         layout: {
           padding: 0
@@ -97,23 +90,25 @@ function Chart({ data, type }) {
 }
 
 function GraphContent({
-  selectedGraph,
+  selectedView,
   selectedCohort,
   selectedInstance,
-  graphs
+  views
 }) {
+  const windowSize = useWindowSize();
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+  const width = 'calc(100vw - 72px)';
+  const height = upTablet ? 396 : '30vh';
   const router = useRouter();
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
-  const windowSize = useWindowSize();
-  const width = 'calc(100vw - 72px)';
 
   return (
     <div
       css={{
         width: '100%',
-        // height: '50vh',
         overflow: 'hidden'
       }}
     >
@@ -124,9 +119,9 @@ function GraphContent({
         }}
         animate={{
           x:
-            (windowSize.width - 64) *
+            (windowSize.width - 72) *
             -1 *
-            graphs.findIndex(g => g === selectedGraph)
+            views.findIndex(g => g === selectedView)
         }}
         transition={{
           type: 'spring',
@@ -134,31 +129,47 @@ function GraphContent({
         }}
       >
         {field.dataDistribution && (
-          <div css={{ width }}>
-            <Chart
-              type='distribution'
-              data={field.dataDistribution.filter(
-                point =>
-                  point.cohort === selectedCohort &&
-                  point.instance === selectedInstance
-              )}
-            />
-          </div>
-        )}
-        {field.categorical && (
-          <div css={{ width }}>
-            <Chart
-              type='categorical'
-              data={field.categorical.filter(
-                point =>
-                  point.cohort === selectedCohort &&
-                  point.instance === selectedInstance
-              )}
-            />
-          </div>
+          <motion.div
+            animate={{
+              opacity: selectedView === 'Data Distribution' ? 1 : 0,
+              height:
+                selectedView === 'Data Distribution'
+                  ? upTablet
+                    ? height
+                    : 'auto'
+                  : 0
+            }}
+            css={{
+              width,
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: upTablet ? 'row' : 'column'
+            }}
+          >
+            <div css={{ width: '100%' }}>
+              <Chart
+                type={
+                  typeof field.dataDistribution[0].x === 'string'
+                    ? 'categorical'
+                    : 'distribution'
+                }
+                data={field.dataDistribution.filter(
+                  point =>
+                    point.cohort === selectedCohort &&
+                    point.instance === selectedInstance
+                )}
+              />
+            </div>
+            <DistributionStats />
+          </motion.div>
         )}
         {field.dataAccumulation && (
-          <div css={{ width }}>
+          <motion.div
+            css={{ width, height }}
+            animate={{
+              opacity: selectedView === 'Data Accumulation' ? 1 : 0
+            }}
+          >
             <Chart
               type='time'
               data={field.dataAccumulation.filter(
@@ -167,7 +178,56 @@ function GraphContent({
                   point.instance === selectedInstance
               )}
             />
-          </div>
+          </motion.div>
+        )}
+        {field.sampleImage && (
+          <motion.div
+            css={{
+              width,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'black',
+              boxSizing: 'border-box',
+              borderRadius: 4,
+              overflow: 'hidden'
+            }}
+            animate={{
+              padding: selectedView === 'Sample Image' ? '24' : 0,
+              opacity: selectedView === 'Sample Image' ? 1 : 0,
+              height:
+                selectedView === 'Sample Image'
+                  ? upTablet
+                    ? '50vh'
+                    : '55vw'
+                  : 0
+            }}
+            transition={{
+              delay: selectedView === 'Sample Image' ? 0 : 0.5,
+              type: 'spring',
+              damping: 20,
+              opacity: {
+                delay: 0
+              }
+            }}
+          >
+            <Magnifier
+              mgWidth={upTablet ? 200 : 150}
+              mgHeight={upTablet ? 200 : 150}
+              src={`/images/fields/${field.sampleImage.src}`}
+              height='100%'
+              width='auto'
+            />
+            {/* <img
+              css={{
+                objectFit: 'contain',
+                objectPosition: 'center center',
+                height: '100%'
+              }}
+              src={`/images/fields/${field.sampleImage.src}`}
+              alt={field.sampleImage.caption}
+            /> */}
+          </motion.div>
         )}
       </motion.div>
     </div>

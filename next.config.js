@@ -4,6 +4,9 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: false,
+  images: {
+    unoptimized: true
+  },
   async redirects() {
     return [
       // {

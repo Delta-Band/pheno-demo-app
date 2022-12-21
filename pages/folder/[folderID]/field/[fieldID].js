@@ -3,10 +3,7 @@ import { jsx } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Layout } from '../../../../components';
-import {
-  Meta,
-  DistributionStats
-} from '../../../../components/fieldPageComponents';
+import { Meta, GraphContent } from '../../../../components/fieldPageComponents';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
@@ -141,165 +138,6 @@ function Filters({
   );
 }
 
-function Chart({ data, type }) {
-  const theme = useTheme();
-  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-
-  return (
-    <BarChart
-      css={{ height: upTablet ? 380 : '30vh' }}
-      data={{
-        labels: data.map(point => point.x),
-        datasets: [
-          {
-            data: data.map(point => point.y)
-          }
-        ]
-      }}
-      options={{
-        maintainAspectRatio: false,
-        indexAxis: type === 'categorical' ? 'y' : 'x',
-        layout: {
-          padding: 0
-        },
-        plugins: {
-          title: {
-            display: false
-          },
-          legend: {
-            display: false
-          },
-          tooltip: {
-            callbacks: {
-              label: context => context.dataset.label,
-              title: context =>
-                type === 'accumulation'
-                  ? moment(context[0].raw.x).format('MMM yyyy')
-                  : context[0].raw.x
-            }
-          }
-        },
-        scales: {
-          y: {},
-          x: Object.assign(
-            {
-              grid: {
-                display: false
-                // drawTicks: false
-              },
-              // bounds: 'data',
-              ticks: {
-                minRotation: 0,
-                maxRotation: 0,
-                autoSkip: true,
-                maxTicksLimit: 5
-                // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-                // callback: function (val, index) {
-                //   return moment(val).format('MMM yyyy');
-                // }
-              }
-            },
-            type === 'accumulation'
-              ? {
-                  type: type,
-                  time: {
-                    unit: 'month',
-                    displayFormats: {
-                      month: 'MMM yyyy'
-                    }
-                  }
-                }
-              : {}
-          )
-        }
-      }}
-    />
-  );
-}
-
-function GraphContent({
-  field,
-  selectedView,
-  selectedCohort,
-  selectedInstance,
-  views
-}) {
-  const windowSize = useWindowSize();
-  const width = 'calc(100vw - 72px)';
-  const theme = useTheme();
-  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-
-  return (
-    <div
-      css={{
-        width: '100%',
-        // height: '50vh',
-        overflow: 'hidden'
-      }}
-    >
-      <motion.div
-        css={{
-          display: 'inline-flex',
-          height: '100%'
-        }}
-        animate={{
-          x:
-            (windowSize.width - 72) *
-            -1 *
-            views.findIndex(g => g === selectedView)
-        }}
-        transition={{
-          type: 'spring',
-          damping: 20
-        }}
-      >
-        {field.dataDistribution && (
-          <motion.div
-            animate={{ opacity: selectedView === 'Data Distribution' ? 1 : 0 }}
-            css={{
-              width,
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: upTablet ? 'row' : 'column'
-            }}
-          >
-            <div css={{ width: '100%' }}>
-              <Chart
-                type={
-                  typeof field.dataDistribution[0].x === 'string'
-                    ? 'categorical'
-                    : 'distribution'
-                }
-                data={field.dataDistribution.filter(
-                  point =>
-                    point.cohort === selectedCohort &&
-                    point.instance === selectedInstance
-                )}
-              />
-            </div>
-            <DistributionStats />
-          </motion.div>
-        )}
-        {field.dataAccumulation && (
-          <motion.div
-            css={{ width, height: upTablet ? undefined : '30vh' }}
-            animate={{ opacity: selectedView === 'Data Accumulation' ? 1 : 0 }}
-          >
-            <Chart
-              type='time'
-              data={field.dataAccumulation.filter(
-                point =>
-                  point.cohort === selectedCohort &&
-                  point.instance === selectedInstance
-              )}
-            />
-          </motion.div>
-        )}
-      </motion.div>
-    </div>
-  );
-}
-
 export default function FieldPage() {
   const router = useRouter();
   const theme = useTheme();
@@ -314,6 +152,9 @@ export default function FieldPage() {
   }
   if (field?.dataAccumulation) {
     views.push('Data Accumulation');
+  }
+  if (field?.sampleImage) {
+    views.push('Sample Image');
   }
   const [selectedView, setSelectedView] = useState(views ? views[0] : null);
   const [selectedInstance, setSelectedInstance] = useState(
@@ -335,9 +176,9 @@ export default function FieldPage() {
       // case minimizeRibbon:
       //   return 60;
       case upTablet:
-        return 110;
+        return 122;
       case !upTablet:
-        return 224;
+        return 228;
     }
   }
 

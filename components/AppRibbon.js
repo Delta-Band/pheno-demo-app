@@ -300,13 +300,13 @@ function AnimatedContainer({ children, upTablet }) {
     switch (true) {
       case minimizeRibbon:
       case upTablet && router.route === '/':
-        return 60;
+        return 70;
       case upTablet && router.route !== '/':
-        return 110;
+        return 122;
       case !upTablet && router.route === '/':
         return 170;
       case !upTablet && router.route !== '/':
-        return 224;
+        return 228;
     }
   }
 
@@ -314,20 +314,21 @@ function AnimatedContainer({ children, upTablet }) {
     switch (true) {
       case minimizeRibbon:
       case upTablet && prevRoute === '/':
-        return 60;
+        return 70;
       case upTablet && prevRoute !== '/':
-        return 110;
+        return 122;
       case !upTablet && prevRoute === '/':
         return 170;
       case !upTablet && prevRoute !== '/':
-        return 224;
+        return 228;
     }
   }
 
   return (
     <motion.div
       initial={{
-        height: getInitialHeight()
+        height: getInitialHeight(),
+        boxSizing: 'border-box'
       }}
       animate={{ height: getHeight() }}
       transition={{
@@ -466,7 +467,7 @@ const FirstRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 60,
+  height: 70,
   paddingInline: 24,
   gap: 24,
   boxSizing: 'border-box',

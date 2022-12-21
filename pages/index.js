@@ -21,7 +21,7 @@ export default function Home() {
   function getPaddingTop() {
     switch (true) {
       case upTablet:
-        return 60;
+        return 70;
       case !upTablet:
         return 170;
     }

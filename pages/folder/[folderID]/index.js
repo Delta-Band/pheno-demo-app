@@ -93,9 +93,9 @@ const FolderPage = () => {
   function getPaddingTop() {
     switch (true) {
       case upTablet:
-        return 110;
+        return 122;
       case !upTablet:
-        return 224;
+        return 228;
     }
   }
 

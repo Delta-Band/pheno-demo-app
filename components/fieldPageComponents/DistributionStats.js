@@ -2,31 +2,39 @@
 import { jsx } from '@emotion/react';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
+import { fieldsSlice } from '../../redux';
+import { useSelector } from 'react-redux';
 
 function Key({ children }) {
   return <Typography>{children}</Typography>;
 }
 
 function Value({ children }) {
-  return <Typography>{children}</Typography>;
+  return <Typography css={{ fontWeight: 'bold' }}>{children}</Typography>;
 }
 
 const inverted = {
-  background: 'rgba(0, 0, 0, 0.05)'
+  // background: 'rgba(0, 0, 0, 0.1)'
 };
 
 export default function DistributionStats() {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+  const router = useRouter();
+  const field = useSelector(state =>
+    fieldsSlice.selectors.field(state, router.query.fieldID)
+  );
+  const { count, min, max, mean, std, median, percentile90, percentile10 } =
+    field?.distributionStats;
 
   return (
     <ul
       css={{
         width: upTablet ? 300 : '100%',
         flexShrink: 0,
-        border: '1px solid white',
-        borderRadius: 10,
+        border: '1px solid #a6a5a2',
+        borderRadius: 4,
         overflow: 'hidden',
         listStyle: 'none',
         padding: 0,
@@ -34,7 +42,7 @@ export default function DistributionStats() {
         marginInlineStart: upTablet ? 24 : 0,
         marginTop: upTablet ? 0 : 24,
         boxSizing: 'border-box',
-        background: 'rgba(255, 255, 255, 0.1)',
+        paddingBlock: 8,
         '& > li': {
           display: 'flex',
           justifyContent: 'space-between',
@@ -46,35 +54,35 @@ export default function DistributionStats() {
     >
       <li>
         <Key>Count</Key>
-        <Value>10</Value>
+        <Value>{count}</Value>
       </li>
       <li css={inverted}>
         <Key>Minimum</Key>
-        <Value>10</Value>
+        <Value>{min}</Value>
       </li>
       <li>
         <Key>Maximum</Key>
-        <Value>10</Value>
+        <Value>{max}</Value>
       </li>
       <li css={inverted}>
         <Key>Mean</Key>
-        <Value>10</Value>
+        <Value>{mean}</Value>
       </li>
       <li>
         <Key>Standard Deviation</Key>
-        <Value>10</Value>
+        <Value>{std}</Value>
       </li>
       <li css={inverted}>
         <Key>Median</Key>
-        <Value>10</Value>
-      </li>
-      <li>
-        <Key>Percental 90</Key>
-        <Value>10</Value>
+        <Value>{median}</Value>
       </li>
       <li css={inverted}>
-        <Key>Percental 10</Key>
-        <Value>10</Value>
+        <Key>10% Percential</Key>
+        <Value>{percentile10}</Value>
+      </li>
+      <li>
+        <Key>90% Percential</Key>
+        <Value>{percentile90}</Value>
       </li>
     </ul>
   );
