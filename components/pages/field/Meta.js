@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-import PhenoIcon from '../PhenoIcon';
+import PhenoIcon from '../../PhenoIcon';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../redux';
+import { fieldsSlice } from '../../../redux';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { getIconByDatType } from '../../shared/utils';
+import { getIconByDatType } from '../../../shared/utils';
 
 function Tags({ tags }) {
   return (
