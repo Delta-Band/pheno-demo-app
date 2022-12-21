@@ -1,36 +1,6 @@
 [
   {
     "id": "1",
-    "name": "CGM",
-    "description": {
-      "intro": "Lorem Ipsum",
-      "md": "Lorem Ipsum",
-      "images": [
-        {
-          "label": "Lorem Ipsum",
-          "src": "Lorem Ipsum",
-          "caption": "Lorem ipsum"
-        }
-      ]
-    },
-    "protocol": {
-      "md": "Lorem ipsum",
-      "images": [
-        {
-          "label": "Lorem ipsum",
-          "caption": "Lorem ipsum",
-          "src": "urlstring"
-        }
-      ]
-    },
-    "dataProcess": {
-      "md": "Lorem Ipsum",
-      "image": {
-        "label": "Lorem ipsum",
-        "caption": "Lorem ipsum",
-        "src": "urlstring"
-      }
-    },
-    "publications": [{}]
+    "name": "CGM"
   }
 ]

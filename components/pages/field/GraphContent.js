@@ -12,6 +12,8 @@ import moment from 'moment';
 import { useWindowSize } from '../../../hooks';
 import Magnifier from 'react-magnifier';
 
+// window.moment = moment;
+
 function Chart({ data, type }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
@@ -44,10 +46,11 @@ function Chart({ data, type }) {
           tooltip: {
             callbacks: {
               label: context => context.dataset.label,
-              title: context =>
-                type === 'accumulation'
-                  ? moment(context[0].raw.x).format('MMM yyyy')
-                  : context[0].raw.x
+              title: context => {
+                return type === 'time'
+                  ? moment(context[0].label).format('MMM yyyy')
+                  : context[0].label;
+              }
             }
           }
         },
@@ -67,11 +70,14 @@ function Chart({ data, type }) {
                 maxTicksLimit: 5
                 // For a category axis, the val is the index so the lookup via getLabelForValue is needed
                 // callback: function (val, index) {
-                //   return moment(val).format('MMM yyyy');
+                //   if (type === 'time') {
+                //     return moment(val).format('MMM yyyy');
+                //   }
+                //   return val;
                 // }
               }
             },
-            type === 'accumulation'
+            type === 'time'
               ? {
                   type: type,
                   time: {

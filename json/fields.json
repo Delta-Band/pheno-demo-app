@@ -2,9 +2,9 @@
   {
     "id": "120-001",
     "type": "Time Series",
-    "name": "ConnectionID",
+    "name": "ConnectionID-1",
     "description": "CGM device connection id",
-    "participants": 12345,
+    "participants": 512,
     "measurements": 24690,
     "folderID": "1",
     "stability": "Accruing",

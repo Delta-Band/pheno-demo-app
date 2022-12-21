@@ -156,7 +156,7 @@ const totals = createSelector(
   fields => {
     return fields.reduce(
       (acc, field) => {
-        acc.participants += field.participants;
+        acc.participants = Math.max(acc.participants, field.participants);
         acc.measurements += field.measurements;
         acc.cohorts = uniq(acc.cohorts.concat(field.cohorts));
         return acc;
