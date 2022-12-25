@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const withReactSvg = require('next-react-svg');
+const withMDX = require('@next/mdx');
+const composePlugins = require('next-compose-plugins');
 const path = require('path');
 
 const nextConfig = {
@@ -18,10 +20,23 @@ const nextConfig = {
   }
 };
 
-module.exports = withReactSvg({
-  include: path.resolve(__dirname, 'public/icons'),
-  webpack(config, options) {
-    return config;
-  },
+module.exports = composePlugins(
+  [
+    withMDX({
+      extension: /\.mdx?$/,
+      options: {
+        // If you use remark-gfm, you'll need to use next.config.mjs
+        // as the package is ESM only
+        // https://github.com/remarkjs/remark-gfm#install
+        remarkPlugins: [],
+        rehypePlugins: []
+        // If you use `MDXProvider`, uncomment the following line.
+        // providerImportSource: "@mdx-js/react",
+      }
+    }),
+    withReactSvg({
+      include: path.resolve(__dirname, 'public/icons')
+    })
+  ],
   nextConfig
-});
+);

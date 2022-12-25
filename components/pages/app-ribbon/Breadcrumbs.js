@@ -24,9 +24,6 @@ function Breadcrumbs() {
     foldersSlice.selectors.folderById(state, router.query.folderID)
   );
 
-  console.log('field', field);
-  console.log('folder', folder);
-
   const buttonStyle = {
     gap: 8,
     color: '#FFF',

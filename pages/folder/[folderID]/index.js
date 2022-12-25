@@ -3,6 +3,9 @@ import { jsx } from '@emotion/react';
 import Head from 'next/head';
 import { useState } from 'react';
 import styled from '@emotion/styled';
+import { promises as fs } from 'fs';
+import path from 'path';
+import grayMatter from 'gray-matter';
 import { List, ListItem, Layout, FolderInfo } from '../../../components';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -72,7 +75,7 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   );
 }
 
-const FolderPage = () => {
+const FolderPage = ({ folderInfoMDx }) => {
   const router = useRouter();
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
@@ -107,7 +110,7 @@ const FolderPage = () => {
       <AnimatePresence>
         {showInfo ? (
           <Layout page='folder-info' paddingTop={getPaddingTop()} key='info'>
-            <FolderInfo />
+            <FolderInfo mdx={JSON.parse(folderInfoMDx)} />
           </Layout>
         ) : (
           <Layout page='folder' paddingTop={getPaddingTop()} key='data'>
@@ -149,3 +152,24 @@ const FolderPage = () => {
 };
 
 export default FolderPage;
+
+export async function getStaticProps(context) {
+  const mdFoldersDir = path.join(process.cwd(), 'public/md/folders');
+  const filePath = path.join(mdFoldersDir, `${context.params.folderID}.mdx`);
+  const content = await fs.readFile(filePath, 'utf8');
+  const matter = grayMatter(content);
+  return {
+    props: {
+      folderInfoMDx: JSON.stringify(matter)
+    }
+  };
+}
+
+export async function getStaticPaths() {
+  const mdFoldersDir = path.join(process.cwd(), 'public/md/folders');
+  const fileNames = await fs.readdir(mdFoldersDir);
+  return {
+    paths: fileNames.map(fileName => `/folder/${fileName.replace('.mdx', '')}`),
+    fallback: false
+  };
+}
