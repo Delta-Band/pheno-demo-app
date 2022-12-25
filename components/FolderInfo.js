@@ -20,7 +20,8 @@ export default function FolderInfo({ mdx }) {
         h4: theme.typography.h4,
         h5: theme.typography.h5,
         h6: theme.typography.h6,
-        p: theme.typography.p
+        p: theme.typography.body1,
+        li: theme.typography.body1
       }}
     >
       {/* <Typography

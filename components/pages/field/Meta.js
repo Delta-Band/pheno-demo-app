@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
+import moment from 'moment';
 
 function Tags({ tags }) {
   return (
@@ -98,31 +99,40 @@ function Meta() {
               value={field.type}
             />
             <MetaInfo
+              iconName={getIconByDatType(field.type)}
+              prefixText='Value Type'
+              value={field.type}
+            />
+            <MetaInfo
               iconName='user'
               prefixText='Participants'
               value={field.participants}
             />
+          </Column>
+          <Column>
             <MetaInfo
               iconName='meter'
               prefixText='Measurements'
               value={field.measurements}
             />
-          </Column>
-          <Column>
             <MetaInfo
               iconName='group'
               prefixText='Cohorts'
               value={field.cohorts.join(', ')}
             />
-            <MetaInfo prefixText='Stability' value={field.stability} />
-            <MetaInfo prefixText='Strata' value={field.strata} />
+            <MetaInfo
+              iconName='group'
+              prefixText='Instances'
+              value={field.instances}
+            />
           </Column>
           <Column>
+            <MetaInfo prefixText='Strata' value={field.strata} />
             <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
             <MetaInfo
               iconName='tag'
-              prefixText='Tags'
-              value={<Tags tags={field.tags} />}
+              prefixText='Debut'
+              value={moment(field.debut).format('MMM yyyy')}
             />
           </Column>
         </>
@@ -131,6 +141,11 @@ function Meta() {
           <MetaInfo
             iconName={getIconByDatType(field.type)}
             prefixText='Data Type'
+            value={field.type}
+          />
+          <MetaInfo
+            iconName={getIconByDatType(field.type)}
+            prefixText='Value Type'
             value={field.type}
           />
           <MetaInfo
@@ -148,13 +163,17 @@ function Meta() {
             prefixText='Cohorts'
             value={field.cohorts.join(', ')}
           />
-          <MetaInfo prefixText='Stability' value={field.stability} />
+          <MetaInfo
+            iconName='group'
+            prefixText='Instances'
+            value={field.instances}
+          />
           <MetaInfo prefixText='Strata' value={field.strata} />
           <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
           <MetaInfo
             iconName='tag'
-            prefixText='Tags'
-            value={<Tags tags={field.tags} />}
+            prefixText='Debut'
+            value={moment(field.debut).format('MMM yyyy')}
           />
         </Column>
       )}
