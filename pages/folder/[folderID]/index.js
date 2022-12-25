@@ -155,7 +155,10 @@ export default FolderPage;
 
 export async function getStaticProps(context) {
   const mdFoldersDir = path.join(process.cwd(), 'public/md/folders');
-  const filePath = path.join(mdFoldersDir, `${context.params.folderID}.mdx`);
+  const filePath = path.join(
+    mdFoldersDir,
+    `${context.params.folderID}/index.mdx`
+  );
   const content = await fs.readFile(filePath, 'utf8');
   const matter = grayMatter(content);
   return {
