@@ -2,5 +2,9 @@
   {
     "id": "1",
     "name": "CGM"
+  },
+  {
+    "id": "2",
+    "name": "Anthropometric"
   }
 ]
