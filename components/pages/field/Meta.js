@@ -94,7 +94,7 @@ function Meta() {
         <>
           <Column>
             <MetaInfo
-              iconName={getIconByDatType(field.type)}
+              iconName='type'
               prefixText='Data Type'
               value={field.type}
             />
@@ -121,9 +121,9 @@ function Meta() {
               value={field.cohorts.join(', ')}
             />
             <MetaInfo
-              iconName='group'
+              iconName='collection'
               prefixText='Instances'
-              value={field.instances}
+              value={field.instances.join(', ')}
             />
           </Column>
           <Column>

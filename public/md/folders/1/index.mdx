@@ -1,23 +1,23 @@
 #### Description
 
 A Continuous Glucose Monitor (CGM) monitors continuous blood glucose levels. Blood glucose levels are measured every 15 minutes for a total period of two weeks concurrent with diet logging.
-Introduction.  
+Introduction.
 
-CGM provides continuous measures of the glucose levels in the interstitial fluid, through a tiny electrochemical sensor electrode inserted under the skin.   
-CGM devices provide a temporal data series of continuous measurements of blood glucose values.  
-Usually, the measures are taken every 5 or 15 minutes, for the entire connection period - that can range between hours to months.  
-Figure 1 shows an example of CGM data collected for a single individual.  
+CGM provides continuous measures of the glucose levels in the interstitial fluid, through a tiny electrochemical sensor electrode inserted under the skin.
+CGM devices provide a temporal data series of continuous measurements of blood glucose values.
+Usually, the measures are taken every 5 or 15 minutes, for the entire connection period - that can range between hours to months.
+Figure 1 shows an example of CGM data collected for a single individual.
 
+#### Measurement protocol
 
-#### Measurement protocol 
-FreeStyle Libre ProIQ Flash device is used for continuous glucose monitoring for a 2-week period in the baseline visit only.  
-During this time participants are also required to log information about food, medications, physical activity and sleep hours using the 10K application.  
-During the baseline visit the sensor is placed on the participant’s upper arm back.   
-  
-  
-#### Summary of available data  
-1. Temporal data: A data frame of temporal glucose measures, along with time of measurement.  
-2. Computed summary features: data frame containing, for each CGM connection, extracted features from the full CGM temporal data. Features extracted are described under the Data processing section.  
-3. Computed Daily summary features: data frame containing for each CGM connection, and for each day of the connection, extracted features from the CGM temporal data. This is identical to the above dataframe (2), but data was divided into daily segments prior to feature extraction, and features are calculated separately for each day of the connection.
+FreeStyle Libre ProIQ Flash device is used for continuous glucose monitoring for a 2-week period in the baseline visit only.
+During this time participants are also required to log information about food, medications, physical activity and sleep hours using the 10K application.
+During the baseline visit the sensor is placed on the participant’s upper arm back.
 
+<br><br>
 
+#### Summary of available data
+
+1. Temporal data: A data frame of temporal glucose measures, along with time of measurement.
+1. Computed summary features: data frame containing, for each CGM connection, extracted features from the full CGM temporal data. Features extracted are described under the Data processing section.
+1. Computed Daily summary features: data frame containing for each CGM connection, and for each day of the connection, extracted features from the CGM temporal data. This is identical to the above dataframe (2), but data was divided into daily segments prior to feature extraction, and features are calculated separately for each day of the connection.

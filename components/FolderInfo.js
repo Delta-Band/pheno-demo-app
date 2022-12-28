@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
 
 export default function FolderInfo({ mdx }) {
   const theme = useTheme();
@@ -14,10 +15,10 @@ export default function FolderInfo({ mdx }) {
       css={{
         paddingInline: 32,
         paddingBlock: 24,
-        h1: theme.typography.h1,
+        h1: Object.assign(theme.typography.h1, { marginTop: 0 }),
         h2: theme.typography.h2,
         h3: theme.typography.h3,
-        h4: theme.typography.h4,
+        h4: Object.assign(theme.typography.h4, { marginBlock: 0 }),
         h5: theme.typography.h5,
         h6: theme.typography.h6,
         p: theme.typography.body1,
@@ -35,7 +36,15 @@ export default function FolderInfo({ mdx }) {
       >
         Coming Soon
       </Typography> */}
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{mdx.content}</ReactMarkdown>
+      <ReactMarkdown
+        remarkPlugins={[
+          remarkGfm,
+          [remarkRehype, { allowDangerousHtml: true }]
+        ]}
+      >
+        This ~is not~ strikethrough, but ~~this is~~!
+        {/* {mdx.content} */}
+      </ReactMarkdown>
     </div>
   );
 }

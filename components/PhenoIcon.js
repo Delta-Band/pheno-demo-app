@@ -13,6 +13,8 @@ import TableIcon from '../public/icons/table.svg';
 import SexedIcon from '../public/icons/sexed.svg';
 import TagIcon from '../public/icons/tag.svg';
 import A2ZIcon from '../public/icons/a-z.svg';
+import CollectionIcon from '../public/icons/collection.svg';
+import TypeIcon from '../public/icons/type.svg';
 
 function getIcon(name) {
   switch (name) {
@@ -42,6 +44,10 @@ function getIcon(name) {
       return <TagIcon />;
     case 'a-z':
       return <A2ZIcon />;
+    case 'collection':
+      return <CollectionIcon />;
+    case 'type':
+      return <TypeIcon />;
     default:
       return null;
   }
