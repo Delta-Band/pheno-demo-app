@@ -8,6 +8,7 @@
         "Cohorts": "10K",
         "Debut": "2019-01-29",
         "type": "Tabular",
+        "Measurments":10000,
         "dataAccumulation": [
             {
                 "x": "2019-01",
