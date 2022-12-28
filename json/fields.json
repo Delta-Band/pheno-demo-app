@@ -1,742 +1,5462 @@
 [
-  {
-    "id": "120-001",
-    "type": "Time Series",
-    "name": "ConnectionID-1",
-    "description": "CGM device connection id",
-    "participants": 512,
-    "measurements": 24690,
-    "folderID": "1",
-    "stability": "Accruing",
-    "valueType": "Series data, Text",
-    "units": "Text",
-    "itemType": "Data",
-    "strata": "Auxiliary ",
-    "sexed": "Both sexes",
-    "instances-old": "Defined",
-    "array": "No",
-    "debut": "01/01/2019",
-    "version": 0.1,
-    "tags": ["Obesity", "Diabetes", "Glucose"],
-    "dataCoding": "None",
-    "cohorts": ["10K", "Cardio"],
-    "instances": ["baseline visit", "visit-2"],
-    "dataAccumulation": [
-      {
-        "x": "2019-01",
-        "y": 11,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-02",
-        "y": 33,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-03",
-        "y": 75,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-04",
-        "y": 146,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-05",
-        "y": 310,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-06",
-        "y": 518,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-07",
-        "y": 730,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-08",
-        "y": 864,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-09",
-        "y": 1079,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-10",
-        "y": 1230,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-11",
-        "y": 1525,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-12",
-        "y": 1892,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-01",
-        "y": 2349,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-02",
-        "y": 2761,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-03",
-        "y": 2924,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-05",
-        "y": 2957,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-06",
-        "y": 3255,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-07",
-        "y": 3601,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-08",
-        "y": 3923,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-09",
-        "y": 4124,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-11",
-        "y": 4464,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-12",
-        "y": 4823,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-01",
-        "y": 4824,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-02",
-        "y": 5024,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-03",
-        "y": 5328,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-04",
-        "y": 5553,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-05",
-        "y": 5756,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-06",
-        "y": 6084,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-07",
-        "y": 6491,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-08",
-        "y": 6843,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-09",
-        "y": 7004,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-10",
-        "y": 7401,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-11",
-        "y": 7810,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-12",
-        "y": 8198,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-01",
-        "y": 8505,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-02",
-        "y": 8835,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-03",
-        "y": 9213,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-04",
-        "y": 9504,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-05",
-        "y": 9876,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-06",
-        "y": 10318,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-07",
-        "y": 10744,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-08",
-        "y": 11199,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-09",
-        "y": 11413,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      { "x": "2022-06", "y": 100, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-07", "y": 200, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-08", "y": 300, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-09", "y": 400, "cohort": "10K", "instance": "visit-2" }
-    ],
-    "dataDistribution": [
-      {
-        "x": 3.63503761867408,
-        "y": 3,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 3.9473610254750175,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 4.259684432275955,
-        "y": 1,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 4.572007839076893,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 4.88433124587783,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 5.196654652678767,
-        "y": 1,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 5.508978059479704,
-        "y": 4,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 5.821301466280641,
-        "y": 1,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 6.133624873081579,
-        "y": 4,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 6.445948279882517,
-        "y": 8,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 6.758271686683454,
-        "y": 8,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 7.070595093484391,
-        "y": 6,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 7.382918500285328,
-        "y": 4,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 7.695241907086265,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 8.007565313887202,
-        "y": 4,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 8.319888720688141,
-        "y": 1,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 8.632212127489078,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 8.944535534290015,
-        "y": 0,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": 9.256858941090952,
-        "y": 2,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      }
-    ],
-    "sampleImage": {
-      "label": "Lorem Ipsum",
-      "caption": "Lorem Ipsum",
-      "src": "120-001.jpg"
+    {
+        "Field string": "Height",
+        "ValueType": "Integer",
+        "Units": "cm",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 12,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 32,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 73,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 144,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 309,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 516,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 729,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 863,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1077,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1228,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1523,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1889,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2346,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2758,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2920,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2953,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3251,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3599,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3925,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4126,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4478,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4849,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5060,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5382,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5618,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5838,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6130,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6429,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6705,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6837,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7116,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7345,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7592,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7769,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7924,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8088,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8288,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8562,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8890,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8969,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 169,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 239,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 389,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 577,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 733,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 861,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1041,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1265,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1370,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1478,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1609,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1638,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 142.0,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 143.51282051282053,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 145.02564102564102,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 146.53846153846155,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 148.05128205128204,
+                "y": 32,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 149.56410256410257,
+                "y": 63,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 151.07692307692307,
+                "y": 85,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 152.5897435897436,
+                "y": 160,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 154.1025641025641,
+                "y": 174,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 155.6153846153846,
+                "y": 278,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 157.12820512820514,
+                "y": 296,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 158.64102564102564,
+                "y": 421,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 160.15384615384616,
+                "y": 431,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 161.66666666666666,
+                "y": 529,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 163.17948717948718,
+                "y": 493,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 164.69230769230768,
+                "y": 601,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 166.2051282051282,
+                "y": 463,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 167.71794871794873,
+                "y": 540,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 169.23076923076923,
+                "y": 437,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 170.74358974358975,
+                "y": 486,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 172.25641025641025,
+                "y": 480,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 173.76923076923077,
+                "y": 474,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 175.28205128205127,
+                "y": 391,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 176.7948717948718,
+                "y": 485,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 178.30769230769232,
+                "y": 343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 179.82051282051282,
+                "y": 362,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 181.33333333333331,
+                "y": 222,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 182.84615384615384,
+                "y": 209,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 184.35897435897436,
+                "y": 126,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 185.87179487179486,
+                "y": 139,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 187.3846153846154,
+                "y": 74,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 188.8974358974359,
+                "y": 69,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 190.4102564102564,
+                "y": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 191.9230769230769,
+                "y": 19,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 193.43589743589743,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 194.94871794871796,
+                "y": 9,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 196.46153846153845,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 197.97435897435898,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 199.4871794871795,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 141.0,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 142.46923076923076,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 143.93846153846155,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 145.40769230769232,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 146.87692307692308,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 148.34615384615384,
+                "y": 10,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 149.81538461538463,
+                "y": 19,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 151.2846153846154,
+                "y": 22,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 152.75384615384615,
+                "y": 29,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 154.22307692307692,
+                "y": 38,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 155.6923076923077,
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 157.16153846153847,
+                "y": 52,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 158.63076923076923,
+                "y": 85,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 160.1,
+                "y": 84,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 161.56923076923078,
+                "y": 101,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 163.03846153846155,
+                "y": 97,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 164.5076923076923,
+                "y": 82,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 165.97692307692307,
+                "y": 89,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 167.44615384615386,
+                "y": 77,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 168.91538461538462,
+                "y": 106,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 170.3846153846154,
+                "y": 68,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 171.85384615384615,
+                "y": 103,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 173.32307692307694,
+                "y": 78,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 174.7923076923077,
+                "y": 69,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 176.26153846153846,
+                "y": 71,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 177.73076923076923,
+                "y": 84,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 179.20000000000002,
+                "y": 50,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 180.66923076923078,
+                "y": 49,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 182.13846153846154,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 183.60769230769233,
+                "y": 22,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 185.0769230769231,
+                "y": 20,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 186.54615384615386,
+                "y": 16,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 188.01538461538462,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 189.48461538461538,
+                "y": 7,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 190.95384615384617,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 192.42307692307693,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 193.8923076923077,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 195.3615384615385,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 196.83076923076925,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10607,
+            "min": 141,
+            "max": 201,
+            "mean": 169,
+            "std": 9,
+            "median": 169,
+            "percentile90": 181,
+            "percentile10": 157
+        }
     },
-    "distributionStats": {
-      "count": 15,
-      "min": 15,
-      "max": 150,
-      "mean": 150,
-      "std": 150,
-      "median": 150,
-      "percentile90": 150,
-      "percentile10": 150
-    }
-  },
-  {
-    "id": "120-002",
-    "type": "Time Series",
-    "name": "ConnectionID-2",
-    "description": "CGM device connection id",
-    "participants": 12345,
-    "measurements": 24690,
-    "folderID": "1",
-    "stability": "Accruing",
-    "valueType": "Series data, Text",
-    "units": "Text",
-    "itemType": "Data",
-    "strata": "Auxiliary ",
-    "sexed": "Both sexes",
-    "instances-old": "Defined",
-    "array": "No",
-    "debut": "01/01/2019",
-    "version": 0.1,
-    "tags": ["Obesity", "Diabetes", "Glucose"],
-    "dataCoding": "None",
-    "cohorts": ["10K", "Cardio"],
-    "instances": ["baseline visit", "visit-2"],
-    "dataAccumulation": [
-      {
-        "x": "2019-01",
-        "y": 11,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-02",
-        "y": 33,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-03",
-        "y": 75,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-04",
-        "y": 146,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-05",
-        "y": 310,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-06",
-        "y": 518,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-07",
-        "y": 730,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-08",
-        "y": 864,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-09",
-        "y": 1079,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-10",
-        "y": 1230,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-11",
-        "y": 1525,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2019-12",
-        "y": 1892,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-01",
-        "y": 2349,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-02",
-        "y": 2761,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-03",
-        "y": 2924,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-05",
-        "y": 2957,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-06",
-        "y": 3255,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-07",
-        "y": 3601,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-08",
-        "y": 3923,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-09",
-        "y": 4124,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-11",
-        "y": 4464,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2020-12",
-        "y": 4823,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-01",
-        "y": 4824,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-02",
-        "y": 5024,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-03",
-        "y": 5328,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-04",
-        "y": 5553,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-05",
-        "y": 5756,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-06",
-        "y": 6084,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-07",
-        "y": 6491,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-08",
-        "y": 6843,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-09",
-        "y": 7004,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-10",
-        "y": 7401,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-11",
-        "y": 7810,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2021-12",
-        "y": 8198,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-01",
-        "y": 8505,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-02",
-        "y": 8835,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-03",
-        "y": 9213,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-04",
-        "y": 9504,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-05",
-        "y": 9876,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-06",
-        "y": 10318,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-07",
-        "y": 10744,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-08",
-        "y": 11199,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "2022-09",
-        "y": 11413,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      { "x": "2022-06", "y": 100, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-07", "y": 200, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-08", "y": 300, "cohort": "10K", "instance": "visit-2" },
-      { "x": "2022-09", "y": 400, "cohort": "10K", "instance": "visit-2" }
-    ],
-    "dataDistribution": [
-      {
-        "x": "Orange",
-        "y": 3,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "Banana",
-        "y": 10,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      },
-      {
-        "x": "Mango",
-        "y": 25,
-        "cohort": "10K",
-        "instance": "baseline visit"
-      }
-    ],
-    "sampleImage": {
-      "label": "Lorem Ipsum",
-      "caption": "Lorem Ipsum",
-      "src": "120-001.jpg"
+    {
+        "Field string": "Weight",
+        "ValueType": "Continuous",
+        "Units": "Kg",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 12,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 32,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 73,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 144,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 309,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 516,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 729,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 863,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1077,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1228,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1523,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1889,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2346,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2758,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2920,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2953,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3251,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3599,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3925,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4126,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4478,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4849,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5060,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5382,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5618,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5838,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6130,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6429,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6705,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6837,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7116,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7345,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7592,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7769,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7924,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8088,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8288,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8562,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8890,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8969,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 55,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 170,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 240,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 268,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 390,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 578,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 734,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 862,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1043,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1372,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1480,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1611,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1640,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 40.5,
+                "y": 8,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 43.238461538461536,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 45.97692307692308,
+                "y": 68,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 48.715384615384615,
+                "y": 121,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 51.45384615384616,
+                "y": 272,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 54.19230769230769,
+                "y": 352,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 56.93076923076923,
+                "y": 442,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 59.66923076923077,
+                "y": 533,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 62.407692307692315,
+                "y": 589,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 65.14615384615385,
+                "y": 626,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 67.88461538461539,
+                "y": 669,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 70.62307692307692,
+                "y": 647,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 73.36153846153846,
+                "y": 658,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 76.10000000000001,
+                "y": 591,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 78.83846153846154,
+                "y": 574,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 81.5769230769231,
+                "y": 580,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 84.31538461538463,
+                "y": 454,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 87.05384615384617,
+                "y": 349,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 89.7923076923077,
+                "y": 343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 92.53076923076924,
+                "y": 240,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 95.26923076923077,
+                "y": 191,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 98.00769230769231,
+                "y": 152,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 100.74615384615386,
+                "y": 116,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 103.4846153846154,
+                "y": 98,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 106.22307692307693,
+                "y": 70,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 108.96153846153847,
+                "y": 59,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 111.70000000000002,
+                "y": 46,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 114.43846153846155,
+                "y": 29,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 117.17692307692309,
+                "y": 26,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 119.91538461538462,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 122.65384615384617,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 125.39230769230771,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 128.13076923076926,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 130.8692307692308,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 133.60769230769233,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 136.34615384615387,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 139.0846153846154,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 141.82307692307694,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 144.56153846153848,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 42.9,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 45.35897435897436,
+                "y": 7,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 47.81794871794872,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 50.276923076923076,
+                "y": 35,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 52.735897435897435,
+                "y": 52,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 55.194871794871794,
+                "y": 71,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 57.65384615384615,
+                "y": 91,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 60.11282051282051,
+                "y": 86,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 62.57179487179487,
+                "y": 110,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 65.03076923076924,
+                "y": 90,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 67.4897435897436,
+                "y": 110,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 69.94871794871796,
+                "y": 111,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 72.40769230769232,
+                "y": 95,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 74.86666666666667,
+                "y": 116,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 77.32564102564103,
+                "y": 94,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 79.78461538461539,
+                "y": 98,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 82.24358974358975,
+                "y": 82,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 84.70256410256411,
+                "y": 76,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 87.16153846153847,
+                "y": 67,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 89.62051282051283,
+                "y": 40,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 92.07948717948719,
+                "y": 40,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 94.53846153846155,
+                "y": 41,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 96.9974358974359,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 99.45641025641027,
+                "y": 23,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 101.91538461538462,
+                "y": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 104.37435897435898,
+                "y": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 106.83333333333334,
+                "y": 8,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 109.2923076923077,
+                "y": 7,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 111.75128205128206,
+                "y": 8,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 114.21025641025642,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 116.66923076923078,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 119.12820512820514,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 121.5871794871795,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 124.04615384615386,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 126.50512820512822,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 128.96410256410257,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 131.42307692307693,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 133.8820512820513,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 136.34102564102565,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10609,
+            "min": 40,
+            "max": 147,
+            "mean": 75,
+            "std": 14,
+            "median": 73,
+            "percentile90": 94,
+            "percentile10": 57
+        }
     },
-    "distributionStats": {
-      "count": 15,
-      "min": 15,
-      "max": 150,
-      "mean": 150,
-      "std": 150,
-      "median": 150,
-      "percentile90": 150,
-      "percentile10": 150
+    {
+        "Field string": "Body mass index (BMI)",
+        "ValueType": "Continuous",
+        "Units": "Kg/m2",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 12,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 32,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 73,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 144,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 309,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 516,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 729,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 863,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1076,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1227,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1522,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1888,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2345,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2757,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2919,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2952,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3250,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3598,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3924,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4125,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4477,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4848,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5059,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5381,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5617,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5837,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6129,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6428,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6704,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6836,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7115,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7344,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7591,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7768,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7923,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8087,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8287,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8561,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8889,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8968,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 169,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 239,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 389,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 577,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 733,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 861,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1041,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1265,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1370,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1478,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1609,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1638,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 16.12116749096916,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 16.841439068830347,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 17.561710646691537,
+                "y": 43,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 18.281982224552724,
+                "y": 78,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 19.00225380241391,
+                "y": 147,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 19.722525380275098,
+                "y": 233,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 20.442796958136285,
+                "y": 350,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 21.163068535997475,
+                "y": 417,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 21.88334011385866,
+                "y": 499,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 22.60361169171985,
+                "y": 587,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 23.32388326958104,
+                "y": 658,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 24.044154847442226,
+                "y": 655,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 24.764426425303412,
+                "y": 687,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 25.4846980031646,
+                "y": 638,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 26.204969581025786,
+                "y": 628,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 26.925241158886976,
+                "y": 514,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 27.645512736748163,
+                "y": 478,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 28.36578431460935,
+                "y": 404,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 29.08605589247054,
+                "y": 336,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 29.806327470331727,
+                "y": 307,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 30.526599048192914,
+                "y": 242,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 31.2468706260541,
+                "y": 187,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 31.967142203915287,
+                "y": 157,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 32.68741378177648,
+                "y": 137,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 33.40768535963767,
+                "y": 123,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 34.12795693749885,
+                "y": 88,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 34.848228515360034,
+                "y": 83,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 35.56850009322123,
+                "y": 84,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 36.288771671082415,
+                "y": 63,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 37.0090432489436,
+                "y": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 37.729314826804796,
+                "y": 26,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 38.44958640466598,
+                "y": 27,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 39.16985798252716,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 39.89012956038835,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 40.61040113824954,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 41.330672716110726,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 42.05094429397192,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 42.77121587183311,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 43.49148744969429,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 16.73610867966808,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 17.449502459896095,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 18.16289624012411,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 18.876290020352123,
+                "y": 21,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 19.589683800580136,
+                "y": 32,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 20.30307758080815,
+                "y": 62,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 21.016471361036167,
+                "y": 70,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 21.729865141264177,
+                "y": 97,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 22.443258921492195,
+                "y": 110,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 23.156652701720205,
+                "y": 114,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 23.870046481948222,
+                "y": 120,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 24.583440262176236,
+                "y": 119,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 25.29683404240425,
+                "y": 111,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 26.010227822632263,
+                "y": 116,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 26.723621602860277,
+                "y": 98,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 27.43701538308829,
+                "y": 95,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 28.150409163316304,
+                "y": 88,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 28.863802943544318,
+                "y": 66,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 29.57719672377233,
+                "y": 51,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 30.290590504000345,
+                "y": 38,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 31.00398428422836,
+                "y": 42,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 31.717378064456376,
+                "y": 28,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 32.43077184468439,
+                "y": 27,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 33.144165624912404,
+                "y": 18,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 33.85755940514042,
+                "y": 19,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 34.57095318536843,
+                "y": 20,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 35.28434696559644,
+                "y": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 35.99774074582446,
+                "y": 9,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 36.711134526052476,
+                "y": 10,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 37.424528306280486,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 38.137922086508496,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 38.85131586673651,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 39.56470964696453,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 40.27810342719254,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 40.99149720742055,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 41.70489098764857,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 42.418284767876585,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 43.131678548104595,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 43.845072328332606,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10606,
+            "min": 16,
+            "max": 44,
+            "mean": 26,
+            "std": 4,
+            "median": 25,
+            "percentile90": 31,
+            "percentile10": 21
+        }
+    },
+    {
+        "Field string": "Waist circumference",
+        "ValueType": "Integer",
+        "Units": "cm",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 11,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 72,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 143,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 308,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 514,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 727,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 861,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1075,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1226,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1521,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1887,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2755,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2918,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2951,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3249,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3594,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3920,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4121,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4473,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4844,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5056,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5380,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5616,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5836,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6126,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6425,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6702,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6834,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7113,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7592,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7769,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7924,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8087,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8287,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8561,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8887,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8967,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 169,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 239,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 390,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 579,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 736,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 865,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1046,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1270,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1375,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1483,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1614,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 52.0,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 54.256410256410255,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 56.51282051282051,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 58.76923076923077,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 61.02564102564102,
+                "y": 29,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 63.282051282051285,
+                "y": 55,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 65.53846153846153,
+                "y": 82,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 67.7948717948718,
+                "y": 254,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 70.05128205128204,
+                "y": 231,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 72.3076923076923,
+                "y": 299,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 74.56410256410257,
+                "y": 317,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 76.82051282051282,
+                "y": 610,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 79.07692307692308,
+                "y": 481,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 81.33333333333333,
+                "y": 527,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 83.58974358974359,
+                "y": 545,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 85.84615384615384,
+                "y": 871,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 88.1025641025641,
+                "y": 605,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 90.35897435897436,
+                "y": 564,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 92.61538461538461,
+                "y": 529,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 94.87179487179486,
+                "y": 772,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 97.12820512820512,
+                "y": 396,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 99.38461538461539,
+                "y": 319,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 101.64102564102564,
+                "y": 315,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 103.8974358974359,
+                "y": 319,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 106.15384615384616,
+                "y": 201,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 108.41025641025641,
+                "y": 172,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 110.66666666666666,
+                "y": 111,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 112.92307692307692,
+                "y": 120,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 115.17948717948718,
+                "y": 83,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 117.43589743589743,
+                "y": 51,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 119.6923076923077,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 121.94871794871794,
+                "y": 25,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 124.2051282051282,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 126.46153846153847,
+                "y": 20,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 128.71794871794873,
+                "y": 11,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 130.97435897435898,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 133.23076923076923,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 135.4871794871795,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 137.74358974358972,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 51.0,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 53.205128205128204,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 55.41025641025641,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 57.61538461538461,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 59.82051282051282,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 62.02564102564102,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 64.23076923076923,
+                "y": 7,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 66.43589743589743,
+                "y": 31,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 68.64102564102564,
+                "y": 30,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 70.84615384615384,
+                "y": 62,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 73.05128205128204,
+                "y": 67,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 75.25641025641026,
+                "y": 76,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 77.46153846153847,
+                "y": 80,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 79.66666666666667,
+                "y": 103,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 81.87179487179488,
+                "y": 129,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 84.07692307692308,
+                "y": 98,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 86.28205128205128,
+                "y": 98,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 88.48717948717949,
+                "y": 101,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 90.6923076923077,
+                "y": 97,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 92.8974358974359,
+                "y": 155,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 95.1025641025641,
+                "y": 79,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 97.30769230769232,
+                "y": 94,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 99.51282051282053,
+                "y": 71,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 101.71794871794873,
+                "y": 57,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 103.92307692307693,
+                "y": 64,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 106.12820512820514,
+                "y": 22,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 108.33333333333334,
+                "y": 27,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 110.53846153846155,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 112.74358974358975,
+                "y": 23,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 114.94871794871796,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 117.15384615384616,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 119.35897435897436,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 121.56410256410257,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 123.76923076923077,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 125.97435897435898,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 128.17948717948718,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 130.3846153846154,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 132.5897435897436,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 134.7948717948718,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10610,
+            "min": 51,
+            "max": 140,
+            "mean": 89,
+            "std": 12,
+            "median": 89,
+            "percentile90": 106,
+            "percentile10": 74
+        }
+    },
+    {
+        "Field string": "Neck circumference",
+        "ValueType": "Integer",
+        "Units": "cm",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2022-05-19",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2022-05",
+                "y": 135,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 460,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 540,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 56,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 187,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 216,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 27.5,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 28.076923076923077,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 28.653846153846153,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 29.23076923076923,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 29.807692307692307,
+                "y": 20,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 30.384615384615383,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 30.96153846153846,
+                "y": 30,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 31.53846153846154,
+                "y": 42,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 32.11538461538461,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 32.69230769230769,
+                "y": 43,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 33.26923076923077,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 33.84615384615385,
+                "y": 51,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 34.42307692307692,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 35.0,
+                "y": 40,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 35.57692307692308,
+                "y": 53,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 36.15384615384615,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 36.730769230769226,
+                "y": 30,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 37.30769230769231,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 37.88461538461539,
+                "y": 36,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 38.46153846153846,
+                "y": 46,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 39.03846153846153,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 39.61538461538461,
+                "y": 39,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 40.19230769230769,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 40.76923076923077,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 41.34615384615385,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 41.92307692307692,
+                "y": 23,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 42.5,
+                "y": 11,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 43.07692307692307,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 43.65384615384615,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 44.230769230769226,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 44.80769230769231,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 45.38461538461539,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 45.96153846153846,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 46.53846153846153,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 47.11538461538461,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 47.69230769230769,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 48.26923076923077,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 48.84615384615384,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 49.42307692307692,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 29.5,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 29.923076923076923,
+                "y": 8,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 30.346153846153847,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 30.76923076923077,
+                "y": 11,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 31.192307692307693,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 31.615384615384617,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 32.03846153846154,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 32.46153846153846,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 32.88461538461539,
+                "y": 18,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 33.30769230769231,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 33.73076923076923,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 34.15384615384615,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 34.57692307692308,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 35.0,
+                "y": 11,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 35.42307692307692,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 35.84615384615385,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 36.26923076923077,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 36.69230769230769,
+                "y": 17,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 37.11538461538461,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 37.53846153846154,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 37.96153846153846,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 38.38461538461539,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 38.80769230769231,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 39.230769230769226,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 39.65384615384615,
+                "y": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 40.07692307692308,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 40.5,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 40.92307692307692,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 41.34615384615385,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 41.76923076923077,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 42.19230769230769,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 42.61538461538461,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 43.03846153846154,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 43.46153846153846,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 43.88461538461539,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 44.30769230769231,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 44.730769230769226,
+                "y": 9,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 45.15384615384615,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 45.57692307692308,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 756,
+            "min": 27,
+            "max": 50,
+            "mean": 36,
+            "std": 4,
+            "median": 36,
+            "percentile90": 42,
+            "percentile10": 31
+        }
+    },
+    {
+        "Field string": "Hip circumference",
+        "ValueType": "Integer",
+        "Units": "cm",
+        "Strata": "Primary ",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 11,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 72,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 143,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 308,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 514,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 727,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 861,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1075,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1226,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1521,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1887,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2755,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2918,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2951,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3248,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3593,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3919,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4120,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4472,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4843,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5055,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5379,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5615,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5835,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6125,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6424,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6701,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6833,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7112,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7342,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7591,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7768,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7923,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8086,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8286,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8560,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8886,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8966,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 169,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 239,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 390,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 579,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 736,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 865,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1046,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1270,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1375,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1483,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1614,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 71.0,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 72.76923076923077,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 74.53846153846153,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 76.3076923076923,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 78.07692307692308,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 79.84615384615384,
+                "y": 9,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 81.61538461538461,
+                "y": 14,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 83.38461538461539,
+                "y": 55,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 85.15384615384616,
+                "y": 42,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 86.92307692307692,
+                "y": 138,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 88.6923076923077,
+                "y": 231,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 90.46153846153845,
+                "y": 358,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 92.23076923076923,
+                "y": 243,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 94.0,
+                "y": 642,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 95.76923076923077,
+                "y": 777,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 97.53846153846153,
+                "y": 924,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 99.3076923076923,
+                "y": 887,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 101.07692307692308,
+                "y": 478,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 102.84615384615384,
+                "y": 873,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 104.61538461538461,
+                "y": 729,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 106.38461538461539,
+                "y": 588,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 108.15384615384616,
+                "y": 277,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 109.92307692307692,
+                "y": 454,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 111.6923076923077,
+                "y": 367,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 113.46153846153845,
+                "y": 268,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 115.23076923076923,
+                "y": 84,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 117.0,
+                "y": 139,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 118.76923076923077,
+                "y": 117,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 120.53846153846153,
+                "y": 65,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 122.3076923076923,
+                "y": 60,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 124.07692307692307,
+                "y": 27,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 125.84615384615384,
+                "y": 42,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 127.61538461538461,
+                "y": 28,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 129.3846153846154,
+                "y": 17,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 131.15384615384616,
+                "y": 9,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 132.9230769230769,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 134.69230769230768,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 136.46153846153845,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 138.23076923076923,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 79.0,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 80.51282051282051,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 82.02564102564102,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 83.53846153846153,
+                "y": 8,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 85.05128205128204,
+                "y": 10,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 86.56410256410257,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 88.07692307692308,
+                "y": 13,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 89.58974358974359,
+                "y": 50,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 91.1025641025641,
+                "y": 39,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 92.61538461538461,
+                "y": 99,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 94.12820512820512,
+                "y": 73,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 95.64102564102564,
+                "y": 149,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 97.15384615384616,
+                "y": 72,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 98.66666666666666,
+                "y": 159,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 100.17948717948718,
+                "y": 75,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 101.6923076923077,
+                "y": 161,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 103.2051282051282,
+                "y": 89,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 104.71794871794872,
+                "y": 119,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 106.23076923076923,
+                "y": 57,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 107.74358974358975,
+                "y": 90,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 109.25641025641025,
+                "y": 55,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 110.76923076923077,
+                "y": 70,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 112.28205128205128,
+                "y": 33,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 113.7948717948718,
+                "y": 65,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 115.3076923076923,
+                "y": 17,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 116.82051282051282,
+                "y": 21,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 118.33333333333333,
+                "y": 21,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 119.84615384615384,
+                "y": 19,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 121.35897435897436,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 122.87179487179486,
+                "y": 15,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 124.38461538461539,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 125.8974358974359,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 127.41025641025641,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 128.9230769230769,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 130.43589743589743,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 131.94871794871796,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 133.46153846153845,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 134.97435897435898,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 136.4871794871795,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10609,
+            "min": 71,
+            "max": 140,
+            "mean": 102,
+            "std": 8,
+            "median": 102,
+            "percentile90": 114,
+            "percentile10": 93
+        }
+    },
+    {
+        "Field string": "Wasit to hip ratio",
+        "ValueType": "Continuous",
+        "Units": "None",
+        "Strata": "Derived",
+        "Sexed": "Both sexes",
+        "Cohorts": "10K",
+        "Debut": "2019-01-29",
+        "type": "Tabular",
+        "dataAccumulation": [
+            {
+                "x": "2019-01",
+                "y": 11,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-02",
+                "y": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-03",
+                "y": 72,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-04",
+                "y": 143,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-05",
+                "y": 308,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-06",
+                "y": 514,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-07",
+                "y": 727,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-08",
+                "y": 861,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-09",
+                "y": 1075,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-10",
+                "y": 1226,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-11",
+                "y": 1521,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2019-12",
+                "y": 1887,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-01",
+                "y": 2343,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-02",
+                "y": 2755,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-03",
+                "y": 2918,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-05",
+                "y": 2951,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-06",
+                "y": 3248,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-07",
+                "y": 3593,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-08",
+                "y": 3919,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-09",
+                "y": 4120,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-11",
+                "y": 4472,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2020-12",
+                "y": 4843,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-02",
+                "y": 5055,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-03",
+                "y": 5379,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-04",
+                "y": 5615,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 5835,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-06",
+                "y": 6125,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-07",
+                "y": 6424,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-08",
+                "y": 6701,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-09",
+                "y": 6833,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-10",
+                "y": 7112,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-11",
+                "y": 7342,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-12",
+                "y": 7591,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-01",
+                "y": 7768,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-02",
+                "y": 7923,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-03",
+                "y": 8086,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-04",
+                "y": 8286,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-05",
+                "y": 8560,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-06",
+                "y": 8886,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2022-07",
+                "y": 8966,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": "2021-05",
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-06",
+                "y": 54,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-07",
+                "y": 169,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-08",
+                "y": 239,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-09",
+                "y": 267,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-10",
+                "y": 390,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-11",
+                "y": 579,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2021-12",
+                "y": 736,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-01",
+                "y": 865,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-02",
+                "y": 1046,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-03",
+                "y": 1270,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-04",
+                "y": 1375,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-05",
+                "y": 1483,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-06",
+                "y": 1614,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": "2022-07",
+                "y": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "dataDistribution": [
+            {
+                "x": 0.48148148148148145,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.5091608181039076,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.5368401547263336,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.5645194913487597,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.5921988279711857,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.6198781645936118,
+                "y": 3,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.6475575012160378,
+                "y": 32,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.6752368378384639,
+                "y": 113,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.7029161744608899,
+                "y": 232,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.730595511083316,
+                "y": 450,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.758274847705742,
+                "y": 627,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.7859541843281681,
+                "y": 819,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.8136335209505942,
+                "y": 920,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.8413128575730202,
+                "y": 1142,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.8689921941954463,
+                "y": 1157,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.8966715308178723,
+                "y": 1031,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.9243508674402984,
+                "y": 916,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.9520302040627244,
+                "y": 587,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.9797095406851505,
+                "y": 387,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.0073888773075765,
+                "y": 255,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.0350682139300027,
+                "y": 129,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.0627475505524286,
+                "y": 72,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.0904268871748548,
+                "y": 33,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.1181062237972808,
+                "y": 25,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.145785560419707,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.1734648970421329,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.201144233664559,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.228823570286985,
+                "y": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.2565029069094111,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.284182243531837,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.3118615801542632,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.3395409167766892,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.3672202533991153,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.3948995900215413,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.4225789266439675,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.4502582632663934,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.4779375998888196,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.5056169365112455,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 1.5332962731336717,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "x": 0.4365079365079365,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.45623548564725036,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.4759630347865642,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.49569058392587806,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.5154181330651919,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.5351456822045058,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.5548732313438196,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.5746007804831335,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.5943283296224473,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.6140558787617612,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.633783427901075,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.6535109770403887,
+                "y": 6,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.6732385261797026,
+                "y": 10,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.6929660753190164,
+                "y": 16,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.7126936244583303,
+                "y": 39,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.7324211735976441,
+                "y": 72,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.752148722736958,
+                "y": 86,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.7718762718762718,
+                "y": 102,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.7916038210155857,
+                "y": 86,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.8113313701548995,
+                "y": 118,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.8310589192942134,
+                "y": 125,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.8507864684335271,
+                "y": 150,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.870514017572841,
+                "y": 123,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.8902415667121548,
+                "y": 155,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.9099691158514687,
+                "y": 116,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.9296966649907825,
+                "y": 134,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.9494242141300964,
+                "y": 100,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.9691517632694102,
+                "y": 69,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 0.9888793124087241,
+                "y": 53,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.008606861548038,
+                "y": 24,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.0283344106873518,
+                "y": 22,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.0480619598266656,
+                "y": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.0677895089659795,
+                "y": 7,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.0875170581052933,
+                "y": 5,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.1072446072446072,
+                "y": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.126972156383921,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.1466997055232349,
+                "y": 2,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.1664272546625487,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "x": 1.1861548038018626,
+                "y": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
+        "distributionStats": {
+            "count": 10609,
+            "min": 0,
+            "max": 1,
+            "mean": 0,
+            "std": 0,
+            "median": 0,
+            "percentile90": 0,
+            "percentile10": 0
+        }
     }
-  }
 ]
