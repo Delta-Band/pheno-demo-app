@@ -15,6 +15,8 @@ import TagIcon from '../public/icons/tag.svg';
 import A2ZIcon from '../public/icons/a-z.svg';
 import CollectionIcon from '../public/icons/collection.svg';
 import TypeIcon from '../public/icons/type.svg';
+import DebutIcon from '../public/icons/debut.svg';
+import StrataIcon from '../public/icons/strata.svg';
 
 function getIcon(name) {
   switch (name) {
@@ -48,6 +50,10 @@ function getIcon(name) {
       return <CollectionIcon />;
     case 'type':
       return <TypeIcon />;
+    case 'debut':
+      return <DebutIcon />;
+    case 'strata':
+      return <StrataIcon />;
     default:
       return null;
   }

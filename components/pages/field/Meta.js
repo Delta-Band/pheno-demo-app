@@ -127,10 +127,14 @@ function Meta() {
             />
           </Column>
           <Column>
-            <MetaInfo prefixText='Strata' value={field.strata} />
+            <MetaInfo
+              iconName='strata'
+              prefixText='Strata'
+              value={field.strata}
+            />
             <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
             <MetaInfo
-              iconName='tag'
+              iconName='debut'
               prefixText='Debut'
               value={moment(field.debut).format('MMM yyyy')}
             />
