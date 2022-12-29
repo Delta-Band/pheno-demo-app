@@ -68,14 +68,21 @@ function Chart({ data, type }) {
                 display: false
                 // drawTicks: false
               },
-              includeBounds: true,
+              // includeBounds: true,
               // bounds: 'data',
               ticks: {
                 minRotation: 0,
-                maxRotation: 0
+                maxRotation: 0,
+                callback: (value, index, ticks) => {
+                  if (!data[index]) return;
+                  if (type === 'time') {
+                    return moment(data[index].x).format('MMM yyyy');
+                  } else if (index === 0 || index === data.length - 1) {
+                    return data[index].x;
+                  }
+                }
                 // autoSkip: true,
                 // autoSkipPadding: 3
-                // maxTicksLimit: 3
               }
             },
             type === 'time'

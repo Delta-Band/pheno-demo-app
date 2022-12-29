@@ -108,6 +108,12 @@
         "instance": "baseline visit"
       },
       {
+        "x": "2020-04",
+        "y": 2920,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
         "x": "2020-05",
         "y": 2953,
         "cohort": "10K",
@@ -138,6 +144,12 @@
         "instance": "baseline visit"
       },
       {
+        "x": "2020-10",
+        "y": 4126,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
         "x": "2020-11",
         "y": 4478,
         "cohort": "10K",
@@ -145,6 +157,12 @@
       },
       {
         "x": "2020-12",
+        "y": 4849,
+        "cohort": "10K",
+        "instance": "baseline visit"
+      },
+      {
+        "x": "2021-01",
         "y": 4849,
         "cohort": "10K",
         "instance": "baseline visit"
