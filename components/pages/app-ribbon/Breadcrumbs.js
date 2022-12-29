@@ -108,7 +108,7 @@ function Breadcrumbs() {
           >
             <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
               <PhenoIcon
-                name={getIconByDatType(field.type)}
+                name={getIconByDatType(field.dataType)}
                 color='#FFF'
                 scale={1.15}
               />
@@ -135,7 +135,7 @@ function Breadcrumbs() {
         >
           <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
             <PhenoIcon
-              name={getIconByDatType(field.type)}
+              name={getIconByDatType(field.dataType)}
               color='#FFF'
               scale={1.15}
             />

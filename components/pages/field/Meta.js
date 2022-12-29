@@ -81,14 +81,14 @@ function Meta() {
         <>
           <Column>
             <MetaInfo
-              iconName='type'
+              iconName={getIconByDatType(field.dataType)}
               prefixText='Data Type'
-              value={field.type}
+              value={field.dataType}
             />
             <MetaInfo
-              iconName={getIconByDatType(field.type)}
+              iconName='type'
               prefixText='Value Type'
-              value={field.type}
+              value={`${field.valueType} [${field.units}]`}
             />
             <MetaInfo
               iconName='user'
@@ -131,14 +131,14 @@ function Meta() {
       ) : (
         <Column>
           <MetaInfo
-            iconName={getIconByDatType(field.type)}
+            iconName={getIconByDatType(field.dataType)}
             prefixText='Data Type'
-            value={field.type}
+            value={field.dataType}
           />
           <MetaInfo
-            iconName={getIconByDatType(field.type)}
+            iconName='type'
             prefixText='Value Type'
-            value={field.type}
+            value={field.valueType}
           />
           <MetaInfo
             iconName='user'

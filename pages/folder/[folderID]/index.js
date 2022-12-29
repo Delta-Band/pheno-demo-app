@@ -118,7 +118,7 @@ const FolderPage = ({ folderInfoMDx }) => {
               {fields.map(field => (
                 <ListItem
                   key={field.name}
-                  prefixIcon={getIconByDatType(field.type)}
+                  prefixIcon={getIconByDatType(field.dataType)}
                   item={field}
                   sorter={router.query.sorter}
                   highlights={decodeURIComponent(
