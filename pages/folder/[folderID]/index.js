@@ -79,7 +79,7 @@ const FolderPage = ({ folderInfoMDx }) => {
   const router = useRouter();
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
   const fields = useSelector(state =>
     fieldsSlice.selectors.fields(state, {

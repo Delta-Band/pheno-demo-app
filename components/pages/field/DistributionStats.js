@@ -32,6 +32,7 @@ export default function DistributionStats() {
     <ul
       css={{
         width: upTablet ? 300 : '100%',
+        cursor: 'default',
         flexShrink: 0,
         border: '1px solid #a6a5a2',
         borderRadius: 4,

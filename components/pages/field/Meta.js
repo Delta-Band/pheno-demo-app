@@ -9,46 +9,33 @@ import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
 import moment from 'moment';
+import Tooltip from '../../Tooltip';
 
-function Tags({ tags }) {
+const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
   return (
-    <div css={{ display: 'flex' }}>
-      {tags.map((tag, i) => (
-        <div key={tag} css={{ display: 'flex' }}>
+    <Tooltip content={tooltip}>
+      <div
+        css={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          cursor: 'default',
+          gap: 18,
+          '& .pheno-icon': {
+            width: 24
+          }
+        }}
+      >
+        {iconName && <PhenoIcon name={iconName} />}
+        <Typography>{prefixText}:</Typography>
+        {typeof value !== 'object' ? (
           <Typography>
-            <b>{tag}</b>
+            <b>{value}</b>
           </Typography>
-          {i < tags.length - 1 ? (
-            <Typography css={{ marginInline: 8 }}>/</Typography>
-          ) : null}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-const MetaInfo = ({ iconName, prefixText, value }) => {
-  return (
-    <div
-      css={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 18,
-        '& .pheno-icon': {
-          width: 24
-        }
-      }}
-    >
-      {iconName && <PhenoIcon name={iconName} />}
-      <Typography>{prefixText}:</Typography>
-      {typeof value !== 'object' ? (
-        <Typography>
-          <b>{value}</b>
-        </Typography>
-      ) : (
-        value
-      )}
-    </div>
+        ) : (
+          value
+        )}
+      </div>
+    </Tooltip>
   );
 };
 
@@ -123,7 +110,8 @@ function Meta() {
             <MetaInfo
               iconName='collection'
               prefixText='Instances'
-              value={field.instances.join(', ')}
+              value={field.instances.length}
+              tooltip={field.instances.join('\n')}
             />
           </Column>
           <Column>
@@ -170,7 +158,8 @@ function Meta() {
           <MetaInfo
             iconName='group'
             prefixText='Instances'
-            value={field.instances}
+            value={field.instances.length}
+            tooltip={field.instances.join('\n')}
           />
           <MetaInfo prefixText='Strata' value={field.strata} />
           <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
