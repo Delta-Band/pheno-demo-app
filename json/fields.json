@@ -1,6 +1,6 @@
 [
     {
-        "id": "489942",
+        "id": "244878",
         "type": "Tabular",
         "name": "Height",
         "description": "Standing height",
@@ -832,10 +832,15 @@
             "median": 169,
             "percentile90": 181,
             "percentile10": 157
+        },
+        "sampleImage": {
+            "label": "Right fundus image",
+            "caption": "Lorem Ipsum",
+            "src": "130-001.jpg"
         }
     },
     {
-        "id": "157229",
+        "id": "361655",
         "type": "Tabular",
         "name": "Weight",
         "description": null,
@@ -1670,7 +1675,7 @@
         }
     },
     {
-        "id": "302653",
+        "id": "228772",
         "type": "Tabular",
         "name": "Body mass index (BMI)",
         "description": null,
@@ -2505,7 +2510,7 @@
         }
     },
     {
-        "id": "866547",
+        "id": "483761",
         "type": "Tabular",
         "name": "Waist circumference",
         "description": null,
@@ -3340,7 +3345,7 @@
         }
     },
     {
-        "id": "161794",
+        "id": "594228",
         "type": "Tabular",
         "name": "Neck circumference",
         "description": null,
@@ -3881,7 +3886,7 @@
         }
     },
     {
-        "id": "855682",
+        "id": "551167",
         "type": "Tabular",
         "name": "Hip circumference",
         "description": null,
@@ -4716,7 +4721,7 @@
         }
     },
     {
-        "id": "314467",
+        "id": "485745",
         "type": "Tabular",
         "name": "Wasit to hip ratio",
         "description": null,
