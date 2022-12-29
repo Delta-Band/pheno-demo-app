@@ -4,7 +4,7 @@ import DistributionStats from './DistributionStats';
 import { useRouter } from 'next/router';
 import { fieldsSlice } from '../../../redux';
 import { useSelector } from 'react-redux';
-import { useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
@@ -194,6 +194,7 @@ function GraphContent({
             css={{
               width,
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               background: 'black',
@@ -207,8 +208,8 @@ function GraphContent({
               height:
                 selectedView === 'Sample Image'
                   ? upTablet
-                    ? '50vh'
-                    : '55vw'
+                    ? '55vh'
+                    : '60vw'
                   : 0
             }}
             transition={{
@@ -220,6 +221,26 @@ function GraphContent({
               }
             }}
           >
+            {field.sampleImage.label && (
+              <Typography
+                variant='h2'
+                css={{ color: '#FFF', paddingBlock: 32, margin: 0 }}
+              >
+                {field.sampleImage.label}
+              </Typography>
+            )}
+            {field.sampleImage.caption && (
+              <Typography
+                css={{
+                  color: '#FFF',
+                  paddingBlock: 12,
+                  margin: 0,
+                  marginTop: -32
+                }}
+              >
+                {field.sampleImage.caption}
+              </Typography>
+            )}
             <Magnifier
               mgWidth={upTablet ? 200 : 150}
               mgHeight={upTablet ? 200 : 150}
