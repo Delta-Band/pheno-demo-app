@@ -26,6 +26,18 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     },
     subtitle1: {
       fontSize: 14.5
+    },
+    h1: {
+      fontSize: 32,
+      fontWeight: 500,
+      marginTop: 0,
+      marginBottom: '3vh'
+    },
+    h2: {
+      fontSize: 24,
+      fontWeight: 400,
+      marginTop: '3.4vh',
+      marginBottom: '1.75vh'
     }
   },
   shadows: {

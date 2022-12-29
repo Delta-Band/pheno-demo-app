@@ -14,15 +14,17 @@ export default function FolderInfo({ mdx }) {
     <div
       css={{
         paddingInline: 32,
-        paddingBlock: 24,
-        h1: Object.assign(theme.typography.h1, { marginTop: 0 }),
-        h2: theme.typography.h2,
-        h3: theme.typography.h3,
-        h4: Object.assign(theme.typography.h4, { marginBlock: 0 }),
-        h5: theme.typography.h5,
-        h6: theme.typography.h6,
-        p: theme.typography.body1,
-        li: theme.typography.body1
+        paddingBlock: 32,
+        h1: Object.assign({}, theme.typography.h1, {}),
+        h2: Object.assign({}, theme.typography.h2, {}),
+        h3: Object.assign({}, theme.typography.h3, {}),
+        h4: Object.assign({}, theme.typography.h4, {}),
+        h5: Object.assign({}, theme.typography.h5, {}),
+        h6: Object.assign({}, theme.typography.h6, {}),
+        p: Object.assign({}, theme.typography.body1, {}),
+        ol: Object.assign({}, theme.typography.body1, {
+          paddingInlineStart: 20
+        })
       }}
     >
       {/* <Typography
@@ -42,8 +44,7 @@ export default function FolderInfo({ mdx }) {
           [remarkRehype, { allowDangerousHtml: true }]
         ]}
       >
-        This ~is not~ strikethrough, but ~~this is~~!
-        {/* {mdx.content} */}
+        {mdx.content}
       </ReactMarkdown>
     </div>
   );

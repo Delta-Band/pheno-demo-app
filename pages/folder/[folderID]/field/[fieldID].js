@@ -29,7 +29,7 @@ const gap = 36;
 const Wrapper = styled.div({
   width: '100%',
   paddingInline: 32,
-  paddingBlock: 24,
+  paddingBlock: 32,
   display: 'inline-flex',
   flexDirection: 'column',
   boxSizing: 'border-box'
@@ -39,9 +39,11 @@ const Header = ({ children }) => {
   return (
     <Typography
       variant='h5'
-      css={{
-        marginBottom: 24
-      }}
+      css={
+        {
+          // marginBottom: 24
+        }
+      }
     >
       {children}
     </Typography>
