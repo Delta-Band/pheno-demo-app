@@ -836,16 +836,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10607,
-      "min": 146,
-      "max": 196,
-      "mean": 169,
-      "std": 9,
-      "median": 169,
-      "percentile90": 181,
-      "percentile10": 157
-    },
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10607,
+          "min": 146,
+          "max": 196,
+          "mean": 169,
+          "std": 9,
+          "median": 169,
+          "percentile90": 181,
+          "percentile10": 157
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10607,
+          "min": 146,
+          "max": 196,
+          "mean": 169,
+          "std": 9,
+          "median": 169,
+          "percentile90": 181,
+          "percentile10": 157
+        }
+      }
+    ],
     "sampleImage": {
       "label": "Right fundus image",
       "caption": "Lorem Ipsum",

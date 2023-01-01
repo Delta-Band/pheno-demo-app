@@ -79,7 +79,6 @@ function sortEm(items, sorter, direction) {
 const field = createSelector(
   [state => state.fields.fields, (state, id) => id],
   (fields, id) => {
-    debugger;
     return fields.find(fld => fld.id === id);
   }
 );
