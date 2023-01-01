@@ -1,0 +1,35 @@
+#### Description
+
+Sleep monitoring includes sleep staging, body positioning, respiratory events, heart rate, oxygen saturation and snoring, measured concurrently over three nights.
+
+Obstructive sleep apnea (OSA) is a sleep disorder in which a person’s breathing is interrupted during sleep due to obstruction of the upper airway. This obstruction can lead to pauses in breathing for short periods of time, which can cause loud snoring and fragmented sleep.
+
+A home sleep apnea test (HSAT) is a non-invasive test used to diagnose sleep apnea. During an HSAT, a patient wears a portable device overnight to monitor their breathing, heart rate, oxygen levels, snoring, and other sleep patterns. The device records this data and it is then analyzed by clinically-validated algorithms that compute apnea-related indices. The data can also be used to study sleep architecture and other aspects of sleep, such as heart rate variability (HRV).
+
+The device used for sleep monitoring in the Human Phenotype Project is the FDA-approved WatchPAT-300 by Itamar Medical. This device contains 5 sensors: An actigraph worn on the wrist (left of Figure 1); A pulse oximeter and a Peripheral Arterial Tone (PAT) probe worn on the finger (right of Figure 1); and a microphone and accelerometer worn on the chest for respiratory effort, snoring and body position measurement (RESBP, center of Figure 1).  
+
+The PAT probe measures changes in the volume of blood vessels by applying a uniform pressure field over the covered finger and measuring changes in the displaced volume within the probe. The measured PAT signal is a physiological signal that mirrors changes in the autonomic nervous system (ANS) caused by respiratory disturbances during sleep. The ANS regulates many basic functions and it does this without a person’s conscious control. Among its activities are the regulation of blood vessel size and blood pressure, airflow in the lungs, and the heart’s electrical activity and ability to contract. WatchPAT’s automatic algorithm analyzes the PAT signal amplitude along with the heart rate and oxygen saturation to identify and classify breathing problems during sleep (Figure 2). Using specific signal patterns, the algorithm provides two indices that allow a diagnosis of sleep apnea: Apnea/Hypopnea Index (AHI), which is an index used to calculate sleep apnea severity based on the total number of complete cessations (apneas) and partial obstructions (hypopneas) of breathing per hour of sleep. Respiratory Disturbance Index (RDI) is used to assess the severity of sleep apnea by measuring - in addition to apnea and hypopnea events - Respiratory Effort Related Arousals (RERAs). A RERA is an arousal from sleep that follows 10 seconds or more of increased respiratory effort but does not meet the criteria for apnea or hypopnea. The minimal oxygen desaturation for AHI and RDI events is 3%. The snoring sensor enables the clinician to determine if the respiratory events are obstructive and the body position sensor enables the clinician to determine if there is a positional component to the sleep apnea. In addition, the pulse oximeter is used to calculate the Oxygen Desaturation Index (ODI) based on the number of detected desaturation events per hour of sleep (minimal desaturation: 4%). The accuracy of these algorithms was validated using gold standard polysomnography (PSG) sleep monitoring, with a correlation coefficient of 0.893 for AHI, 0.879 for RDI, and 0.942 for ODI (Yalamanchali et al., 2013).  
+
+Sleep staging is determined by combining multiple sensors. First, sleep/wake detection is based on data recorded by the built-in actigraph (Hedner et al., 2004). Second, rapid eye movement (REM) detection is based on the PAT signal. REM sleep is associated with considerable attenuation of the PAT signal and physiology coupled with specific variations in the PAT amplitude and rate. Based on this specific variability in the PAT and pulse rate signals, REM sleep stage is differentiated from non-REM sleep (Herscovici et al., 2006). Finally, the same features are used to distinguish light sleep from deep sleep (Bresler et al., 2008). The accuracy of these algorithms was validated using gold standard, manually scored PSG, with a sleep detection accuracy of 85.2%, a REM detection accuracy of 87.3%, and a light/deep sleep detection accuracy of 80.5% (data from Hedner et al., 2011).
+
+#### Measurement protocol
+
+The WatchPAT device is given to participants who then record 3 nights of sleep at home.
+
+General guidelines: Once the device is turned on it cannot be turned off, and should therefore be turned on only when the participant is ready to go to sleep. The device should not be removed if the participant needs to get up during the night. The device will turn off automatically when the participant wakes up. The PAT probe is replaced each night, and 3 probes are provided to each participant. Finally, the device is returned to the clinic and the data is analyzed.
+
+PAT setup: It is recommended to apply the watchPAT device on the non-dominant hand. The PAT probe can be worn on any finger, except the thumb. In the case of large fingers, the pinky is recommended. Before use, it is recommended to remove tight clothes, rings, watches and other jewelry. Artificial nails and nail polish should be removed from the test finger, and the fingernail should be cut short. The finger is inserted into the probe until reaching its end, until the sticker marked TOP should be on the top of the finger above the nail. The finger is then pressed against a hard surface. Finally, the top tab is removed.
+
+RESBP setup: Trim thick chest hair, if needed. Stick the sensor to the center of the upper chest bone, just below the front of the neck. The image on the RESBP sensor should be facing up. Secure the sensor using the provided sticker on its back and additional medical tape.
+
+WatchPAT device setup: It is strapped on the wrist of the non-dominant hand.
+
+<br><br>
+
+#### Summary of available data
+
+The data comprises of 3 levels of processing:
+
+1. Raw channels: A data frame of temporal data - values and times - for each of 11 source channels (see the diagram above, in orange).
+2. Events: A data frame of annotated events based on the manufacturer’s analysis of the raw channels (see the diagram above, in green). Each row contains the event, its main source channel, its start time and end time.
+3. Summary statistics: A data frame of computed features provided by the manufacturer based on the above channels and events (see the diagram above, in red). Some of the summary stats are also computed separately for different sleep stages and body positions. Additional computed features, such as the ones related to heart rate variability (HRV) and sleep fragmentation, are computed by Pheno.ai (see the diagram above, in gray).

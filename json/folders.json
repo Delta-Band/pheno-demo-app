@@ -1,10 +1,98 @@
 [
   {
     "id": "1",
-    "name": "CGM"
+    "name": "Population characteristics"
   },
   {
     "id": "2",
-    "name": "Anthropometric"
+    "name": "Anthropometrics"
+  },
+  {
+    "id": "3",
+    "name": "Fundus images"
+  },
+  {
+    "id": "4",
+    "name": "Liver ultrasound"
+  },
+  {
+    "id": "5",
+    "name": "Diet Logging"
+  },
+  {
+    "id": "6",
+    "name": "Hand grip"
+  },
+  {
+    "id": "7",
+    "name": "Blood pressure"
+  },
+  {
+    "id": "8",
+    "name": "Serum Lipidomics"
+  },
+  {
+    "id": "9",
+    "name": "Sleep sensor"
+  },
+  {
+    "id": "10",
+    "name": "ABI, PWV"
+  },
+  {
+    "id": "11",
+    "name": "DXA"
+  },
+  {
+    "id": "12",
+    "name": "Carotid Ultrasound"
+  },
+  {
+    "id": "13",
+    "name": "Gut microbiome"
+  },
+  {
+    "id": "14",
+    "name": "Human genetics"
+  },
+  {
+    "id": "15",
+    "name": "ECG"
+  },
+  {
+    "id": "16",
+    "name": "Blood tests (HMOs)"
+  },
+  {
+    "id": "17",
+    "name": "CGM"
+  },
+  {
+    "id": "18",
+    "name": "Medications"
+  },
+  {
+    "id": "19",
+    "name": "Blood tests (CBC)"
+  },
+  {
+    "id": "20",
+    "name": "Questionnaires"
+  },
+  {
+    "id": "21",
+    "name": "Medical conditions"
+  },
+  {
+    "id": "22",
+    "name": "App logging"
+  },
+  {
+    "id": "23",
+    "name": "Third party health data"
+  },
+  {
+    "id": "24",
+    "name": "Samples inventory"
   }
 ]
