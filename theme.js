@@ -20,9 +20,12 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     // so a smaller fontsize may be appropriate.
     body1: {
       fontSize: 14,
+      lineHeight: '1.75rem',
       [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
+        lineHeight: '2rem',
         fontSize: 16
-      }
+      },
+      marginBlock: 0
     },
     subtitle1: {
       fontSize: 14.5
@@ -41,6 +44,10 @@ const theme = createTheme(themeWithCustomBreakpoints, {
       [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
         fontSize: 24
       }
+    },
+    h5: {
+      marginTop: 0,
+      marginBottom: '0.75rem'
     }
   },
   shadows: {

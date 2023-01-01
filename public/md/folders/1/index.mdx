@@ -1,13 +1,14 @@
-#### Description
+# Description
 
 TODO
 
-#### Measurement protocol
+# Measurement protocol
 
 TODO
-<br><br>
 
-#### Summary of available data
+# Summary of available data
 
-1. TODO
-2. TODO
+1. Raw channels: A data frame of temporal data - values and times - for each of 11 source channels (see the diagram above, in orange).
+2. Events: A data frame of annotated events based on the manufacturer’s analysis of the raw channels (see the diagram above, in green). Each row contains the event, its main source channel, its start time and end time.
+3. Summary statistics: A data frame of computed features provided by the manufacturer based on the above channels and events (see the diagram above, in red). Some of the summary stats are also computed separately for different sleep stages and body positions. Additional computed features, such as the ones related to heart rate variability (HRV) and sleep fragmentation, are computed by Pheno.ai (see the diagram above, in gray).
+   ![image alt](/md/folders/1/sleep_info_figure1.png)

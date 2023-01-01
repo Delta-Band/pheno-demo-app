@@ -14,17 +14,23 @@ export default function FolderInfo({ mdx }) {
     <div
       css={{
         paddingInline: 32,
-        paddingBlock: 32,
-        h1: Object.assign({}, theme.typography.h1, {}),
-        h2: Object.assign({}, theme.typography.h2, {}),
-        h3: Object.assign({}, theme.typography.h3, {}),
-        h4: Object.assign({}, theme.typography.h4, {}),
-        h5: Object.assign({}, theme.typography.h5, {}),
-        h6: Object.assign({}, theme.typography.h6, {}),
-        p: Object.assign({}, theme.typography.body1, {}),
+        paddingBlockStart: '0.5rem',
+        h1: Object.assign({}, theme.typography.h5, {
+          marginTop: '1.5rem'
+        }),
+        p: Object.assign({}, theme.typography.body1, {
+          paddingBlockEnd: '0.5rem'
+        }),
         ol: Object.assign({}, theme.typography.body1, {
           paddingInlineStart: 20
-        })
+        }),
+        li: Object.assign({}, theme.typography.body1, {
+          paddingBlockEnd: '0.5rem'
+        }),
+        img: {
+          marginBlock: '1rem',
+          maxWidth: '100%'
+        }
       }}
     >
       {/* <Typography
