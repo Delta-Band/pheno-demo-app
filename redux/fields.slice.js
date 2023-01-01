@@ -120,9 +120,10 @@ const folders = createSelector(
   (folders, fields, args) => {
     const foldersObject = fields.reduce((folders, field) => {
       folders[field.folderID] = {
-        participants: folders[field.folderID]?.participants
-          ? folders[field.folderID].participants + field.participants
-          : field.participants,
+        participants: Math.max(
+          folders[field.folderID]?.participants || 0,
+          field.participants || 0
+        ),
         measurements: folders[field.folderID]?.measurements
           ? folders[field.folderID].measurements + field.measurements
           : field.measurements,
@@ -156,8 +157,8 @@ const totals = createSelector(
   fields => {
     return fields.reduce(
       (acc, field) => {
-        acc.participants = Math.max(acc.participants, field.participants);
-        acc.measurements += field.measurements;
+        acc.participants = Math.max(acc.participants, field.participants || 0);
+        acc.measurements += field.measurements || 0;
         acc.cohorts = uniq(acc.cohorts.concat(field.cohorts));
         return acc;
       },
@@ -170,11 +171,23 @@ const totals = createSelector(
   }
 );
 
+const distributionStats = createSelector(
+  [(state, args) => field(state, args.filedID), (state, args) => args],
+  (filed, { selectedCohort, selectedInstance }) => {
+    if (!selectedCohort || !selectedInstance) return null;
+    return filed.distributionStats.find(
+      stats =>
+        stats.cohort === selectedCohort && stats.instance === selectedInstance
+    );
+  }
+);
+
 fieldsSlice.selectors = {
   folders,
   fields,
   totals,
-  field
+  field,
+  distributionStats
 };
 
 Object.assign(fieldsSlice.actions, {

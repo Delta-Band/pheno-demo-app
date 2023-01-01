@@ -120,6 +120,7 @@ const FolderPage = ({ folderInfoMDx }) => {
                   key={field.name}
                   prefixIcon={getIconByDatType(field.dataType)}
                   item={field}
+                  comingSoon={!field.participants}
                   sorter={router.query.sorter}
                   highlights={decodeURIComponent(
                     router.query.filter || ''

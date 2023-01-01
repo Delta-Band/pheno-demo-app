@@ -34,10 +34,13 @@ const theme = createTheme(themeWithCustomBreakpoints, {
       marginBottom: '3vh'
     },
     h2: {
-      fontSize: 24,
+      fontSize: 16,
       fontWeight: 400,
       marginTop: '3.4vh',
-      marginBottom: '1.75vh'
+      marginBottom: '1.75vh',
+      [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
+        fontSize: 24
+      }
     }
   },
   shadows: {

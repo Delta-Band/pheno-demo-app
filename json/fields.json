@@ -14,7 +14,6 @@
     "cohorts": ["10K"],
     "instances": ["baseline visit", "visit-2"],
     "folderID": "2",
-    "participants": 9006,
     "measurements": 10607,
     "dataAccumulation": [
       {
@@ -856,7 +855,7 @@
         "instance": "visit-2",
         "stats": {
           "count": 10607,
-          "min": 146,
+          "min": 145,
           "max": 196,
           "mean": 169,
           "std": 9,
@@ -1691,16 +1690,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10609,
-      "min": 44,
-      "max": 133,
-      "mean": 75,
-      "std": 14,
-      "median": 73,
-      "percentile90": 94,
-      "percentile10": 57
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10609,
+          "min": 44,
+          "max": 133,
+          "mean": 75,
+          "std": 14,
+          "median": 73,
+          "percentile90": 94,
+          "percentile10": 57
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10609,
+          "min": 44,
+          "max": 133,
+          "mean": 75,
+          "std": 14,
+          "median": 73,
+          "percentile90": 94,
+          "percentile10": 57
+        }
+      }
+    ]
   },
   {
     "id": "228772",
@@ -2521,16 +2540,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10606,
-      "min": 17,
-      "max": 41,
-      "mean": 26,
-      "std": 4,
-      "median": 25,
-      "percentile90": 31,
-      "percentile10": 21
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10606,
+          "min": 17,
+          "max": 41,
+          "mean": 26,
+          "std": 4,
+          "median": 25,
+          "percentile90": 31,
+          "percentile10": 21
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10606,
+          "min": 17,
+          "max": 41,
+          "mean": 26,
+          "std": 4,
+          "median": 25,
+          "percentile90": 31,
+          "percentile10": 21
+        }
+      }
+    ]
   },
   {
     "id": "483761",
@@ -3351,16 +3390,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10610,
-      "min": 60,
-      "max": 131,
-      "mean": 89,
-      "std": 12,
-      "median": 89,
-      "percentile90": 106,
-      "percentile10": 74
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10610,
+          "min": 60,
+          "max": 131,
+          "mean": 89,
+          "std": 12,
+          "median": 89,
+          "percentile90": 106,
+          "percentile10": 74
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10610,
+          "min": 60,
+          "max": 131,
+          "mean": 89,
+          "std": 12,
+          "median": 89,
+          "percentile90": 106,
+          "percentile10": 74
+        }
+      }
+    ]
   },
   {
     "id": "594228",
@@ -3887,16 +3946,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 756,
-      "min": 27,
-      "max": 47,
-      "mean": 36,
-      "std": 4,
-      "median": 36,
-      "percentile90": 42,
-      "percentile10": 31
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 756,
+          "min": 27,
+          "max": 47,
+          "mean": 36,
+          "std": 4,
+          "median": 36,
+          "percentile90": 42,
+          "percentile10": 31
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 756,
+          "min": 27,
+          "max": 47,
+          "mean": 36,
+          "std": 4,
+          "median": 36,
+          "percentile90": 42,
+          "percentile10": 31
+        }
+      }
+    ]
   },
   {
     "id": "551167",
@@ -4717,16 +4796,36 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10609,
-      "min": 81,
-      "max": 137,
-      "mean": 102,
-      "std": 8,
-      "median": 102,
-      "percentile90": 114,
-      "percentile10": 93
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10609,
+          "min": 81,
+          "max": 137,
+          "mean": 102,
+          "std": 8,
+          "median": 102,
+          "percentile90": 114,
+          "percentile10": 93
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10609,
+          "min": 81,
+          "max": 137,
+          "mean": 102,
+          "std": 8,
+          "median": 102,
+          "percentile90": 114,
+          "percentile10": 93
+        }
+      }
+    ]
   },
   {
     "id": "485745",
@@ -5547,15 +5646,35 @@
         "instance": "visit-2"
       }
     ],
-    "distributionStats": {
-      "count": 10609,
-      "min": 0,
-      "max": 1,
-      "mean": 0,
-      "std": 0,
-      "median": 0,
-      "percentile90": 0,
-      "percentile10": 0
-    }
+    "distributionStats": [
+      {
+        "cohort": "10K",
+        "instance": "baseline visit",
+        "stats": {
+          "count": 10609,
+          "min": 0,
+          "max": 1,
+          "mean": 0,
+          "std": 0,
+          "median": 0,
+          "percentile90": 0,
+          "percentile10": 0
+        }
+      },
+      {
+        "cohort": "10K",
+        "instance": "visit-2",
+        "stats": {
+          "count": 10609,
+          "min": 0,
+          "max": 1,
+          "mean": 0,
+          "std": 0,
+          "median": 0,
+          "percentile90": 0,
+          "percentile10": 0
+        }
+      }
+    ]
   }
 ]

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, Chip } from '@mui/material';
 import { PhenoIcon } from '../components';
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
@@ -43,7 +43,8 @@ export function ListItem({
   sorter,
   prefixIcon,
   onClick,
-  highlights = []
+  highlights = [],
+  comingSoon = false
 }) {
   const router = useRouter();
   const theme = useTheme();
@@ -79,8 +80,10 @@ export function ListItem({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        cursor: 'pointer',
-        transition: '0.25s ease-out'
+        cursor: comingSoon ? 'default' : 'pointer',
+        pointerEvents: comingSoon ? 'none' : 'all',
+        transition: '0.25s ease-out',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
       }}
     >
       <Tooltip content={item.description}>
@@ -95,14 +98,17 @@ export function ListItem({
             borderRadius: 0,
             textTransform: 'capitalize',
             background: 'rgba(0, 0, 0, 0)',
-            borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
             justifyContent: 'space-between',
             '&:hover': {
               background: 'rgba(0, 0, 0, 0.05)'
             }
           }}
         >
-          <LeftSide>
+          <LeftSide
+            css={{
+              opacity: comingSoon ? 0.3 : 1
+            }}
+          >
             <IconFixedWidth>
               <PhenoIcon name={prefixIcon} />
             </IconFixedWidth>
@@ -119,30 +125,36 @@ export function ListItem({
               />
             </Typography>
           </LeftSide>
-          <RightSide>
-            <Tooltip content={sortIconTip} placement='left'>
-              {sorter !== 'a-z' ? (
-                <RightSide>
-                  <Typography
-                    variant='subtitle1'
-                    lineHeight={1}
-                    css={{
-                      transform: 'translateY(1px)',
-                      color: theme.palette.accentColor
-                    }}
-                  >
-                    <FormattedNumber value={item[sorter]} />
-                  </Typography>
-                  <PhenoIcon
-                    name={sortIcon}
-                    color={theme.palette.accentColor}
-                  />
-                </RightSide>
-              ) : null}
-            </Tooltip>
-            <CaretRight size={28} />
-            {/* <PhenoIcon name='chevron-right' /> */}
-          </RightSide>
+          {comingSoon ? (
+            <RightSide>
+              <Chip label='Coming Soon' />
+            </RightSide>
+          ) : (
+            <RightSide>
+              <Tooltip content={sortIconTip} placement='left'>
+                {sorter !== 'a-z' ? (
+                  <RightSide>
+                    <Typography
+                      variant='subtitle1'
+                      lineHeight={1}
+                      css={{
+                        transform: 'translateY(1px)',
+                        color: theme.palette.accentColor
+                      }}
+                    >
+                      <FormattedNumber value={item[sorter]} />
+                    </Typography>
+                    <PhenoIcon
+                      name={sortIcon}
+                      color={theme.palette.accentColor}
+                    />
+                  </RightSide>
+                ) : null}
+              </Tooltip>
+              <CaretRight size={28} />
+              {/* <PhenoIcon name='chevron-right' /> */}
+            </RightSide>
+          )}
         </Button>
       </Tooltip>
     </li>

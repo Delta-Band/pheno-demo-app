@@ -55,6 +55,7 @@ function Sorter() {
       direction: router.query.direction
     })
   );
+  console.log('totals', totals);
 
   function updateURL(sorter) {
     router.push({

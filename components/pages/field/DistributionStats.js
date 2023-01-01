@@ -18,15 +18,25 @@ const inverted = {
   // background: 'rgba(0, 0, 0, 0.1)'
 };
 
-export default function DistributionStats() {
+export default function DistributionStats({
+  selectedCohort,
+  selectedInstance
+}) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const router = useRouter();
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
+  const distributionStats = useSelector(state =>
+    fieldsSlice.selectors.distributionStats(state, {
+      filedID: router.query.fieldID,
+      selectedCohort,
+      selectedInstance
+    })
+  ) || { stats: {} };
   const { count, min, max, mean, std, median, percentile90, percentile10 } =
-    field?.distributionStats;
+    distributionStats.stats;
 
   return (
     <ul

@@ -175,7 +175,10 @@ function GraphContent({
               />
             </div>
             {typeof field.dataDistribution[0].x === 'string' ? null : (
-              <DistributionStats />
+              <DistributionStats
+                selectedCohort={selectedCohort}
+                selectedInstance={selectedInstance}
+              />
             )}
           </motion.div>
         )}
@@ -204,7 +207,7 @@ function GraphContent({
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'black',
+              background: 'rgba(0, 0, 0, 0.9)',
               boxSizing: 'border-box',
               borderRadius: 4,
               overflow: 'hidden'
@@ -216,7 +219,7 @@ function GraphContent({
                 selectedView === 'Sample Image'
                   ? upTablet
                     ? '55vh'
-                    : '60vw'
+                    : '75vw'
                   : 0
             }}
             transition={{
@@ -231,18 +234,23 @@ function GraphContent({
             {field.sampleImage.label && (
               <Typography
                 variant='h2'
-                css={{ color: '#FFF', paddingBlock: 32, margin: 0 }}
+                css={{
+                  color: '#FFF',
+                  paddingBlock: upTablet ? 32 : 16,
+                  margin: 0
+                }}
               >
                 {field.sampleImage.label}
               </Typography>
             )}
             {field.sampleImage.caption && (
               <Typography
+                variant='caption'
                 css={{
                   color: '#FFF',
                   paddingBlock: 12,
                   margin: 0,
-                  marginTop: -32
+                  marginTop: -22
                 }}
               >
                 {field.sampleImage.caption}
@@ -254,6 +262,12 @@ function GraphContent({
               src={`/images/fields/${field.sampleImage.src}`}
               height='100%'
               width='auto'
+              css={{
+                background: 'black',
+                '& > img': {
+                  objectFit: 'contain'
+                }
+              }}
             />
             {/* <img
               css={{

@@ -156,15 +156,19 @@ function Meta() {
             value={field.cohorts.join(', ')}
           />
           <MetaInfo
-            iconName='group'
+            iconName='collection'
             prefixText='Instances'
             value={field.instances.length}
             tooltip={field.instances.join('\n')}
           />
-          <MetaInfo prefixText='Strata' value={field.strata} />
+          <MetaInfo
+            iconName='strata'
+            prefixText='Strata'
+            value={field.strata}
+          />
           <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
           <MetaInfo
-            iconName='tag'
+            iconName='debut'
             prefixText='Debut'
             value={moment(field.debut).format('MMM yyyy')}
           />
