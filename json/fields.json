@@ -1,6 +1,6 @@
 [
     {
-        "id": "680541",
+        "id": "434580",
         "dataType": "Data",
         "name": "Height",
         "description": "height",
@@ -493,6 +493,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 8969,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 146,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 196,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 169,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 9,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 169,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 181,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 157,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 1638,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 146,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 196,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 168,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 9,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 168,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 180,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 157,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 10607,
         "dataAccumulation": [
@@ -844,20 +926,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10607,
-            "min": 146,
-            "max": 196,
-            "mean": 169,
-            "std": 9,
-            "median": 169,
-            "percentile90": 181,
-            "percentile10": 157
-        }
+        ]
     },
     {
-        "id": "872363",
+        "id": "261227",
         "dataType": "Data",
         "name": "Weight",
         "description": "weight",
@@ -1231,20 +1303,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10609,
-            "min": 44,
-            "max": 133,
-            "mean": 75,
-            "std": 14,
-            "median": 73,
-            "percentile90": 94,
-            "percentile10": 57
-        }
+        ]
     },
     {
-        "id": "134455",
+        "id": "548447",
         "dataType": "Data",
         "name": "Body mass index (BMI)",
         "description": "bmi",
@@ -1732,6 +1794,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 8968,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 17,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 41,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 26,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 25,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 21,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 1638,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 17,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 42,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 26,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 25,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 31,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 21,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 10606,
         "dataAccumulation": [
@@ -2083,20 +2227,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10606,
-            "min": 17,
-            "max": 41,
-            "mean": 26,
-            "std": 4,
-            "median": 25,
-            "percentile90": 31,
-            "percentile10": 21
-        }
+        ]
     },
     {
-        "id": "450920",
+        "id": "772357",
         "dataType": "Data",
         "name": "Waist circumference",
         "description": "waist_circumference",
@@ -2584,6 +2718,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 8967,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 61,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 130,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 89,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 12,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 89,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 106,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 74,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 52,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 132,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 89,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 12,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 89,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 105,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 74,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 10610,
         "dataAccumulation": [
@@ -2935,20 +3151,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10610,
-            "min": 60,
-            "max": 131,
-            "mean": 89,
-            "std": 12,
-            "median": 89,
-            "percentile90": 106,
-            "percentile10": 74
-        }
+        ]
     },
     {
-        "id": "248232",
+        "id": "344729",
         "dataType": "Data",
         "name": "Neck circumference",
         "description": "neck_circumference",
@@ -3436,6 +3642,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 540,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 27,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 48,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 36,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 4,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 36,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 42,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 31,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 216,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 29,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 46,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 36,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 4,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 37,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 43,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 32,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 756,
         "dataAccumulation": [
@@ -3475,20 +3763,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 756,
-            "min": 27,
-            "max": 47,
-            "mean": 36,
-            "std": 4,
-            "median": 36,
-            "percentile90": 42,
-            "percentile10": 31
-        }
+        ]
     },
     {
-        "id": "880748",
+        "id": "251582",
         "dataType": "Data",
         "name": "Hip circumference",
         "description": "hip_circumference",
@@ -3976,6 +4254,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 8966,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 81,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 137,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 102,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 8,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 102,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 113,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 93,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 80,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 135,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 102,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 8,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 102,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 114,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 93,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 10609,
         "dataAccumulation": [
@@ -4327,20 +4687,10 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10609,
-            "min": 81,
-            "max": 137,
-            "mean": 102,
-            "std": 8,
-            "median": 102,
-            "percentile90": 114,
-            "percentile10": 93
-        }
+        ]
     },
     {
-        "id": "757601",
+        "id": "230281",
         "dataType": "Data",
         "name": "Body fat percentage",
         "description": "body_fat_percentage",
@@ -4360,7 +4710,7 @@
         "folderID": "2"
     },
     {
-        "id": "365782",
+        "id": "232076",
         "dataType": "Data",
         "name": "Wasit to hip ratio",
         "description": "waist_to_hip_ratio",
@@ -4848,6 +5198,88 @@
                 "instance": "visit-2"
             }
         ],
+        "distributionStats": [
+            {
+                "count": 8966,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "min": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "max": 1,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "mean": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "std": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "median": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile90": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "percentile10": 0,
+                "cohort": "10K",
+                "instance": "baseline visit"
+            },
+            {
+                "count": 1643,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "min": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "max": 1,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "mean": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "std": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "median": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile90": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            },
+            {
+                "percentile10": 0,
+                "cohort": "10K",
+                "instance": "visit-2"
+            }
+        ],
         "participants": 9006,
         "measurements": 10609,
         "dataAccumulation": [
@@ -5199,16 +5631,6 @@
                 "cohort": "10K",
                 "instance": "visit-2"
             }
-        ],
-        "distributionStats": {
-            "count": 10609,
-            "min": 0,
-            "max": 1,
-            "mean": 0,
-            "std": 0,
-            "median": 0,
-            "percentile90": 0,
-            "percentile10": 0
-        }
+        ]
     }
 ]
