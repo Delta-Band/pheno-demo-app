@@ -265,7 +265,6 @@ function GraphContent({
               css={{
                 background:
                   'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)',
-                // padding: 24,
                 '& > img': {
                   objectFit: 'contain',
                   position: 'absolute'

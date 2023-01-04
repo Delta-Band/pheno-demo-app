@@ -88,11 +88,11 @@ export default function DistributionStats({
         <Value>{median}</Value>
       </li>
       <li css={inverted}>
-        <Key>10% Percential</Key>
+        <Key>10th Percentile</Key>
         <Value>{percentile10}</Value>
       </li>
       <li>
-        <Key>90% Percential</Key>
+        <Key>90th Percentile</Key>
         <Value>{percentile90}</Value>
       </li>
     </ul>
