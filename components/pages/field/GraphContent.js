@@ -236,7 +236,7 @@ function GraphContent({
                 variant='h2'
                 css={{
                   color: '#FFF',
-                  paddingBlock: upTablet ? 32 : 16,
+                  paddingBlock: upTablet ? 16 : 16,
                   margin: 0
                 }}
               >
@@ -261,11 +261,14 @@ function GraphContent({
               mgHeight={upTablet ? 200 : 150}
               src={`/images/fields/${field.sampleImage.src}`}
               height='100%'
-              width='auto'
+              width='100%'
               css={{
-                background: 'black',
+                background:
+                  'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)',
+                // padding: 24,
                 '& > img': {
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  position: 'absolute'
                 }
               }}
             />

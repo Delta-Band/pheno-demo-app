@@ -42,7 +42,8 @@ const theme = createTheme(themeWithCustomBreakpoints, {
       marginTop: '3.4vh',
       marginBottom: '1.75vh',
       [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
-        fontSize: 24
+        fontSize: 18,
+        fontWeight: 300
       }
     },
     h5: {
