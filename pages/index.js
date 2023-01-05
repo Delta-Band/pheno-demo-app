@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { fieldsSlice } from '../redux';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { List, ListItem, Layout } from '../components';
 import { useTheme } from '@mui/material/styles';
+import ReactGA from 'react-ga4';
 import { useMediaQuery } from '@mui/material';
 
 export default function Home() {
@@ -27,10 +29,14 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    // ReactGA.send({ hitType: 'pageview', page: router.pathname });
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Pheno Demo App</title>
+        <title>Pheno Catalog - Home</title>
       </Head>
       <Layout page='root' paddingTop={getPaddingTop()}>
         <List>

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -14,6 +14,7 @@ import { Button, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactGA from 'react-ga4';
 
 function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   const theme = useTheme();
@@ -102,10 +103,14 @@ const FolderPage = ({ folderInfoMDx }) => {
     }
   }
 
+  useEffect(() => {
+    // ReactGA.send({ hitType: 'pageview', page: router.pathname });
+  }, []);
+
   return folder ? (
     <>
       <Head>
-        <title>Pheno Demo App</title>
+        <title>{`Pheno Catalog - ${folder.name}`}</title>
       </Head>
       <AnimatePresence>
         {showInfo ? (

@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { Layout } from '../../../../components';
 import { Meta, GraphContent } from '../../../../components/pages/field';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../../../redux';
+import { fieldsSlice, foldersSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import {
@@ -147,6 +147,9 @@ export default function FieldPage() {
   const field = useSelector(state =>
     fieldsSlice.selectors.field(state, router.query.fieldID)
   );
+  const folder = useSelector(state =>
+    foldersSlice.selectors.folderById(state, router.query.folderID)
+  );
   const [selectedCohort, setSelectedCohort] = useState(field?.cohorts[0] || '');
   const views = [];
   if (field?.dataDistribution) {
@@ -195,7 +198,7 @@ export default function FieldPage() {
   return (
     <>
       <Head>
-        <title>Pheno Demo App</title>
+        <title>{`Pheno Catalog - ${folder?.name} / ${field?.name}`}</title>
       </Head>
       {field ? (
         <Layout page='field' paddingTop={getPaddingTop()}>
