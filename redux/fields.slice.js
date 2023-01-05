@@ -79,7 +79,17 @@ function sortEm(items, sorter, direction) {
 const field = createSelector(
   [state => state.fields.fields, (state, id) => id],
   (fields, id) => {
-    return fields.find(fld => fld.id === id);
+    const _field = fields.find(fld => fld.id === id);
+    if (!_field) return;
+    const sorted = [..._field.dataDistribution].sort((a, b) => {
+      switch (true) {
+        case typeof a.x === 'string':
+          return a.y < b.y ? -1 : 1;
+        default:
+          return a.x < b.x ? -1 : 1;
+      }
+    });
+    return Object.assign({}, _field, { dataDistribution: sorted });
   }
 );
 
@@ -106,8 +116,12 @@ const fields = createSelector(
     }
 
     const sorted = sortEm(filteredFields, args.sorter, args.direction);
+    const structures = [
+      ...sorted.filter(itm => itm.participants > 0),
+      ...sorted.filter(itm => !itm.participants)
+    ];
 
-    return sorted;
+    return structures;
   }
 );
 

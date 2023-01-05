@@ -59,30 +59,36 @@ function Chart({ data, type }) {
           }
         },
         scales: {
-          y: {},
+          y: {
+            ticks: {
+              crossAlign: type === 'categorical' ? 'far' : 'near'
+            }
+          },
           x: Object.assign(
             {
-              // min: 3.63503761867407,
-              // max: data.length ? data[data.length - 1].x : undefined,
               grid: {
                 display: false
                 // drawTicks: false
               },
-              // includeBounds: true,
-              // bounds: 'data',
+              min: type === 'categorical' ? 0 : undefined,
+              max:
+                type === 'categorical' ? data[data.length - 1]?.y : undefined,
+              // type: 'category',
               ticks: {
                 minRotation: 0,
                 maxRotation: 0,
-                callback: (value, index, ticks) => {
-                  if (!data[index]) return;
-                  if (type === 'time') {
-                    return moment(data[index].x).format('MMM yyyy');
-                  } else if (index === 0 || index === data.length - 1) {
-                    return data[index].x;
-                  }
-                }
-                // autoSkip: true,
-                // autoSkipPadding: 3
+                callback:
+                  type === 'categorical'
+                    ? undefined
+                    : (value, index, ticks) => {
+                        if (!data[index]) return;
+                        if (type === 'time') {
+                          return moment(data[index].x).format('MMM yyyy');
+                        } else if (index === 0 || index === data.length - 1) {
+                          return data[index].x;
+                        }
+                      },
+                autoSkip: true
               }
             },
             type === 'time'
