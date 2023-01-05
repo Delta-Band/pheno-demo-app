@@ -29,10 +29,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    // ReactGA.send({ hitType: 'pageview', page: router.pathname });
-  }, []);
-
   return (
     <>
       <Head>

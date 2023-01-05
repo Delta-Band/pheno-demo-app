@@ -103,10 +103,6 @@ const FolderPage = ({ folderInfoMDx }) => {
     }
   }
 
-  useEffect(() => {
-    // ReactGA.send({ hitType: 'pageview', page: router.pathname });
-  }, []);
-
   return folder ? (
     <>
       <Head>

@@ -88,7 +88,9 @@ function Meta() {
             <MetaInfo
               iconName='type'
               prefixText='Value Type'
-              value={`${field.valueType} [${field.units}]`}
+              value={`${field.valueType}${
+                field.units ? ' [' + field.units + ']' : ''
+              }`}
             />
             <MetaInfo
               iconName='user'
