@@ -7,10 +7,11 @@ import uniq from 'lodash/uniq';
 
 const initialState = { working: true, folders: [] };
 
-const setData = createAsyncThunk('folders/fetch', async () => {
-  const resp = await fetch('/api/folders');
-  const data = resp.json();
-  return data;
+const setData = createAsyncThunk('folders/fetch', async filter => {
+  let folders = await fetch(`/api/folders?filter=${filter}`);
+  folders = await folders.json();
+  console.log('folders', folders);
+  return folders;
 });
 
 const foldersSlice = createSlice({
@@ -24,9 +25,9 @@ const foldersSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      // .addCase(fetch.pending, state => {
-      //   state.working = true;
-      // })
+      .addCase(setData.pending, state => {
+        state.working = true;
+      })
       .addCase(setData.fulfilled, (state, action) => {
         state.folders = action.payload;
         state.working = false;

@@ -11,7 +11,7 @@ export default function FirstLoad() {
 
   useEffect(() => {
     dispatch(fieldsSlice.actions.setData());
-    dispatch(foldersSlice.actions.setData());
+    // dispatch(foldersSlice.actions.setData());
     ReactGA.initialize([
       {
         trackingId: process.env.NEXT_PUBLIC_GA_M_ID,
