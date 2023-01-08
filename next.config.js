@@ -5,6 +5,9 @@ const composePlugins = require('next-compose-plugins');
 const path = require('path');
 
 const nextConfig = {
+  api: {
+    responseLimit: '16mb'
+  },
   reactStrictMode: false,
   images: {
     unoptimized: true
