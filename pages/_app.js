@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { store } from '../redux';
 import { Provider } from 'react-redux';
-import { FirstLoad, AppRibbon } from '../components';
+import { FirstLoad, AppRibbon, ActivityIndicator } from '../components';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
 import styled from '@emotion/styled';
@@ -94,7 +94,9 @@ const App = ({ Component, pageProps }) => {
               >
                 <AppRibbon />
                 <AnimatePresence initial={false}>
-                  <Component {...pageProps} key={router.route} />
+                  <ActivityIndicator>
+                    <Component {...pageProps} key={router.route} />
+                  </ActivityIndicator>
                 </AnimatePresence>
               </div>
             </BackgroundImg>

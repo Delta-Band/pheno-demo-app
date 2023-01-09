@@ -2,17 +2,13 @@
 import { jsx } from '@emotion/react';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
   const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
-  const working = useSelector(
-    state => state.fields.working || state.folders.working
-  );
-  console.log('working', working);
   const minRibbonRef = useRef(minimizeRibbon);
   const router = useRouter();
   const layoutRef = useRef(null);
@@ -65,57 +61,40 @@ function Layout({ children, page, paddingTop = 0 }) {
   }, []);
 
   return (
-    <motion.div
-      ref={layoutRef}
-      initial={{ x: `${direction * 100}%`, opacity: 0, paddingTop }}
-      animate={{ x: 0, opacity: 1, paddingTop }}
-      exit={{ x: `${direction * 100}%`, opacity: 0 }}
-      css={{
-        width: '100%',
-        height: '100%',
-        overflow: 'auto',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        boxSizing: 'border-box',
-        '&::-webkit-scrollbar ': {
-          width: 8
-        },
-        '&::-webkit-scrollbar-track': {
-          background: 'transparent'
-        },
-        '&::-webkit-scrollbar-thumb': {
-          // background: 'rgb(60 60 60 / 80%)'
-          borderInlineStart: '6px solid #21336c'
-        }
-      }}
-      transition={{
-        type: 'spring',
-        stiffness: 260,
-        damping: 30
-      }}
-    >
-      {children}
-      <AnimatePresence>
-        {working && (
-          <motion.div
-            css={{
-              pointerEvents: 'none',
-              position: 'absolute',
-              height: '100%',
-              width: '100%',
-              zIndex: 1,
-              backdropFilter: 'blur(7px)',
-              top: 0,
-              background: `rgba(255, 255, 255, 0.75)`
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
-    </motion.div>
+    <>
+      <motion.div
+        ref={layoutRef}
+        initial={{ x: `${direction * 100}%`, opacity: 0, paddingTop }}
+        animate={{ x: 0, opacity: 1, paddingTop }}
+        exit={{ x: `${direction * 100}%`, opacity: 0 }}
+        css={{
+          width: '100%',
+          height: '100%',
+          overflow: 'auto',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          boxSizing: 'border-box',
+          '&::-webkit-scrollbar ': {
+            width: 8
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'transparent'
+          },
+          '&::-webkit-scrollbar-thumb': {
+            // background: 'rgb(60 60 60 / 80%)'
+            borderInlineStart: '6px solid #21336c'
+          }
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 260,
+          damping: 30
+        }}
+      >
+        {children}
+      </motion.div>
+    </>
   );
 }
 export default Layout;
