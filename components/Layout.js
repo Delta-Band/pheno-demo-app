@@ -3,16 +3,13 @@ import { jsx } from '@emotion/react';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
   const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
   const minRibbonRef = useRef(minimizeRibbon);
-  const router = useRouter();
   const layoutRef = useRef(null);
-  // const { scrollDirection } = useScrollDirection({ ref: layoutRef });
   const dispatch = useDispatch();
 
   let direction;
@@ -28,22 +25,12 @@ function Layout({ children, page, paddingTop = 0 }) {
     case page === 'folder' &&
       prevRoute === '/folder/[folderID]/field/[fieldID]':
     case page === 'folder' && prevRoute === '/folder/[folderID]':
-      // case page === 'folder' &&
-      //   router.route === '/folder/[folderID]/field/[fieldID]':
       direction = -1;
       break;
     default:
       direction = 0;
       break;
   }
-
-  // useEffect(() => {
-  //   if (scrollDirection === 'DOWN') {
-  //     dispatch(layoutSlice.actions.setMinimizeRibbon(true));
-  //   } else if (scrollDirection === 'UP') {
-  //     dispatch(layoutSlice.actions.setMinimizeRibbon(false));
-  //   }
-  // }, [scrollDirection]);
 
   useEffect(() => {
     minRibbonRef.current = minimizeRibbon;
