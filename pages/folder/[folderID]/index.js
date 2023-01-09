@@ -79,17 +79,11 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
 const FolderPage = ({ folderInfoMDx }) => {
   const router = useRouter();
   const theme = useTheme();
+  const dispatch = useDispatch();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
-  const fields = useSelector(state =>
-    fieldsSlice.selectors.fields(state, {
-      folderID,
-      filter: router.query.filter,
-      sorter: router.query.sorter,
-      direction: router.query.direction
-    })
-  );
+  const fields = useSelector(state => state.fields.fields);
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, folderID)
   );

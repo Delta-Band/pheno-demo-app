@@ -5,7 +5,7 @@ import { Typography, Button, styled } from '@mui/material';
 import PhenoIcon from '../../PhenoIcon';
 import Tooltip from '../../Tooltip';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../../redux';
+import { fieldsSlice, foldersSlice } from '../../../redux';
 import { useSelector } from 'react-redux';
 import FormattedNumber from '../../FormattedNumber';
 
@@ -47,14 +47,7 @@ const counterStyle = {
 function Sorter() {
   const router = useRouter();
   const theme = useTheme();
-  const totals = useSelector(state =>
-    fieldsSlice.selectors.totals(state, {
-      folder: router.query.folder,
-      filter: router.query.filter,
-      sorter: router.query.sorter,
-      direction: router.query.direction
-    })
-  );
+  const totals = useSelector(state => foldersSlice.selectors.totals(state));
 
   function updateURL(sorter) {
     router.push({

@@ -7,9 +7,9 @@ import uniq from 'lodash/uniq';
 
 const initialState = { working: true, fields: [] };
 
-const setData = createAsyncThunk('fields/fetch', async () => {
-  const resp = await fetch('/api/fields');
-  const data = resp.json();
+const setData = createAsyncThunk('fields/fetch', async (folderID, filter) => {
+  const resp = await fetch(`/api/fields?folderID=${folderID}&filter=${filter}`);
+  const data = await resp.json();
   return data;
 });
 
@@ -24,9 +24,9 @@ const fieldsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      // .addCase(fetch.pending, state => {
-      //   state.working = true;
-      // })
+      .addCase(setData.pending, state => {
+        state.working = true;
+      })
       .addCase(setData.fulfilled, (state, action) => {
         state.fields = action.payload;
         state.working = false;
@@ -97,23 +97,23 @@ const fields = createSelector(
   [state => state.fields.fields, (state, args) => args],
   (fields, args) => {
     let filteredFields = fields;
-    if (args.folderID) {
-      filteredFields = filteredFields.reduce((acc, field) => {
-        if (field.folderID === args.folderID) {
-          acc.push(field);
-        }
-        return acc;
-      }, []);
-    }
-    if (args.filter) {
-      const filtersRegEx = filterToRegEx(decodeURIComponent(args.filter));
-      filteredFields = filteredFields.reduce((acc, field) => {
-        if (field.name.search(filtersRegEx) >= 0) {
-          acc.push(field);
-        }
-        return acc;
-      }, []);
-    }
+    // if (args.folderID) {
+    //   filteredFields = filteredFields.reduce((acc, field) => {
+    //     if (field.folderID === args.folderID) {
+    //       acc.push(field);
+    //     }
+    //     return acc;
+    //   }, []);
+    // }
+    // if (args.filter) {
+    //   const filtersRegEx = filterToRegEx(decodeURIComponent(args.filter));
+    //   filteredFields = filteredFields.reduce((acc, field) => {
+    //     if (field.name.search(filtersRegEx) >= 0) {
+    //       acc.push(field);
+    //     }
+    //     return acc;
+    //   }, []);
+    // }
 
     const sorted = sortEm(filteredFields, args.sorter, args.direction);
     const structures = [

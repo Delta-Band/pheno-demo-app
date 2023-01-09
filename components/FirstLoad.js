@@ -10,7 +10,7 @@ export default function FirstLoad() {
   const prevRoute = useRef(null);
 
   useEffect(() => {
-    dispatch(fieldsSlice.actions.setData());
+    // dispatch(fieldsSlice.actions.setData());
     // dispatch(foldersSlice.actions.setData());
     ReactGA.initialize([
       {
@@ -22,6 +22,17 @@ export default function FirstLoad() {
       dispatch(routerSlice.actions.setPrevRoute(prevRoute.current));
     });
   }, []);
+
+  useEffect(() => {
+    if (router.query.folderID) {
+      dispatch(
+        fieldsSlice.actions.setData(router.query.folderID, router.query.filter)
+      );
+    }
+    dispatch(
+      foldersSlice.actions.setData(router.query.folderID, router.query.filter)
+    );
+  }, [router.query.folderID, router.query.filter]);
 
   useEffect(() => {
     prevRoute.current = router.route;

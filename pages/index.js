@@ -12,7 +12,12 @@ export default function Home() {
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const router = useRouter();
   const dispatch = useDispatch();
-  const folders = useSelector(state => state.folders.folders);
+  const folders = useSelector(state =>
+    foldersSlice.selectors.folders(state, {
+      sorter: router.query.sorter,
+      direction: router.query.direction
+    })
+  );
 
   function getPaddingTop() {
     switch (true) {
@@ -22,10 +27,6 @@ export default function Home() {
         return 170;
     }
   }
-
-  useEffect(() => {
-    dispatch(foldersSlice.actions.setData(router.query.filter));
-  }, [router.query.filter]);
 
   return (
     <>

@@ -9,6 +9,10 @@ export default async function handler(req, res) {
   folderList = JSON.parse(folderList);
   let fields = await fs.readFile(jsonDirectory + '/fields.json', 'utf8');
   fields = JSON.parse(fields);
+  const { folderID } = req.query;
+  if (folderID && folderID !== 'undefined') {
+    fields = fields.filter(field => field.folderID === folderID);
+  }
   let folders = fields.reduce((acc, field) => {
     acc[field.folderID] = {
       name: folderList.find(itm => itm.id === field.folderID).name,
