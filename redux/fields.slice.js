@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import uniq from 'lodash/uniq';
 
-const initialState = { working: true, fields: [] };
+const initialState = { working: false, fields: [] };
 
 const setData = createAsyncThunk(
   'fields/fetch',
