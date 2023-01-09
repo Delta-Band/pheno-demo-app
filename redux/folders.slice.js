@@ -7,13 +7,17 @@ import uniq from 'lodash/uniq';
 
 const initialState = { working: true, folders: [] };
 
-const setData = createAsyncThunk('folders/fetch', async (folderID, filter) => {
-  let folders = await fetch(
-    `/api/folders?folderID=${folderID}&filter=${filter}`
-  );
-  folders = await folders.json();
-  return folders;
-});
+const setData = createAsyncThunk(
+  'folders/fetch',
+  async ({ folderID, filter }) => {
+    console.log('filter', filter);
+    let folders = await fetch(
+      `/api/folders?folderID=${folderID}&filter=${filter}`
+    );
+    folders = await folders.json();
+    return folders;
+  }
+);
 
 const foldersSlice = createSlice({
   name: 'folders',

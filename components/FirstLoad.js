@@ -24,13 +24,22 @@ export default function FirstLoad() {
   }, []);
 
   useEffect(() => {
+    // only request fields for a specific folderID
     if (router.query.folderID) {
       dispatch(
-        fieldsSlice.actions.setData(router.query.folderID, router.query.filter)
+        fieldsSlice.actions.setData({
+          folderID: router.query.folderID,
+          filter: router.query.filter
+        })
       );
     }
+
+    // request folders
     dispatch(
-      foldersSlice.actions.setData(router.query.folderID, router.query.filter)
+      foldersSlice.actions.setData({
+        folderID: router.query.folderID,
+        filter: router.query.filter
+      })
     );
   }, [router.query.folderID, router.query.filter]);
 

@@ -1,9 +1,10 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 import uniq from 'lodash/uniq';
+import { filterFields } from '../../shared/utils';
 
 export default async function handler(req, res) {
-  const { folderID } = req.query;
+  const { folderID, filter } = req.query;
 
   // absolute path to json directory
   const jsonDirectory = path.join(process.cwd(), 'json');
@@ -16,10 +17,8 @@ export default async function handler(req, res) {
   let fields = await fs.readFile(jsonDirectory + '/fields.json', 'utf8');
   fields = JSON.parse(fields);
 
-  // filter the fields by folderID (if specified)
-  if (folderID && folderID !== 'undefined') {
-    fields = fields.filter(field => field.folderID === folderID);
-  }
+  // filter the fields
+  fields = filterFields(fields, folderID, filter);
 
   // build the folders object and enrich with information form the fields object
   let folders = fields.reduce((acc, field) => {

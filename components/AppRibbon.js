@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
+import { useRef, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Button, useMediaQuery, styled } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
@@ -47,26 +48,39 @@ function Logo() {
 
 function Filter() {
   const router = useRouter();
-  const theme = useTheme();
-
-  function handleFilterChange(value) {
-    router.push({
-      pathname: router.route,
-      query: {
-        folderID: router.query.folderID || '',
-        filter: encodeURIComponent(value),
-        sorter: router.query.sorter || 'participants',
-        direction: router.query.direction || 'desc'
-      }
-    });
-  }
+  const timeout = useRef(null);
+  const [value, setValue] = useState('');
   const disabled = !['/', '/folder/[folderID]'].includes(router.route);
+
+  function handleFilterChange() {
+    clearTimeout(timeout.current);
+    timeout.current = setTimeout(() => {
+      router.push({
+        pathname: router.route,
+        query: {
+          folderID: router.query.folderID || '',
+          filter: encodeURIComponent(value),
+          sorter: router.query.sorter || 'participants',
+          direction: router.query.direction || 'desc'
+        }
+      });
+    }, 250);
+  }
+
+  useEffect(() => {
+    setValue(decodeURIComponent(router.query.filter || ''));
+  }, [router.isReady]);
+
+  useEffect(() => {
+    handleFilterChange();
+  }, [value]);
+
   return (
     <motion.input
       type='Typography'
       placeholder='Filter by keywords (comma separated)'
-      onChange={e => handleFilterChange(e.target.value)}
-      value={decodeURIComponent(router.query.filter || '')}
+      onChange={e => setValue(e.target.value)}
+      value={value}
       animate={{
         opacity: disabled ? 0.3 : 1
       }}
