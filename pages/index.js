@@ -35,27 +35,52 @@ export default function Home() {
       </Head>
       <Layout page='root' paddingTop={getPaddingTop()}>
         <List>
-          {folders.map(folder => (
-            <ListItem
-              key={folder.name}
-              prefixIcon='folder'
-              item={folder}
-              comingSoon={!folder.participants}
-              sorter={router.query.sorter}
-              onClick={() => {
-                router.push({
-                  pathname: `/folder/[folderID]`,
-                  query: {
-                    folderID: folder.id,
-                    filter: router.query.filter,
-                    sorter: router.query.sorter,
-                    direction: router.query.direction
-                  },
-                  shallow: true
-                });
-              }}
-            />
-          ))}
+          {folders
+            .filter(folder => folder.participants)
+            .map(folder => (
+              <ListItem
+                key={folder.name}
+                prefixIcon='folder'
+                item={folder}
+                comingSoon={!folder.participants}
+                sorter={router.query.sorter}
+                onClick={() => {
+                  router.push({
+                    pathname: `/folder/[folderID]`,
+                    query: {
+                      folderID: folder.id,
+                      filter: router.query.filter,
+                      sorter: router.query.sorter,
+                      direction: router.query.direction
+                    },
+                    shallow: true
+                  });
+                }}
+              />
+            ))}
+          {folders
+            .filter(folder => !folder.participants)
+            .map(folder => (
+              <ListItem
+                key={folder.name}
+                prefixIcon='folder'
+                item={folder}
+                comingSoon={!folder.participants}
+                sorter={router.query.sorter}
+                onClick={() => {
+                  router.push({
+                    pathname: `/folder/[folderID]`,
+                    query: {
+                      folderID: folder.id,
+                      filter: router.query.filter,
+                      sorter: router.query.sorter,
+                      direction: router.query.direction
+                    },
+                    shallow: true
+                  });
+                }}
+              />
+            ))}
         </List>
       </Layout>
     </>

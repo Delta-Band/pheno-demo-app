@@ -110,30 +110,58 @@ const FolderPage = ({ folderInfoMDx }) => {
         ) : (
           <Layout page='folder' paddingTop={getPaddingTop()} key='data'>
             <List>
-              {fields.map(field => (
-                <ListItem
-                  key={field.name}
-                  prefixIcon={getIconByDatType(field.dataType)}
-                  item={field}
-                  comingSoon={!field.participants}
-                  sorter={router.query.sorter}
-                  highlights={decodeURIComponent(
-                    router.query.filter || ''
-                  ).split(',')}
-                  onClick={() => {
-                    router.push({
-                      pathname: `/folder/[folderID]/field/[fieldID]`,
-                      query: {
-                        folderID: folderID,
-                        fieldID: field.id,
-                        filter: router.query.filter,
-                        sorter: router.query.sorter,
-                        direction: router.query.direction
-                      }
-                    });
-                  }}
-                />
-              ))}
+              {fields
+                .filter(field => field.participants)
+                .map(field => (
+                  <ListItem
+                    key={field.name}
+                    prefixIcon={getIconByDatType(field.dataType)}
+                    item={field}
+                    comingSoon={!field.participants}
+                    sorter={router.query.sorter}
+                    highlights={decodeURIComponent(
+                      router.query.filter || ''
+                    ).split(',')}
+                    onClick={() => {
+                      router.push({
+                        pathname: `/folder/[folderID]/field/[fieldID]`,
+                        query: {
+                          folderID: folderID,
+                          fieldID: field.id,
+                          filter: router.query.filter,
+                          sorter: router.query.sorter,
+                          direction: router.query.direction
+                        }
+                      });
+                    }}
+                  />
+                ))}
+              {fields
+                .filter(field => !field.participants)
+                .map(field => (
+                  <ListItem
+                    key={field.name}
+                    prefixIcon={getIconByDatType(field.dataType)}
+                    item={field}
+                    comingSoon={!field.participants}
+                    sorter={router.query.sorter}
+                    highlights={decodeURIComponent(
+                      router.query.filter || ''
+                    ).split(',')}
+                    onClick={() => {
+                      router.push({
+                        pathname: `/folder/[folderID]/field/[fieldID]`,
+                        query: {
+                          folderID: folderID,
+                          fieldID: field.id,
+                          filter: router.query.filter,
+                          sorter: router.query.sorter,
+                          direction: router.query.direction
+                        }
+                      });
+                    }}
+                  />
+                ))}
             </List>
           </Layout>
         )}

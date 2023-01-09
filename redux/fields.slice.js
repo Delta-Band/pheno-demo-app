@@ -102,24 +102,6 @@ const fields = createSelector(
   [state => state.fields.fields, (state, args) => args],
   (fields, args) => {
     let filteredFields = fields;
-    // if (args.folderID) {
-    //   filteredFields = filteredFields.reduce((acc, field) => {
-    //     if (field.folderID === args.folderID) {
-    //       acc.push(field);
-    //     }
-    //     return acc;
-    //   }, []);
-    // }
-    // if (args.filter) {
-    //   const filtersRegEx = filterToRegEx(decodeURIComponent(args.filter));
-    //   filteredFields = filteredFields.reduce((acc, field) => {
-    //     if (field.name.search(filtersRegEx) >= 0) {
-    //       acc.push(field);
-    //     }
-    //     return acc;
-    //   }, []);
-    // }
-
     const sorted = sortEm(filteredFields, args.sorter, args.direction);
     const structures = [
       ...sorted.filter(itm => itm.participants > 0),
