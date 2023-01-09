@@ -226,7 +226,7 @@ const Wrapper = styled('div')({
   // background:
   //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
   background:
-    '-webkit-radial-gradient(right bottom, rgb(83 103 182) 0%, rgb(31 50 106) 100%)',
+    '-webkit-radial-gradient(right bottom, rgb(1 25 255) 0%, rgb(24 41 144) 100%)',
   boxSizing: 'border-box',
   zIndex: 1,
   position: 'relative',

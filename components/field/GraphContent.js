@@ -30,7 +30,7 @@ function Chart({ data, type }) {
         ]
       }}
       options={{
-        backgroundColor: ['rgba(63,78,162,0.7)'],
+        backgroundColor: ['rgba(1,25,255,0.7)'],
         maintainAspectRatio: false,
         indexAxis: type === 'categorical' ? 'y' : 'x',
         layout: {
