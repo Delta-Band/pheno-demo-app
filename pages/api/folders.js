@@ -3,16 +3,25 @@ import { promises as fs } from 'fs';
 import uniq from 'lodash/uniq';
 
 export default async function handler(req, res) {
-  //Find the absolute path of the json directory
+  const { folderID } = req.query;
+
+  // absolute path to json directory
   const jsonDirectory = path.join(process.cwd(), 'json');
+
+  // get folders
   let folderList = await fs.readFile(jsonDirectory + '/folders.json', 'utf8');
   folderList = JSON.parse(folderList);
+
+  // get fields
   let fields = await fs.readFile(jsonDirectory + '/fields.json', 'utf8');
   fields = JSON.parse(fields);
-  const { folderID } = req.query;
+
+  // filter the fields by folderID (if specified)
   if (folderID && folderID !== 'undefined') {
     fields = fields.filter(field => field.folderID === folderID);
   }
+
+  // build the folders object and enrich with information form the fields object
   let folders = fields.reduce((acc, field) => {
     acc[field.folderID] = {
       name: folderList.find(itm => itm.id === field.folderID).name,
@@ -29,11 +38,12 @@ export default async function handler(req, res) {
     };
     return acc;
   }, {});
+
+  // convert to array
   folders = Object.keys(folders).reduce((acc, key) => {
     acc.push(Object.assign(folders[key], { id: key }));
     return acc;
   }, []);
-  //Read the json data file data.json
-  //Return the content of the data file in json format
+
   res.status(200).json(folders);
 }
