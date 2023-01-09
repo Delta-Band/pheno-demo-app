@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Layout } from '../../../../components';
-import { Meta, GraphContent } from '../../../../components/pages/field';
+import { Meta, GraphContent } from '../../../../components/field';
 import { useRouter } from 'next/router';
 import { fieldsSlice, foldersSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';

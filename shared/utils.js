@@ -23,7 +23,6 @@ export function filterFields(fields, folderID, filter) {
       case Boolean(folderID && folderID !== 'undefined' && !filterRegEx):
         return field.folderID === folderID;
       case Boolean(folderID && folderID !== 'undefined' && filterRegEx):
-        console.log('here');
         return (
           field.folderID === folderID && field.name.search(filterRegEx) >= 0
         );

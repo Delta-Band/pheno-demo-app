@@ -5,11 +5,12 @@ import { useTheme } from '@mui/material/styles';
 import { Button, useMediaQuery, styled } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
-import Tooltip from './Tooltip';
+import Tooltip from '../Tooltip';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { Breadcrumbs, Sorter } from './pages/app-ribbon';
+import Breadcrumbs from './Breadcrumbs';
+import Sorter from './Sorter';
 
 const LeftSide = styled('div')({
   display: 'flex',
@@ -53,12 +54,14 @@ function Filter() {
   const disabled = !['/', '/folder/[folderID]'].includes(router.route);
 
   function handleFilterChange() {
+    if (!router.isReady) return;
     clearTimeout(timeout.current);
     timeout.current = setTimeout(() => {
       router.push({
         pathname: router.route,
         query: {
           folderID: router.query.folderID || '',
+          fieldID: router.query.fieldID || '',
           filter: encodeURIComponent(value),
           sorter: router.query.sorter || 'participants',
           direction: router.query.direction || 'desc'
