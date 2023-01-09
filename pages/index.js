@@ -1,20 +1,19 @@
 import { useEffect } from 'react';
-import { fieldsSlice } from '../redux';
+import { fieldsSlice, foldersSlice } from '../redux';
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { List, ListItem, Layout } from '../components';
 import { useTheme } from '@mui/material/styles';
-import ReactGA from 'react-ga4';
 import { useMediaQuery } from '@mui/material';
 
 export default function Home() {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const router = useRouter();
+  const dispatch = useDispatch();
   const folders = useSelector(state =>
-    fieldsSlice.selectors.folders(state, {
-      filter: router.query.filter || '',
+    foldersSlice.selectors.folders(state, {
       sorter: router.query.sorter,
       direction: router.query.direction
     })

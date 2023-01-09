@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Layout } from '../../../../components';
-import { Meta, GraphContent } from '../../../../components/pages/field';
+import { Meta, GraphContent } from '../../../../components/field';
 import { useRouter } from 'next/router';
 import { fieldsSlice, foldersSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
@@ -19,9 +19,6 @@ import {
   FormControl
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { motion } from 'framer-motion';
-import { Bar as BarChart } from 'react-chartjs-2';
-import moment from 'moment';
 import { useWindowSize } from '../../../../hooks';
 
 const gap = 36;
@@ -36,18 +33,7 @@ const Wrapper = styled.div({
 });
 
 const Header = ({ children }) => {
-  return (
-    <Typography
-      variant='h5'
-      css={
-        {
-          // marginBottom: 24
-        }
-      }
-    >
-      {children}
-    </Typography>
-  );
+  return <Typography variant='h5'>{children}</Typography>;
 };
 
 function Section({ children, justifyCenter = false, style = {} }) {
@@ -55,7 +41,6 @@ function Section({ children, justifyCenter = false, style = {} }) {
     <div
       css={[
         {
-          // width: '100%',
           display: 'flex',
           justifyContent: justifyCenter ? 'center' : 'flex-start',
           gap,
@@ -174,12 +159,10 @@ export default function FieldPage() {
         setSelectedView(views[0]);
       }
     }
-  }, [field]);
+  }, [JSON.stringify(field)]);
 
   function getPaddingTop() {
     switch (true) {
-      // case minimizeRibbon:
-      //   return 60;
       case upTablet:
         return 122;
       case !upTablet:

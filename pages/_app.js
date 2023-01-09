@@ -13,7 +13,6 @@ import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { IntlProvider } from 'react-intl';
 import 'chartjs-adapter-date-fns';
-// import 'chartjs-adapter-moment';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -43,7 +42,6 @@ const BackgroundImg = styled.div({
   position: 'fixed',
   width: '100%',
   height: '100%',
-  // backgroundImage: 'url(ppl2.jpg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
   top: 0
@@ -60,16 +58,6 @@ const BackgroundGradientMask = styled.div({
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
-
-  // useEffect(() => {
-  //   if (process.env.NODE_ENV === 'production') return;
-  //   window.addEventListener('error', event => {
-  //     event.stopImmediatePropagation();
-  //   });
-  //   window.addEventListener('unhandledrejection', event => {
-  //     event.stopImmediatePropagation();
-  //   });
-  // }, []);
 
   useEffect(() => {
     if (!router.isReady) return;

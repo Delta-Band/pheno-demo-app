@@ -10,8 +10,8 @@ export default function FirstLoad() {
   const prevRoute = useRef(null);
 
   useEffect(() => {
-    dispatch(fieldsSlice.actions.setData());
-    dispatch(foldersSlice.actions.setData());
+    // dispatch(fieldsSlice.actions.setData());
+    // dispatch(foldersSlice.actions.setData());
     ReactGA.initialize([
       {
         trackingId: process.env.NEXT_PUBLIC_GA_M_ID,
@@ -22,6 +22,26 @@ export default function FirstLoad() {
       dispatch(routerSlice.actions.setPrevRoute(prevRoute.current));
     });
   }, []);
+
+  useEffect(() => {
+    // only request fields for a specific folderID
+    if (router.query.folderID) {
+      dispatch(
+        fieldsSlice.actions.setData({
+          folderID: router.query.folderID,
+          filter: router.query.filter
+        })
+      );
+    }
+
+    // request folders
+    dispatch(
+      foldersSlice.actions.setData({
+        folderID: router.query.folderID,
+        filter: router.query.filter
+      })
+    );
+  }, [router.query.folderID, router.query.filter]);
 
   useEffect(() => {
     prevRoute.current = router.route;

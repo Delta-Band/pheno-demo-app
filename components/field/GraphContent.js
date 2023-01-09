@@ -2,14 +2,14 @@
 import { jsx } from '@emotion/react';
 import DistributionStats from './DistributionStats';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../../redux';
+import { fieldsSlice } from '../../redux';
 import { useSelector } from 'react-redux';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { Bar as BarChart } from 'react-chartjs-2';
 import moment from 'moment';
-import { useWindowSize } from '../../../hooks';
+import { useWindowSize } from '../../hooks';
 import Magnifier from 'react-magnifier';
 
 // window.moment = moment;

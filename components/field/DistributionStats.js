@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../../redux';
+import { fieldsSlice } from '../../redux';
 import { useSelector } from 'react-redux';
 
 function Key({ children }) {

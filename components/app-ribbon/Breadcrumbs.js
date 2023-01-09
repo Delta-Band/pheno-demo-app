@@ -2,16 +2,16 @@
 import { jsx } from '@emotion/react';
 import { useTheme } from '@mui/material/styles';
 import { Typography, Button, useMediaQuery, styled } from '@mui/material';
-import PhenoIcon from '../../PhenoIcon';
+import PhenoIcon from '../PhenoIcon';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fieldsSlice, foldersSlice } from '../../../redux';
+import { fieldsSlice, foldersSlice } from '../../redux';
 import { useSelector } from 'react-redux';
 import { Home as HomeIcon } from '@styled-icons/boxicons-regular/Home';
 import { RightArrowAlt as RightArrowIcon } from '@styled-icons/boxicons-regular/RightArrowAlt';
 import { LeftArrowAlt as LeftArrowIcon } from '@styled-icons/boxicons-regular/LeftArrowAlt';
 import { Folder as FolderIcon } from '@styled-icons/boxicons-regular/Folder';
-import { getIconByDatType } from '../../../shared/utils';
+import { getIconByDatType } from '../../shared/utils';
 
 function Breadcrumbs() {
   const theme = useTheme();
