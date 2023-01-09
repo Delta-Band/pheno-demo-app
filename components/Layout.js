@@ -1,15 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
-// import { useScrollDirection } from 'use-scroll-direction';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
   const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
+  const working = useSelector(
+    state => state.fields.working || state.folders.working
+  );
+  console.log('working', working);
   const minRibbonRef = useRef(minimizeRibbon);
   const router = useRouter();
   const layoutRef = useRef(null);
@@ -93,6 +96,25 @@ function Layout({ children, page, paddingTop = 0 }) {
       }}
     >
       {children}
+      <AnimatePresence>
+        {working && (
+          <motion.div
+            css={{
+              pointerEvents: 'none',
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              zIndex: 1,
+              backdropFilter: 'blur(7px)',
+              top: 0,
+              background: `rgba(255, 255, 255, 0.75)`
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
