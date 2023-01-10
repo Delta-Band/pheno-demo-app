@@ -10,10 +10,10 @@ import { List, ListItem, Layout, FolderInfo } from '../../../components';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { fieldsSlice, foldersSlice, routerSlice } from '../../../redux';
-import { Button, Typography, useMediaQuery } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import ReactGA from 'react-ga4';
 
 function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
@@ -83,7 +83,13 @@ const FolderPage = ({ folderInfoMDx }) => {
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const [showInfo, setShowInfo] = useState(false);
   const { folderID } = router.query;
-  const fields = useSelector(state => state.fields.fields);
+  const fields = useSelector(state =>
+    fieldsSlice.selectors.fields(state, {
+      sorter: router.query.sorter,
+      sorter: router.query.sorter || 'a-z',
+      direction: router.query.direction || 'asc'
+    })
+  );
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, folderID)
   );

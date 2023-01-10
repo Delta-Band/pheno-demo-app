@@ -65,8 +65,8 @@ const App = ({ Component, pageProps }) => {
       pathname: router.asPath.split('?')[0],
       query: {
         filter: router.query.filter || '',
-        sorter: router.query.sorter || 'participants',
-        direction: router.query.direction || 'desc'
+        sorter: router.query.sorter || 'a-z',
+        direction: router.query.direction || 'asc'
       }
     });
   }, [router.isReady]);
@@ -81,7 +81,7 @@ const App = ({ Component, pageProps }) => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <BackgroundImg>
-              <BackgroundGradientMask />
+              {/* <BackgroundGradientMask /> */}
               <FirstLoad />
               <div
                 css={{

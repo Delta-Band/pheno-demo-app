@@ -18,6 +18,9 @@ export default function FolderInfo({ mdx }) {
         h1: Object.assign({}, theme.typography.h5, {
           marginTop: '1.5rem'
         }),
+        h4: Object.assign({}, theme.typography.h4, {
+          marginTop: '1.5rem'
+        }),
         p: Object.assign({}, theme.typography.body1, {
           paddingBlockEnd: '0.5rem'
         }),

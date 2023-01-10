@@ -39,23 +39,6 @@ const fieldsSlice = createSlice({
   }
 });
 
-function escapeRegExp(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-}
-
-function filterToRegEx(filter) {
-  const filterSplit = filter.split(',');
-  const regex = filterSplit.reduce((acc, itm, i) => {
-    if (i === filterSplit.length - 1) {
-      acc += `${escapeRegExp(itm)}`;
-    } else {
-      acc += `${escapeRegExp(itm)}|`;
-    }
-    return acc;
-  }, '');
-  return new RegExp(regex, 'gi');
-}
-
 function sortEm(items, sorter, direction) {
   return [...items].sort((a, b) => {
     switch (true) {
@@ -72,9 +55,9 @@ function sortEm(items, sorter, direction) {
       case sorter === 'cohorts' && direction === 'desc':
         return b.cohorts.length - a.cohorts.length;
       case sorter === 'a-z' && direction === 'asc':
-        return b.name > a.name ? 1 : -1;
-      case sorter === 'a-z' && direction === 'desc':
         return b.name < a.name ? 1 : -1;
+      case sorter === 'a-z' && direction === 'desc':
+        return b.name > a.name ? 1 : -1;
       default:
         return b.name - a.name;
     }
@@ -105,14 +88,8 @@ const field = createSelector(
 const fields = createSelector(
   [state => state.fields.fields, (state, args) => args],
   (fields, args) => {
-    let filteredFields = fields;
-    const sorted = sortEm(filteredFields, args.sorter, args.direction);
-    const structures = [
-      ...sorted.filter(itm => itm.participants > 0),
-      ...sorted.filter(itm => !itm.participants)
-    ];
-
-    return structures;
+    const sorted = sortEm(fields, args.sorter, args.direction);
+    return sorted;
   }
 );
 

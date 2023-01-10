@@ -55,7 +55,7 @@ function Sorter() {
       query: {
         filter: router.query.filter || '',
         sorter,
-        direction: router.query.direction || 'desc'
+        direction: router.query.direction || 'asc'
       }
     });
   }
@@ -79,6 +79,23 @@ function Sorter() {
 
   return (
     <ButtonGroupWrapper>
+      <Tooltip content={'Sort by cohorts'}>
+        <Button
+          onClick={() => {
+            updateURL('a-z');
+          }}
+          css={[buttonStyle, router.query.sorter === 'a-z' ? selected : {}]}
+        >
+          <PhenoIcon
+            name='a-z'
+            scale={1.4}
+            color={router.query.sorter === 'a-z' ? undefined : '#FFF'}
+          />
+          {/* <Typography css={counterStyle}>
+            <FormattedNumber value={totals.cohorts.length} />
+          </Typography> */}
+        </Button>
+      </Tooltip>
       <Tooltip content={'Sort by participants'}>
         <Button
           onClick={() => {
@@ -117,23 +134,6 @@ function Sorter() {
           <Typography css={counterStyle}>
             <FormattedNumber value={totals.measurements} />
           </Typography>
-        </Button>
-      </Tooltip>
-      <Tooltip content={'Sort by cohorts'}>
-        <Button
-          onClick={() => {
-            updateURL('a-z');
-          }}
-          css={[buttonStyle, router.query.sorter === 'a-z' ? selected : {}]}
-        >
-          <PhenoIcon
-            name='a-z'
-            scale={1.4}
-            color={router.query.sorter === 'a-z' ? undefined : '#FFF'}
-          />
-          {/* <Typography css={counterStyle}>
-            <FormattedNumber value={totals.cohorts.length} />
-          </Typography> */}
         </Button>
       </Tooltip>
     </ButtonGroupWrapper>

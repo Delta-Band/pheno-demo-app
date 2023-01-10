@@ -38,8 +38,8 @@ function Logo() {
           pathname: '/',
           query: {
             filter: router.query.filter || '',
-            sorter: router.query.sorter || 'participants',
-            direction: router.query.direction || 'desc'
+            sorter: router.query.sorter || 'a-z',
+            direction: router.query.direction || 'asc'
           }
         });
       }}
@@ -63,7 +63,7 @@ function Filter() {
           folderID: router.query.folderID || '',
           fieldID: router.query.fieldID || '',
           filter: encodeURIComponent(value),
-          sorter: router.query.sorter || 'participants',
+          sorter: router.query.sorter || 'a-z',
           direction: router.query.direction || 'desc'
         }
       });
@@ -106,6 +106,9 @@ function Filter() {
         background: '#FFF',
         boxShadow: theme.shadows.input,
         pointerEvents: disabled ? 'none' : 'all',
+        fontFamily: 'Roboto Mono',
+        fontSize: 14,
+        lineHeight: 14,
         '&::placeholder': {
           color: 'rgba(0, 0, 0, 0.2)',
           fontStyle: 'italic'
@@ -147,7 +150,7 @@ function SortDirection() {
               pathname: router.asPath.split('?')[0],
               query: {
                 filter: router.query.filter || '',
-                sorter: router.query.sorter || 'participants',
+                sorter: router.query.sorter || 'a-z',
                 direction: router.query.direction === 'desc' ? 'asc' : 'desc'
               }
             });
@@ -225,8 +228,7 @@ const Wrapper = styled('div')({
   width: '100%',
   // background:
   //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
-  background:
-    '-webkit-radial-gradient(right bottom, rgb(1 25 255) 0%, rgb(24 41 144) 100%)',
+  background: 'rgb(54 2 255)',
   boxSizing: 'border-box',
   zIndex: 1,
   position: 'relative',

@@ -65,7 +65,7 @@ export default function Home() {
                 key={folder.name}
                 prefixIcon='folder'
                 item={folder}
-                comingSoon={!folder.participants}
+                // comingSoon={!folder.participants}
                 sorter={router.query.sorter}
                 onClick={() => {
                   router.push({

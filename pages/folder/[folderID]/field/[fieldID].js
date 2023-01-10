@@ -49,7 +49,6 @@ function Section({ children, justifyCenter = false, style = {} }) {
           display: 'flex',
           justifyContent: justifyCenter ? 'center' : 'flex-start',
           gap,
-          marginBottom: gap,
           flexWrap: 'wrap',
           flexShrink: 0,
           position: 'relative'

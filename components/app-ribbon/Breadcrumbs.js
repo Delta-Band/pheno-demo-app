@@ -55,8 +55,8 @@ function Breadcrumbs() {
               pathname: '/',
               query: {
                 filter: router.query.filter || '',
-                sorter: router.query.sorter || 'participants',
-                direction: router.query.direction || 'desc'
+                sorter: router.query.sorter || 'a-z',
+                direction: router.query.direction || 'asc'
               }
             });
           }}
@@ -77,7 +77,7 @@ function Breadcrumbs() {
               query: {
                 folderID: router.query.folderID,
                 filter: router.query.filter || '',
-                sorter: router.query.sorter || 'participants',
+                sorter: router.query.sorter || 'a-z',
                 direction: router.query.direction || 'desc'
               }
             });

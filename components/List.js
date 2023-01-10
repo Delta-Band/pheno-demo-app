@@ -7,7 +7,7 @@ import { PhenoIcon } from '../components';
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
 import Highlighter from 'react-highlight-words';
-import { ChevronRight as CaretRight } from '@styled-icons/boxicons-solid/ChevronRight';
+import { ChevronRight as CaretRight } from '@styled-icons/fluentui-system-regular/ChevronRight';
 import Tooltip from './Tooltip';
 import FormattedNumber from './FormattedNumber';
 
@@ -99,7 +99,7 @@ export function ListItem({
             paddingInlineEnd: upTablet ? 24 : 12,
             paddingBlock: 16,
             borderRadius: 0,
-            textTransform: 'capitalize',
+            textTransform: 'none',
             background: 'rgba(0, 0, 0, 0)',
             justifyContent: 'space-between',
             '&:hover': {
@@ -115,7 +115,9 @@ export function ListItem({
             <IconFixedWidth>
               <PhenoIcon name={prefixIcon} />
             </IconFixedWidth>
+
             <Typography
+              variant='body1'
               lineHeight={1}
               css={{
                 transform: 'translateY(1px)',

@@ -18,27 +18,32 @@ const theme = createTheme(themeWithCustomBreakpoints, {
   typography: {
     // In Chinese and Japanese the characters are usually larger,
     // so a smaller fontsize may be appropriate.
+    fontFamily: 'Roboto Mono',
     body1: {
       fontSize: 14,
+      fontFamily: 'Roboto Mono',
       lineHeight: '1.75rem',
       [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
         lineHeight: '2rem',
-        fontSize: 16
+        fontSize: 14
       },
       marginBlock: 0
     },
     subtitle1: {
+      fontFamily: 'Roboto Mono',
       fontSize: 14.5
     },
     h1: {
+      fontFamily: 'Roboto Mono',
       fontSize: 32,
-      fontWeight: 500,
+      fontWeight: 600,
       marginTop: 0,
       marginBottom: '3vh'
     },
     h2: {
+      fontFamily: 'Roboto Mono',
       fontSize: 16,
-      fontWeight: 400,
+      fontWeight: 600,
       marginTop: '3.4vh',
       marginBottom: '1.75vh',
       [themeWithCustomBreakpoints.breakpoints.up('tablet')]: {
@@ -46,7 +51,13 @@ const theme = createTheme(themeWithCustomBreakpoints, {
         fontWeight: 300
       }
     },
+    h4: {
+      fontSize: 16,
+      fontWeight: 600,
+      fontFamily: 'Roboto Mono'
+    },
     h5: {
+      fontFamily: 'Roboto Mono',
       marginTop: 0,
       marginBottom: '0.75rem'
     }

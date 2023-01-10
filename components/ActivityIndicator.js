@@ -31,7 +31,7 @@ export default function ActivityIndicator({ children }) {
         }}
         animate={{ opacity: working ? 1 : 0 }}
       >
-        <lottie-interactive
+        {/* <lottie-interactive
           path='working-animation.json'
           background='transparent'
           style={{
@@ -43,7 +43,7 @@ export default function ActivityIndicator({ children }) {
           speed='1'
           delay='0'
           aspect-ratio='xMidYMid slice'
-        />
+        /> */}
       </motion.div>
     </>
   );
