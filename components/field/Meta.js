@@ -26,38 +26,63 @@ const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
         }}
       >
         {iconName && <PhenoIcon name={iconName} />}
-        <Typography>{prefixText}:</Typography>
-        {typeof value !== 'object' ? (
-          <Typography>
-            <b>{value}</b>
-          </Typography>
-        ) : (
-          value
-        )}
+        <div
+          css={theme => ({
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%',
+            gap: 16,
+            [theme.breakpoints.up('tablet')]: {
+              justifyContent: 'flex-start'
+            }
+          })}
+        >
+          <Typography>{prefixText}:</Typography>
+          {typeof value !== 'object' ? (
+            <Typography>
+              <b>{value}</b>
+            </Typography>
+          ) : (
+            value
+          )}
+        </div>
       </div>
     </Tooltip>
   );
 };
 
-const Column = styled.div({
-  display: 'inline-flex',
-  flexDirection: 'column',
-  gap: 18
-});
-
-function Section({ children, justifyCenter = false, style = {} }) {
+const Column = ({ children }) => {
   return (
     <div
-      css={[
+      css={theme => ({
+        display: 'inline-flex',
+        flexDirection: 'column',
+        gap: 18,
+        width: '100%',
+        [theme.breakpoints.up('tablet')]: {
+          width: 'calc((100% - 72px) / 3)'
+        }
+      })}
+    >
+      {children}
+    </div>
+  );
+};
+
+function Section({ children, style = {} }) {
+  return (
+    <div
+      css={theme => [
         {
-          // width: '100%',
           display: 'flex',
-          justifyContent: justifyCenter ? 'center' : 'flex-start',
           gap: 88,
-          marginBottom: 88,
           flexWrap: 'wrap',
           flexShrink: 0,
-          position: 'relative'
+          position: 'relative',
+          width: '100%',
+          [theme.breakpoints.up('tablet')]: {
+            gap: 36
+          }
         },
         style
       ]}
@@ -140,7 +165,9 @@ function Meta() {
           <MetaInfo
             iconName='type'
             prefixText='Value Type'
-            value={field.valueType}
+            value={`${field.valueType}${
+              field.units ? ' [' + field.units + ']' : ''
+            }`}
           />
           <MetaInfo
             iconName='user'

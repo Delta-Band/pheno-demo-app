@@ -17,6 +17,7 @@ import CollectionIcon from '../public/icons/collection.svg';
 import TypeIcon from '../public/icons/type.svg';
 import DebutIcon from '../public/icons/debut.svg';
 import StrataIcon from '../public/icons/strata.svg';
+import ClipboardIcon from '../public/icons/clipboard.svg';
 
 function getIcon(name) {
   switch (name) {
@@ -54,6 +55,8 @@ function getIcon(name) {
       return <DebutIcon />;
     case 'strata':
       return <StrataIcon />;
+    case 'clipboard':
+      return <ClipboardIcon />;
     default:
       return null;
   }

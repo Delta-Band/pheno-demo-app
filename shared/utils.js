@@ -46,6 +46,8 @@ export function getIconByDatType(type) {
       return 'molecule';
     case 'health records':
       return 'health-book';
+    case 'meta data':
+      return 'clipboard';
     default:
       return null;
   }

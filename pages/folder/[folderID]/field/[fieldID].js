@@ -29,11 +29,16 @@ const Wrapper = styled.div({
   paddingBlock: 32,
   display: 'inline-flex',
   flexDirection: 'column',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+  gap: 40
 });
 
 const Header = ({ children }) => {
-  return <Typography variant='h5'>{children}</Typography>;
+  return (
+    <Typography variant='h5' css={{ margin: 0 }}>
+      {children}
+    </Typography>
+  );
 };
 
 function Section({ children, justifyCenter = false, style = {} }) {
@@ -73,8 +78,8 @@ function Filters({
     ? Math.floor((windowSize.width - gap * 2 - 72) / 3)
     : '100%';
   return (
-    <>
-      <FormControl css={{ width }}>
+    <div css={{ display: 'flex', width: '100%', gap: 36 }}>
+      <FormControl css={{ width: '100%' }}>
         <InputLabel id='cohorts'> Select Cohort</InputLabel>
         <Select
           labelId='cohorts'
@@ -89,7 +94,7 @@ function Filters({
           ))}
         </Select>
       </FormControl>
-      <FormControl css={{ width }}>
+      <FormControl css={{ width: '100%' }}>
         <InputLabel id='instances'>Select Instance</InputLabel>
         <Select
           labelId='instances'
@@ -105,7 +110,7 @@ function Filters({
         </Select>
       </FormControl>
       {selectedView ? (
-        <FormControl css={{ width }}>
+        <FormControl css={{ width: '100%' }}>
           <InputLabel id='graphType'>Select View</InputLabel>
           <Select
             labelId='graphType'
@@ -121,7 +126,7 @@ function Filters({
           </Select>
         </FormControl>
       ) : null}
-    </>
+    </div>
   );
 }
 
@@ -187,7 +192,7 @@ export default function FieldPage() {
         <Layout page='field' paddingTop={getPaddingTop()}>
           <Wrapper>
             <Header>{field?.name}</Header>
-            <Description text={field.description} />
+            {field.description && <Description text={field.description} />}
             <Meta />
             <Section>
               <Filters

@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Typography, Button, Chip } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import { PhenoIcon } from '../components';
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
@@ -48,6 +49,7 @@ export function ListItem({
 }) {
   const router = useRouter();
   const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const variants = {
     visible: {
       opacity: 1,
@@ -93,7 +95,8 @@ export function ListItem({
           variant='text'
           color='inherit'
           css={{
-            paddingInline: 24,
+            paddingInlineStart: 24,
+            paddingInlineEnd: upTablet ? 24 : 12,
             paddingBlock: 16,
             borderRadius: 0,
             textTransform: 'capitalize',
@@ -114,7 +117,12 @@ export function ListItem({
             </IconFixedWidth>
             <Typography
               lineHeight={1}
-              css={{ transform: 'translateY(1px)', userSelect: 'all' }}
+              css={{
+                transform: 'translateY(1px)',
+                userSelect: 'all',
+                textAlign: 'start',
+                lineHeight: '1.5em'
+              }}
             >
               <Highlighter
                 caseSensitive={false}
