@@ -15,7 +15,8 @@ import Sorter from './Sorter';
 const LeftSide = styled('div')({
   display: 'flex',
   gap: 16,
-  width: '100%'
+  width: '100%',
+  alignItems: 'center'
 });
 
 const RightSide = styled('div')({
@@ -26,12 +27,16 @@ const RightSide = styled('div')({
 
 function Logo() {
   const router = useRouter();
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+
   return (
     <img
       alt='logo'
-      src='/logo.svg'
+      src={upTablet ? '/logo.svg' : '/logo_mobile.svg'}
       css={{
-        cursor: 'pointer'
+        cursor: 'pointer',
+        height: upTablet ? 50 : 82
       }}
       onClick={() => {
         router.push({
@@ -98,13 +103,14 @@ function Filter() {
         height: 40,
         width: '100%',
         paddingInline: 20,
+        marginInlineStart: 50,
         fontFamily: 'Roboto',
         fontSize: 18,
         outline: 'none',
         boxSizing: 'border-box',
         color: '#000',
         background: '#FFF',
-        boxShadow: theme.shadows.input,
+        // boxShadow: theme.shadows.input,
         pointerEvents: disabled ? 'none' : 'all',
         fontFamily: 'Roboto Mono',
         fontSize: 14,
@@ -237,15 +243,18 @@ const Wrapper = styled('div')({
 
 const FirstRow = styled('div')(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   justifyContent: 'space-between',
   height: 58,
   paddingInline: 24,
   gap: 24,
+  paddingBlockStart: 16,
   boxSizing: 'border-box',
   [theme.breakpoints.up('tablet')]: {
     paddingInlineEnd: 18,
-    height: 70
+    paddingBlockStart: 0,
+    height: 70,
+    alignItems: 'center'
   }
 }));
 

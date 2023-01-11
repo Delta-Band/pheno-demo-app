@@ -21,9 +21,9 @@ const buttonStyle = {
   borderRadius: 0,
   // minWidth: 'min-content',
   boxSizing: 'border-box',
-  background: 'rgba(255, 255, 255, 0.1)',
+  background: 'rgba(255, 255, 255, 0.15)',
   '&:hover': {
-    background: 'rgba(255, 255, 255, 0.2)'
+    background: 'rgba(255, 255, 255, 0.25)'
   }
 };
 
@@ -66,7 +66,7 @@ function Sorter() {
     gap: 2,
     borderRadius: 999,
     overflow: 'hidden',
-    boxShadow: theme.shadows.input,
+    // boxShadow: theme.shadows.input,
     width: '100%',
     opacity: router.route === '/folder/[folderID]/field/[fieldID]' ? 0.3 : 1,
     pointerEvents:
