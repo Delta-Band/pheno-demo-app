@@ -176,9 +176,13 @@ export default function FieldPage() {
 
   function Description({ text }) {
     return (
-      <Section>
+      <div
+        css={{
+          marginTop: -32
+        }}
+      >
         <Typography>{text}</Typography>
-      </Section>
+      </div>
     );
   }
 

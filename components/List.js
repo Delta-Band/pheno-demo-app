@@ -88,25 +88,25 @@ export function ListItem({
         borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
       }}
     >
-      <Tooltip content={item.description}>
-        <Button
-          fullWidth
-          onClick={onClick}
-          variant='text'
-          color='inherit'
-          css={{
-            paddingInlineStart: 24,
-            paddingInlineEnd: upTablet ? 24 : 12,
-            paddingBlock: 16,
-            borderRadius: 0,
-            textTransform: 'none',
-            background: 'rgba(0, 0, 0, 0)',
-            justifyContent: 'space-between',
-            '&:hover': {
-              background: 'rgba(0, 0, 0, 0.05)'
-            }
-          }}
-        >
+      <Button
+        fullWidth
+        onClick={onClick}
+        variant='text'
+        color='inherit'
+        css={{
+          paddingInlineStart: 24,
+          paddingInlineEnd: upTablet ? 24 : 12,
+          paddingBlock: 16,
+          borderRadius: 0,
+          textTransform: 'none',
+          background: 'rgba(0, 0, 0, 0)',
+          justifyContent: 'space-between',
+          '&:hover': {
+            background: 'rgba(0, 0, 0, 0.05)'
+          }
+        }}
+      >
+        <Tooltip content={item.description} placement='left'>
           <LeftSide
             css={{
               opacity: comingSoon ? 0.3 : 1
@@ -135,38 +135,37 @@ export function ListItem({
               />
             </Typography>
           </LeftSide>
-          {comingSoon ? (
-            <RightSide>
-              <Chip label='Coming Soon' />
-            </RightSide>
-          ) : (
-            <RightSide>
-              <Tooltip content={sortIconTip} placement='left'>
-                {sorter !== 'a-z' ? (
-                  <RightSide>
-                    <Typography
-                      variant='subtitle1'
-                      lineHeight={1}
-                      css={{
-                        transform: 'translateY(1px)',
-                        color: theme.palette.accentColor
-                      }}
-                    >
-                      <FormattedNumber value={item[sorter]} />
-                    </Typography>
-                    <PhenoIcon
-                      name={sortIcon}
-                      color={theme.palette.accentColor}
-                    />
-                  </RightSide>
-                ) : null}
-              </Tooltip>
-              <CaretRight size={28} />
-              {/* <PhenoIcon name='chevron-right' /> */}
-            </RightSide>
-          )}
-        </Button>
-      </Tooltip>
+        </Tooltip>
+        {comingSoon ? (
+          <RightSide>
+            <Chip label='Coming Soon' />
+          </RightSide>
+        ) : (
+          <RightSide>
+            <Tooltip content={sortIconTip} placement='left'>
+              {sorter !== 'a-z' ? (
+                <RightSide>
+                  <Typography
+                    lineHeight={1}
+                    css={{
+                      transform: 'translateY(1px)',
+                      color: theme.palette.accentColor
+                    }}
+                  >
+                    <FormattedNumber value={item[sorter]} />
+                  </Typography>
+                  <PhenoIcon
+                    name={sortIcon}
+                    color={theme.palette.accentColor}
+                  />
+                </RightSide>
+              ) : null}
+            </Tooltip>
+            <CaretRight size={28} />
+            {/* <PhenoIcon name='chevron-right' /> */}
+          </RightSide>
+        )}
+      </Button>
     </li>
   );
 }

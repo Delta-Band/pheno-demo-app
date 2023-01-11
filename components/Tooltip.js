@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
+import { Typography } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 
 export default function PhenoTooltip({
@@ -10,15 +11,14 @@ export default function PhenoTooltip({
   return content ? (
     <Tooltip
       title={
-        <div
+        <Typography
+          variant='subtitle1'
           css={{
-            whiteSpace: 'pre-line',
-            lineHeight: 1.5,
-            textTransform: 'capitalize'
+            whiteSpace: 'pre-line'
           }}
         >
           {content}
-        </div>
+        </Typography>
       }
       placement={placement}
       enterDelay={500}

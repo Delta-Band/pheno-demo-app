@@ -31,7 +31,8 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     },
     subtitle1: {
       fontFamily: 'Roboto Mono',
-      fontSize: 14.5
+      lineHeight: 1.5,
+      fontSize: 13
     },
     h1: {
       fontFamily: 'Roboto Mono',
