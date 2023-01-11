@@ -12,12 +12,23 @@ import { useSelector } from 'react-redux';
 import Breadcrumbs from './Breadcrumbs';
 import Sorter from './Sorter';
 
-const LeftSide = styled('div')({
-  display: 'flex',
-  gap: 16,
-  width: '100%',
-  alignItems: 'center'
-});
+const LeftSide = function ({ children }) {
+  return (
+    <div
+      css={theme => ({
+        display: 'flex',
+        gap: 16,
+        width: '100%',
+        alignItems: 'center',
+        [theme.breakpoints.up('tablet')]: {
+          gap: 24
+        }
+      })}
+    >
+      {children}
+    </div>
+  );
+};
 
 const RightSide = styled('div')({
   display: 'flex',
@@ -123,7 +134,8 @@ function Filter() {
           border: 'none'
         },
         [theme.breakpoints.up('tablet')]: {
-          maxWidth: 543
+          maxWidth: 543,
+          marginInlineStart: 0
         }
       })}
     />
