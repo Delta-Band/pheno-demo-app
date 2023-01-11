@@ -120,7 +120,7 @@ function Filter() {
         outline: 'none',
         boxSizing: 'border-box',
         color: '#000',
-        background: '#FFF',
+        background: '#f7f7f7',
         // boxShadow: theme.shadows.input,
         pointerEvents: disabled ? 'none' : 'all',
         fontFamily: 'Roboto Mono',
@@ -154,7 +154,7 @@ function SortDirection() {
       >
         <Button
           css={{
-            color: '#FFF',
+            color: '#f7f7f7',
             minWidth: 'unset',
             opacity:
               router.route === '/folder/[folderID]/field/[fieldID]' ? 0.3 : 1,
@@ -175,9 +175,9 @@ function SortDirection() {
           }}
         >
           {router.query.direction === 'desc' ? (
-            <SortDescIcon size={28} color='#FFFFFF' />
+            <SortDescIcon size={28} color='#f7f7f7FFF' />
           ) : (
-            <SortAscIcon size={28} color='#FFFFFF' />
+            <SortAscIcon size={28} color='#f7f7f7FFF' />
           )}
         </Button>
       </motion.div>
@@ -246,7 +246,7 @@ const Wrapper = styled('div')({
   width: '100%',
   // background:
   //   'radial-gradient(92.96% 236.49% at 21.11% -12.32%, #2E04E3 0%, #612095 100%)',
-  background: 'rgb(54 2 255)',
+  background: '#0000ff',
   boxSizing: 'border-box',
   zIndex: 1,
   position: 'relative',

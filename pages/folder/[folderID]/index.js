@@ -48,7 +48,7 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
         css={[
           buttonStyle,
           {
-            background: showInfo ? '#FFF' : undefined
+            background: showInfo ? '#f7f7f7' : undefined
           }
         ]}
         variant={showInfo ? 'text' : 'contained'}
@@ -64,7 +64,7 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
         css={[
           buttonStyle,
           {
-            background: showInfo ? undefined : '#FFF'
+            background: showInfo ? undefined : '#f7f7f7'
           }
         ]}
         variant={showInfo ? 'contained' : 'text'}

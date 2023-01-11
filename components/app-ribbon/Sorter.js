@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import FormattedNumber from '../FormattedNumber';
 
 const buttonStyle = {
-  color: '#FFF',
+  color: '#f7f7f7',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -29,9 +29,9 @@ const buttonStyle = {
 
 const selected = {
   color: '#000',
-  background: 'rgba(255, 255, 255, 1)',
+  background: '#f7f7f7',
   '&:hover': {
-    background: 'rgba(255, 255, 255, 1)'
+    background: '#f7f7f7'
   },
   '& svg': {
     fill: '#000'
@@ -89,7 +89,7 @@ function Sorter() {
           <PhenoIcon
             name='a-z'
             scale={1.4}
-            color={router.query.sorter === 'a-z' ? undefined : '#FFF'}
+            color={router.query.sorter === 'a-z' ? undefined : '#f7f7f7'}
           />
           {/* <Typography css={counterStyle}>
             <FormattedNumber value={totals.cohorts.length} />
@@ -109,7 +109,9 @@ function Sorter() {
           <PhenoIcon
             name='user'
             scale={1.2}
-            color={router.query.sorter === 'participants' ? undefined : '#FFF'}
+            color={
+              router.query.sorter === 'participants' ? undefined : '#f7f7f7'
+            }
           />{' '}
           <Typography css={counterStyle}>
             <FormattedNumber value={totals.participants} />
@@ -129,7 +131,9 @@ function Sorter() {
           <PhenoIcon
             name='meter'
             scale={1.2}
-            color={router.query.sorter === 'measurements' ? undefined : '#FFF'}
+            color={
+              router.query.sorter === 'measurements' ? undefined : '#f7f7f7'
+            }
           />{' '}
           <Typography css={counterStyle}>
             <FormattedNumber value={totals.measurements} />

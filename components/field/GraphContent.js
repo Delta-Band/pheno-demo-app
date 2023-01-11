@@ -30,7 +30,7 @@ function Chart({ data, type }) {
         ]
       }}
       options={{
-        backgroundColor: ['rgba(54,2,255,0.8)'],
+        backgroundColor: ['rgba(0,0,255,0.8)'],
         maintainAspectRatio: false,
         indexAxis: type === 'categorical' ? 'y' : 'x',
         layout: {
@@ -241,7 +241,7 @@ function GraphContent({
               <Typography
                 variant='h2'
                 css={{
-                  color: '#FFF',
+                  color: '#f7f7f7',
                   paddingBlock: upTablet ? 16 : 16,
                   margin: 0
                 }}
@@ -253,7 +253,7 @@ function GraphContent({
               <Typography
                 variant='caption'
                 css={{
-                  color: '#FFF',
+                  color: '#f7f7f7',
                   paddingBlock: 12,
                   margin: 0,
                   marginTop: -22

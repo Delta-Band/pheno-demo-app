@@ -12,7 +12,7 @@ const themeWithCustomBreakpoints = createTheme({
 const theme = createTheme(themeWithCustomBreakpoints, {
   palette: {
     primary: {
-      main: '#0119FF'
+      main: '#0000ff'
     }
   },
   typography: {
@@ -107,7 +107,7 @@ const theme = createTheme(themeWithCustomBreakpoints, {
     MuiPopover: {
       styleOverrides: {
         paper: {
-          border: '2px solid #0119FF'
+          border: '2px solid #0000ff'
         }
       }
     },

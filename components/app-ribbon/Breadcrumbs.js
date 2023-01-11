@@ -26,17 +26,17 @@ function Breadcrumbs() {
 
   const buttonStyle = {
     gap: 8,
-    color: '#FFF',
+    color: '#f7f7f7',
     minWidth: 'unset',
     textTransform: 'none',
     '&.Mui-disabled': {
-      color: '#FFF'
+      color: '#f7f7f7'
     }
   };
 
   const BreadCrumbsWrapper = styled('ul')({
     width: '100%',
-    color: '#FFF',
+    color: '#f7f7f7',
     margin: 0,
     paddingInline: 20,
     listStyle: 'none',
@@ -61,11 +61,11 @@ function Breadcrumbs() {
             });
           }}
         >
-          <HomeIcon size={28} color='#FFF' />
+          <HomeIcon size={28} color='#f7f7f7' />
         </Button>
       </li>
       <li css={{ paddingInline: 8 }}>
-        <RightArrowIcon size={28} color='#FFF' />
+        <RightArrowIcon size={28} color='#f7f7f7' />
       </li>
       <li>
         <Button
@@ -83,7 +83,7 @@ function Breadcrumbs() {
             });
           }}
         >
-          <FolderIcon size={26} color='#FFF' />
+          <FolderIcon size={26} color='#f7f7f7' />
           <Typography>{folder?.name}</Typography>
         </Button>
       </li>
@@ -96,7 +96,7 @@ function Breadcrumbs() {
             exit={{ opacity: 0 }}
             css={{ paddingInline: 8 }}
           >
-            <RightArrowIcon size={28} color='#FFF' />
+            <RightArrowIcon size={28} color='#f7f7f7' />
           </motion.li>
         ) : null}
         {field ? (
@@ -109,7 +109,7 @@ function Breadcrumbs() {
             <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
               <PhenoIcon
                 name={getIconByDatType(field.dataType)}
-                color='#FFF'
+                color='#f7f7f7'
                 scale={1.15}
               />
               <Typography>{field.name}</Typography>
@@ -124,7 +124,7 @@ function Breadcrumbs() {
         onClick={() => router.back()}
         css={{ paddingInline: 8, minWidth: 'unset' }}
       >
-        <LeftArrowIcon size={28} color='#FFF' />
+        <LeftArrowIcon size={28} color='#f7f7f7' />
       </Button>
       {field ? (
         <motion.li
@@ -136,7 +136,7 @@ function Breadcrumbs() {
           <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
             <PhenoIcon
               name={getIconByDatType(field.dataType)}
-              color='#FFF'
+              color='#f7f7f7'
               scale={1.15}
             />
             <Typography>{field.name}</Typography>
@@ -150,7 +150,7 @@ function Breadcrumbs() {
           exit={{ opacity: 0 }}
         >
           <Button css={[buttonStyle, { paddingInlineStart: 10 }]} disabled>
-            <FolderIcon size={26} color='#FFF' />
+            <FolderIcon size={26} color='#f7f7f7' />
             <Typography>{folder?.name}</Typography>
           </Button>
         </motion.li>

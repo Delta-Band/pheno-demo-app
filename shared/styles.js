@@ -10,7 +10,7 @@ export const globalStyles = (
         margin: 0;
         height: 100%;
         width: 100vw;
-        background: #fffdf7;
+        background: #f7f7f7;
       }
     `}
   />
