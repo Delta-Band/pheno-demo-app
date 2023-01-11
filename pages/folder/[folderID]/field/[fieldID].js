@@ -77,7 +77,17 @@ function Filters({
     ? Math.floor((windowSize.width - gap * 2 - 72) / 3)
     : '100%';
   return (
-    <div css={{ display: 'flex', width: '100%', gap: 36 }}>
+    <div
+      css={theme => ({
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        gap: 36,
+        [theme.breakpoints.up('tablet')]: {
+          flexDirection: 'row'
+        }
+      })}
+    >
       <FormControl css={{ width: '100%' }}>
         <InputLabel id='cohorts'> Select Cohort</InputLabel>
         <Select
