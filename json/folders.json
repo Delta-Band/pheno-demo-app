@@ -17,11 +17,11 @@
   },
   {
     "id": "5",
-    "name": "Diet Logging"
+    "name": "Diet logging"
   },
   {
     "id": "6",
-    "name": "Hand grip"
+    "name": "Hand grip strength"
   },
   {
     "id": "7",
@@ -29,19 +29,19 @@
   },
   {
     "id": "8",
-    "name": "Serum Lipidomics"
+    "name": "Serum lipidomics"
   },
   {
     "id": "9",
-    "name": "Sleep sensor"
+    "name": "Sleep monitor"
   },
   {
     "id": "10",
-    "name": "ABI, PWV"
+    "name": "Vascular health (ABI, PWV)"
   },
   {
     "id": "11",
-    "name": "DXA"
+    "name": "Body composition (DXA)"
   },
   {
     "id": "12",
@@ -61,7 +61,7 @@
   },
   {
     "id": "16",
-    "name": "Blood tests (HMOs)"
+    "name": "Blood tests (participant provided)"
   },
   {
     "id": "17",
@@ -85,14 +85,18 @@
   },
   {
     "id": "22",
-    "name": "App logging"
+    "name": "Bone size, mineral and density (DXA)"
   },
   {
     "id": "23",
-    "name": "Third party health data"
+    "name": "App logging"
   },
   {
     "id": "24",
+    "name": "Health app data"
+  },
+  {
+    "id": "25",
     "name": "Samples inventory"
   }
 ]
