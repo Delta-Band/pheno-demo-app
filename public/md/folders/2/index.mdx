@@ -1,15 +1,23 @@
 # Description
 
-TODO
+Anthropometrics is the study of the measurement of the human body in terms of the size, weight, and proportions of its various parts. Our anthropometric measurements include height, weight, bmi, hip circumference, waist circumference and neck circumference. 
+
+Anthropometrics is an important tool in the field of medicine, as it allows for the assessment of a person's health and nutritional status, as well as the identification of potential health risks. One of the primary uses of anthropometrics in medicine is in the assessment of growth and development in children. By measuring height, weight, and other body measurements, doctors can track a child's growth and development over time, and identify any potential issues such as stunted growth or obesity. Additionally, anthropometric measurements can be used to assess the body composition of adults, which can help to identify potential health risks such as sarcopenia (age-related loss of muscle mass) or obesity.
+
+In a clinical setting, anthropometric measurements are typically used in combination with other medical tests and evaluations to provide a more complete picture of a person's health. For example, a doctor may use anthropometric measurements in combination with blood tests and imaging studies to assess a person's nutrition status, or to identify potential health risks such as cardiovascular disease or diabetes. Additionally, anthropometric measurements may be used to help monitor the effectiveness of treatment interventions, such as weight loss programs, and to track changes in a person's health over time.
+
+Our anthropometrics data is tabular and consists of a single record for each measurement taken per person at each visit. Data is stored as a pandas data frame, where records are indexed by the individual’s registration code and research stage. The data frame holds multiple columns related to measurements taken from the participant. 
+
 
 # Measurement protocol
 
-TODO
+Our anthropometric measurements include height, weight, waist circumference, hip circumference, and neck circumference. The equipment used in this protocol includes a measuring tape and a scale, specifically a Shekel stadiometer (Shekel Ultrasonic Physician BMI Scale h 120-4).
+
+For measuring height, the patient is instructed to stand with their shoulders level and neck in a neutral position, with their shoes removed and back against the Shekel stadiometer . The participant is asked to stand as tall as possible and the measurement is taken by lowering a horizontal measure on top of the participant's head and reading the measurement on the vertical scale. The height is recorded in centimeters.
+
+For measuring weight, the participant is asked to remove their shoes and excess clothing, and stand on the Shekel stadiometer. The weight is recorded in kilograms. The measurement protocol for the waist, hip, and neck circumference include specific instructions for standing position, and the use of measuring tape. All circumference measurements will be taken in cm and measurements are recorded to the nearest 1mm.
+
 
 # Summary of available data
 
-1. Raw channels: A data frame of temporal data - values and times - for each of 11 source channels (see the diagram above, in orange).
-2. Events: A data frame of annotated events based on the manufacturer’s analysis of the raw channels (see the diagram above, in green). Each row contains the event, its main source channel, its start time and end time.
-3. Summary statistics: A data frame of computed features provided by the manufacturer based on the above channels and events (see the diagram above, in red). Some of the summary stats are also computed separately for different sleep stages and body positions. Additional computed features, such as the ones related to heart rate variability (HRV) and sleep fragmentation, are computed by Pheno.ai (see the diagram above, in gray).
-
-   ![image alt](/md/folders/1/sleep_info_figure1.png);
+1. Raw data: A data frame of tabular data containing individual level body measurement records 
