@@ -1,13 +1,27 @@
 #### Description
 
-TODO
+Diet logging using a smartphone app involves collecting data on food and drink consumption through a mobile application. This data includes information such as types of food, serving sizes, and nutritional information. The data is used to track dietary habits and can be used in scientific research to gain insights into the dietary habits of a population.
+
+There is a strong relationship between the development of chronic disease and a person’s diet. Adults who eat a healthy diet are likely to live longer and are less likely to develop chronic disease or become obese. An unhealthy diet is a major risk factor for diabetes type 2, cardiovascular disease and certain types of cancer.  Changes in dietary habits have been found to reduce cancer incidence by one-third. Consuming a nutrient-dense diet was associated with a low risk of all-cause mortality.
+
+Nutritional epidemiology is a sub-discipline of epidemiology that provides data about the      relationship  between diet and disease. The data collected is used  to define diet–disease associations that are converted into the practice of prevention by public-health nutrition practitioners. 
+
+To study the associations between diet and disease, there is a need to accurately characterize the dietary habits of individuals. One approach is to use a food diary, which is a daily log of what an individual eats and drinks. Such diaries are used to characterize eating habits in large and small epidemiological studies. Owing to recent technological advancements and the vast availability of smartphones, nutrition-related apps are commonly used to track the eating habits.
+
+The diet logging data modality includes two weeks of continuous self-logging of dietary items and portions, collected via a diet logging proprietary app. The raw diet logging data is temporal and consists of a single record for every time an individual logged a food item. Data is stored as a pandas data frame, where records are indexed by the individual’s registration code, a timestamp for the logged food item, and the food id that was chosen from the app’s food database. 
+
+The data frame holds a single value column that measures the weight (grams) of the logged food. These food items are mapped to various hierarchies of classifications (food categories, short food names, nutritional contents) to allow higher and lower resolution views of the logged diet.
+
 
 #### Measurement protocol
 
-TODO
-<br><br>
+Participants in the Human Phenotype Project are asked to log their food for a period of at least two weeks. The study participants are encouraged to document their diets beyond the first two weeks.
+
+We ask participants to download the app and start logging data 1 day before the visit.
+We ask them to log everything they eat and drink and to include as one meal all the items they have consumed within a 30 minute interval. We recommend making at least a 90 minute break between meals. The logging duration should be 14 days after each visit but the app is open for the whole study period. 
 
 #### Summary of available data
 
-1. TODO
-2. TODO
+1. Clean diet logging data: a data frame containing individual level diet logging records, indexed by the individual’s registration code, research stage, logging timestamp and food id. Data is post some basic preprocessing.
+2. Nutrients: The nutrional information of the diet logging records.
+3. A dataframe containing individual level diet logging records aggregated to a daily level.
