@@ -1,13 +1,27 @@
 #### Description
 
-TODO
+Blood pressure is the measurement of the force exerted against the walls of the arteries as blood flows through them. Blood pressure is recorded as two values: systolic pressure (the pressure when the heart beats) and diastolic pressure (the pressure when the heart is at rest between beats).
+
+High blood pressure, also known as hypertension, is a major risk factor for heart disease and stroke, and is a leading cause of death and disability worldwide. Measuring blood pressure is the only way to know whether you have high blood pressure. High blood pressure usually has no warning signs or symptoms, and many people do not know they have it. High blood pressure is a common condition that affects the body's arteries. It's also called hypertension. If you have high blood pressure, the force of the blood pushing against the artery walls is consistently too high. The heart has to work harder to pump blood.
+
+On the other hand, Hypotension is low blood pressure. Severely low blood pressure can deprive the brain and other vital organs of oxygen and nutrients, leading to a life-threatening condition called shock. Excessively low blood pressure can cause dizziness and fainting or indicate serious heart, endocrine or neurological disorders.
+
+In a clinical setting, blood pressure is measured regularly as a screening tool to identify hypertension and to monitor its progression over time. Blood pressure measurement can be performed in a variety of settings, including hospitals, clinics, and even at home, using an automated or manual sphygmomanometer. Blood pressure measurement is usually part of a regular physical examination, and may be performed more frequently in individuals who are at higher risk for hypertension, such as those with a family history of the disease or other risk factors such as obesity and high cholesterol.
+
+Blood pressure measurement can also be used to monitor the effectiveness of treatment interventions, such as lifestyle changes and medications, in individuals with hypertension. The goal of treatment is to achieve and maintain target blood pressure levels, which are generally lower for individuals at higher risk for cardiovascular disease. Accurate and regular measurement of blood pressure is essential for both the diagnosis and management of hypertension, and is an important tool for preventing and treating cardiovascular disease.
+
+
+The data collected is tabular and consists of a single record for each measurement taken per in person visit. Data is stored as a pandas data frame, where records are indexed by the individual’s registration code and research stage. The data frame holds multiple columns related to measurements taken from the participant. Blood pressure is measured in a few different ways during the visit. For example, blood pressure readings are taken when a person is sitting, lying and standing up from a lying position. 
+
+
 
 #### Measurement protocol
 
-TODO
-<br><br>
+Blood pressure is measured using an OMRON Blood Pressure Monitor HEM-RML31 device and an appropriately sized cuff. Multiple blood pressure readings are done during the visit. For each blood pressure reading, three measurements are taken: systolic pressure, diastolic pressure, and average heart rate. The participant is asked to avoid caffeine, exercise and smoking at least 30 minutes before the measurement. The measurement is taken on the left arm if possible. The cuff size is based on the arm circumference. 
+
+The participant is seated for 5 minutes, after which the first measurement is taken. Repeat a second measurement after 2 minutes.The participant then lies down for 5 minutes and the lying blood pressure reading is taken. The participant then stands up, slowly. The first standing reading is taken after 1 minute of standing and the next reading after 3 minutes of standing
+
 
 #### Summary of available data
 
-1. TODO
-2. TODO
+1. Raw data: a data frame containing individual level blood pressure measurements.
