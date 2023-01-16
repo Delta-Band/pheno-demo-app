@@ -1,13 +1,18 @@
 #### Description
 
-TODO
+Gut microbiome species composition measured by metagenomics sequencing.
+Names of the bacterial species include their entire taxonomy in the following format:
+k__<kingdom>|p__<phylum>|c__<class>|o__<order>|f__<family>|g__<genus>|s__<species>
+
+ The human microbiome is the aggregate of all microbiota that reside on or within human tissues and biofluids. It is composed of trillions of bacteria, archaea, viruses and eukaryotic microbes. These microorganisms play important roles in maintaining human health, including helping to digest food, regulating the immune system, and protecting against harmful pathogens. They contribute metabolic functions, protect against pathogens, educate the immune system, and, through these basic functions, affect directly or indirectly most of our physiologic functions. Dysregulation of the microbiome has been linked to a number of health conditions, including inflammatory bowel disease, obesity, and some types of cancer.
+
+Shotgun metagenomic sequencing allows researchers to comprehensively sample all genes in all organisms present in a given complex sample. This approach allows scientists to estimate the composition and diversity of the microorganisms present in a sample, and to identify specific species or functional pathways that may be associated with health or disease. To perform metagenomic analysis of the gut microbiome, scientists typically collect samples of stool or other gut contents and extract the DNA from the microorganisms present in the sample. This DNA is then sequenced using high-throughput sequencing technologies. The resulting sequence data is then analyzed using bioinformatic tools to identify the different types of microorganisms present in the sample, and to estimate their relative abundance. One common method for identifying the microorganisms present in a metagenomic sample is to compare the sequence reads to a reference database of known microbial genomes. The results of metagenomic analysis can provide valuable insights into the composition and function of the gut microbiome, and can be used to identify potential links between changes in the microbiome and health or disease.
 
 #### Measurement protocol
 
-TODO
-<br><br>
+Participants provided a stool sample using an OMNIgene-Gut stool collection kit (DNA Genotek), and processed according to the methods described in Mendes-Soares et al.: Genomic DNA was purified using PowerMag Soil DNA isolation kit (MoBio) optimized for Tecan automated platform. Illumina compatible libraries were prepared as described at Suez et al., and sequenced on a NovaSeq 6000 (100bps, single end). Reads were processed with Trimmomatic, to remove reads containing Illumina adapters, filter low quality reads and trim low quality regions; version 0.32 (parameters used: -phred33 ILLUMINACLIP:<adapter file>:2:30:10 SLIDINGWINDOW:6:20 CROP:100 MINLEN:90). Reads mapping to human DNA were detected by mapping with bowtie2 (with default parameters and an index created from hg19) and removed from downstream analysis.
+Relative abundance estimation of 3594 bacterial genomes was performed as described in Leviatan et al.
 
 #### Summary of available data
 
-1. TODO
-2. TODO
+1. The relative abundance of 607 bacterial species that appear in at least 5% of the participants.
