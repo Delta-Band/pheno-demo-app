@@ -65,35 +65,35 @@ export default function DistributionStats({
     >
       <li>
         <Key>Count</Key>
-        <Value>{count}</Value>
+        <Value>{count.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Minimum</Key>
-        <Value>{min}</Value>
+        <Value>{min.toLocaleString()}</Value>
       </li>
       <li>
         <Key>Maximum</Key>
-        <Value>{max}</Value>
+        <Value>{max.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Mean</Key>
-        <Value>{mean}</Value>
+        <Value>{mean.toLocaleString()}</Value>
       </li>
       <li>
         <Key>Standard Deviation</Key>
-        <Value>{std}</Value>
+        <Value>{std.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Median</Key>
-        <Value>{median}</Value>
+        <Value>{median.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>10th Percentile</Key>
-        <Value>{percentile10}</Value>
+        <Value>{percentile10.toLocaleString()}</Value>
       </li>
       <li>
         <Key>90th Percentile</Key>
-        <Value>{percentile90}</Value>
+        <Value>{percentile90.toLocaleString()}</Value>
       </li>
     </ul>
   );

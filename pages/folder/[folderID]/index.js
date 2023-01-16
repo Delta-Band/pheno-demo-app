@@ -14,7 +14,6 @@ import { Button, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { getIconByDatType } from '../../../shared/utils';
 import { AnimatePresence } from 'framer-motion';
-import ReactGA from 'react-ga4';
 
 function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
   const theme = useTheme();
@@ -39,19 +38,22 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
     width: '50%'
   };
 
+  const buttonStyleNotSelected = {
+    background: '#f7f7f7',
+    color: theme.palette.primary.main,
+    '&:hover': {
+      background: '#cdcdcd'
+    }
+  };
+
   return (
     <Wrapper>
       <Button
         onClick={() => {
           setShowInfo(false);
         }}
-        css={[
-          buttonStyle,
-          {
-            background: showInfo ? '#f7f7f7' : undefined
-          }
-        ]}
-        variant={showInfo ? 'text' : 'contained'}
+        css={[buttonStyle, showInfo ? buttonStyleNotSelected : {}]}
+        variant='contained'
         size='large'
       >
         DATA
@@ -61,13 +63,8 @@ function DataInfoToggle({ showInfo, setShowInfo, upTablet }) {
           setShowInfo(true);
           dispatch(routerSlice.actions.setPrevRoute('/folder/[folderID]'));
         }}
-        css={[
-          buttonStyle,
-          {
-            background: showInfo ? undefined : '#f7f7f7'
-          }
-        ]}
-        variant={showInfo ? 'contained' : 'text'}
+        css={[buttonStyle, !showInfo ? buttonStyleNotSelected : {}]}
+        variant='contained'
         size='large'
       >
         INFO
