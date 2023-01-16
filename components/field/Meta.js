@@ -66,7 +66,9 @@ const Column = ({ children }) => {
         display: 'inline-flex',
         flexDirection: 'column',
         gap: 18,
+        boxSizing: 'border-box',
         width: '100%',
+        paddingInline: 8,
         [theme.breakpoints.up('tablet')]: {
           width: 'calc((100% - 72px) / 3)'
         }
