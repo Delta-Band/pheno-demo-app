@@ -1,14 +1,24 @@
-# Description
+### Description
 
-TODO
+Population characteristics of the Human Phenotype Project study participants.
 
-# Measurement protocol
+Population characteristics of the Human Phenotype Project include basic information about the participants regarding sex, living area, visits to the clinical testing center, and communication status.
 
-TODO
+### Measurement protocol
 
-# Summary of available data
+Upon registration to the Human Phenotype Project, people are assigned with a registration code, which is their ID in the study and provide a telephone number and email by which all communications are conducted. Participants are asked about their date of birth and their sex, and are asked to schedule a visit to the assessment center.
 
-1. Raw channels: A data frame of temporal data - values and times - for each of 11 source channels (see the diagram above, in orange).
-2. Events: A data frame of annotated events based on the manufacturer’s analysis of the raw channels (see the diagram above, in green). Each row contains the event, its main source channel, its start time and end time.
-3. Summary statistics: A data frame of computed features provided by the manufacturer based on the above channels and events (see the diagram above, in red). Some of the summary stats are also computed separately for different sleep stages and body positions. Additional computed features, such as the ones related to heart rate variability (HRV) and sleep fragmentation, are computed by Pheno.ai (see the diagram above, in gray).
-   ![image alt](/md/folders/1/sleep_info_figure1.png)
+Personal and communication data is saved separately in a secure environment from the population characteristics information, which is saved with the participant designated ID.
+
+
+### Summary of available data
+
+1. Registration Code - assigned to participants upon registration
+2. Study ID - the ID of the study
+3. Date of birth - only month and year of birth should be available
+4. Sex of the participants
+5. Home and work address - sensitive data
+6. GSA derived from home and work addresses
+7. Whether participants are lost to follow-up, why and starting when
+8. Information about each visit and communication with the participants
+9. In case participants are participating in additional studies, the links to the registration codes from these other studies are given
