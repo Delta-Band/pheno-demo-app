@@ -1,13 +1,18 @@
 #### Description
 
-TODO
+The 10K study medications data is based on self reported, participant provided information.
+Self-reported medications are coded to Anatomical Therapeutic Chemical (ATC) codes from the WHO Collaborating Centre for Drug Statistics Methodology. The ATC classification system has become the gold standard for international drug utilization monitoring and research.
 
 #### Measurement protocol
 
-TODO
-<br><br>
+Currently, there are several origins for the medication data:
+1. During registration to the study, participants are asked to report their regular medications online, selecting from a predefined drop-down list. Certain medications reporting can generate an exclusion from the study.
+2. Participants log the medications taken and the time during the two weeks period following each visit using a dedicated smartphone application.
+3. On follow up calls or during visits to the clinical testing center - participants are asked to report about any new medications they take or stopped taking and provide the month and year of when each medication was given or stopped. A staff member fills the  medications from a predefined dropdown list. In case the staff member cannot find the exact medication in the list, they have the option to report the missing medication to the engineering department. The medication will be added later to the application medications list.
 
 #### Summary of available data
 
-1. TODO
-2. TODO
+For now, we process the medications information from the different sources and use a translation into ATC codes.
+We separate the medications into two datasets:
+1. Medications at baseline
+2. Medications (first reported after baseline visit)
