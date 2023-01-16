@@ -243,7 +243,7 @@ function GraphContent({
             <div css={{ width: '100%' }}>
               <Chart
                 type={
-                  typeof field.dataDistribution[0].x === 'string'
+                  field.dataDistributionType === 'categorical'
                     ? 'categorical'
                     : 'distribution'
                 }
@@ -254,7 +254,7 @@ function GraphContent({
                 )}
               />
             </div>
-            {typeof field.dataDistribution[0].x === 'string' ? null : (
+            {field.dataDistributionType === 'categorical' ? null : (
               <DistributionStats
                 selectedCohort={selectedCohort}
                 selectedInstance={selectedInstance}

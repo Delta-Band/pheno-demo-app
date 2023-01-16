@@ -65,35 +65,35 @@ export default function DistributionStats({
     >
       <li>
         <Key>Count</Key>
-        <Value>{count.toLocaleString()}</Value>
+        <Value>{count?.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Minimum</Key>
-        <Value>{min.toLocaleString()}</Value>
+        <Value>{min?.toLocaleString()}</Value>
       </li>
       <li>
         <Key>Maximum</Key>
-        <Value>{max.toLocaleString()}</Value>
+        <Value>{max?.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Mean</Key>
-        <Value>{mean.toLocaleString()}</Value>
+        <Value>{mean?.toLocaleString()}</Value>
       </li>
       <li>
         <Key>Standard Deviation</Key>
-        <Value>{std.toLocaleString()}</Value>
+        <Value>{std?.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>Median</Key>
-        <Value>{median.toLocaleString()}</Value>
+        <Value>{median?.toLocaleString()}</Value>
       </li>
       <li css={inverted}>
         <Key>10th Percentile</Key>
-        <Value>{percentile10.toLocaleString()}</Value>
+        <Value>{percentile10?.toLocaleString()}</Value>
       </li>
       <li>
         <Key>90th Percentile</Key>
-        <Value>{percentile90.toLocaleString()}</Value>
+        <Value>{percentile90?.toLocaleString()}</Value>
       </li>
     </ul>
   );
