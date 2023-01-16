@@ -3,12 +3,16 @@ import { jsx } from '@emotion/react';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { layoutSlice } from '../redux';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
   const minimizeRibbon = useSelector(state => state.layout.minimizeRibbon);
   const minRibbonRef = useRef(minimizeRibbon);
+  const theme = useTheme();
+  const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const layoutRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -38,6 +42,7 @@ function Layout({ children, page, paddingTop = 0 }) {
 
   useEffect(() => {
     function handleScroll() {
+      if (upTablet) return;
       if (minRibbonRef.current && layoutRef.current.scrollTop === 0) {
         dispatch(layoutSlice.actions.setMinimizeRibbon(false));
       } else if (!minRibbonRef.current && layoutRef.current.scrollTop > 0) {

@@ -19,6 +19,7 @@ const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
           display: 'inline-flex',
           alignItems: 'center',
           cursor: 'default',
+          width: 'calc(100% - 0px)',
           gap: 18,
           '& .pheno-icon': {
             width: 24
@@ -39,7 +40,14 @@ const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
         >
           <Typography>{prefixText}:</Typography>
           {typeof value !== 'object' ? (
-            <Typography>
+            <Typography
+              css={{
+                whiteSpace: 'nowrap',
+                maxWidth: '100%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
+            >
               <b>{value}</b>
             </Typography>
           ) : (
@@ -116,18 +124,21 @@ function Meta() {
               value={`${field.valueType}${
                 field.units ? ' [' + field.units + ']' : ''
               }`}
+              tooltip={`${field.valueType}${
+                field.units ? ' [' + field.units + ']' : ''
+              }`}
             />
             <MetaInfo
               iconName='user'
               prefixText='Participants'
-              value={field.participants}
+              value={field.participants.toLocaleString()}
             />
           </Column>
           <Column>
             <MetaInfo
               iconName='meter'
               prefixText='Measurements'
-              value={field.measurements}
+              value={field.measurements.toLocaleString()}
             />
             <MetaInfo
               iconName='group'
@@ -172,12 +183,12 @@ function Meta() {
           <MetaInfo
             iconName='user'
             prefixText='Participants'
-            value={field.participants}
+            value={field.participants.toLocaleString()}
           />
           <MetaInfo
             iconName='meter'
             prefixText='Measurements'
-            value={field.measurements}
+            value={field.measurements.toLocaleString()}
           />
           <MetaInfo
             iconName='group'

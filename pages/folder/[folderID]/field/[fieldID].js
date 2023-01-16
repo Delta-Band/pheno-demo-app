@@ -150,16 +150,18 @@ export default function FieldPage() {
     foldersSlice.selectors.folderById(state, router.query.folderID)
   );
   const [selectedCohort, setSelectedCohort] = useState(field?.cohorts[0] || '');
+
   const views = [];
+  if (field?.sampleImage) {
+    views.push('Sample Image');
+  }
   if (field?.dataDistribution) {
     views.push('Data Distribution');
   }
   if (field?.dataAccumulation) {
     views.push('Data Accumulation');
   }
-  if (field?.sampleImage) {
-    views.push('Sample Image');
-  }
+
   const [selectedView, setSelectedView] = useState(views ? views[0] : null);
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''

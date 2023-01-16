@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { useRef, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { Button, useMediaQuery, styled } from '@mui/material';
+import { Button, useMediaQuery, styled, getOffsetLeft } from '@mui/material';
 import { SortDesc as SortDescIcon } from '@styled-icons/octicons/SortDesc';
 import { SortAsc as SortAscIcon } from '@styled-icons/octicons/SortAsc';
 import Tooltip from '../Tooltip';
@@ -206,6 +206,17 @@ function AnimatedContainer({ children, upTablet }) {
     }
   }
 
+  function getOffsetY() {
+    switch (true) {
+      case minimizeRibbon && !upTablet && router.route === '/':
+        return -105;
+      case minimizeRibbon && !upTablet && router.route !== '/':
+        return -161;
+      default:
+        return -0;
+    }
+  }
+
   function getInitialHeight() {
     switch (true) {
       case minimizeRibbon:
@@ -237,7 +248,18 @@ function AnimatedContainer({ children, upTablet }) {
         overflow: 'hidden'
       }}
     >
-      {children}
+      <motion.div
+        animate={{
+          y: getOffsetY()
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 260,
+          damping: 30
+        }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 }
