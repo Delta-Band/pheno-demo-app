@@ -134,8 +134,8 @@ function GraphContent({
     >
       <motion.div
         css={{
-          display: 'inline-flex',
-          height: '100%'
+          display: 'inline-flex'
+          // height: '100%'
         }}
         animate={{
           x:
@@ -148,6 +148,103 @@ function GraphContent({
           damping: 20
         }}
       >
+        {field.sampleImage && (
+          <motion.div
+            css={{
+              width,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              background: 'rgba(0, 0, 0, 0.9)',
+              boxSizing: 'border-box',
+              borderRadius: 4,
+              overflow: 'hidden',
+              position: 'relative',
+              borderRadius: 4
+            }}
+            animate={{
+              padding: selectedView === 'Sample Image' ? '24' : 0,
+              opacity: selectedView === 'Sample Image' ? 1 : 0,
+              height:
+                selectedView === 'Sample Image'
+                  ? upTablet
+                    ? '55vh'
+                    : '75vw'
+                  : 50
+            }}
+            transition={{
+              delay: selectedView === 'Sample Image' ? 0 : 0.5,
+              type: 'spring',
+              damping: 20,
+              opacity: {
+                delay: 0
+              }
+            }}
+          >
+            {field.sampleImage.label && (
+              <Typography
+                variant='h2'
+                css={{
+                  color: '#f7f7f7',
+                  paddingBlock: upTablet ? 16 : 16,
+                  margin: 0
+                }}
+              >
+                {field.sampleImage.label}
+              </Typography>
+            )}
+            {field.sampleImage.caption && (
+              <Typography
+                variant='caption'
+                css={{
+                  color: '#f7f7f7',
+                  paddingBlock: 12,
+                  margin: 0,
+                  marginTop: -22
+                }}
+              >
+                {field.sampleImage.caption}
+              </Typography>
+            )}
+            <div
+              css={{
+                width: '100%',
+                textAlign: 'center',
+                background:
+                  'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)'
+              }}
+            >
+              <Magnifier
+                mgWidth={upTablet ? 230 : 150}
+                mgHeight={upTablet ? 230 : 150}
+                src={`/images/fields/${field.sampleImage.src}`}
+                height='calc(55vh - 54px)'
+                width='auto'
+                css={
+                  {
+                    // background:
+                    //   'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)'
+                    // paddingInline: '5vw'
+                    // '& > img': {
+                    //   // objectFit: 'contain',
+                    //   // position: 'absolute'
+                    // }
+                  }
+                }
+              />
+            </div>
+            {/* <img
+              css={{
+                objectFit: 'contain',
+                objectPosition: 'center center',
+                height: '100%'
+              }}
+              src={`/images/fields/${field.sampleImage.src}`}
+              alt={field.sampleImage.caption}
+            /> */}
+          </motion.div>
+        )}
         {field.dataDistribution && (
           <motion.div
             animate={{
@@ -203,89 +300,6 @@ function GraphContent({
                   point.instance === selectedInstance
               )}
             />
-          </motion.div>
-        )}
-        {field.sampleImage && (
-          <motion.div
-            css={{
-              width,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'rgba(0, 0, 0, 0.9)',
-              boxSizing: 'border-box',
-              borderRadius: 4,
-              overflow: 'hidden'
-            }}
-            animate={{
-              padding: selectedView === 'Sample Image' ? '24' : 0,
-              opacity: selectedView === 'Sample Image' ? 1 : 0,
-              height:
-                selectedView === 'Sample Image'
-                  ? upTablet
-                    ? '55vh'
-                    : '75vw'
-                  : 0
-            }}
-            transition={{
-              delay: selectedView === 'Sample Image' ? 0 : 0.5,
-              type: 'spring',
-              damping: 20,
-              opacity: {
-                delay: 0
-              }
-            }}
-          >
-            {field.sampleImage.label && (
-              <Typography
-                variant='h2'
-                css={{
-                  color: '#f7f7f7',
-                  paddingBlock: upTablet ? 16 : 16,
-                  margin: 0
-                }}
-              >
-                {field.sampleImage.label}
-              </Typography>
-            )}
-            {field.sampleImage.caption && (
-              <Typography
-                variant='caption'
-                css={{
-                  color: '#f7f7f7',
-                  paddingBlock: 12,
-                  margin: 0,
-                  marginTop: -22
-                }}
-              >
-                {field.sampleImage.caption}
-              </Typography>
-            )}
-            <Magnifier
-              mgWidth={upTablet ? 200 : 150}
-              mgHeight={upTablet ? 200 : 150}
-              src={`/images/fields/${field.sampleImage.src}`}
-              height='100%'
-              width='100%'
-              css={{
-                background:
-                  'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)',
-                '& > img': {
-                  objectFit: 'contain',
-                  position: 'absolute'
-                }
-              }}
-            />
-            {/* <img
-              css={{
-                objectFit: 'contain',
-                objectPosition: 'center center',
-                height: '100%'
-              }}
-              src={`/images/fields/${field.sampleImage.src}`}
-              alt={field.sampleImage.caption}
-            /> */}
           </motion.div>
         )}
       </motion.div>
