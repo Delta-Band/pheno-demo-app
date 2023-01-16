@@ -12,8 +12,6 @@ import moment from 'moment';
 import { useWindowSize } from '../../hooks';
 import Magnifier from 'react-magnifier';
 
-// window.moment = moment;
-
 function Chart({ data, type }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
@@ -135,7 +133,6 @@ function GraphContent({
       <motion.div
         css={{
           display: 'inline-flex'
-          // height: '100%'
         }}
         animate={{
           x:
@@ -221,28 +218,8 @@ function GraphContent({
                 src={`/images/fields/${field.sampleImage.src}`}
                 height='calc(55vh - 54px)'
                 width='auto'
-                css={
-                  {
-                    // background:
-                    //   'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)'
-                    // paddingInline: '5vw'
-                    // '& > img': {
-                    //   // objectFit: 'contain',
-                    //   // position: 'absolute'
-                    // }
-                  }
-                }
               />
             </div>
-            {/* <img
-              css={{
-                objectFit: 'contain',
-                objectPosition: 'center center',
-                height: '100%'
-              }}
-              src={`/images/fields/${field.sampleImage.src}`}
-              alt={field.sampleImage.caption}
-            /> */}
           </motion.div>
         )}
         {field.dataDistribution && (
