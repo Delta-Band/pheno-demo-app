@@ -14,9 +14,10 @@ Every plate contains 92 samples from study participants, and 4 QC samples that w
 3. Two NIST samples - these are standardized technical replicates that contain a predefined mixture of human serum metabolites. These samples are later used for running order and batch correction of the data. (positions 95-96 in the plate)
 For every plate, the team at the wet lab produces an experimental design file that describes the layout for the analysis of the plate. Mainly, it describes the ordering of the samples to be injected into the MS machine, including the various sample types (10K, empty, NIST, anchor), the tube barcode, their quantity and location. Systematic removal of technical noise is partly performed based on this experimental design file.
 
+Lipid annotations were obtained by comparing the mz, retention times and ccs values to equivalent empirical measurements from a library that was profiled on the same instruments with longer running times (26 minutes).
+
 #### Summary of available data
 
-Data is available on several levels:
 1. Raw spectral data per sample in open source format (mzML)
 2. All features of processed data (systematic error removed, batch corrected, plates merged)
 3. Annotated processed features
