@@ -19,7 +19,7 @@ const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
           display: 'inline-flex',
           alignItems: 'center',
           cursor: 'default',
-          width: 'calc(100% - 0px)',
+          width: 'calc(100% - 32px)',
           gap: 18,
           '& .pheno-icon': {
             width: 24
