@@ -10,7 +10,6 @@ const initialState = { working: false, folders: [] };
 const setData = createAsyncThunk(
   'folders/fetch',
   async ({ folderID, filter }) => {
-    console.log('filter', filter);
     let folders = await fetch(
       `/api/folders?folderID=${folderID}&filter=${filter}`
     );

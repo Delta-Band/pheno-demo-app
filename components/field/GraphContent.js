@@ -15,7 +15,6 @@ import Magnifier from 'react-magnifier';
 function Chart({ data, type }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-  console.log('data:', data);
 
   return (
     <BarChart
