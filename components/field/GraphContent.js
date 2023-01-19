@@ -11,10 +11,12 @@ import { Bar as BarChart } from 'react-chartjs-2';
 import moment from 'moment';
 import { useWindowSize } from '../../hooks';
 import Magnifier from 'react-magnifier';
+import { useIntl } from 'react-intl';
 
 function Chart({ data, type }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
+  const intl = useIntl();
 
   return (
     <BarChart
@@ -45,9 +47,14 @@ function Chart({ data, type }) {
             callbacks: {
               label: context => context.formattedValue,
               title: context => {
-                return type === 'time'
-                  ? moment(context[0].parsed.x).format('MMM yyyy')
-                  : context[0].label;
+                switch (type) {
+                  case 'time':
+                    return moment(context[0].parsed.x).format('MMM yyyy');
+                  case 'categorical':
+                    return intl.formatNumber(data[context[0].dataIndex].y);
+                  default:
+                    return context[0].label;
+                }
               }
             }
           },
@@ -68,16 +75,20 @@ function Chart({ data, type }) {
                 display: false
                 // drawTicks: false
               },
-              min: type === 'categorical' ? 0 : undefined,
-              max:
-                type === 'categorical' ? data[data.length - 1]?.y : undefined,
-              // type: 'category',
+              // min: type === 'categorical' ? 0 : undefined,
+              // max:
+              //   type === 'categorical' ? data[data.length - 1]?.y : undefined,
+              // type: type === 'categorical' ? 'category' : undefined,
               ticks: {
                 minRotation: 0,
                 maxRotation: 0,
                 callback:
                   type === 'categorical'
-                    ? undefined
+                    ? (value, index, ticks) => {
+                        return intl.formatNumber(value, {
+                          notation: 'compact'
+                        });
+                      }
                     : (value, index, ticks) => {
                         if (!data[index]) return;
                         if (type === 'time') {
