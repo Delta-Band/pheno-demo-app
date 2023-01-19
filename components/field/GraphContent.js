@@ -129,10 +129,7 @@ function GraphContent({
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const width = 'calc(100vw - 72px)';
   const height = upTablet ? 396 : '30vh';
-  const router = useRouter();
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
+  const field = useSelector(state => state.singleField.field);
 
   return (
     <div

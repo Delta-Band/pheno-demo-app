@@ -17,9 +17,7 @@ function Breadcrumbs() {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const router = useRouter();
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
+  const field = useSelector(state => state.singleField.field);
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, router.query.folderID)
   );

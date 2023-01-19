@@ -2,7 +2,12 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import ReactGA from 'react-ga4';
-import { fieldsSlice, routerSlice, foldersSlice } from '../redux';
+import {
+  fieldsSlice,
+  routerSlice,
+  foldersSlice,
+  singleFieldSlice
+} from '../redux';
 
 export default function FirstLoad() {
   const dispatch = useDispatch();
@@ -23,25 +28,32 @@ export default function FirstLoad() {
     });
   }, []);
 
-  useEffect(() => {
-    // only request fields for a specific folderID
-    if (router.query.folderID) {
-      dispatch(
-        fieldsSlice.actions.setData({
-          folderID: router.query.folderID,
-          filter: router.query.filter
-        })
-      );
-    }
+  console.log('router: ', router.route);
 
-    // request folders
+  useEffect(() => {
     dispatch(
       foldersSlice.actions.setData({
         folderID: router.query.folderID,
         filter: router.query.filter
       })
     );
-  }, [router.query.folderID, router.query.filter]);
+
+    switch (router.route) {
+      case '/folder/[folderID]':
+        dispatch(
+          fieldsSlice.actions.setData({
+            folderID: router.query.folderID,
+            filter: router.query.filter
+          })
+        );
+        return;
+      case '/folder/[folderID]/field/[fieldID]':
+        dispatch(singleFieldSlice.actions.setData(router.query.fieldID));
+        return;
+      default:
+        return;
+    }
+  }, [router.query.folderID, router.query.filter, router.query.fieldID]);
 
   useEffect(() => {
     prevRoute.current = router.route;
