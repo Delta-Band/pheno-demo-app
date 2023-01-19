@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { Layout } from '../../../../components';
 import { Meta, GraphContent } from '../../../../components/field';
 import { useRouter } from 'next/router';
-import { fieldsSlice, foldersSlice } from '../../../../redux';
+import { singleFieldSlice, foldersSlice } from '../../../../redux';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import {
@@ -143,9 +143,7 @@ export default function FieldPage() {
   const router = useRouter();
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
+  const field = useSelector(state => state.singleField.field);
   const folder = useSelector(state =>
     foldersSlice.selectors.folderById(state, router.query.folderID)
   );
@@ -223,7 +221,6 @@ export default function FieldPage() {
               />
               <GraphContent
                 upTablet={upTablet}
-                field={field}
                 views={views}
                 selectedView={selectedView}
                 selectedCohort={selectedCohort}

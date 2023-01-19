@@ -106,9 +106,7 @@ function Meta() {
   const router = useRouter();
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
+  const field = useSelector(state => state.singleField.field);
 
   return field ? (
     <Section>

@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
-import { fieldsSlice } from '../../redux';
+import { singleFieldSlice } from '../../redux';
 import { useSelector } from 'react-redux';
 
 function Key({ children }) {
@@ -24,17 +24,12 @@ export default function DistributionStats({
 }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
-  const router = useRouter();
-  const field = useSelector(state =>
-    fieldsSlice.selectors.field(state, router.query.fieldID)
-  );
-  const distributionStats = useSelector(state =>
-    fieldsSlice.selectors.distributionStats(state, {
-      filedID: router.query.fieldID,
-      selectedCohort,
-      selectedInstance
-    })
-  ) || { stats: {} };
+  const field = useSelector(state => state.singleField.field);
+  const distributionStats =
+    field.distributionStats.find(
+      stats =>
+        stats.cohort === selectedCohort && stats.instance === selectedInstance
+    ) || {};
   const { count, min, max, mean, std, median, percentile90, percentile10 } =
     distributionStats.stats;
 
