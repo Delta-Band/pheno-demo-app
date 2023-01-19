@@ -15,7 +15,7 @@ The data frame holds a single value column that measures the weight (grams) of t
 
 Participants in the Human Phenotype Project are asked to log their food for a period of at least two weeks. The study participants are encouraged to document their diets beyond the first two weeks. The figure below shows the process of logging a food item through the diet logging app.
 
-We ask participants to download the app and start logging data 1 day before the visit. We ask them to log everything they eat and drink and to include as one meal all the items they have consumed within a 30 minute interval. We recommend making at least a 90 minute break between meals. The logging duration should be 14 days after each visit but the app is open for the whole study period. 
+We ask participants to download the app and start logging data 1 day before the visit. We ask them to log everything they eat and drink. The logging duration should be 14 days after each visit but the app is open for the whole study period. 
 
 ![image alt](/md/folders/5/diet_logging_eng.png)
 
@@ -23,4 +23,4 @@ We ask participants to download the app and start logging data 1 day before the 
 
 1. Clean diet logging data: a data frame containing individual level diet logging records, indexed by the individual’s registration code, research stage, logging timestamp and food id. Data is post some basic preprocessing.
 2. Nutrients: The nutrional information of the diet logging records.
-3. A dataframe containing individual level diet logging records aggregated to a daily level.
+3. Daily aggregated data: A dataframe containing individual level diet logging records aggregated to a daily level.
