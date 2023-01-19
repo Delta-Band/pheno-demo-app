@@ -6,7 +6,7 @@ import { Layout } from '../../../../components';
 import { Meta, GraphContent } from '../../../../components/field';
 import { useRouter } from 'next/router';
 import { singleFieldSlice, foldersSlice } from '../../../../redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import {
   Typography,
@@ -142,6 +142,7 @@ function Filters({
 export default function FieldPage() {
   const router = useRouter();
   const theme = useTheme();
+  const dispatch = useDispatch();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const field = useSelector(state => state.singleField.field);
   const folder = useSelector(state =>
@@ -164,6 +165,14 @@ export default function FieldPage() {
   const [selectedInstance, setSelectedInstance] = useState(
     field?.instances[0] || ''
   );
+
+  console.log('selectedView: ', selectedView);
+
+  useEffect(() => {
+    return () => {
+      dispatch(singleFieldSlice.actions.reset());
+    };
+  }, []);
 
   useEffect(() => {
     if (field) {

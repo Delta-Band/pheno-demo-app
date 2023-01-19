@@ -17,10 +17,9 @@ const singleFieldSlice = createSlice({
   name: 'singleField',
   initialState,
   reducers: {
-    // logout(state, action) {
-    //   window.localStorage.removeItem('auth');
-    //   state.auth = null;
-    // }
+    reset() {
+      return initialState;
+    }
   },
   extraReducers: builder => {
     builder
