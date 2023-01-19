@@ -25,11 +25,10 @@ export default function DistributionStats({
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const field = useSelector(state => state.singleField.field);
-  const distributionStats =
-    field.distributionStats.find(
-      stats =>
-        stats.cohort === selectedCohort && stats.instance === selectedInstance
-    ) || {};
+  const distributionStats = field.distributionStats.find(
+    stats =>
+      stats.cohort === selectedCohort && stats.instance === selectedInstance
+  );
   const { count, min, max, mean, std, median, percentile90, percentile10 } =
     distributionStats.stats;
 

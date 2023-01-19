@@ -207,26 +207,28 @@ export default function FieldPage() {
             <Header>{field?.name}</Header>
             {field.description && <Description text={field.description} />}
             <Meta />
-            <Section>
-              <Filters
-                upTablet={upTablet}
-                field={field}
-                selectedCohort={selectedCohort}
-                setSelectedCohort={setSelectedCohort}
-                selectedInstance={selectedInstance}
-                setSelectedInstance={setSelectedInstance}
-                selectedView={selectedView}
-                setSelectedView={setSelectedView}
-                views={views}
-              />
-              <GraphContent
-                upTablet={upTablet}
-                views={views}
-                selectedView={selectedView}
-                selectedCohort={selectedCohort}
-                selectedInstance={selectedInstance}
-              />
-            </Section>
+            {selectedCohort && selectedInstance && selectedView && (
+              <Section>
+                <Filters
+                  upTablet={upTablet}
+                  field={field}
+                  selectedCohort={selectedCohort}
+                  setSelectedCohort={setSelectedCohort}
+                  selectedInstance={selectedInstance}
+                  setSelectedInstance={setSelectedInstance}
+                  selectedView={selectedView}
+                  setSelectedView={setSelectedView}
+                  views={views}
+                />
+                <GraphContent
+                  upTablet={upTablet}
+                  views={views}
+                  selectedView={selectedView}
+                  selectedCohort={selectedCohort}
+                  selectedInstance={selectedInstance}
+                />
+              </Section>
+            )}
           </Wrapper>
         </Layout>
       ) : null}
