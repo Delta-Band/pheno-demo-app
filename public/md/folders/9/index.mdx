@@ -9,9 +9,11 @@ A home sleep apnea test (HSAT) is a non-invasive test used to diagnose sleep apn
 The device used for sleep monitoring in the Human Phenotype Project is the FDA-approved WatchPAT-300 by Itamar Medical. This device contains 5 sensors: An actigraph worn on the wrist (left of Figure 1); A pulse oximeter and a Peripheral Arterial Tone (PAT) probe worn on the finger (right of Figure 1); and a microphone and accelerometer worn on the chest for respiratory effort, snoring and body position measurement (RESBP, center of Figure 1).
 
 ![image alt](/md/folders/9/sleep_info_figure1.png)
+
 Figure 1: WatchPAT-300 device. (Source: Itamar Medical)
 
 The PAT probe measures changes in the volume of blood vessels by applying a uniform pressure field over the covered finger, preventing venous blood accumulation while measuring changes in the flow within the probe with a photoplethysmogram (PPG) sensor. The measured PAT signal is a physiological signal that reflects changes in the autonomic nervous system caused by respiratory disturbances during sleep. WatchPAT's algorithm analyzes the PAT signal amplitude, heart rate, and oxygen saturation to identify and classify sleep-related breathing problems (Figure 2). The algorithm provides two main indices that allow a diagnosis of sleep apnea: Apnea/Hypopnea Index (AHI), which is an index used to calculate sleep apnea severity based on the total number of complete cessations (apneas) and partial obstructions (hypopneas) of breathing per hour of sleep. Respiratory Disturbance Index (RDI) is used to assess the severity of sleep apnea by measuring - in addition to apnea and hypopnea events - Respiratory Effort Related Arousals (RERAs). A RERA is an arousal from sleep that follows 10 seconds or more of increased respiratory effort but does not meet the criteria for apnea or hypopnea. The minimal oxygen desaturation for AHI and RDI events is 3%. The snoring sensor enables the clinician to determine if the respiratory events are obstructive and the body position sensor enables the clinician to determine if there is a link with body position during sleep apnea. In addition, the pulse oximeter is used to calculate the Oxygen Desaturation Index (ODI) based on the number of detected desaturation events per hour of sleep (minimal desaturation: 4%). The accuracy of these algorithms was validated using gold standard polysomnography (PSG) sleep monitoring, with a correlation coefficient of 0.893 for AHI, 0.879 for RDI, and 0.942 for ODI ([Yalamanchali et al., 2013](http://doi.org/10.1001/jamaoto.2013.5338)).
+
 ![image alt](/md/folders/9/sleep_info_figure2.png)
 
 Figure 2: Detection of OSA using PAT technology. (Source: Itamar Medical)
@@ -21,6 +23,7 @@ Sleep staging is determined by combining multiple sensors. First, sleep/wake det
 Figure 3 demonstrates the raw channel output and the annotated events that are available for a single night of monitoring. Additional features and statistics are extracted from this data, as described in the next sections.
 
 ![image alt](/md/folders/9/sleep_info_figure3.png)
+
 Figure 3: Sleep monitoring data example.
 
 #### Measurement protocol
