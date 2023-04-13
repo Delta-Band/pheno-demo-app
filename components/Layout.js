@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { layoutSlice } from '../redux';
+import { useRouter } from 'next/router';
 
 function Layout({ children, page, paddingTop = 0 }) {
   const prevRoute = useSelector(state => state.router.prevRoute);
@@ -15,6 +16,7 @@ function Layout({ children, page, paddingTop = 0 }) {
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const layoutRef = useRef(null);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   let direction;
 
@@ -51,6 +53,10 @@ function Layout({ children, page, paddingTop = 0 }) {
     }
     layoutRef.current.addEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    dispatch(layoutSlice.actions.setMinimizeRibbon(false));
+  }, [router.route]);
 
   return (
     <>

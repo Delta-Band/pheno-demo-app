@@ -47,7 +47,7 @@ function Logo() {
       src={upTablet ? '/logo.svg' : '/logo_mobile.svg'}
       css={{
         cursor: 'pointer',
-        height: upTablet ? 50 : 82
+        height: upTablet ? 50 : 40
       }}
       onClick={() => {
         router.push({
@@ -114,7 +114,7 @@ function Filter() {
         height: 40,
         width: '100%',
         paddingInline: 20,
-        marginInlineStart: 50,
+        // marginInlineStart: 0,
         fontFamily: 'Roboto',
         fontSize: 18,
         outline: 'none',
@@ -134,8 +134,8 @@ function Filter() {
           border: 'none'
         },
         [theme.breakpoints.up('tablet')]: {
-          maxWidth: 543,
-          marginInlineStart: 0
+          maxWidth: 543
+          // marginInlineStart: 0
         }
       })}
     />
@@ -196,22 +196,22 @@ function AnimatedContainer({ children, upTablet }) {
       case upTablet && router.route === '/':
         return 70;
       case minimizeRibbon && !upTablet:
-        return 58;
+        return 59;
       case upTablet && router.route !== '/':
         return 122;
       case !upTablet && router.route === '/':
-        return 170;
+        return 152;
       case !upTablet && router.route !== '/':
-        return 222;
+        return 200;
     }
   }
 
   function getOffsetY() {
     switch (true) {
       case minimizeRibbon && !upTablet && router.route === '/':
-        return -105;
+        return -79;
       case minimizeRibbon && !upTablet && router.route !== '/':
-        return -161;
+        return -136;
       default:
         return -0;
     }
@@ -225,9 +225,9 @@ function AnimatedContainer({ children, upTablet }) {
       case upTablet && prevRoute !== '/':
         return 122;
       case !upTablet && prevRoute === '/':
-        return 170;
+        return 152;
       case !upTablet && prevRoute !== '/':
-        return 222;
+        return 200;
     }
   }
 
@@ -279,7 +279,7 @@ const FirstRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
-  height: 58,
+  height: 59,
   paddingInline: 24,
   gap: 24,
   paddingBlockStart: 16,
@@ -292,16 +292,20 @@ const FirstRow = styled('div')(({ theme }) => ({
   }
 }));
 
-const SecondRow = styled('div')({
+const SecondRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingInlineStart: 24,
   paddingInlineEnd: 24,
+  paddingBlockStart: 24,
   gap: 24,
   boxSizing: 'border-box',
-  marginBottom: 16
-});
+  marginBottom: 0
+  // [theme.breakpoints.up('tablet')]: {
+  //   marginBottom: 16
+  // }
+}));
 
 export default function AppRibbon() {
   const theme = useTheme();
@@ -310,21 +314,21 @@ export default function AppRibbon() {
   return (
     <Wrapper>
       <AnimatedContainer upTablet={upTablet}>
-        <FirstRow>
-          <LeftSide>
-            <Logo />
-            {upTablet ? <Filter /> : null}
-          </LeftSide>
-          {upTablet ? (
+        {upTablet ? (
+          <FirstRow>
+            <LeftSide>
+              <Logo />
+              <Filter />
+            </LeftSide>
             <RightSide>
               <Sorter />
               <SortDirection />
             </RightSide>
-          ) : null}
-        </FirstRow>
-        {!upTablet ? (
+          </FirstRow>
+        ) : (
           <>
             <SecondRow>
+              <Logo />
               <Filter />
             </SecondRow>
             <SecondRow>
@@ -332,7 +336,7 @@ export default function AppRibbon() {
               {/* <SortDirection /> */}
             </SecondRow>
           </>
-        ) : null}
+        )}
         <Breadcrumbs upTablet={upTablet} />
       </AnimatedContainer>
     </Wrapper>

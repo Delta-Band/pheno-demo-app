@@ -23,7 +23,7 @@ function Breadcrumbs() {
   );
 
   const buttonStyle = {
-    gap: 8,
+    gap: 12,
     color: '#f7f7f7',
     minWidth: 'unset',
     textTransform: 'none',
@@ -32,16 +32,20 @@ function Breadcrumbs() {
     }
   };
 
-  const BreadCrumbsWrapper = styled('ul')({
+  const BreadCrumbsWrapper = styled('ul')(({ theme }) => ({
     width: '100%',
     color: '#f7f7f7',
     margin: 0,
     paddingInline: 20,
+    paddingBlock: 16,
     listStyle: 'none',
     display: 'flex',
     alignItems: 'center',
-    gap: 0
-  });
+    gap: 0,
+    [theme.breakpoints.up('tablet')]: {
+      paddingBlock: 0
+    }
+  }));
 
   return upTablet ? (
     <BreadCrumbsWrapper>
