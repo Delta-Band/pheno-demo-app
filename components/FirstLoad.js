@@ -28,8 +28,6 @@ export default function FirstLoad() {
     });
   }, []);
 
-  console.log('router: ', router.route);
-
   useEffect(() => {
     dispatch(
       foldersSlice.actions.setData({

@@ -24,7 +24,7 @@ export default function Home() {
       case upTablet:
         return 70;
       case !upTablet:
-        return 170;
+        return 152;
     }
   }
 
