@@ -1,13 +1,24 @@
-#### Description
+# Voice dataset
 
-TODO
+### Description
+Coming soon
 
-#### Measurement protocol
+### Introduction
+Voice data is increasingly being used in clinical research and personalized medicine. Key trends include using vocal biomarkers for disease diagnosis (e.g., Parkinson's, Alzheimer's), mental health assessment, and monitoring respiratory conditions. Additionally, voice-based technologies are being developed for treatment adherence, remote monitoring, and personalized voice assistants in healthcare. Voice data is also explored for emotion recognition and speech therapy applications. Overall, voice data has the potential to transform healthcare by providing non-invasive, cost-effective, and convenient diagnostic and treatment methods.
 
-TODO
-<br><br>
+To collect direct voice recordings in clinical research, use high-quality digital recorders or mobile devices with good microphones, and save audio in lossless formats. Perform various tests, including reading tasks, picture description, conversational tasks, repetition tasks, and diadochokinetic tasks. Ensure consistent recording conditions, provide clear participant instructions, and follow ethical guidelines for informed consent and data privacy.
 
-#### Summary of available data
+### Measurment protocol
+The participant's voice is audio-recorded for thirty (30) seconds by counting to thirty (30).
 
-1. TODO
-2. TODO
+### Summary of available data
+1. Raw data: 645 flac files of recordings
+
+#### Info on our raw data
+A .flac file stores audio data using lossless compression, retaining all original information. When you load a .flac file using Librosa and set the sr parameter to None, it decompresses the audio data and converts it into a NumPy array without resampling. This array represents the waveform, where each element is the amplitude of the audio signal at a specific point in time. By not resampling, the original sample rate of the audio file is preserved.
+
+The amplitude of an audio signal represents the instantaneous voltage (or pressure) at a specific point in time. In digital audio, the analog signal is sampled at discrete intervals, creating a time-series of amplitude values. Digital audio data is processed using specialized libraries like Librosa for feature extraction, signal processing, and visualization, enabling data scientists to analyze and apply machine learning techniques to understand and utilize the information within audio signals.
+
+### Relevent links
+Coming soon
+
