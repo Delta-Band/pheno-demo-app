@@ -29,6 +29,6 @@ All the participant provided blood tests are stored in a single .parquet file. E
 
 The duplicate value columns are an artifact of some tests having both float variables and notes from the HMOs instead of continuous values. We represent these notes as categorical values such as “value under detectable threshold” or “toxic levels” etc (e.g. urine microalbumin mostly contains float values, but it can also have “threshold under 3mg/l” in the categorical column). These notes are not values per-se, and replacing them with continuous values is not straightforward but they should be considered nonetheless.
 
-### Relevent links
+### Relevant links
 * Pheno Knowledgebase: https://knowledgebase.pheno.ai/datasets/016-blood_tests.html
 
