@@ -93,7 +93,7 @@ function Chart({ data, type }) {
                         if (!data[index]) return;
                         if (type === 'time') {
                           return moment(data[index].x).format('MMM yyyy');
-                        } else if (index === 0 || index === data.length - 1) {
+                        } else {
                           return data[index].x;
                         }
                       },
