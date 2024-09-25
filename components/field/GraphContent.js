@@ -17,7 +17,7 @@ import { Chart as ChartJS, LogarithmicScale } from 'chart.js';
 // Register the LogarithmicScale
 ChartJS.register(LogarithmicScale);
 
-function Chart({ data, type }) {
+function Chart({ data, type, fieldName }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const intl = useIntl();
@@ -86,6 +86,10 @@ function Chart({ data, type }) {
             type: yAxisType,
             ticks: {
               crossAlign: type === 'categorical' ? 'far' : 'near'
+            },
+            title: {
+              display: true,
+              text: (type === 'distribution' || type === 'time') ? 'Measurements' : ''
             }
           },
           x: Object.assign(
@@ -116,6 +120,10 @@ function Chart({ data, type }) {
                         }
                       },
                 autoSkip: true
+              },
+              title: {
+                display: true,
+                text: type === 'distribution' ? fieldName : type === 'categorical' ? 'Measurements' : ''
               }
             },
             type === 'time'
@@ -278,6 +286,7 @@ function GraphContent({
                     point.cohort === selectedCohort &&
                     point.instance === selectedInstance
                 )}
+                fieldName={field.name}
               />
             </div>
             {field.dataDistributionType === 'categorical' ? null : (
@@ -302,6 +311,7 @@ function GraphContent({
                   point.cohort === selectedCohort &&
                   point.instance === selectedInstance
               )}
+              fieldName={field.name}
             />
           </motion.div>
         )}
