@@ -11,20 +11,27 @@ import { getIconByDatType } from '../../shared/utils';
 import moment from 'moment';
 import Tooltip from '../Tooltip';
 
-const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
+const MetaInfo = ({ iconName, prefixText, value, tooltip = '', copyText = '' }) => {
+  const handleClick = () => {
+    if (copyText) {
+      navigator.clipboard.writeText(copyText);
+    }
+  };
+
   return (
     <Tooltip content={tooltip}>
       <div
         css={{
           display: 'inline-flex',
           alignItems: 'center',
-          cursor: 'default',
+          cursor: copyText ? 'pointer' : 'default',
           width: 'calc(100% - 32px)',
           gap: 18,
           '& .pheno-icon': {
             width: 24
           }
         }}
+        onClick={handleClick}
       >
         {iconName && <PhenoIcon name={iconName} />}
         <div
@@ -114,6 +121,13 @@ function Meta() {
         <>
           <Column>
             <MetaInfo
+              iconName='collection'
+              prefixText='Field ID'
+              value={field.id}
+              tooltip='Click to copy loader code'
+              copyText={`from pheno_utils import PhenoLoader;PhenoLoader("${field.folderID}")["${field.id}"]`}
+            />
+            <MetaInfo
               iconName={getIconByDatType(field.dataType)}
               prefixText='Data Type'
               value={field.dataType}
@@ -128,13 +142,13 @@ function Meta() {
                 field.units ? ' [' + field.units + ']' : ''
               }`}
             />
+          </Column>
+          <Column>
             <MetaInfo
               iconName='user'
               prefixText='Participants'
               value={field.participants.toLocaleString()}
             />
-          </Column>
-          <Column>
             <MetaInfo
               iconName='meter'
               prefixText='Measurements'
@@ -144,12 +158,6 @@ function Meta() {
               iconName='group'
               prefixText='Cohorts'
               value={field.cohorts.join(', ')}
-            />
-            <MetaInfo
-              iconName='collection'
-              prefixText='Instances'
-              value={field.instances.length}
-              tooltip={field.instances.join('\n')}
             />
           </Column>
           <Column>
