@@ -38,6 +38,8 @@ export function getIconByDatType(type) {
   switch (type.toLowerCase()) {
     case 'time series':
       return 'timer';
+    case 'bulk':
+      return 'bulk';
     case 'tabular':
       return 'table';
     case 'image':
