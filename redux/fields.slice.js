@@ -55,11 +55,11 @@ function sortEm(items, sorter, direction) {
       case sorter === 'cohorts' && direction === 'desc':
         return b.cohorts.length - a.cohorts.length;
       case sorter === 'a-z' && direction === 'asc':
-        return b.name < a.name ? 1 : -1;
+        return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
       case sorter === 'a-z' && direction === 'desc':
-        return b.name > a.name ? 1 : -1;
+        return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
       default:
-        return b.name - a.name;
+        return b.name.toLowerCase() - a.name.toLowerCase();
     }
   });
 }
