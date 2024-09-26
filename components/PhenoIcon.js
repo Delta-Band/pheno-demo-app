@@ -9,6 +9,7 @@ import TimeSeriesIcon from '../public/icons/time-series.svg';
 import HealthBookIcon from '../public/icons/health-book.svg';
 import ImageIcon from '../public/icons/image.svg';
 import MoleculeIcon from '../public/icons/molecule.svg';
+import BulkIcon from '../public/icons/bulk-data.svg';
 import TableIcon from '../public/icons/table.svg';
 import SexedIcon from '../public/icons/sexed.svg';
 import TagIcon from '../public/icons/tag.svg';
@@ -37,6 +38,8 @@ function getIcon(name) {
       return <HealthBookIcon />;
     case 'image':
       return <ImageIcon />;
+    case 'bulk':
+      return <BulkIcon />;
     case 'molecule':
       return <MoleculeIcon />;
     case 'table':
