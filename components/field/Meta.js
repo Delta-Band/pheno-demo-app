@@ -13,8 +13,27 @@ import Tooltip from '../Tooltip';
 
 const MetaInfo = ({ iconName, prefixText, value, tooltip = '', copyText = '' }) => {
   const handleClick = () => {
-    if (copyText) {
-      navigator.clipboard.writeText(copyText);
+    try {
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(copyText);
+
+      } else if (copyText) {
+        const textArea = document.createElement('textarea');
+        textArea.value = copyText;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = 0;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          console.log('Text copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
     }
   };
 
@@ -128,7 +147,7 @@ function Meta() {
                 prefixText='Field ID'
                 value={field.id}
                 tooltip='Click to copy loader code'
-                copyText={`from pheno_utils import PhenoLoader;PhenoLoader("${field.PhenoLoaderName}")["${field.id}"]`}
+                copyText={`from pheno_utils import PhenoLoader\n\npl = PhenoLoader("${field.PhenoLoaderName}")\nvar = pl["${field.id}"]`}
               />
             </Column>
             <Column />
