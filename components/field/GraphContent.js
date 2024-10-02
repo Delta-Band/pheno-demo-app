@@ -30,7 +30,7 @@ function Chart({ data, type, fieldName }) {
   let yAxisType;
   if (type === 'categorical') {
     yAxisType = 'category';
-  } else if (type === 'distribution' && largestBinProportion > 0.85 && largestBinProportion < 1.0) {
+  } else if (type === 'distribution' && largestBinProportion > 0.80 && largestBinProportion < 1.0) {
     yAxisType = 'logarithmic';
   } else {
     yAxisType = 'linear';
