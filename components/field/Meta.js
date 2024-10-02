@@ -147,7 +147,7 @@ function Meta() {
                 prefixText='Field ID'
                 value={field.id}
                 tooltip='Click to copy loader code'
-                copyText={`from pheno_utils import PhenoLoader\n\npl = PhenoLoader("${field.PhenoLoaderName}")\nvar = pl["${field.id}"]`}
+                copyText={`from pheno_utils import PhenoLoader\n\npl = PhenoLoader("${field.PhenoLoaderName}")\nfield = pl["${field.id}"]`}
               />
             </Column>
             <Column />
