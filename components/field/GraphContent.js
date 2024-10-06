@@ -12,11 +12,29 @@ import moment from 'moment';
 import { useWindowSize } from '../../hooks';
 import Magnifier from 'react-magnifier';
 import { useIntl } from 'react-intl';
+import { Chart as ChartJS, LogarithmicScale } from 'chart.js';
 
-function Chart({ data, type }) {
+// Register the LogarithmicScale
+ChartJS.register(LogarithmicScale);
+
+function Chart({ data, type, fieldName }) {
   const theme = useTheme();
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const intl = useIntl();
+
+  // Calculate the total data points and the largest bin's proportion
+  const totalDataPoints = data.reduce((sum, point) => sum + point.y, 0);
+  const largestBinProportion = Math.max(...data.map(point => point.y)) / totalDataPoints;
+
+  // Define y-axis type based on chart type
+  let yAxisType;
+  if (type === 'categorical') {
+    yAxisType = 'category';
+  } else if (type === 'distribution' && largestBinProportion > 0.80 && largestBinProportion < 1.0) {
+    yAxisType = 'logarithmic';
+  } else {
+    yAxisType = 'linear';
+  }
 
   return (
     <BarChart
@@ -65,15 +83,19 @@ function Chart({ data, type }) {
         },
         scales: {
           y: {
+            type: yAxisType,
             ticks: {
               crossAlign: type === 'categorical' ? 'far' : 'near'
+            },
+            title: {
+              display: true,
+              text: (type === 'distribution' || type === 'time') ? 'Measurements' : ''
             }
           },
           x: Object.assign(
             {
               grid: {
                 display: false
-                // drawTicks: false
               },
               // min: type === 'categorical' ? 0 : undefined,
               // max:
@@ -93,11 +115,15 @@ function Chart({ data, type }) {
                         if (!data[index]) return;
                         if (type === 'time') {
                           return moment(data[index].x).format('MMM yyyy');
-                        } else if (index === 0 || index === data.length - 1) {
+                        } else {
                           return data[index].x;
                         }
                       },
                 autoSkip: true
+              },
+              title: {
+                display: true,
+                text: type === 'distribution' ? fieldName : type === 'categorical' ? 'Measurements' : ''
               }
             },
             type === 'time'
@@ -260,6 +286,7 @@ function GraphContent({
                     point.cohort === selectedCohort &&
                     point.instance === selectedInstance
                 )}
+                fieldName={field.name}
               />
             </div>
             {field.dataDistributionType === 'categorical' ? null : (
@@ -284,6 +311,7 @@ function GraphContent({
                   point.cohort === selectedCohort &&
                   point.instance === selectedInstance
               )}
+              fieldName={field.name}
             />
           </motion.div>
         )}

@@ -11,20 +11,46 @@ import { getIconByDatType } from '../../shared/utils';
 import moment from 'moment';
 import Tooltip from '../Tooltip';
 
-const MetaInfo = ({ iconName, prefixText, value, tooltip = '' }) => {
+const MetaInfo = ({ iconName, prefixText, value, tooltip = '', copyText = '' }) => {
+  const handleClick = () => {
+    try {
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(copyText);
+
+      } else if (copyText) {
+        const textArea = document.createElement('textarea');
+        textArea.value = copyText;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = 0;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          console.log('Text copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
   return (
     <Tooltip content={tooltip}>
       <div
         css={{
           display: 'inline-flex',
           alignItems: 'center',
-          cursor: 'default',
+          cursor: copyText ? 'pointer' : 'default',
           width: 'calc(100% - 32px)',
           gap: 18,
           '& .pheno-icon': {
             width: 24
           }
         }}
+        onClick={handleClick}
       >
         {iconName && <PhenoIcon name={iconName} />}
         <div
@@ -108,11 +134,93 @@ function Meta() {
   const upTablet = useMediaQuery(theme.breakpoints.up('tablet'));
   const field = useSelector(state => state.singleField.field);
 
-  return field ? (
-    <Section>
-      {upTablet ? (
-        <>
+  if (!field) return null;
+
+  return (
+    <>
+      <Section>
+        {upTablet && (
+          <>
+            <Column>
+              <MetaInfo
+                iconName='folder'
+                prefixText='Field ID'
+                value={field.id}
+                tooltip='Click to copy loader code'
+                copyText={`from pheno_utils import PhenoLoader\n\npl = PhenoLoader("${field.PhenoLoaderName}")\nfield = pl["${field.id}"]`}
+              />
+            </Column>
+            <Column />
+            <Column />
+          </>
+        )}
+      </Section>
+      <Section>
+        {upTablet ? (
+          <>
+            <Column>
+              <MetaInfo
+                iconName={getIconByDatType(field.dataType)}
+                prefixText='Data Type'
+                value={field.dataType}
+              />
+              <MetaInfo
+                iconName='type'
+                prefixText='Value Type'
+                value={`${field.valueType}${
+                  field.units ? ' [' + field.units + ']' : ''
+                }`}
+                tooltip={`${field.valueType}${
+                  field.units ? ' [' + field.units + ']' : ''
+                }`}
+              />
+              <MetaInfo
+                iconName='group'
+                prefixText='Cohorts'
+                value={field.cohorts.join(', ')}
+              />
+            </Column>
+            <Column>
+              <MetaInfo
+                iconName='user'
+                prefixText='Participants'
+                value={field.participants.toLocaleString()}
+              />
+              <MetaInfo
+                iconName='meter'
+                prefixText='Measurements'
+                value={field.measurements.toLocaleString()}
+              />
+              <MetaInfo
+                iconName='collection'
+                prefixText='Instances'
+                value={field.instances.length}
+                tooltip={field.instances.join('\n')}
+              />
+            </Column>
+            <Column>
+              <MetaInfo
+                iconName='strata'
+                prefixText='Strata'
+                value={field.strata}
+              />
+              <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
+              <MetaInfo
+                iconName='debut'
+                prefixText='Debut'
+                value={moment(field.debut).format('MMM yyyy')}
+              />
+            </Column>
+          </>
+        ) : (
           <Column>
+            <MetaInfo
+              iconName='folder'
+              prefixText='Field ID'
+              value={field.id}
+              tooltip='Click to copy loader code'
+              copyText={`from pheno_utils import PhenoLoader;PhenoLoader("${field.PhenoLoaderName}")["${field.id}"]`}
+            />
             <MetaInfo
               iconName={getIconByDatType(field.dataType)}
               prefixText='Data Type'
@@ -124,17 +232,12 @@ function Meta() {
               value={`${field.valueType}${
                 field.units ? ' [' + field.units + ']' : ''
               }`}
-              tooltip={`${field.valueType}${
-                field.units ? ' [' + field.units + ']' : ''
-              }`}
             />
             <MetaInfo
               iconName='user'
               prefixText='Participants'
               value={field.participants.toLocaleString()}
             />
-          </Column>
-          <Column>
             <MetaInfo
               iconName='meter'
               prefixText='Measurements'
@@ -151,8 +254,6 @@ function Meta() {
               value={field.instances.length}
               tooltip={field.instances.join('\n')}
             />
-          </Column>
-          <Column>
             <MetaInfo
               iconName='strata'
               prefixText='Strata'
@@ -165,57 +266,10 @@ function Meta() {
               value={moment(field.debut).format('MMM yyyy')}
             />
           </Column>
-        </>
-      ) : (
-        <Column>
-          <MetaInfo
-            iconName={getIconByDatType(field.dataType)}
-            prefixText='Data Type'
-            value={field.dataType}
-          />
-          <MetaInfo
-            iconName='type'
-            prefixText='Value Type'
-            value={`${field.valueType}${
-              field.units ? ' [' + field.units + ']' : ''
-            }`}
-          />
-          <MetaInfo
-            iconName='user'
-            prefixText='Participants'
-            value={field.participants.toLocaleString()}
-          />
-          <MetaInfo
-            iconName='meter'
-            prefixText='Measurements'
-            value={field.measurements.toLocaleString()}
-          />
-          <MetaInfo
-            iconName='group'
-            prefixText='Cohorts'
-            value={field.cohorts.join(', ')}
-          />
-          <MetaInfo
-            iconName='collection'
-            prefixText='Instances'
-            value={field.instances.length}
-            tooltip={field.instances.join('\n')}
-          />
-          <MetaInfo
-            iconName='strata'
-            prefixText='Strata'
-            value={field.strata}
-          />
-          <MetaInfo iconName='sexed' prefixText='Sexed' value={field.sexed} />
-          <MetaInfo
-            iconName='debut'
-            prefixText='Debut'
-            value={moment(field.debut).format('MMM yyyy')}
-          />
-        </Column>
-      )}
-    </Section>
-  ) : null;
+        )}
+      </Section>
+    </>
+  );
 }
 
 export default Meta;

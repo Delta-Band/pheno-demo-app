@@ -1,19 +1,33 @@
-#### Description
+# Continuous glucose monitoring (CGM) dataset
 
-A Continuous Glucose Monitor (CGM) monitors continuous blood glucose levels. Blood glucose levels are measured every 15 minutes for a total period of two weeks concurrent with diet logging.
-CGM provides continuous measures of the glucose levels in the interstitial fluid, through a tiny electrochemical sensor electrode inserted under the skin. CGM devices provide a temporal data series of continuous measurements of blood glucose values. Usually, the measures are taken every 5 or 15 minutes, for the entire connection period - that can range between hours to months. Figure 1 shows an example of CGM data collected for a single individual.  
+### Description
+Continuous Glucose Monitoring (CGM) measures glucose levels in a continuous manner. This measure provides information on blood glucose control and glucose variability and could be used to monitor patients with diabetes.
 
+### Introduction
+In healthy individuals, insulin secretion from the pancreas is responsible for maintaining normal blood glucose levels. Insulin resistance, the main cause of type-2 diabetes and a key aspect in several other metabolic disorders, occurs when the sensitivity to insulin is impaired leading to reduced insulin mediated glucose disposal. Measuring insulin levels is complex and requires special laboratory tests, while glucose levels are measured by simple blood tests. 
 
-#### Measurement protocol
+Although measuring blood glucose levels using a blood test is simple and inexpensive, a single measure of blood glucose will not contain information on glucose variability, and might not be accurate in certain conditions. 
 
-FreeStyle Libre ProIQ Flash device (Figure 2) is used for continuous glucose monitoring for a 2-week period in the baseline visit only. During this time participants are also required to log information about food, medications, physical activity and sleep hours using the 10K application.
+CGM provides continuous measures of the glucose levels in the interstitial fluid, through a tiny electrochemical sensor electrode inserted under the skin. The continuous measures obtained with CGM present a tool to overcome the limitations of a single measure of blood glucose through blood tests, by providing real time information of glucose levels, rate of change, variability and impending hypo- and hyper- glycemia events.
+
+Currently approved CGM devices use an enzymatic technology which reacts with glucose molecules in the interstitial fluid generating an electric current. This current is proportional to glucose concentration in the blood, thus providing information of blood glucose levels in a continuous manner.
+
+Coupled with nutritional and behavioral information, data collected from the CGM could be used in research to better understand mechanisms of glucose response and control, and how these changes in different individuals, lifestyle choices and phenotypes.
+
+The Human Phenotype Project (HPP) collects CGM data on each participant, to produce blood glucose measures every 15 minutes, for a total connection period of two weeks. Summary statistics are calculated for each CGM connection, providing varying summary measures of glucose control and variability.
+
+### Measurement protocol
+FreeStyle Libre ProIQ Flash device (see figure below) is used for continuous glucose monitoring for a 2-week period in the baseline visit only. During this time participants are also required to log information about food, medications, physical activity and sleep hours using the 10K application.
 During the baseline visit the sensor is placed on the participant’s upper arm back.
 
-Figure 3 illustrates the connection procedure of the device. Once attached the device is also activated. It is explained to the participant that in case of MRI the sensor should be removed before the scan, and that it is not possible to dive with the device deeper than one meter. The participant is requested to remove the device independently at the end of the 2-week period and send it back to the clinic.  
+The figure illustrates the connection procedure of the device. Once attached the device is also activated. It is explained to the participant that in case of MRI the sensor should be removed before the scan, and that it is not possible to dive with the device deeper than one meter. The participant is requested to remove the device independently at the end of the 2-week period and send it back to the clinic.  
 
 ![CGM](/md/folders/17/cgm_device.jpeg)
 
-#### Summary of available data
-
+### Summary of available data
 1. Temporal data: A data frame of temporal glucose measures, along with time of measurement.  
 2. Computed summary features: data frame containing, for each CGM connection, extracted features from the full CGM temporal data.
+
+### Relevant links
+* Pheno Knowledgebase: https://knowledgebase.pheno.ai/datasets/017-cgm.html
+
