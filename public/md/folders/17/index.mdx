@@ -14,7 +14,7 @@ Currently approved CGM devices use an enzymatic technology which reacts with glu
 
 Coupled with nutritional and behavioral information, data collected from the CGM could be used in research to better understand mechanisms of glucose response and control, and how these changes in different individuals, lifestyle choices and phenotypes.
 
-The Human Phenotype Project (HPP) collects CGM data on each participant, to produce blood glucose measures every 15 minutes, for a total connection period of two weeks. Summary statistics are calculated for each CGM connection, providing varying summary measures of glucose control and variability.
+The Human Phenotype Project (HPP) collects CGM data on each participant, to produce blood glucose measures every 15 minutes, for a total connection period of two weeks. Summary statistics are calculated for each CGM connection using the [iglu package](https://github.com/irinagain/iglu) ([Broll et al., 2021](https://doi.org/10.1371/journal.pone.0248560)), providing varying summary measures of glucose control and variability.
 
 ### Measurement protocol
 FreeStyle Libre ProIQ Flash device (see figure below) is used for continuous glucose monitoring for a 2-week period in the baseline visit only. During this time participants are also required to log information about food, medications, physical activity and sleep hours using the 10K application.
@@ -26,7 +26,7 @@ The figure illustrates the connection procedure of the device. Once attached the
 
 ### Summary of available data
 1. Temporal data: A data frame of temporal glucose measures, along with time of measurement.  
-2. Computed summary features: data frame containing, for each CGM connection, extracted features from the full CGM temporal data.
+2. Computed summary features: data frame containing, for each CGM connection, extracted features (computed using the iglu package) from the full CGM temporal data.
 
 ### Relevant links
 * Pheno Knowledgebase: https://knowledgebase.pheno.ai/datasets/017-cgm.html
